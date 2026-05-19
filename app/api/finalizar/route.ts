@@ -31,11 +31,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ erro: "JSON inválido" }, { status: 400 });
   }
 
-  // Validação básica
+  // Validação básica — 7 eixos: [CUI, INV, CON, COM, TRA, CUL, TEC]
   if (
     !body.codinome ||
     !Array.isArray(body.vetor) ||
-    body.vetor.length !== 6 ||
+    body.vetor.length !== 7 ||
     !Array.isArray(body.respostas)
   ) {
     return NextResponse.json({ erro: "payload inválido" }, { status: 400 });

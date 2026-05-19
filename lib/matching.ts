@@ -2,15 +2,28 @@
  * Algoritmo de matching: vetor de eixos do aluno → top 3 cursos.
  * Usa similaridade de cosseno (mede direção, não magnitude).
  *
- * Eixos: [CUI, INV, CON, COM, TRA, CUL]
+ * Eixos (7): [CUI, INV, CON, COM, TRA, CUL, TEC]
+ *   CUI Cuidador     — empatia, cuidar do outro
+ *   INV Investigador — curiosidade, pesquisa, "por quê"
+ *   CON Construtor   — engenharias físicas (Civil, Mecânica, etc)
+ *   COM Comunicador  — conectar, expressar, ensinar
+ *   TRA Transformador — justiça, mudança social, contexto
+ *   CUL Cultivador   — trabalhar com o vivo, sustentabilidade
+ *   TEC Decifrador   — computação, dados, lógica, sistemas digitais
  */
 
 import { CURSOS, type Curso } from "@/data/cursos";
 
-export type VetorEixos = [number, number, number, number, number, number];
-
-export const EIXOS = ["CUI", "INV", "CON", "COM", "TRA", "CUL"] as const;
+export const EIXOS = ["CUI", "INV", "CON", "COM", "TRA", "CUL", "TEC"] as const;
 export type EixoSigla = typeof EIXOS[number];
+
+/** Vetor com pesos em cada eixo. Ordem segue EIXOS. */
+export type VetorEixos = [number, number, number, number, number, number, number];
+
+/** Cria um vetor com todos os eixos zerados (helper genérico). */
+export function vetorZeradoArr(): VetorEixos {
+  return EIXOS.map(() => 0) as unknown as VetorEixos;
+}
 
 export function similaridadeCosseno(a: VetorEixos, b: VetorEixos): number {
   const dot = a.reduce((sum, ai, i) => sum + ai * b[i], 0);
@@ -43,8 +56,6 @@ export function eixoDominante(vetor: VetorEixos): EixoSigla {
 
 /**
  * Detecta se o top 1 venceu por uma margem apertada sobre o top 2.
- * Se sim, indicamos disparar a cena de desempate.
- *
  * Threshold = 0.05 (5%) de gap de similaridade cosseno.
  */
 export function precisaDesempate(top3: CursoComScore[], threshold = 0.05): boolean {
@@ -54,18 +65,22 @@ export function precisaDesempate(top3: CursoComScore[], threshold = 0.05): boole
 }
 
 /**
- * Aplica bonus do desempate ao vetor do aluno: adiciona o vetor do curso
- * escolhido (×2) ao vetor atual. Isso "puxa" o resultado pra família de
- * cursos similares, em vez de só boostar 1 eixo.
+ * Aplica bonus do desempate: adiciona o vetor do curso escolhido (×2) ao vetor
+ * atual. Isso "puxa" o resultado pra família de cursos similares.
  */
 export function aplicarBonusDesempate(vetor: VetorEixos, vetorCurso: VetorEixos): VetorEixos {
   const FATOR = 2;
-  return [
-    vetor[0] + vetorCurso[0] * FATOR,
-    vetor[1] + vetorCurso[1] * FATOR,
-    vetor[2] + vetorCurso[2] * FATOR,
-    vetor[3] + vetorCurso[3] * FATOR,
-    vetor[4] + vetorCurso[4] * FATOR,
-    vetor[5] + vetorCurso[5] * FATOR,
-  ];
+  return vetor.map((v, i) => v + vetorCurso[i] * FATOR) as unknown as VetorEixos;
+}
+
+/** Níveis de confiança no resultado, baseado no gap de score. */
+export type NivelConfianca = "alta" | "hibrido" | "exploratorio";
+
+export function nivelConfianca(top3: CursoComScore[]): NivelConfianca {
+  if (top3.length < 2) return "alta";
+  const top1 = top3[0].score;
+  const gap = top1 - top3[1].score;
+  if (gap >= 0.05 && top1 >= 0.85) return "alta";
+  if (gap < 0.02 || top1 < 0.80) return "exploratorio";
+  return "hibrido";
 }

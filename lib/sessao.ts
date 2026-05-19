@@ -3,7 +3,7 @@
  * Sessão é 100% client-side até o /resultado, quando envia pro servidor.
  */
 
-import type { VetorEixos } from "./matching";
+import { EIXOS, type VetorEixos } from "./matching";
 
 export const STORAGE_KEY = "uftm-protocolo-vocacao";
 
@@ -23,7 +23,7 @@ export type Sessao = {
 };
 
 export function vetorZerado(): VetorEixos {
-  return [0, 0, 0, 0, 0, 0];
+  return EIXOS.map(() => 0) as unknown as VetorEixos;
 }
 
 export function carregarSessao(): Sessao | null {
@@ -48,12 +48,5 @@ export function limparSessao(): void {
 }
 
 export function somarVetores(a: VetorEixos, b: VetorEixos): VetorEixos {
-  return [
-    a[0] + b[0],
-    a[1] + b[1],
-    a[2] + b[2],
-    a[3] + b[3],
-    a[4] + b[4],
-    a[5] + b[5],
-  ];
+  return a.map((v, i) => v + b[i]) as unknown as VetorEixos;
 }

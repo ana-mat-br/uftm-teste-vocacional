@@ -12,6 +12,7 @@ export const SPRITES_POR_EIXO: Record<EixoSigla, string> = {
   COM: "/sprites/comunicador.svg",
   TRA: "/sprites/transformador.svg",
   CUL: "/sprites/cultivador.svg",
+  TEC: "/sprites/decifrador.svg",
 };
 
 export const NOME_EIXO_LONGO: Record<EixoSigla, string> = {
@@ -21,4 +22,5 @@ export const NOME_EIXO_LONGO: Record<EixoSigla, string> = {
   COM: "Comunicador",
   TRA: "Transformador",
   CUL: "Cultivador",
+  TEC: "Decifrador",
 };

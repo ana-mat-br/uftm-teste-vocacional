@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useSessao } from "@/lib/use-sessao";
 import { SPRITES_POR_EIXO } from "@/data/bixinhos";
-import { topCursos, precisaDesempate, type EixoSigla } from "@/lib/matching";
+import { topCursos, precisaDesempate, nivelConfianca, type EixoSigla, type NivelConfianca } from "@/lib/matching";
 import type { Campus } from "@/data/cursos";
 
 type CursoResultado = {
@@ -33,6 +33,89 @@ function detectarUserAgent(): string {
   if (/iPhone|iPad|iPod/i.test(ua)) return "mobile-ios";
   if (/Android/i.test(ua)) return "mobile-android";
   return "desktop";
+}
+
+type FeedbackTipo = "positivo" | "neutro" | "negativo";
+
+function FeedbackBlock({ sessaoId }: { sessaoId: string | null }) {
+  const [escolha, setEscolha] = useState<FeedbackTipo | null>(null);
+  const [enviando, setEnviando] = useState(false);
+
+  // Sem sessaoId (falha de salvamento), não há o que feedbackar
+  if (!sessaoId) return null;
+
+  async function enviar(tipo: FeedbackTipo) {
+    if (enviando || escolha) return;
+    setEnviando(true);
+    setEscolha(tipo); // otimismo: marca já
+    try {
+      await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessaoId, feedback: tipo }),
+      });
+    } catch (e) {
+      console.error("falha ao enviar feedback:", e);
+      // Não reverte — UX é melhor manter a escolha e silenciar falha
+    } finally {
+      setEnviando(false);
+    }
+  }
+
+  return (
+    <div className="w-full mt-6 mb-2">
+      <p
+        className="font-terminal text-xs uppercase tracking-widest mb-3 text-center"
+        style={{ color: "var(--text-dim)" }}
+      >
+        // esse resultado te representa?
+      </p>
+      <div className="flex justify-center gap-2">
+        {(
+          [
+            { tipo: "positivo" as const, emoji: "👍", label: "sim" },
+            { tipo: "neutro" as const, emoji: "🤔", label: "mais ou menos" },
+            { tipo: "negativo" as const, emoji: "👎", label: "não" },
+          ]
+        ).map(({ tipo, emoji, label }) => {
+          const ativo = escolha === tipo;
+          const desativado = escolha !== null && !ativo;
+          return (
+            <button
+              key={tipo}
+              onClick={() => enviar(tipo)}
+              disabled={escolha !== null}
+              className="font-pixel-body text-sm flex-1 px-3 py-2 border-2 transition-all disabled:cursor-default"
+              style={{
+                borderColor: ativo
+                  ? "var(--sun-yellow)"
+                  : desativado
+                    ? "rgba(212, 168, 255, 0.2)"
+                    : "rgba(212, 168, 255, 0.5)",
+                background: ativo
+                  ? "rgba(255, 204, 0, 0.15)"
+                  : "rgba(26, 6, 51, 0.4)",
+                color: ativo ? "var(--sun-yellow)" : "var(--text)",
+                opacity: desativado ? 0.4 : 1,
+                boxShadow: ativo ? "0 0 14px rgba(255, 204, 0, 0.5)" : "none",
+              }}
+            >
+              <span className="text-xl mr-1">{emoji}</span>
+              <span className="text-xs">{label}</span>
+            </button>
+          );
+        })}
+      </div>
+      {escolha && (
+        <p
+          className="font-terminal text-xs text-center mt-3 italic"
+          style={{ color: "var(--text-dim)" }}
+        >
+          // valeu pelo feedback{escolha === "negativo" ? " — vou refinar o algoritmo" : ""}
+        </p>
+      )}
+    </div>
+  );
 }
 
 export default function Resultado() {
@@ -101,6 +184,19 @@ export default function Resultado() {
 
   const sprite = useMemo(
     () => (resultado ? SPRITES_POR_EIXO[resultado.eixoDominante] : null),
+    [resultado],
+  );
+
+  const confianca = useMemo<NivelConfianca | null>(
+    () =>
+      resultado
+        ? nivelConfianca(
+            resultado.top3.map((c) => ({
+              ...c,
+              vetor: [0, 0, 0, 0, 0, 0, 0],
+            })) as never,
+          )
+        : null,
     [resultado],
   );
 
@@ -258,9 +354,34 @@ export default function Resultado() {
         “{resultado.bixinho.personalidade}”
       </p>
 
+      {/* Badge de confiança */}
+      {confianca && (
+        <div
+          className="font-terminal text-xs uppercase tracking-widest mb-2"
+          style={{
+            color:
+              confianca === "alta"
+                ? "var(--grid-cyan)"
+                : confianca === "hibrido"
+                  ? "var(--sun-yellow)"
+                  : "var(--sun-pink)",
+            textShadow:
+              confianca === "alta"
+                ? "0 0 8px var(--grid-cyan)"
+                : confianca === "hibrido"
+                  ? "0 0 8px var(--sun-yellow)"
+                  : "0 0 8px var(--sun-pink)",
+          }}
+        >
+          {confianca === "alta" && "🎯 alta afinidade"}
+          {confianca === "hibrido" && "🔀 perfil híbrido"}
+          {confianca === "exploratorio" && "⚠️ resultado exploratório"}
+        </div>
+      )}
+
       {/* Resultado principal */}
       <div
-        className="w-full px-4 py-4 border-2 mb-4"
+        className="w-full px-4 py-4 border-2 mb-2"
         style={{
           borderColor: "var(--sun-pink)",
           background: "rgba(26, 6, 51, 0.7)",
@@ -301,6 +422,25 @@ export default function Resultado() {
           campus · {top1.campus}
         </p>
       </div>
+
+      {/* Hint do nivel de confiança */}
+      {confianca === "hibrido" && (
+        <p
+          className="font-pixel-body text-sm italic mb-4 max-w-xs"
+          style={{ color: "var(--text-dim)" }}
+        >
+          seu perfil tem afinidades múltiplas — vale visitar TODOS os 3 estandes na feira
+        </p>
+      )}
+      {confianca === "exploratorio" && (
+        <p
+          className="font-pixel-body text-sm italic mb-4 max-w-xs"
+          style={{ color: "var(--text-dim)" }}
+        >
+          esse é um chute calibrado — sua resposta tem espaço pra muitos caminhos, leia sobre cada um com calma
+        </p>
+      )}
+      {confianca === "alta" && <div className="mb-2" />}
 
       {/* Top 2 e 3 */}
       {alts.length > 0 && (
@@ -353,9 +493,12 @@ export default function Resultado() {
         </p>
       </div>
 
+      {/* Feedback do aluno */}
+      <FeedbackBlock sessaoId={resultado.sessaoId} />
+
       {/* Botão de compartilhar (placeholder D4) */}
       <p
-        className="font-terminal text-xs uppercase tracking-widest mb-3 mt-2"
+        className="font-terminal text-xs uppercase tracking-widest mb-3 mt-6"
         style={{ color: "var(--text-dim)" }}
       >
         // compartilhamento chega no D4

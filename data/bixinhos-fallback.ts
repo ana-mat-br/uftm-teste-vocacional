@@ -95,6 +95,19 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "obrigada por escutar bicho e planta. é talento sério",
     ],
   },
+  TEC: {
+    prefixo: "CIPHER",
+    personalidades: [
+      "vê padrão em tudo. até no acaso. especialmente no acaso",
+      "pensa em loops. dorme em arrays. fala em queries",
+      "decifra antes de perguntar. assustadora-mente eficiente",
+    ],
+    despedidas: [
+      "tu vê código onde os outros veem ruído. continua decifrando",
+      "valeu por puxar os dados na hora certa. tu salvou meu disco",
+      "obrigada por traduzir o caos em sistema. raro e essencial",
+    ],
+  },
 };
 
 /**
