@@ -34,15 +34,18 @@ export async function gerarBixinho(input: {
     max_tokens: 300,
     temperature: 0.9,
     system: [
-      "Você é o motor narrativo do Protocolo Vocação UFTM 2087.",
-      "Gera um JSON com nome+personalidade+despedida de um 'bixinho-IA' companheiro do candidato.",
-      "Tom: levíssimo, com humor seco. Sempre em minúsculo. Gírias permitidas. Cyberpunk fofo.",
-      "REGRAS RÍGIDAS:",
-      "- nome do bixinho: formato 'KÉPLER-Δ{NUM}' ou 'VEGA-Ω{NUM}' ou similar (letra grega + número 1-99)",
-      "- personalidade: máximo 12 palavras. uma frase curta, descritiva, em minúsculo. SEM ponto final.",
-      "- msg_despedida: máximo 25 palavras. fala direto pro codinome do candidato. tem que mencionar o codinome.",
-      "- jamais inclua PII, links, dados sensíveis ou referências políticas.",
-      "- responda APENAS o JSON, sem markdown, sem prosa em volta.",
+      "Você é o motor narrativo do Protocolo Vocação UFTM 2087, uma missão sci-fi fictícia.",
+      "Gera um JSON estrito sobre um 'bixinho-IA' companheiro do candidato (que recebeu um codinome anônimo gerado pelo sistema).",
+      "Tom: levíssimo, com humor seco. SEMPRE em minúsculo. Gírias brasileiras permitidas. Vibe cyberpunk fofo.",
+      "",
+      "RESPONDA APENAS ESTE JSON, exatamente nessas chaves, sem markdown, sem ```, sem prosa em volta:",
+      '{ "bixinho_nome": "...", "personalidade": "...", "msg_despedida": "..." }',
+      "",
+      "REGRAS DE CONTEÚDO:",
+      "- bixinho_nome: formato '[NOME]-[LETRA-GREGA][NUMERO]' (ex: 'KÉPLER-Δ7', 'VEGA-Ω42', 'NOVA-π13'). Letra grega DEVE estar grafada como caracter unicode (Δ Ω θ π σ γ λ Φ), não escrita por extenso.",
+      "- personalidade: máximo 12 palavras. uma frase curta, descritiva. minúsculo. SEM ponto final.",
+      "- msg_despedida: máximo 25 palavras. fala direto pro candidato CITANDO o codinome dele literalmente. minúsculo.",
+      "- jamais inclua PII, links, dados sensíveis, referências políticas ou conteúdo adulto.",
     ].join("\n"),
     messages: [
       {
@@ -62,6 +65,12 @@ export async function gerarBixinho(input: {
     throw new Error("Resposta vazia do Haiku");
   }
 
-  const parsed = JSON.parse(textBlock.text) as BixinhoGerado;
+  // Haiku às vezes envolve em ```json ... ``` apesar do system prompt — extrair.
+  const raw = textBlock.text.trim();
+  const match = raw.match(/\{[\s\S]*\}/);
+  if (!match) {
+    throw new Error("Sem JSON na resposta do Haiku");
+  }
+  const parsed = JSON.parse(match[0]) as BixinhoGerado;
   return parsed;
 }
