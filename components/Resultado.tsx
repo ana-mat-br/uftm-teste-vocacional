@@ -218,7 +218,7 @@ export default function Resultado() {
           className="font-pixel-body text-base mt-6"
           style={{ color: "var(--text-dim)" }}
         >
-          o bixinho-IA tá organizando os pensamentos…
+          o co-piloto tá organizando os pensamentos…
         </p>
         <div
           className="mt-8 h-1 w-48"

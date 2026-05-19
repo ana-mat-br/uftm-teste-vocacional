@@ -3,7 +3,7 @@
  * Formato: PREFIXO-NÚMERO (ex: "ESTRELA-7", "COMETA-42")
  *
  * Nenhum dado pessoal é envolvido. O codinome é só pra dar charme à narrativa
- * e referenciar nas falas do bixinho-IA.
+ * e referenciar nas falas do co-piloto.
  */
 
 const PREFIXOS_ASTRONOMICOS = [
