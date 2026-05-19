@@ -29,6 +29,9 @@ CREATE TABLE IF NOT EXISTS eventos (
 CREATE INDEX IF NOT EXISTS idx_eventos_sessao_id ON eventos(sessao_id);
 CREATE INDEX IF NOT EXISTS idx_eventos_tipo ON eventos(tipo);
 
--- RLS: as tabelas só são acessíveis via service-role key (server-side).
--- Não habilitamos RLS porque o cliente NUNCA acessa o Supabase diretamente.
--- Toda interação passa pelo Server Action / API route do Next.js.
+-- RLS habilitado em ambas as tabelas (Supabase aplicou no Run).
+-- O cliente NUNCA acessa Supabase diretamente. Toda interação passa pelo
+-- Next.js server (Server Action / API route) usando SUPABASE_SERVICE_ROLE_KEY,
+-- que bypassa RLS. Sem políticas adicionais necessárias.
+ALTER TABLE sessoes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE eventos ENABLE ROW LEVEL SECURITY;

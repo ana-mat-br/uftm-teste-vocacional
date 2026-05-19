@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview Sprites — Protocolo Vocação</title>
+<style>
+  body {
+    background: linear-gradient(180deg, #1a0633 0%, #4a1078 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 16px;
+    font-family: monospace;
+    color: #fff8e7;
+  }
+  h1 {
+    text-align: center;
+    color: #ffcc00;
+    font-size: 18px;
+    text-shadow: 0 0 10px #ff6b35;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  @media (min-width: 700px) {
+    .grid { grid-template-columns: repeat(3, 1fr); max-width: 900px; }
+  }
+  .card {
+    background: rgba(26, 6, 51, 0.7);
+    border: 2px solid #ff2e93;
+    padding: 16px 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 46, 147, 0.3);
+  }
+  .card img {
+    width: 128px;
+    height: 128px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    filter:
+      drop-shadow(0 0 8px #00f0ff)
+      drop-shadow(0 0 16px #ff2e93);
+    margin-bottom: 12px;
+  }
+  .label {
+    color: #ffcc00;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px #ff6b35;
+  }
+  .sigla {
+    color: #d4a8ff;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .note {
+    text-align: center;
+    color: #d4a8ff;
+    font-size: 12px;
+    margin-top: 32px;
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+  <h1>▸ SPRITES — PROTOCOLO VOCAÇÃO</h1>
+  <div class="grid">
+    <div class="card"><img src="cuidador.svg" alt="Cuidador"><div class="label">CUIDADOR</div><div class="sigla">CUI · saúde / cuidar</div></div>
+    <div class="card"><img src="investigador.svg" alt="Investigador"><div class="label">INVESTIGADOR</div><div class="sigla">INV · ciência / pesquisa</div></div>
+    <div class="card"><img src="construtor.svg" alt="Construtor"><div class="label">CONSTRUTOR</div><div class="sigla">CON · engenharias / tech</div></div>
+    <div class="card"><img src="comunicador.svg" alt="Comunicador"><div class="label">COMUNICADOR</div><div class="sigla">COM · letras / pedagogia</div></div>
+    <div class="card"><img src="transformador.svg" alt="Transformador"><div class="label">TRANSFORMADOR</div><div class="sigla">TRA · humanas / sociedade</div></div>
+    <div class="card"><img src="cultivador.svg" alt="Cultivador"><div class="label">CULTIVADOR</div><div class="sigla">CUL · natureza / vida</div></div>
+  </div>
+  <p class="note">renderizados em 128px com image-rendering: pixelated · cada sprite é SVG 16×16</p>
+</body>
+</html>
