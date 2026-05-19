@@ -1,204 +1,115 @@
-# 🎨 Pipeline de Arte — Pixel Art Synthwave
+# 🎨 Pipeline de Arte — 6 sprites SVG inline
 
-**Plataforma:** Mac M-series (sem GPU NVIDIA dedicada)
+**Plataforma:** independente de OS/GPU
 **Orçamento:** R$ 0
 **Estilo:** Pixel art cyberpunk fofo / synthwave sunset
-**Quantidade alvo:** ~20 sprites finais (6 corpos × 3-4 variações)
+**Implementado:** 6 SVGs, um por eixo de personalidade, escritos manualmente
+
+> ⚠️ **Mudança de plano em 2026-05-19.** A v1.0 deste documento previa gerar sprites via Leonardo.ai e refinar no Piskel. No sprint apertado de 7 dias, optamos por **desenhar SVGs inline** — sem dependência externa, controle total da paleta synthwave, zero risco de IA gerar coisa estranha. Resultado: 6 sprites coesos em ~30 min.
 
 ---
 
-## 🎯 Output esperado
+## 🎯 Decisão e trade-offs
 
-Cada sprite final deve ser:
-
-- **32×32 pixels** (nativo) ou **64×64** (com mais detalhe)
-- **PNG** com fundo transparente
-- **Paleta limitada:** 8–16 cores da paleta synthwave (ver [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md))
-- **Visual:** criatura fofa, antena/topo distinto, olhos grandes, glow latente
-- **Coesão:** todos parecem da mesma "família"
-
----
-
-## 🔧 Ferramentas (todas gratuitas)
-
-### 1. Geração inicial: **Leonardo.ai**
-
-- **URL:** https://leonardo.ai
-- **Custo:** 150 créditos/dia grátis (~30 imagens)
-- **Modelo:** "Pixel Art" (preset pronto)
-- **Por quê:** zero instalação, interface boa, qualidade consistente
-
-**Backup:** **DiffusionBee** (app Mac nativo, grátis, ilimitado mas ~30s/imagem no M1/M2)
-
-### 2. Refino: **Piskel** ou **Aseprite**
-
-- **Piskel:** https://piskelapp.com — grátis, web, zero instalação
-- **Aseprite:** US$ 20 OU compilar grátis pelo source
-- **Uso:** downscale pra 32×32, ajustar paleta, limpar artefatos, exportar PNG
-
-### 3. Compressão: **TinyPNG**
-
-- **URL:** https://tinypng.com
-- **Uso:** reduzir tamanho dos PNGs em ~70% sem perda visível
-
-### 4. (Opcional) **Photopea**
-
-- **URL:** https://photopea.com — Photoshop grátis no navegador
-- **Uso:** ajustes finos de cor, máscara, batch
-
----
-
-## 📝 Prompt-Base para Leonardo.ai
-
-```
-pixel art character, 32x32 sprite, cute mascot creature, front-facing, 
-synthwave palette (hot pink, sunset orange, neon yellow, cyan accents), 
-glowing eyes, small antenna on top, simple silhouette, 
-clean pixels, no anti-aliasing, transparent background, 
-isolated character study
-```
-
-### Variações por eixo de personalidade
-
-Cada eixo precisa de um corpo-base que sugira a personalidade:
-
-| Eixo | Variação de prompt | Sugestão visual |
+| Critério | Leonardo.ai + Piskel (v1.0) | SVG inline (atual) |
 |---|---|---|
-| **Cuidador** | `soft round body, gentle expression, holding heart-shape` | Bixinho rosa fofo, olhar protetor |
-| **Investigador** | `curious expression, magnifying glass or one big eye, scientific accessory` | Olho destacado, lupa |
-| **Construtor** | `geometric body, gear or tool accessory, sharp angles, mechanical hints` | Engrenagem na cabeça, formas geométricas |
-| **Comunicador** | `mouth/speaker accessory, megaphone or speech-bubble, lively pose` | Bixinho com balão de fala |
-| **Transformador** | `dynamic pose, flag or fist accessory, bold colors` | Postura ativa, pose de "vamos lá" |
-| **Cultivador** | `leaf or flower on top, earthy tones mixed with synthwave` | Folhinha em vez de antena |
+| Tempo de produção | 2-3 dias | ~30 min |
+| Coesão visual | depende da geração | total (cores são vars CSS) |
+| Risco de erro | alto (IA pode gerar feio) | zero |
+| "Uau" visual | maior potencial | "geométrico mas charmoso" |
+| Custo | grátis (com limites) | grátis sem limite |
+| Dependência externa | sim (site, conta, créditos) | nenhuma |
 
-### Parâmetros recomendados no Leonardo.ai
-
-- **Aspect ratio:** 1:1 (square)
-- **Image dimensions:** 512×512 ou 768×768 (gera grande, downscale depois)
-- **Number of images:** 4 (pra escolher o melhor)
-- **PhotoReal:** OFF
-- **Alchemy:** OFF (consome mais créditos)
-- **Negative prompt:** `realistic, 3d, photograph, blurry, anti-aliasing, smooth, gradient`
+**Conclusão:** pro prazo de 7 dias, SVG inline ganhou. Upgrade pra arte real é trivial depois da feira — basta substituir o arquivo PNG no `public/sprites/`.
 
 ---
 
-## 🔄 Pipeline passo a passo
+## 🖼️ Os 6 sprites
 
-### Etapa 1 — Gerar bruto (Leonardo.ai)
+Cada sprite é um SVG em `public/sprites/{eixo}.svg`, viewBox `0 0 16 16`. Cada `<rect>` é um pixel. Tudo escalado pra 128px ou 180px na UI com `image-rendering: pixelated`.
 
-1. Abra https://leonardo.ai → Image Generation
-2. Selecione modelo "Pixel Art"
-3. Cole o prompt-base + variação do eixo
-4. Configure 512×512, 4 imagens
-5. Gere
-6. Salve os 2-3 melhores
+| Arquivo | Eixo | Identidade visual | Cor principal |
+|---|---|---|---|
+| `cuidador.svg` | CUI | corpo rosa pastel, coraçãozinho amarelo no topo | rosa claro `#ffb3d9` |
+| `investigador.svg` | INV | corpo roxo, antena com sensor cyan, "óculos" cyan | roxo `#b026ff` |
+| `construtor.svg` | CON | corpo laranja, engrenagem amarela no topo | laranja `#ff6b35` |
+| `comunicador.svg` | COM | corpo amarelo, balão de fala no canto, "bocha aberta" | amarelo `#fff95e` |
+| `transformador.svg` | TRA | corpo magenta, bandeirinha tricolor no mastro | magenta `#ff2e93` |
+| `cultivador.svg` | CUL | corpo rosa, folhinha verde no topo | rosa `#ff8fc8` + verde `#7ee787` |
 
-**Tempo:** ~5 min por eixo × 6 eixos = **30 min**
+**Estrutura comum** de todos os sprites:
+- Cabeça + corpo (10x6 pixels)
+- 2 olhos (2x2 pixels cada) com 1 pixel de brilho branco
+- Bochechas (1 pixel de cada lado)
+- 2 pernas (2x1 pixels cada)
+- Acessório no topo distintivo (rows 0-3)
 
-### Etapa 2 — Downscale (Piskel)
-
-1. Abra https://piskelapp.com
-2. New Sprite → Import Image
-3. Carregue o PNG gerado
-4. **Crítico:** marque "Resize" pra 32×32 com **nearest-neighbor** (não bilinear!)
-5. O resultado vai parecer "pixelado de verdade" agora
-6. Exporte PNG 32×32
-
-**Tempo:** ~3 min por sprite
-
-### Etapa 3 — Refinar paleta (Piskel)
-
-1. Identifique cores fora da paleta synthwave (verdes, marrons, etc)
-2. Substitua pelas cores corretas usando o Color Picker do Piskel
-3. Suavize bordas onde ficou estranho
-4. Adicione/ajuste antena, olhos, acessório
-
-**Tempo:** ~5-15 min por sprite
-
-### Etapa 4 — Variações de cor
-
-Pra cada corpo-base, criar **3-4 variações de cor**:
-
-1. Duplique o sprite no Piskel
-2. Use "Color Swap" pra trocar cor principal
-3. Combinações sugeridas:
-   - Rosa principal + amarelo acento
-   - Laranja principal + ciano acento
-   - Magenta principal + amarelo acento
-   - Roxo principal + rosa acento
-
-**Tempo:** ~2 min por variação = **30 min totais**
-
-### Etapa 5 — Comprimir e organizar
-
-1. Passe todos pelos TinyPNG
-2. Renomeie seguindo convenção: `bixinho-{eixo}-{variacao}.png`
-   - Exemplo: `bixinho-cuidador-rosa.png`, `bixinho-construtor-ciano.png`
-3. Salve em `public/sprites/` no repo
-
-**Tempo:** ~10 min
+A coesão vem de: mesma silhueta, mesma escala dos olhos, paleta restrita a 8 cores synthwave.
 
 ---
 
-## ⏱️ Estimativa Total
+## 🎨 Paleta usada nos sprites
 
-| Etapa | Tempo |
-|---|---|
-| Geração bruta (Leonardo.ai) | 30 min |
-| Downscale dos 6 corpos-base | 20 min |
-| Refino de paleta | 60 min |
-| Variações de cor (3 × 6 = 18 sprites) | 30 min |
-| Compressão + organização | 10 min |
-| Buffer pra retrabalho | 30 min |
-| **TOTAL** | **~3 horas** |
+```css
+--bg-deep:    #1a0633   /* não usado em sprite, é o fundo */
+--sun-orange: #ff6b35
+--sun-pink:   #ff2e93
+--sun-yellow: #ffcc00
+--grid-cyan:  #00f0ff
 
-Dividido em 2 dias de trabalho focado (1,5h cada).
-
----
-
-## 🎁 Bônus: Composição dinâmica
-
-Em vez de gerar TODAS as combinações possíveis, dá pra **compor em runtime**:
-
-```html
-<div class="bixinho">
-  <img class="corpo" src="/sprites/corpo-cuidador.png" />
-  <img class="antena" src="/sprites/antena-flor.png" />
-  <img class="acessorio" src="/sprites/acessorio-coracao.png" />
-</div>
+/* Variações dos sprites */
+#ff8fc8  /* rosa pastel suave */
+#ffb3d9  /* rosa mais claro */
+#b026ff  /* roxo neon */
+#7ee787  /* verde do Cultivador */
+#5cb868  /* verde escuro do Cultivador */
+#fff95e  /* amarelo claro do Comunicador */
+#cc1a6e  /* magenta escuro do Transformador */
+#4a1078  /* roxo escuro (contorno/olhos do Cuidador) */
+#fff      /* brilho dos olhos */
 ```
 
-Com CSS `filter: hue-rotate(45deg)` pra paletas alternativas → multiplica variações sem mais sprites.
+---
+
+## 🔧 Como editar um sprite
+
+1. Abre `public/sprites/{eixo}.svg` no editor (ou Piskel se quiser visual)
+2. Cada `<rect x="X" y="Y" width="W" height="H" fill="#COR"/>` é um bloco de pixels
+3. Salva. O Next.js dev server hot-reloada.
+4. Confere o resultado em `public/sprites/preview.html` (grid dos 6 lado a lado)
 
 ---
 
-## ✅ Checklist final do sprite
+## 👀 Preview
 
-- [ ] 32×32 ou 64×64 pixels exatos
-- [ ] Fundo transparente
-- [ ] Sem anti-aliasing (pixels duros)
-- [ ] Apenas cores da paleta synthwave
-- [ ] Olhos visíveis (ponto de empatia)
-- [ ] Antena ou topo distinto
-- [ ] Acessório opcional sugerindo o eixo
-- [ ] Renderiza bem em 128px e 180px (zoom × 4 e × 5,6)
-- [ ] Comprimido com TinyPNG
-- [ ] Nome do arquivo seguindo convenção
+Abrir no browser:
+```bash
+open public/sprites/preview.html
+```
+
+Mostra os 6 sprites a 128px cada com glow synthwave aplicado (drop-shadow ciano + rosa).
+
+Em produção, o sprite renderizado no `/resultado` tem 180px com float animation (3s ease-in-out).
 
 ---
 
-## ⚠️ Armadilhas comuns
+## 🔄 Como substituir por arte real (pós-feira)
 
-1. **Anti-aliasing furtivo:** Leonardo às vezes gera pixel art com bordas suaves. Sempre conferir após downscale, e se necessário, redesenhar bordas no Piskel.
-2. **Paleta vazando:** se o Leonardo usar verdes/marrons "naturais", quebra a estética. Substituir manualmente.
-3. **Inconsistência de proporção:** pode gerar uns sprites com cabeça gigante, outros com cabeça pequena. Pedir prompts com `proportional body`.
-4. **Resolução errada no CSS:** sem `image-rendering: pixelated`, o navegador embaça tudo. Sempre aplicar no CSS.
+1. Gerar 6 PNGs 32×32 com fundo transparente (Leonardo.ai, freelancer, Aseprite, etc)
+2. Salvar em `public/sprites/cuidador.png`, etc. (mesmos nomes-base)
+3. Em `data/bixinhos.ts`, mudar o mapa pra apontar pros `.png` em vez de `.svg`
+4. CSS `image-rendering: pixelated` continua o mesmo
+5. Sem mais nenhuma mudança de código
 
 ---
 
-## 🔗 Recursos
+## 🔗 Ferramentas relevantes (caso alguém queira refazer com IA)
 
-- **Paletas synthwave de referência:** https://lospec.com/palette-list/tag/synthwave
-- **Inspiração visual:** Pixel Starships, Hyper Light Drifter, Moonlighter, FTL
-- **Tutoriais pixel art:** https://saint11.org/blog/pixel-art-tutorials/
-- **Asset packs grátis (referência):** https://itch.io/game-assets/free/tag-pixel-art
+- **Leonardo.ai** — modelo "Pixel Art XL", grátis 150 créditos/dia
+- **Bing Image Creator** — DALL-E 3 grátis via Microsoft
+- **Recraft.ai** — bom no estilo pixel
+- **Piskel** (piskelapp.com) — editor de pixel art no browser, grátis
+- **TinyPNG** — comprime PNGs em ~70% sem perda visível
+- **Lospec.com** — paletas synthwave de referência
+
+Para a v2 pós-feira, recomendamos contratar 1-2h de freelancer de pixel art (Workana/Twitter, ~R$ 100-200) pra ter sprites com mais detalhe e personalidade.

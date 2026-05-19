@@ -4,6 +4,9 @@
 
 O aluno embarca numa missão interplanetária fictícia ambientada em 2087. Suas decisões revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM** compatíveis no século XXI. No final, recebe uma **carta-comunicado** com seu resultado + um **bixinho-IA companheiro** em pixel art, pronta pra compartilhar no Instagram, WhatsApp e X.
 
+🌐 **Em produção:** https://uftm-teste-vocacional.vercel.app
+📅 **Feira:** 26/05/2026 (segunda-feira)
+
 ---
 
 ## ✨ Conceito em uma frase
@@ -23,13 +26,13 @@ Toda a proposta está em `/docs`:
 | Doc | O quê |
 |---|---|
 | [PRD](docs/PRD.md) | Problema, público, métricas, escopo MVP, riscos |
-| [Roteiro](docs/ROTEIRO.md) | As 12 cenas da aventura com pontuação por eixo |
+| [Roteiro](docs/ROTEIRO.md) | As 11 cenas da aventura (1 home + 9 pontuáveis + 1 resultado) |
 | [Matriz de Eixos](docs/MATRIZ-EIXOS.md) | 6 eixos de personalidade × 31 cursos UFTM + algoritmo de matching |
 | [Design System](docs/DESIGN-SYSTEM.md) | Paleta synthwave, fontes, componentes, formatos de compartilhamento |
-| [Stack Técnica](docs/STACK.md) | Next.js + Supabase + Vercel + Claude Haiku — decisões e custos |
-| [Pipeline de Arte](docs/PIPELINE-ARTE.md) | Produção dos sprites pixel art (Leonardo.ai + Piskel) |
-| [LGPD](docs/LGPD.md) | Privacidade, consentimento, menor de idade |
-| [Cronograma](docs/CRONOGRAMA.md) | 3,5 semanas até a feira, divididas em sprints |
+| [Stack Técnica](docs/STACK.md) | Next.js 16 + Supabase + Vercel + Claude Haiku — decisões e custos |
+| [Pipeline de Arte](docs/PIPELINE-ARTE.md) | 6 sprites pixel art em SVG inline (sem AI generation) |
+| [LGPD](docs/LGPD.md) | Privacidade — projeto não coleta PII |
+| [Cronograma](docs/CRONOGRAMA.md) | 7 dias até a feira (D1-D7) |
 
 ---
 
@@ -46,42 +49,64 @@ Em `/prototipos`:
 
 Abra qualquer um no navegador. No DevTools (F12), ative o modo mobile pra ver na proporção real.
 
+Em `/public/sprites/preview.html` você vê os 6 sprites finais lado a lado.
+
 ---
 
 ## 🛠️ Stack resumida
 
-- **Front + Back:** Next.js 14 (App Router + Server Actions)
-- **Banco:** Supabase (free tier)
+- **Front + Back:** Next.js 16 (App Router + API Routes)
+- **Banco:** Supabase (free tier, novo formato de keys 2025+)
 - **Hosting:** Vercel (free tier)
-- **LLM:** Claude Haiku 4.5 (carta + nome/personalidade do bixinho)
-- **Arte:** Pixel art (Leonardo.ai + Piskel — 100% grátis)
-- **Compartilhamento:** `html2canvas` pra gerar PNG 9:16 e 1:1
+- **LLM:** Claude Haiku 4.5 (gera nome+personalidade+despedida do bixinho)
+- **Arte:** 6 sprites pixel art em SVG inline (16×16 viewBox, escalados com `image-rendering: pixelated`)
+- **Compartilhamento:** `html2canvas` pra gerar PNG 9:16 (em D4)
 
 Custo total estimado por aluno: **~R$ 0,007** (só LLM). Infra: **R$ 0** no free tier.
 **Sem coleta de dados pessoais** — apenas métricas anônimas agregadas (ver [LGPD.md](docs/LGPD.md)).
 
 ---
 
-## 🚦 Status
+## 🚦 Status atual
 
-**Fase atual:** Documentação concluída, **implementação em 7 dias**
-**Feira:** **2026-05-26** (segunda-feira)
 **Mantenedora:** [@ana-mat-br](https://github.com/ana-mat-br) (UFTM)
+
+### Implementação
+| Sprint | Status |
+|---|:-:|
+| D1 — Setup + sprites + matriz | ✅ |
+| D2 — Quiz navegável end-to-end (9 cenas + mock resultado) | ✅ |
+| D3 — Endpoint /api/finalizar (Supabase + Claude Haiku + fallback templates) | ✅ |
+| D4 — Compartilhamento Stories/WhatsApp/X (html2canvas) | ⏳ |
+| D5 — Polish + bugs | ⏳ |
+| D6 — Testes com pessoas reais + QR Code físico | ⏳ |
+| D7 — FEIRA 🚀 | 26/05 |
 
 ### Decisões fechadas ✅
 - Narrativa: Expedição UFTM 2087 (sci-fi)
 - Visual: Synthwave sunset (neon laranja/rosa/amarelo, grid ciano)
 - Tom: leve com humor
-- Bixinho-IA: nome/personalidade geradas por Claude Haiku 4.5
-- 6 eixos × 31 cursos com matriz validada na v0.1
-- 11 cenas de roteiro escritas
-- Compartilhamento: Stories (9:16) + WhatsApp + X
+- Bixinho-IA: nome/personalidade gerados por Claude Haiku 4.5 (com fallback de templates)
+- 6 eixos × 31 cursos com matriz v0.1
+- 11 cenas no total (1 home + 9 pontuáveis + 1 resultado)
+- Compartilhamento: Stories (9:16) + WhatsApp + X (Feed 1:1 cortado por prazo)
 - **Zero coleta de PII** — codinome gerado pelo sistema (ex: "ESTRELA-7")
-- Stack: Next.js + Supabase + Vercel + Claude Haiku
-- Cronograma D1–D7 fechado
 
-### Próxima ação 🚀
-Começar **D1**: setup do Next.js + gerar 6 sprites brutos no Leonardo.ai.
+---
+
+## 🧪 Desenvolvimento
+
+```bash
+git clone https://github.com/ana-mat-br/uftm-teste-vocacional.git
+cd uftm-teste-vocacional
+npm install
+cp .env.local.example .env.local   # preencher com keys reais
+npm run dev                         # http://localhost:3000
+
+# Smoke tests:
+npx tsx scripts/test-connections.ts  # Supabase + Anthropic
+npx tsx scripts/check-sessoes.ts     # lista últimas sessões salvas
+```
 
 ---
 

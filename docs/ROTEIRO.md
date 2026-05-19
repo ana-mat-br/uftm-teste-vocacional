@@ -1,8 +1,8 @@
 # 🚀 Roteiro — Expedição UFTM 2087
 
-**Versão:** 1.0
+**Versão:** 2.0 (Cena 11 de Reflexão cortada por prazo)
 **Duração-alvo:** 4–6 minutos
-**Cenas:** 12 (1 onboarding, 10 pontuáveis, 1 resultado)
+**Cenas:** 11 no total (1 onboarding, 9 pontuáveis, 1 resultado)
 
 ---
 
@@ -188,26 +188,15 @@
 
 ---
 
-## CENA 11 — Reflexão *(validação cruzada)*
+## CENA 11 — ~~Reflexão~~ *(CORTADA por prazo)*
 
-> *Tempestade passou. Vocês conseguiram. Sentado fora da nave, olhando os dois sóis se pondo, o bixinho flutua até seu ombro.*
-
-**[BIXINHO]** *"última pergunta antes do veredito. me conta: nessa missão inteira, o que te deu mais energia?"*
-
-| Opção | Pontuação |
-|---|---|
-| 🤝 Cuidar das pessoas, ver elas bem | CUI+2 |
-| 🔍 Descobrir coisas que ninguém sabia | INV+2 |
-| 🛠️ Resolver problemas que pareciam impossíveis | CON+2 |
-| 💬 Conectar gente, mediar, ensinar | COM+2 |
-| ✊ Mudar como as coisas funcionavam | TRA+2 |
-| 🌿 Tudo que tinha vida — bichos, plantas, terra | CUL+2 |
-
-> Esta cena permite "puxar" um eixo que ficou perto do empate, evitando resultados pouco convincentes. Funciona como tie-breaker subjetivo.
+> Esta cena de tie-breaker existia na v1.0 do roteiro mas foi cortada em 2026-05-19 ao apertar o prazo pra 7 dias. Pode voltar numa v2 do produto se for útil resolver empates.
+>
+> Conteúdo arquivado: pergunta "o que te deu mais energia?" com 1 opção por eixo, cada uma somando +2 ao eixo correspondente.
 
 ---
 
-## CENA 12 — Resultado
+## CENA 11 — Resultado *(antes Cena 12)*
 
 > *O bixinho gira, brilha mais forte, e a luz dele forma um terminal holográfico.*
 
@@ -223,18 +212,18 @@
 
 ---
 
-## 📊 Balanceamento de pontuação
+## 📊 Balanceamento de pontuação (9 cenas pontuáveis)
 
-Pico possível por eixo se o aluno escolher sempre a opção que mais pontua aquele eixo:
+Pico possível por eixo se o aluno escolher sempre a opção que mais pontua aquele eixo. Os números abaixo excluem a Cena 11 (Reflexão), que foi cortada.
 
-| Eixo | Pico | Aparições |
+| Eixo | Pico possível | Aparece em opções de... |
 |---|:-:|:-:|
-| Cuidador | 17 | 7 cenas |
-| Investigador | 19 | 8 cenas |
-| Construtor | 20 | 8 cenas |
-| Comunicador | 17 | 7 cenas |
-| Transformador | 16 | 6 cenas |
-| Cultivador | 18 | 7 cenas |
+| Cuidador | 15 | 6 cenas |
+| Investigador | 17 | 7 cenas |
+| Construtor | 18 | 7 cenas |
+| Comunicador | 15 | 6 cenas |
+| Transformador | 14 | 5 cenas |
+| Cultivador | 16 | 6 cenas |
 
 Distribuição razoável — todos os eixos têm caminho viável até o topo.
 
@@ -242,7 +231,11 @@ Distribuição razoável — todos os eixos têm caminho viável até o topo.
 
 ## Notas para implementação
 
-- Cenas são **lineares**, não ramificadas. Todo aluno passa pelas 12 em ordem fixa
+- Cenas são **lineares**, não ramificadas. Todo aluno passa por todas em ordem fixa
 - Pontuação é **acumulada num vetor** [CUI, INV, CON, COM, TRA, CUL]
+- Cena 1 (onboarding) = home page `/`, gera codinome anônimo (ex: "ESTRELA-7")
+- Cenas 2-10 = `/cena/[id]`, são as 9 cenas pontuáveis
+- Cena 11 (resultado, antes Cena 12) = `/resultado`, chama `/api/finalizar`
 - Resultado final = top 3 cursos por **similaridade de cosseno** entre vetor do aluno e vetor dos cursos (ver [MATRIZ-EIXOS.md](MATRIZ-EIXOS.md))
 - O LLM (Claude Haiku 4.5) recebe o vetor + curso + **codinome gerado** (não nome real do aluno) e gera: nome do bixinho, personalidade, mensagem de despedida
+- Fallback: se Haiku falhar, usa templates pré-escritos em `data/bixinhos-fallback.ts`

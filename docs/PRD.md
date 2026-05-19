@@ -56,7 +56,7 @@ Estudantes do Ensino Médio que visitam a Feira de Profissões da UFTM enfrentam
 ## 4. Conceito do Produto
 
 ### Narrativa
-"**Expedição UFTM 2087**" — Ano 2087, a UFTM virou centro de pesquisa interplanetário e está montando a primeira missão tripulada ao exoplaneta Kepler-186f. O aluno é candidato e suas decisões durante uma jornada narrativa de 12 cenas revelam qual papel ele tem na tripulação.
+"**Expedição UFTM 2087**" — Ano 2087, a UFTM virou centro de pesquisa interplanetário e está montando a primeira missão tripulada ao exoplaneta Kepler-186f. O aluno é candidato e suas decisões durante uma jornada narrativa de **11 cenas** (1 home + 9 pontuáveis + 1 resultado) revelam qual papel ele tem na tripulação.
 
 ### Resultado
 1. **Papel na missão** (ex: "Oficial Médica de Bordo")
@@ -76,23 +76,23 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 
 ### IN — entra no MVP
 - ✅ Web app mobile-first, acesso via QR Code
-- ✅ 11 cenas em formato narrativo (1 onboarding + 10 pontuáveis)
-- ✅ Algoritmo de matching: respostas → 6 eixos → top 3 cursos
+- ✅ 11 cenas no total (1 home + 9 pontuáveis + 1 resultado)
+- ✅ Algoritmo de matching: respostas → 6 eixos → top 3 cursos (similaridade cosseno)
 - ✅ Carta final estilo "Comunicado da Comissão Interestelar"
-- ✅ Bixinho pixel art (6 sprites, 1 por eixo) + nome/personalidade gerados por Claude Haiku
+- ✅ Bixinho pixel art (6 sprites SVG inline, 1 por eixo) + nome/personalidade gerados por Claude Haiku
 - ✅ Codinome gerado pelo sistema (ex: "ESTRELA-7") — sem pedir nada do aluno
-- ✅ Geração de imagem 9:16 (Stories) via html2canvas
-- ✅ Compartilhamento: Instagram Stories, WhatsApp, X
-- ✅ Métricas anônimas agregadas (sessões, cursos, eventos)
+- ✅ Geração de imagem 9:16 (Stories) via html2canvas — **D4**
+- ✅ Compartilhamento: Instagram Stories, WhatsApp, X — **D4**
+- ✅ Métricas anônimas agregadas (tabela sessoes no Supabase)
 
 ### OUT — fica pra v2 ou foi cortado
 - ❌ Coleta de qualquer dado pessoal (nome real, @instagram, cidade, escola, email)
-- ❌ Cena 11 de Reflexão (cortada — vamos com 11 cenas no total)
-- ❌ Feed Instagram 1:1 (só Stories)
+- ❌ Cena de "Reflexão" (tie-breaker) — cortada por prazo
+- ❌ Feed Instagram 1:1 — cortado por prazo, só Stories
 - ❌ Variações de cor dos sprites (só 6 sprites base)
-- ❌ Open Graph image dinâmica (estática)
-- ❌ Validação externa da matriz com colegas
-- ❌ Subdomínio próprio (uso direto `*.vercel.app`)
+- ❌ Open Graph image dinâmica (PNG estática)
+- ❌ Validação externa da matriz com colegas (Ana valida sozinha)
+- ❌ Subdomínio próprio uftm.edu.br (uso `*.vercel.app`)
 - ❌ Geração de imagem por IA em tempo real
 - ❌ Conta persistente / login
 - ❌ Versão multi-vestibular / multi-instituição
@@ -148,16 +148,17 @@ Indireto:
 
 ---
 
-## 9. Próximos passos
+## 9. Status da implementação
 
-Ver [CRONOGRAMA.md](CRONOGRAMA.md) para o plano dia-a-dia até a feira (2026-05-26).
+Ver [CRONOGRAMA.md](CRONOGRAMA.md) para o plano dia-a-dia.
 
-**Bloqueios já destravados:**
-- ✅ Data exata da feira: 26/05/2026
-- ✅ UFTM ciente do projeto
-- ✅ Stack técnica decidida
-- ✅ Direção criativa fechada
-- ✅ Roteiro escrito
-- ✅ Matriz curso↔eixos v0.1
+**D1–D3 fechados:**
+- ✅ D1: setup Next.js + Supabase + Anthropic + Vercel + 6 sprites SVG
+- ✅ D2: quiz navegável end-to-end com state em localStorage
+- ✅ D3: endpoint `/api/finalizar` integrando Claude Haiku + fallback templates + salvamento Supabase anônimo
 
-**Próxima ação imediata:** começar D1 — setup do Next.js + gerar sprites brutos.
+**D4–D6 a fazer:**
+- ⏳ D4: compartilhamento (html2canvas → PNG 9:16, WhatsApp/X intents)
+- ⏳ D5: polish visual + testes em iOS/Android
+- ⏳ D6: testes com pessoas reais + QR Code físico
+- 🚀 D7 (26/05): feira

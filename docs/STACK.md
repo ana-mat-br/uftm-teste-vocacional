@@ -13,9 +13,9 @@
                  │ HTTPS
                  ▼
 ┌─────────────────────────────────────────────────┐
-│  VERCEL (Next.js 14 — App Router)               │
-│  • SSR/SSG  • Server Actions                    │
-│  • html2canvas client-side                      │
+│  VERCEL (Next.js 16 — App Router + Turbopack)   │
+│  • SSG nas cenas  • API Routes server           │
+│  • html2canvas client-side (D4)                 │
 └────┬────────────────────────┬───────────────────┘
      │                        │
      ▼                        ▼
@@ -34,12 +34,12 @@
 
 ## Componentes
 
-### Frontend + Backend: **Next.js 14 (App Router)**
+### Frontend + Backend: **Next.js 16 (App Router + Turbopack)**
 
 **Por quê:**
 - Ana já sabe React/Next
-- Server Actions eliminam necessidade de API separada
-- Bundle splitting automático
+- API Routes em `app/api/.../route.ts` pra lógica server (Server Actions também serviria; preferimos route handlers explícitos)
+- Bundle splitting automático + SSG nas cenas (todas pré-renderizadas)
 - Deploy zero-config na Vercel
 
 ### Hosting: **Vercel (Free Tier)**
@@ -62,12 +62,12 @@ CREATE TABLE sessoes (
   codinome        text NOT NULL,            -- "ESTRELA-7" (gerado, não fornecido)
   iniciado_em     timestamptz DEFAULT now(),
   finalizado_em   timestamptz,
-  respostas       jsonb,                    -- [{cena:2, opcao:"A"}, ...]
+  respostas       jsonb,                    -- [{"cena":2,"opcao":0}, ...]  (opcao = índice 0..N)
   vetor           jsonb,                    -- [CUI, INV, CON, COM, TRA, CUL]
   curso_top       text,
   curso_alt1      text,
   curso_alt2      text,
-  bixinho_nome    text,                     -- "KÉPLER-Δ7"
+  bixinho_nome    text,                     -- "KÉPLER-Δ7" (gerado pelo Haiku ou fallback)
   user_agent_tipo text                      -- "mobile-ios"|"mobile-android"|"desktop"
 );
 
@@ -193,32 +193,38 @@ ORDER BY abandonos DESC;
 ```
 uftm-teste-vocacional/
 ├── app/
-│   ├── page.tsx                      # Onboarding
-│   ├── cena/[id]/page.tsx            # Cena 2-11
-│   ├── resultado/page.tsx            # Carta
+│   ├── page.tsx                      # Home / onboarding (Cena 1)
+│   ├── cena/[id]/page.tsx            # Cenas 2-10 (server, com generateStaticParams)
+│   ├── resultado/page.tsx            # Resultado (delega pra Resultado.tsx)
 │   ├── api/
-│   │   └── finalizar/route.ts        # Salva no Supabase + chama Haiku
+│   │   └── finalizar/route.ts        # Server: top 3 cursos + Haiku + insert Supabase
 │   ├── layout.tsx
-│   └── globals.css
+│   └── globals.css                   # Paleta synthwave global
 ├── components/
-│   ├── BixinhoSprite.tsx
-│   ├── CartaResultado.tsx
-│   ├── CenaQuiz.tsx
-│   └── StoryTemplate.tsx             # 9:16 oculto pra html2canvas
+│   ├── BotaoEmbarcar.tsx             # Client: gera codinome + redirect /cena/2
+│   ├── CenaQuiz.tsx                  # Client: render cena + opções + transição
+│   └── Resultado.tsx                 # Client: chama /api/finalizar e monta a Carta
 ├── lib/
-│   ├── matching.ts                   # similaridade cosseno
+│   ├── matching.ts                   # similaridade cosseno + topCursos + eixoDominante
 │   ├── codinome.ts                   # gerador "ESTRELA-7"
-│   ├── supabase.ts
-│   └── claude.ts
+│   ├── sessao.ts                     # tipos + helpers de localStorage
+│   ├── use-sessao.ts                 # hook React useSessao()
+│   ├── supabase.ts                   # cliente server-side com secret key
+│   └── claude.ts                     # chama Haiku 4.5 e parseia JSON
 ├── data/
-│   ├── cenas.ts                      # roteiro estruturado
-│   ├── cursos.ts                     # 31 cursos com vetor
-│   └── codinomes.ts                  # prefixos astronômicos
+│   ├── cenas.ts                      # 9 cenas pontuáveis estruturadas
+│   ├── cursos.ts                     # 31 cursos UFTM com vetor
+│   ├── bixinhos.ts                   # mapa eixo → sprite
+│   ├── bixinhos-fallback.ts          # templates pré-escritos se Haiku falhar
+│   └── codinomes.ts                  # re-export de gerarCodinome
 ├── public/
-│   ├── sprites/                      # 6 PNGs pixel art
-│   ├── og-image.png                  # OG image estática
-│   └── qr-code.png                   # QR Code do quiz
-└── ...
+│   └── sprites/                      # 6 SVGs pixel art + preview.html
+├── supabase/
+│   └── migrations/001_init.sql       # Schema das tabelas sessoes + eventos
+├── scripts/
+│   ├── test-connections.ts           # smoke test Supabase + Anthropic
+│   └── check-sessoes.ts              # lista últimas 10 sessões salvas
+└── docs/                             # esta documentação
 ```
 
 ---
@@ -227,31 +233,30 @@ uftm-teste-vocacional/
 
 ```bash
 # .env.local (NUNCA commitar)
+# Supabase usa o NOVO formato de keys (2025+): publishable + secret
 ANTHROPIC_API_KEY=sk-ant-...
-NEXT_PUBLIC_SUPABASE_URL=https://....supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=ey...
-SUPABASE_SERVICE_ROLE_KEY=ey...
-NEXT_PUBLIC_SITE_URL=https://protocolo-vocacao-uftm.vercel.app
+NEXT_PUBLIC_SUPABASE_URL=https://SEU-PROJETO.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+SUPABASE_SECRET_KEY=sb_secret_...
+NEXT_PUBLIC_SITE_URL=https://uftm-teste-vocacional.vercel.app
 ```
 
 ---
 
-## Comandos de setup (D1)
+## Comandos de setup (já executados em D1)
 
 ```bash
 npx create-next-app@latest uftm-teste-vocacional --typescript --tailwind --app
 
 cd uftm-teste-vocacional
 npm install @supabase/supabase-js @anthropic-ai/sdk html2canvas
+npm install -D tsx dotenv
 
-# Já está no git, conectar à Vercel:
-vercel link
-vercel env add ANTHROPIC_API_KEY
-vercel env add NEXT_PUBLIC_SUPABASE_URL
-# etc...
-
+cp .env.local.example .env.local   # depois preencher
 npm run dev
 ```
+
+A Vercel está conectada via integração com GitHub — push pra `main` faz redeploy automaticamente. Env vars setadas no painel Vercel.
 
 ---
 
