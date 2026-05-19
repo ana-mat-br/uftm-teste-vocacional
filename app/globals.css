@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* === Paleta Synthwave Sunset === */
+:root {
+  --bg-deep: #1a0633;
+  --bg-mid: #4a1078;
+  --sun-orange: #ff6b35;
+  --sun-pink: #ff2e93;
+  --sun-yellow: #ffcc00;
+  --grid-cyan: #00f0ff;
+  --text: #fff8e7;
+  --text-dim: #d4a8ff;
+
+  --whatsapp: #25d366;
+  --twitter: #1da1f2;
+}
+
+@theme inline {
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-mid: var(--bg-mid);
+  --color-sun-orange: var(--sun-orange);
+  --color-sun-pink: var(--sun-pink);
+  --color-sun-yellow: var(--sun-yellow);
+  --color-grid-cyan: var(--grid-cyan);
+  --color-text-bright: var(--text);
+  --color-text-dim: var(--text-dim);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: 'Pixelify Sans', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fundo synthwave global */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 50% 75%, var(--sun-yellow) 0%, var(--sun-orange) 25%, var(--sun-pink) 50%, transparent 70%),
+    linear-gradient(180deg,
+      #1a0633 0%,
+      #3d0a5c 25%,
+      #6b0f8a 45%,
+      #ff2e93 60%,
+      #ff6b35 75%,
+      #ffcc00 85%,
+      #1a0633 100%
+    );
+  z-index: -2;
+}
+
+/* Grid em perspectiva no chão */
+body::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40vh;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(300px) rotateX(60deg);
+  transform-origin: bottom;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+  mask-image: linear-gradient(to top, black 50%, transparent 100%);
+}
+
+/* Scanlines CRT sutis */
+body > * {
+  position: relative;
+}
+
+/* === Tipografia pixel === */
+.font-pixel-title {
+  font-family: 'Press Start 2P', monospace;
+}
+.font-pixel-body {
+  font-family: 'Pixelify Sans', monospace;
+}
+.font-terminal {
+  font-family: 'VT323', monospace;
+}
+
+/* === Glow utilities === */
+.glow-pink {
+  text-shadow: 0 0 14px var(--sun-pink), 0 2px 0 var(--sun-orange);
+}
+.glow-yellow {
+  text-shadow: 0 0 16px var(--sun-yellow);
+}
+.glow-cyan {
+  text-shadow: 0 0 8px var(--grid-cyan);
+}
+
+/* === Pixel art sprite === */
+.pixel-sprite {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* === Animações === */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.anim-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.anim-pulse { animation: pulse-glow 2s infinite; }
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.7; }
+  97% { opacity: 1; }
+  98% { opacity: 0.8; }
+}
+.anim-flicker { animation: flicker 8s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float, .anim-pulse, .anim-flicker {
+    animation: none;
+  }
+}
