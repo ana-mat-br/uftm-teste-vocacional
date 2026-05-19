@@ -1,0 +1,42 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / Next.js (futuro)
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build / cache
+dist/
+build/
+.cache/
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Sprites / arquivos de trabalho de arte
+*.aseprite
+*.psd
+*.kra
+sprites-raw/
+
+# Segredos e credenciais
+*.key
+*.pem
+.secrets

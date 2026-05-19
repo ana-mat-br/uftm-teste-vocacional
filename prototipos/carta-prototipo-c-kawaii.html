@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocolo Vocação — Kawaii | UFTM 2087</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #ffd6f0;
+    --bg-mid: #e0c3ff;
+    --pastel-pink: #ff8fc8;
+    --pastel-purple: #c89aff;
+    --pastel-cyan: #8eecff;
+    --pastel-mint: #a6f0c8;
+    --pastel-yellow: #fff5a0;
+    --text: #4a1e5e;
+    --text-dim: #8a5fb0;
+    --accent: #ff5fa8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: 'Pixelify Sans', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Fundo kawaii: gradiente suave + bolhinhas */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, var(--pastel-cyan) 0%, transparent 25%),
+      radial-gradient(circle at 85% 70%, var(--pastel-yellow) 0%, transparent 25%),
+      radial-gradient(circle at 50% 90%, var(--pastel-mint) 0%, transparent 30%),
+      linear-gradient(135deg, #ffd6f0 0%, #e0c3ff 50%, #d6f0ff 100%);
+    z-index: -2;
+  }
+
+  /* Estrelinhas pixeladas flutuando */
+  body::after {
+    content: '✦   ⋆   ✧       ✦     ⋆        ✧   ✦        ⋆     ✧   ✦     ⋆';
+    position: fixed;
+    inset: 0;
+    font-size: 20px;
+    color: rgba(255, 95, 168, 0.4);
+    word-spacing: 30px;
+    line-height: 80px;
+    padding: 40px;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    letter-spacing: 4px;
+  }
+
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Cabeçalho */
+  .terminal-header {
+    border: 2px solid var(--accent);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 12px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 0 var(--pastel-purple);
+    border-radius: 12px;
+  }
+
+  .terminal-header .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+
+  /* Painel principal */
+  .panel {
+    border: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.92);
+    margin-top: 16px;
+    padding: 24px 20px;
+    box-shadow:
+      0 6px 0 var(--pastel-purple),
+      0 0 30px rgba(255, 143, 200, 0.3);
+    border-radius: 20px;
+    position: relative;
+  }
+
+  /* Cantinhos kawaii */
+  .panel::before, .panel::after {
+    content: '♡';
+    position: absolute;
+    font-size: 20px;
+    color: var(--accent);
+    top: -14px;
+  }
+  .panel::before { left: 20px; }
+  .panel::after { right: 20px; }
+
+  .panel-label {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .protocol-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* Bixinho */
+  .bixinho-area {
+    text-align: center;
+    margin: 20px 0;
+    padding: 24px 0;
+    background: linear-gradient(180deg, rgba(255, 143, 200, 0.15), rgba(142, 236, 255, 0.15));
+    border-radius: 16px;
+    border: 2px dashed var(--pastel-purple);
+  }
+
+  .bixinho-sprite {
+    width: 128px;
+    height: 128px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 4px 0 rgba(255, 95, 168, 0.3));
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+  }
+
+  .bixinho-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-top: 16px;
+    letter-spacing: 1px;
+  }
+
+  .bixinho-name::before, .bixinho-name::after {
+    content: '✦';
+    color: var(--pastel-purple);
+    margin: 0 6px;
+  }
+
+  .bixinho-desc {
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 0 12px;
+  }
+
+  /* Resultado */
+  .result-block {
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .result-label {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .result-role {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .result-course {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-top: 8px;
+    text-shadow: 0 3px 0 var(--pastel-purple);
+  }
+
+  /* Alternativas */
+  .alternatives {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 2px dotted var(--pastel-purple);
+  }
+
+  .alt-label {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .alt-list { list-style: none; }
+
+  .alt-list li {
+    font-size: 16px;
+    color: var(--text);
+    padding: 6px 0 6px 22px;
+    position: relative;
+  }
+
+  .alt-list li::before {
+    content: '♡';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+  }
+
+  .campus-tag {
+    display: inline-block;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--pastel-yellow);
+    padding: 2px 8px;
+    margin-left: 6px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Mensagem do bixinho */
+  .bixinho-msg {
+    margin: 24px 0 8px;
+    padding: 14px 16px;
+    background: var(--pastel-yellow);
+    border-radius: 16px 16px 16px 4px;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .bixinho-msg::before {
+    content: '♡ ';
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* Compartilhamento */
+  .share-section { margin-top: 28px; }
+
+  .share-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+  }
+
+  .share-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .share-btn {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 8px;
+    border: 2px solid;
+    background: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .share-btn:hover, .share-btn:active {
+    transform: translateY(-3px);
+  }
+
+  .share-btn.ig {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 4px 0 var(--accent);
+  }
+  .share-btn.wa {
+    border-color: #25d366;
+    color: #25d366;
+    box-shadow: 0 4px 0 #25d366;
+  }
+  .share-btn.tw {
+    border-color: #1da1f2;
+    color: #1da1f2;
+    box-shadow: 0 4px 0 #1da1f2;
+  }
+
+  /* Rodapé */
+  .footer {
+    margin-top: 24px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .restart-btn {
+    margin-top: 16px;
+    display: inline-block;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
+    padding-bottom: 2px;
+  }
+
+  @media (max-width: 360px) {
+    .protocol-title { font-size: 10px; }
+    .result-course { font-size: 26px; }
+    .share-btn { font-size: 12px; padding: 12px 4px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="terminal-header">
+      <span><span class="dot"></span>UFTM-KEPLER ♡ OS v2087.5</span>
+      <span>14:23</span>
+    </div>
+
+    <div class="panel">
+
+      <div class="panel-label">// transmissão final</div>
+      <div class="protocol-title">
+        COMISSÃO<br>INTERESTELAR UFTM<br>
+        <span style="color: var(--text-dim); font-size: 10px;">protocolo vocação ♡ resultado</span>
+      </div>
+
+      <div class="bixinho-area">
+        <svg class="bixinho-sprite" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <rect x="5" y="3" width="6" height="1" fill="#ff8fc8"/>
+          <rect x="4" y="4" width="8" height="1" fill="#ff8fc8"/>
+          <rect x="3" y="5" width="10" height="1" fill="#ffb3d9"/>
+          <rect x="3" y="6" width="10" height="1" fill="#ffb3d9"/>
+          <rect x="3" y="7" width="10" height="1" fill="#ffb3d9"/>
+          <rect x="5" y="6" width="2" height="2" fill="#4a1e5e"/>
+          <rect x="9" y="6" width="2" height="2" fill="#4a1e5e"/>
+          <rect x="6" y="6" width="1" height="1" fill="#fff"/>
+          <rect x="10" y="6" width="1" height="1" fill="#fff"/>
+          <rect x="3" y="8" width="1" height="1" fill="#ff5fa8" opacity="0.7"/>
+          <rect x="12" y="8" width="1" height="1" fill="#ff5fa8" opacity="0.7"/>
+          <rect x="3" y="8" width="10" height="1" fill="#ffb3d9"/>
+          <rect x="4" y="9" width="8" height="1" fill="#ff8fc8"/>
+          <rect x="5" y="10" width="6" height="1" fill="#ff5fa8"/>
+          <rect x="7" y="1" width="1" height="2" fill="#c89aff"/>
+          <rect x="7" y="0" width="2" height="1" fill="#fff5a0"/>
+          <rect x="8" y="3" width="1" height="2" fill="#c89aff"/>
+          <rect x="4" y="11" width="2" height="1" fill="#ff8fc8"/>
+          <rect x="10" y="11" width="2" height="1" fill="#ff8fc8"/>
+        </svg>
+        <div class="bixinho-name">KÉPLER-Δ7</div>
+        <div class="bixinho-desc">
+          "um pouco ansiosa, mas anota tudo. especialista em chorar junto. 0% má."
+        </div>
+      </div>
+
+      <div class="result-block">
+        <div class="result-label">// candidata</div>
+        <div class="result-role">ANA</div>
+
+        <div class="result-label" style="margin-top: 16px;">// papel identificado</div>
+        <div class="result-role">OFICIAL MÉDICA<br>DE BORDO</div>
+
+        <div class="result-label" style="margin-top: 16px;">// no séc. XXI</div>
+        <div class="result-course">Medicina</div>
+        <div style="font-size: 14px; color: var(--text-dim); margin-top: 4px;">
+          <span class="campus-tag">UBERABA</span>
+        </div>
+      </div>
+
+      <div class="alternatives">
+        <div class="alt-label">// funções compatíveis também</div>
+        <ul class="alt-list">
+          <li>Psicologia <span class="campus-tag">UBERABA</span></li>
+          <li>Enfermagem <span class="campus-tag">UBERABA</span></li>
+        </ul>
+        <div style="font-size: 13px; color: var(--text-dim); margin-top: 8px; font-family: 'VT323', monospace;">
+          → visite os estandes correspondentes na feira ♡
+        </div>
+      </div>
+
+      <div class="bixinho-msg">
+        ana, foi um barato. me leva no print quando você passar no vestibular, viu? — kpd7 ♡
+      </div>
+
+    </div>
+
+    <div class="share-section">
+      <div class="share-title">♡ COMPARTILHE SEU RESULTADO ♡</div>
+      <div class="share-buttons">
+        <a class="share-btn ig" href="#" onclick="alert('No produto real: gera imagem 9:16'); return false;">📷 IG</a>
+        <a class="share-btn wa" href="https://wa.me/?text=acabei%20o%20Protocolo%20Vocação%20UFTM%20♡" target="_blank">💬 WA</a>
+        <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Protocolo%20Vocação%20UFTM%202087%20♡" target="_blank">𝕏 X</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      ‧₊˚ ♡ ˚₊‧<br>
+      UFTM ♡ Feira de Profissões 2026<br>
+      <a class="restart-btn" href="#">↻ refazer o protocolo</a>
+    </div>
+
+  </div>
+</body>
+</html>

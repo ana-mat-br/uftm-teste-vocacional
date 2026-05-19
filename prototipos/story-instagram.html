@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview Story Instagram — Protocolo Vocação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sun-orange: #ff6b35;
+    --sun-pink: #ff2e93;
+    --sun-yellow: #ffcc00;
+    --grid-cyan: #00f0ff;
+    --text: #fff8e7;
+    --text-dim: #d4a8ff;
+  }
+
+  body {
+    background: #222;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Pixelify Sans', monospace;
+  }
+
+  /* 9:16. Preview escalado: 360x640 */
+  .story-container {
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 0 60px rgba(255, 46, 147, 0.5);
+    background:
+      /* sol gigante atrás do bixinho */
+      radial-gradient(ellipse 380px 280px at 50% 42%, var(--sun-yellow) 0%, var(--sun-orange) 30%, var(--sun-pink) 55%, transparent 75%),
+      /* céu sunset */
+      linear-gradient(180deg,
+        #1a0633 0%,
+        #3d0a5c 20%,
+        #6b0f8a 40%,
+        #ff2e93 60%,
+        #ff6b35 78%,
+        #ffcc00 88%,
+        #1a0633 100%
+      );
+    color: var(--text);
+  }
+
+  /* Grid em perspectiva */
+  .story-container::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 30%;
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.6) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: perspective(180px) rotateX(55deg);
+    transform-origin: bottom;
+    mask-image: linear-gradient(to top, black 45%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Scanlines */
+  .story-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(255, 255, 255, 0.04) 3px,
+      rgba(255, 255, 255, 0.04) 3px
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .story-content {
+    position: relative;
+    z-index: 5;
+    padding: 18px 22px 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Topo: marca */
+  .top-brand {
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: var(--grid-cyan);
+    text-shadow: 0 0 8px var(--grid-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .top-brand .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--sun-pink);
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    box-shadow: 0 0 6px var(--sun-pink);
+  }
+
+  /* Header do protocolo */
+  .protocol-header {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--sun-yellow);
+    text-shadow: 0 0 10px var(--sun-orange);
+    line-height: 1.7;
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* Nome do aluno */
+  .candidate-label {
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+  .candidate-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    color: var(--text);
+    text-shadow:
+      0 0 14px var(--sun-pink),
+      0 2px 0 var(--sun-orange);
+    margin: 6px 0 0;
+    letter-spacing: 2px;
+  }
+
+  /* Bixinho gigante */
+  .bixinho-wrap {
+    margin: 4px auto 0;
+  }
+
+  .bixinho-sprite {
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    filter:
+      drop-shadow(0 0 12px var(--sun-yellow))
+      drop-shadow(0 0 20px var(--sun-pink));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .bixinho-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--sun-yellow);
+    text-shadow: 0 0 10px var(--sun-orange);
+    margin-top: 2px;
+    letter-spacing: 2px;
+  }
+
+  /* Resultado: curso */
+  .result-area {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 2px solid var(--sun-pink);
+    background: rgba(26, 6, 51, 0.6);
+    backdrop-filter: blur(4px);
+    box-shadow:
+      0 0 25px rgba(255, 46, 147, 0.5),
+      inset 0 0 15px rgba(255, 107, 53, 0.15);
+    border-radius: 4px;
+  }
+
+  .result-label {
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .result-role {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--sun-pink);
+    text-shadow: 0 0 10px var(--sun-pink);
+    margin: 4px 0 6px;
+    line-height: 1.5;
+  }
+
+  .result-course {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--sun-yellow);
+    text-shadow:
+      0 0 16px var(--sun-orange),
+      0 2px 0 var(--sun-pink);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  /* Bottom: call to action + QR */
+  .bottom-cta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 10px;
+  }
+
+  .qr-code {
+    width: 64px;
+    height: 64px;
+    background: white;
+    padding: 3px;
+    flex-shrink: 0;
+    image-rendering: pixelated;
+    border-radius: 4px;
+  }
+
+  .qr-code svg { width: 100%; height: 100%; }
+
+  .cta-text {
+    text-align: left;
+    flex: 1;
+  }
+
+  .cta-text .small {
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .cta-text .big {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+
+  .cta-text .handle {
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: var(--sun-yellow);
+    text-shadow: 0 0 6px var(--sun-yellow);
+    margin-top: 3px;
+  }
+
+  /* Nota de design */
+  .design-note {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #888;
+    font-family: monospace;
+    font-size: 12px;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 12px;
+    border-radius: 4px;
+    line-height: 1.5;
+  }
+
+  .design-note strong { color: var(--sun-pink); }
+</style>
+</head>
+<body>
+
+  <div class="design-note">
+    <strong>preview do story</strong><br>
+    9:16 (1080×1920)<br>
+    escala atual: ~33%<br>
+    <em>imagem que o aluno baixa<br>e posta no IG Stories</em>
+  </div>
+
+  <div class="story-container">
+    <div class="story-content">
+
+      <div class="top-brand"><span class="dot"></span>PROTOCOLO VOCAÇÃO 2087</div>
+
+      <div class="protocol-header">
+        COMISSÃO INTERESTELAR<br>UFTM
+      </div>
+
+      <div class="candidate-label">// candidata</div>
+      <div class="candidate-name">ANA</div>
+
+      <div class="bixinho-wrap">
+        <svg class="bixinho-sprite" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <rect x="5" y="3" width="6" height="1" fill="#ffcc00"/>
+          <rect x="4" y="4" width="8" height="1" fill="#ff6b35"/>
+          <rect x="3" y="5" width="10" height="1" fill="#ff2e93"/>
+          <rect x="3" y="6" width="10" height="1" fill="#ff2e93"/>
+          <rect x="3" y="7" width="10" height="1" fill="#ff2e93"/>
+          <rect x="5" y="6" width="2" height="2" fill="#00f0ff"/>
+          <rect x="9" y="6" width="2" height="2" fill="#00f0ff"/>
+          <rect x="6" y="6" width="1" height="1" fill="#fff"/>
+          <rect x="10" y="6" width="1" height="1" fill="#fff"/>
+          <rect x="3" y="8" width="1" height="1" fill="#ffcc00" opacity="0.7"/>
+          <rect x="12" y="8" width="1" height="1" fill="#ffcc00" opacity="0.7"/>
+          <rect x="3" y="8" width="10" height="1" fill="#ff2e93"/>
+          <rect x="4" y="9" width="8" height="1" fill="#ff6b35"/>
+          <rect x="5" y="10" width="6" height="1" fill="#ffcc00"/>
+          <rect x="7" y="1" width="1" height="2" fill="#ffcc00"/>
+          <rect x="7" y="0" width="2" height="1" fill="#00f0ff"/>
+          <rect x="8" y="3" width="1" height="2" fill="#ffcc00"/>
+          <rect x="4" y="11" width="2" height="1" fill="#ff6b35"/>
+          <rect x="10" y="11" width="2" height="1" fill="#ff6b35"/>
+        </svg>
+        <div class="bixinho-name">KÉPLER-Δ7</div>
+      </div>
+
+      <div class="result-area">
+        <div class="result-label">// papel</div>
+        <div class="result-role">OFICIAL MÉDICA<br>DE BORDO</div>
+        <div class="result-label">// no séc. XXI</div>
+        <div class="result-course">Medicina</div>
+      </div>
+
+      <div class="bottom-cta">
+        <div class="qr-code">
+          <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="25" height="25" fill="white"/>
+            <g fill="#1a0633">
+              <rect x="0" y="0" width="7" height="7"/>
+              <rect x="1" y="1" width="5" height="5" fill="white"/>
+              <rect x="2" y="2" width="3" height="3"/>
+              <rect x="18" y="0" width="7" height="7"/>
+              <rect x="19" y="1" width="5" height="5" fill="white"/>
+              <rect x="20" y="2" width="3" height="3"/>
+              <rect x="0" y="18" width="7" height="7"/>
+              <rect x="1" y="19" width="5" height="5" fill="white"/>
+              <rect x="2" y="20" width="3" height="3"/>
+              <rect x="8" y="2" width="1" height="1"/>
+              <rect x="10" y="3" width="1" height="1"/>
+              <rect x="12" y="2" width="1" height="1"/>
+              <rect x="14" y="4" width="1" height="1"/>
+              <rect x="16" y="3" width="1" height="1"/>
+              <rect x="9" y="5" width="2" height="1"/>
+              <rect x="13" y="6" width="1" height="2"/>
+              <rect x="15" y="7" width="2" height="1"/>
+              <rect x="10" y="9" width="3" height="1"/>
+              <rect x="14" y="9" width="1" height="2"/>
+              <rect x="8" y="11" width="2" height="2"/>
+              <rect x="12" y="11" width="1" height="3"/>
+              <rect x="15" y="12" width="2" height="1"/>
+              <rect x="18" y="10" width="1" height="3"/>
+              <rect x="20" y="11" width="1" height="2"/>
+              <rect x="22" y="12" width="2" height="1"/>
+              <rect x="9" y="14" width="1" height="2"/>
+              <rect x="11" y="15" width="2" height="1"/>
+              <rect x="14" y="14" width="1" height="3"/>
+              <rect x="16" y="16" width="2" height="1"/>
+              <rect x="19" y="15" width="2" height="2"/>
+              <rect x="22" y="14" width="1" height="3"/>
+              <rect x="9" y="18" width="1" height="2"/>
+              <rect x="11" y="19" width="3" height="1"/>
+              <rect x="15" y="20" width="2" height="2"/>
+              <rect x="18" y="19" width="1" height="3"/>
+              <rect x="20" y="20" width="1" height="2"/>
+              <rect x="22" y="22" width="2" height="2"/>
+              <rect x="9" y="22" width="2" height="1"/>
+              <rect x="13" y="22" width="1" height="2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="cta-text">
+          <div class="small">// teu papel na expedição?</div>
+          <div class="big">faz o teste e descobre</div>
+          <div class="handle">@uftm.oficial</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
