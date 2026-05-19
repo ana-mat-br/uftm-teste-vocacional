@@ -70,6 +70,24 @@ export function useSessao() {
     });
   }, []);
 
+  /**
+   * Marca desempate como aplicado. Se um novo vetor for passado,
+   * substitui o vetor da sessão (caso o usuário tenha escolhido o
+   * bonus). Se não passar vetor, só marca como visto.
+   */
+  const marcarDesempate = useCallback((novoVetor?: VetorEixos) => {
+    setSessao((atual) => {
+      if (!atual) return atual;
+      const proxima: Sessao = {
+        ...atual,
+        desempateAplicado: true,
+        vetor: novoVetor ?? atual.vetor,
+      };
+      salvarSessao(proxima);
+      return proxima;
+    });
+  }, []);
+
   /** Apaga tudo. Útil pra começar de novo. */
   const reset = useCallback(() => {
     limparSessao();
@@ -83,6 +101,7 @@ export function useSessao() {
     responder,
     finalizar,
     reset,
+    marcarDesempate,
   };
 }
 

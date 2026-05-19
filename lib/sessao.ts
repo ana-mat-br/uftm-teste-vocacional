@@ -18,6 +18,8 @@ export type Sessao = {
   vetor: VetorEixos;
   respostas: Resposta[];
   finalizado: boolean;
+  /** Verdadeiro se o aluno já passou pela cena de desempate (ou se não precisou). */
+  desempateAplicado?: boolean;
 };
 
 export function vetorZerado(): VetorEixos {

@@ -40,3 +40,32 @@ export function eixoDominante(vetor: VetorEixos): EixoSigla {
   }
   return EIXOS[maxIdx];
 }
+
+/**
+ * Detecta se o top 1 venceu por uma margem apertada sobre o top 2.
+ * Se sim, indicamos disparar a cena de desempate.
+ *
+ * Threshold = 0.05 (5%) de gap de similaridade cosseno.
+ */
+export function precisaDesempate(top3: CursoComScore[], threshold = 0.05): boolean {
+  if (top3.length < 2) return false;
+  const gap = top3[0].score - top3[1].score;
+  return gap < threshold;
+}
+
+/**
+ * Aplica bonus do desempate ao vetor do aluno: adiciona o vetor do curso
+ * escolhido (×2) ao vetor atual. Isso "puxa" o resultado pra família de
+ * cursos similares, em vez de só boostar 1 eixo.
+ */
+export function aplicarBonusDesempate(vetor: VetorEixos, vetorCurso: VetorEixos): VetorEixos {
+  const FATOR = 2;
+  return [
+    vetor[0] + vetorCurso[0] * FATOR,
+    vetor[1] + vetorCurso[1] * FATOR,
+    vetor[2] + vetorCurso[2] * FATOR,
+    vetor[3] + vetorCurso[3] * FATOR,
+    vetor[4] + vetorCurso[4] * FATOR,
+    vetor[5] + vetorCurso[5] * FATOR,
+  ];
+}

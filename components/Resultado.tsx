@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useSessao } from "@/lib/use-sessao";
-import { SPRITES_POR_EIXO, NOME_EIXO_LONGO } from "@/data/bixinhos";
-import type { EixoSigla } from "@/lib/matching";
+import { SPRITES_POR_EIXO } from "@/data/bixinhos";
+import { topCursos, precisaDesempate, type EixoSigla } from "@/lib/matching";
 import type { Campus } from "@/data/cursos";
 
 type CursoResultado = {
@@ -44,16 +44,30 @@ export default function Resultado() {
   const [carregandoLLM, setCarregandoLLM] = useState(false);
   const chamouRef = useRef(false);
 
-  // Se não tem sessão, manda pra home
+  // Se não tem sessão, manda pra home. Se precisa desempatar primeiro,
+  // manda pra /desempate (ele volta pra cá depois).
   useEffect(() => {
-    if (!carregandoSessao && !sessao) {
+    if (carregandoSessao) return;
+    if (!sessao) {
       router.replace("/");
+      return;
+    }
+    if (!sessao.desempateAplicado) {
+      const top3 = topCursos(sessao.vetor, 3);
+      if (precisaDesempate(top3)) {
+        router.replace("/desempate");
+      }
     }
   }, [carregandoSessao, sessao, router]);
 
   // Quando a sessão carregar, chama /api/finalizar (1x só, mesmo com re-renders)
   useEffect(() => {
     if (!sessao || chamouRef.current) return;
+    // Não chama o endpoint enquanto pode ter desempate pendente
+    if (!sessao.desempateAplicado) {
+      const top3 = topCursos(sessao.vetor, 3);
+      if (precisaDesempate(top3)) return;
+    }
     chamouRef.current = true;
     setCarregandoLLM(true);
 
