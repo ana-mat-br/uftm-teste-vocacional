@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mocks Co-piloto — Comparação</title>
+<style>
+  body {
+    background: linear-gradient(180deg, #1a0633 0%, #4a1078 50%, #1a0633 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px 12px 48px;
+    font-family: monospace;
+    color: #fff8e7;
+  }
+  h1 {
+    text-align: center;
+    color: #ffcc00;
+    font-size: 16px;
+    text-shadow: 0 0 10px #ff6b35;
+    letter-spacing: 2px;
+    margin: 0 0 8px;
+  }
+  .sub {
+    text-align: center;
+    color: #d4a8ff;
+    font-size: 13px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  section {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 20px;
+    border: 1px dashed rgba(176, 38, 255, 0.5);
+    background: rgba(26, 6, 51, 0.6);
+  }
+  h2 {
+    color: #ff2e93;
+    font-size: 14px;
+    margin: 0 0 4px;
+    text-shadow: 0 0 8px #ff2e93;
+    letter-spacing: 2px;
+  }
+  .desc {
+    color: #d4a8ff;
+    font-size: 12px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .item {
+    text-align: center;
+  }
+  .item img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    filter:
+      drop-shadow(0 0 6px #00f0ff)
+      drop-shadow(0 0 14px #ff2e93);
+    display: block;
+    margin: 0 auto 8px;
+  }
+  .item .label {
+    font-size: 11px;
+    color: #ffcc00;
+    letter-spacing: 1px;
+  }
+  .item .size {
+    font-size: 10px;
+    color: #d4a8ff;
+    margin-top: 2px;
+    opacity: 0.7;
+  }
+
+  .size-16 { width: 128px; height: 128px; }
+  .size-24 { width: 144px; height: 144px; }
+  .size-32 { width: 160px; height: 160px; }
+
+  /* Hue-rotate demo */
+  .hue-1 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93); }
+  .hue-2 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(60deg); }
+  .hue-3 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(140deg); }
+  .hue-4 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(220deg); }
+  .hue-5 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(300deg); }
+
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    color: #d4a8ff;
+    font-size: 12px;
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+  <h1>▸ MOCKS CO-PILOTO</h1>
+  <p class="sub">
+    Comparação pra você escolher como prosseguir.<br>
+    Cada sprite tá renderizado em 128/144/160px com pixel-art rendering.
+  </p>
+
+  <section>
+    <h2>1. CUIDADOR — atual vs refinado 16×16 (caminho A)</h2>
+    <p class="desc">Mesmo tamanho, mas com sombreamento triplo (3 tons de rosa), boca sorridente, mãozinhas estendidas (gesto de cuidar) e bochechas mais marcadas. ~30 min/sprite × 7 = 3h pra reproduzir nos 7 eixos.</p>
+    <div class="row">
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16" alt="atual">
+        <div class="label">ATUAL</div>
+        <div class="size">16×16 · ~30 pixels coloridos</div>
+      </div>
+      <div class="item">
+        <img src="cuidador-16-v2.svg" class="size-16" alt="refinado">
+        <div class="label">REFINADO</div>
+        <div class="size">16×16 · ~50 pixels coloridos</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. CUIDADOR — 24×24 (caminho B)</h2>
+    <p class="desc">Quase o dobro de pixels (576 vs 256). Espaço pra olhos com reflexo, mais detalhes no corpo, sapatos. Tempo: ~45 min/sprite × 7 = 5h.</p>
+    <div class="row">
+      <div class="item">
+        <img src="cuidador-24.svg" class="size-24" alt="24x24">
+        <div class="label">24×24</div>
+        <div class="size">corpo proporcional, olhos detalhados</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. CUIDADOR — 32×32 (caminho C, Stardew-tier)</h2>
+    <p class="desc">~1000 pixels úteis. Pode ter sobrancelhas, gradientes, sombreamento mais elaborado. Tempo: ~1h30/sprite × 7 = 10h. Cabe no cronograma só se você topar usar D5 inteiro pra isso.</p>
+    <div class="row">
+      <div class="item">
+        <img src="cuidador-32.svg" class="size-32" alt="32x32">
+        <div class="label">32×32</div>
+        <div class="size">sobrancelhas, reflexos, pés definidos</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. HUE-ROTATE — mesmo sprite, cores únicas por aluno</h2>
+    <p class="desc">CSS aplica <code>hue-rotate(NgGrau)</code> baseado em hash do codinome. Mesmo desenho, paletas diferentes. Sensação visual de "meu co-piloto é único". 0min de design, 5min de código.</p>
+    <div class="row">
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16 hue-1" alt="original">
+        <div class="label">ORIGINAL</div>
+        <div class="size">hue 0°</div>
+      </div>
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16 hue-2" alt="hue 60">
+        <div class="label">+60°</div>
+        <div class="size">amarelo/verde</div>
+      </div>
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16 hue-3" alt="hue 140">
+        <div class="label">+140°</div>
+        <div class="size">azul/verde</div>
+      </div>
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16 hue-4" alt="hue 220">
+        <div class="label">+220°</div>
+        <div class="size">azul/roxo</div>
+      </div>
+      <div class="item">
+        <img src="../../public/sprites/cuidador.svg" class="size-16 hue-5" alt="hue 300">
+        <div class="label">+300°</div>
+        <div class="size">magenta/rosa</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. INVESTIGADOR refinado 16×16 (consistência entre eixos)</h2>
+    <p class="desc">Pra você ver se a melhoria escala pros outros co-pilotos: o investigador refinado tem óculos cyan, sensor brilhante, bocha pensativa e — bônus — uma lupa amarela na mãozinha esquerda.</p>
+    <div class="row">
+      <div class="item">
+        <img src="../../public/sprites/investigador.svg" class="size-16" alt="atual">
+        <div class="label">ATUAL</div>
+      </div>
+      <div class="item">
+        <img src="investigador-16-v2.svg" class="size-16" alt="refinado">
+        <div class="label">REFINADO</div>
+        <div class="size">com lupa na mão</div>
+      </div>
+    </div>
+  </section>
+
+  <p class="footer">
+    Cada section é um caminho independente. Pode misturar (ex: refinar 16×16 + hue-rotate).
+  </p>
+</body>
+</html>

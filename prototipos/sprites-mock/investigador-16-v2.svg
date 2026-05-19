@@ -1,0 +1,51 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <!-- Investigador 16x16 v2: sensor + óculos melhores + lupa em uma mãozinha -->
+  <!-- Sensor (cyan brilhante) -->
+  <rect x="7" y="0" width="2" height="1" fill="#00f0ff"/>
+  <rect x="6" y="1" width="4" height="2" fill="#00f0ff"/>
+  <rect x="7" y="1" width="1" height="1" fill="#fff"/>
+  <rect x="9" y="1" width="1" height="1" fill="#00b8cc"/>
+  <rect x="6" y="2" width="1" height="1" fill="#00b8cc"/>
+  <rect x="7" y="3" width="2" height="1" fill="#4a1078"/>
+  <!-- Cabeça (3 tons de roxo) -->
+  <rect x="4" y="4" width="8" height="1" fill="#5c1480"/>
+  <rect x="3" y="5" width="10" height="1" fill="#7a1eab"/>
+  <rect x="4" y="5" width="1" height="1" fill="#b026ff"/>
+  <rect x="3" y="6" width="10" height="1" fill="#b026ff"/>
+  <rect x="3" y="7" width="10" height="1" fill="#7a1eab"/>
+  <rect x="3" y="8" width="10" height="1" fill="#5c1480"/>
+  <!-- Óculos (aro cyan ao redor dos olhos) -->
+  <rect x="4" y="6" width="1" height="1" fill="#00f0ff"/>
+  <rect x="7" y="6" width="2" height="1" fill="#00f0ff"/>
+  <rect x="11" y="6" width="1" height="1" fill="#00f0ff"/>
+  <rect x="4" y="7" width="1" height="1" fill="#00f0ff"/>
+  <rect x="11" y="7" width="1" height="1" fill="#00f0ff"/>
+  <!-- Olhos (cyan brilhante) -->
+  <rect x="5" y="6" width="2" height="2" fill="#00f0ff"/>
+  <rect x="9" y="6" width="2" height="2" fill="#00f0ff"/>
+  <rect x="6" y="6" width="1" height="1" fill="#fff"/>
+  <rect x="10" y="6" width="1" height="1" fill="#fff"/>
+  <!-- Bocha (semi-aberta, vibe pensativa) -->
+  <rect x="7" y="8" width="2" height="1" fill="#ff2e93"/>
+  <rect x="7" y="9" width="2" height="1" fill="#cc1a6e"/>
+  <!-- Bochechas (LED ciano) -->
+  <rect x="3" y="9" width="1" height="1" fill="#00f0ff"/>
+  <rect x="12" y="9" width="1" height="1" fill="#00f0ff"/>
+  <!-- Corpo -->
+  <rect x="4" y="9" width="3" height="1" fill="#7a1eab"/>
+  <rect x="9" y="9" width="3" height="1" fill="#7a1eab"/>
+  <rect x="3" y="10" width="10" height="1" fill="#b026ff"/>
+  <rect x="4" y="10" width="8" height="1" fill="#7a1eab"/>
+  <rect x="5" y="11" width="6" height="1" fill="#ff2e93"/>
+  <!-- Mãozinha esquerda com lupa pequena -->
+  <rect x="2" y="10" width="1" height="1" fill="#b026ff"/>
+  <rect x="0" y="9" width="2" height="2" fill="#fff95e"/>
+  <rect x="0" y="9" width="1" height="1" fill="#ffcc00"/>
+  <!-- Mãozinha direita -->
+  <rect x="13" y="10" width="1" height="1" fill="#b026ff"/>
+  <!-- Pernas -->
+  <rect x="4" y="12" width="2" height="1" fill="#ff2e93"/>
+  <rect x="10" y="12" width="2" height="1" fill="#ff2e93"/>
+  <rect x="4" y="13" width="2" height="1" fill="#cc1a6e"/>
+  <rect x="10" y="13" width="2" height="1" fill="#cc1a6e"/>
+</svg>
