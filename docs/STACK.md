@@ -24,7 +24,7 @@
 │  (Postgres)  │    │  Claude Haiku 4.5        │
 │  ANÔNIMO:    │    │  Input: codinome, vetor, │
 │  • sessoes   │    │         curso            │
-│  • eventos   │    │  Output: nome bixinho,   │
+│  • eventos   │    │  Output: nome co-piloto,   │
 │              │    │          personalidade,  │
 │              │    │          msg despedida   │
 └──────────────┘    └──────────────────────────┘

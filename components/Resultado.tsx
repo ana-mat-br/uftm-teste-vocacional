@@ -319,12 +319,12 @@ export default function Resultado() {
         </div>
       </div>
 
-      {/* Bloco: SEU COMPANHEIRO DE BORDO */}
+      {/* Bloco: SEU CO-PILOTO */}
       <p
         className="font-terminal text-xs uppercase tracking-widest mb-2"
         style={{ color: "var(--text-dim)" }}
       >
-        🤖 // seu companheiro de bordo
+        🤖 // seu co-piloto
       </p>
 
       <div className="my-2">

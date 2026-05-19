@@ -17,7 +17,7 @@ Estudantes do Ensino Médio que visitam a Feira de Profissões da UFTM enfrentam
 
 **Oportunidade:** transformar a visita à feira em uma experiência narrativa memorável e compartilhável, que:
 - reduz o paradoxo da escolha apresentando 3 cursos compatíveis (não 30)
-- entrega um artefato visual único (bixinho + carta) que o aluno quer postar
+- entrega um artefato visual único (co-piloto + carta) que o aluno quer postar
 - gera marketing orgânico para a UFTM via redes sociais
 - aproxima a UFTM da Gen Z com linguagem e estética próprias
 
@@ -62,7 +62,7 @@ Estudantes do Ensino Médio que visitam a Feira de Profissões da UFTM enfrentam
 1. **Papel na missão** (ex: "Oficial Médica de Bordo")
 2. **Curso correspondente no século XXI** (ex: Medicina)
 3. **Top 2 cursos alternativos** (ex: Psicologia, Enfermagem)
-4. **Bixinho-IA companheiro** (sprite pixel art + nome + personalidade gerados por LLM)
+4. **Co-piloto-IA companheiro** (sprite pixel art + nome + personalidade gerados por LLM)
 5. **Carta-comunicado** com tudo isso, compartilhável
 
 ### Conceito-chave
@@ -77,9 +77,9 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 ### IN — entra no MVP
 - ✅ Web app mobile-first, acesso via QR Code
 - ✅ 11 cenas no total (1 home + 9 pontuáveis + 1 resultado)
-- ✅ Algoritmo de matching: respostas → 6 eixos → top 3 cursos (similaridade cosseno)
+- ✅ Algoritmo de matching: respostas → 7 eixos → top 3 cursos (similaridade cosseno)
 - ✅ Carta final estilo "Comunicado da Comissão Interestelar"
-- ✅ Bixinho pixel art (6 sprites SVG inline, 1 por eixo) + nome/personalidade gerados por Claude Haiku
+- ✅ Co-piloto pixel art (6 sprites SVG inline, 1 por eixo) + nome/personalidade gerados por Claude Haiku
 - ✅ Codinome gerado pelo sistema (ex: "ESTRELA-7") — sem pedir nada do aluno
 - ✅ Geração de imagem 9:16 (Stories) via html2canvas — **D4**
 - ✅ Compartilhamento: Instagram Stories, WhatsApp, X — **D4**
@@ -137,7 +137,7 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 Análise direto no Supabase (queries SQL em [STACK.md](STACK.md)):
 - Total e taxa de conclusão dos quizzes
 - Top 10 cursos resultantes (qual curso "ganhou" mais)
-- Distribuição dos 6 eixos na população de alunos
+- Distribuição dos 7 eixos na população de alunos
 - Tempo médio de conclusão
 - Cliques em compartilhar por rede
 - Cena com maior abandono

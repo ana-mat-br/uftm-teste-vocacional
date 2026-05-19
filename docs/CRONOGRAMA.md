@@ -199,7 +199,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 
 **Se em D4 noite a integração com Haiku não funcionar:**
 - Cortar LLM, usar 12 templates pré-escritos (1 por curso âncora + variações)
-- Bixinho ainda tem nome único via combinação `[PREFIXO]-[NÚMERO]` aleatórios
+- Co-piloto ainda tem nome único via combinação `[PREFIXO]-[NÚMERO]` aleatórios
 - Mensagem de despedida fixa por eixo dominante
 
 **Se em D5 noite o share via html2canvas der problema:**
@@ -217,7 +217,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 Produto está pronto se:
 - [ ] Aluno escaneia QR e abre o site no celular
 - [ ] Passa pelas 11 cenas sem bugs
-- [ ] Vê resultado com bixinho + curso + texto gerado
+- [ ] Vê resultado com co-piloto + curso + texto gerado
 - [ ] Consegue compartilhar em pelo menos UMA rede (WhatsApp mínimo)
 - [ ] Funciona em iOS Safari + Chrome Android
 - [ ] Carrega em < 5s no 4G
