@@ -57,29 +57,31 @@ Abra qualquer um no navegador. No DevTools (F12), ative o modo mobile pra ver na
 - **Arte:** Pixel art (Leonardo.ai + Piskel — 100% grátis)
 - **Compartilhamento:** `html2canvas` pra gerar PNG 9:16 e 1:1
 
-Custo total estimado por aluno: **~R$ 0,005** (só LLM). Infra: **R$ 0** no free tier.
+Custo total estimado por aluno: **~R$ 0,007** (só LLM). Infra: **R$ 0** no free tier.
+**Sem coleta de dados pessoais** — apenas métricas anônimas agregadas (ver [LGPD.md](docs/LGPD.md)).
 
 ---
 
 ## 🚦 Status
 
-**Fase atual:** Design e documentação (pré-implementação)
-**Data-alvo da feira:** a definir (< 1 mês a partir de 2026-05-19)
+**Fase atual:** Documentação concluída, **implementação em 7 dias**
+**Feira:** **2026-05-26** (segunda-feira)
 **Mantenedora:** [@ana-mat-br](https://github.com/ana-mat-br) (UFTM)
 
 ### Decisões fechadas ✅
 - Narrativa: Expedição UFTM 2087 (sci-fi)
 - Visual: Synthwave sunset (neon laranja/rosa/amarelo, grid ciano)
 - Tom: leve com humor
-- Bixinho-IA: único por aluno (LLM gera nome + personalidade)
+- Bixinho-IA: nome/personalidade geradas por Claude Haiku 4.5
 - 6 eixos × 31 cursos com matriz validada na v0.1
-- 12 cenas de roteiro escritas
-- Compartilhamento: Stories (9:16) + Feed (1:1)
+- 11 cenas de roteiro escritas
+- Compartilhamento: Stories (9:16) + WhatsApp + X
+- **Zero coleta de PII** — codinome gerado pelo sistema (ex: "ESTRELA-7")
+- Stack: Next.js + Supabase + Vercel + Claude Haiku
+- Cronograma D1–D7 fechado
 
-### Decisões pendentes ⏳
-- Data exata da feira → cronograma
-- Validação da matriz curso↔eixos com 1-2 colegas
-- Quem vai produzir os 20 sprites finais
+### Próxima ação 🚀
+Começar **D1**: setup do Next.js + gerar 6 sprites brutos no Leonardo.ai.
 
 ---
 

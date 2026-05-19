@@ -1,153 +1,224 @@
-# 📅 Cronograma — 3,5 Semanas até a Feira
+# 📅 Cronograma — 7 Dias até a Feira
 
-**Início:** 2026-05-19 (data deste documento)
-**Feira de Profissões:** data exata **a definir** (assumimos ~2026-06-15)
-**Duração:** 3,5 semanas (~25 dias)
+**Início:** 2026-05-19
+**Feira de Profissões:** **2026-05-26** (segunda-feira)
+**Duração:** 7 dias corridos
+**Disponibilidade da Ana:** 4+ horas focadas/dia, incluindo fim de semana
 
-> ⚠️ **Bloqueio crítico:** data exata da feira. Este cronograma assume ~15/06. Ajustar quando confirmar.
+> ⚠️ Cronograma agressivo. Cabe porque cortamos LGPD (sem PII), Feed 1:1, Cena 11, validação externa da matriz e polish visual.
 
 ---
 
 ## Visão Geral
 
 ```
-SEMANA 1 (19-25/05)  │ Conteúdo + Arte
-SEMANA 2 (26/05-01/06)│ Build core do quiz
-SEMANA 3 (02-08/06)   │ Compartilhamento + LGPD
-SEMANA 3,5 (09-14/06) │ Testes + ajustes + deploy
-FEIRA    (15/06)      │ Lançamento 🚀
+D1 ter 19/05  │ Setup + sprites brutos
+D2 qua 20/05  │ Refino sprites + roteiro em JSON
+D3 qui 21/05  │ Build do quiz (cenas + navegação)
+D4 sex 22/05  │ Matriz + resultado + LLM Haiku
+D5 sáb 23/05  │ Compartilhamento + deploy
+D6 dom 24/05  │ Testes com pessoas reais + bugs
+D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 ```
 
+> **Nota:** o dia 25 (dom) fica como buffer/descanso. Se algo derrapar em D1-D6, o dia 25 absorve.
+
 ---
 
-## 🗓️ Semana 1 — Conteúdo + Arte
+## D1 — Terça 19/05 (HOJE) 🌅
 
-**Dias 1-7 (19-25/05) — Fundação criativa e visual**
+**Foco:** setup técnico + começar gerar sprites
 
-| Dia | Entregas |
+### Manhã/Tarde
+- ✅ Documentação completa em `/docs` (feita!)
+- ✅ Repo no GitHub (feito!)
+
+### Noite (3-4h)
+- [ ] `npx create-next-app uftm-teste-vocacional --typescript --tailwind --app`
+- [ ] Setup Supabase (criar projeto, copiar URLs/keys)
+- [ ] Setup conta Anthropic API + pegar key
+- [ ] Adicionar `.env.local` com chaves (NÃO commitar)
+- [ ] Gerar 6 sprites brutos no Leonardo.ai (1 por eixo)
+- [ ] Deploy inicial na Vercel (página em branco)
+
+**Entrega:** projeto Next.js no ar (mesmo vazio), 6 PNGs brutos baixados.
+
+---
+
+## D2 — Quarta 20/05
+
+**Foco:** refino dos sprites + estruturação dos dados
+
+### 4h focadas
+- [ ] Downscale dos 6 sprites no Piskel (32×32)
+- [ ] Refinar paleta synthwave em cada um
+- [ ] Comprimir com TinyPNG e salvar em `public/sprites/`
+- [ ] Criar `data/cenas.ts` — todas as 11 cenas em JSON estruturado
+- [ ] Criar `data/cursos.ts` — vetor de cada um dos 31 cursos (da matriz)
+- [ ] Criar `data/codinomes.ts` — lista de prefixos astronômicos
+- [ ] Criar `lib/matching.ts` — função similaridade cosseno
+- [ ] Schema do Supabase: tabelas `sessoes` e `eventos`
+
+**Entrega:** dados estruturados + sprites prontos + DB criado.
+
+---
+
+## D3 — Quinta 21/05
+
+**Foco:** quiz funcional end-to-end (sem resultado bonito ainda)
+
+### 4h focadas
+- [ ] Componente `CenaQuiz.tsx` (header, narrativa, opções, click handler)
+- [ ] Roteamento `/cena/[id]` com Next.js dynamic route
+- [ ] Estado global (vetor acumulado + respostas) via `useReducer` + localStorage
+- [ ] Tela inicial `/` (apresentação + botão "embarcar")
+- [ ] Geração de codinome aleatório na Cena 1
+- [ ] Navegação entre cenas (botão "próxima")
+- [ ] Pode "passar" pelas 11 cenas e ver vetor calculado no console
+
+**Entrega:** quiz navegável end-to-end, vetor calculado.
+
+---
+
+## D4 — Sexta 22/05
+
+**Foco:** matriz, tela de resultado, LLM
+
+### 4h focadas
+- [ ] Função `topCursos(vetor)` retornando top 3 (similaridade cosseno)
+- [ ] Componente `CartaResultado.tsx` portando do protótipo HTML
+- [ ] Adaptar paleta synthwave do protótipo pro componente React
+- [ ] Endpoint `app/api/finalizar/route.ts`:
+  - Recebe vetor + respostas
+  - Calcula top 3 cursos
+  - Chama Claude Haiku pra gerar `{nome_bixinho, personalidade, msg_despedida}`
+  - Salva tudo no Supabase (`sessoes`)
+  - Retorna resultado completo pra UI
+- [ ] Tela `/resultado` consome o endpoint
+- [ ] Prompt do Haiku travado (system prompt restrito)
+
+**Entrega:** fluxo completo do início ao resultado, com LLM gerando a carta.
+
+---
+
+## D5 — Sábado 23/05
+
+**Foco:** compartilhamento + deploy de produção
+
+### 4h focadas
+- [ ] Instalar `html2canvas`
+- [ ] Componente oculto `StoryTemplate.tsx` (renderiza 9:16 fora da tela)
+- [ ] Botão "Compartilhar no Stories" → captura PNG → Web Share API ou download
+- [ ] Botão WhatsApp com texto pronto + link
+- [ ] Botão X (Twitter) com texto pronto
+- [ ] OG image estática em `public/og-image.png`
+- [ ] Política de privacidade super curta (1 parágrafo: "este projeto não coleta dados pessoais")
+- [ ] Subdomínio Vercel `protocolo-vocacao-uftm.vercel.app`
+- [ ] Configurar Vercel Analytics
+
+**Entrega:** site em produção, share funcionando.
+
+---
+
+## D6 — Domingo 24/05
+
+**Foco:** testes + ajustes finais + QR Code
+
+### 4h focadas
+- [ ] Testar com 3-5 pessoas reais (família, amigos, vizinhos)
+- [ ] Listar bugs e UX issues
+- [ ] Corrigir prioridade 1
+- [ ] Smoke test em iOS Safari + Chrome Android + desktop
+- [ ] Lighthouse audit mobile (alvo: ≥ 80)
+- [ ] Gerar QR Code da URL (qrcode-monkey.com ou similar)
+- [ ] Imprimir cartaz/banner pro estande (caseiro mesmo, pode usar Canva)
+- [ ] Preparar texto de divulgação pras redes UFTM (se aplicável)
+
+**Entrega:** produto polido o suficiente, QR físico em mãos.
+
+---
+
+## D7 — Segunda 26/05 — 🚀 FEIRA
+
+**Foco:** estar disponível + observar
+
+- Chegar cedo na feira, escanear o próprio QR pra confirmar que tá no ar
+- Monitorar dashboard Supabase em tempo real (logado no laptop)
+- Estar disponível pra hotfix urgente (mesmo q seja "cor X tá ruim")
+- Anotar feedback informal dos alunos
+- **Não tentar adicionar features no dia** — só corrigir bugs
+
+---
+
+## ✂️ Escopo Cortado (vs MVP original)
+
+| Cortado | Motivo |
 |---|---|
-| Seg 19 | ✅ PRD, roteiro, matriz e design system documentados |
-| Ter 20 | Validação da matriz com 1-2 colegas (15min cada) |
-| Qua 21 | Gerar sprites brutos no Leonardo.ai (6 corpos-base × 4 imagens) |
-| Qui 22 | Downscale + refino dos 6 corpos no Piskel |
-| Sex 23 | Criar 3 variações de cor pra cada (= 18 sprites finais) |
-| Sáb-Dom 24-25 | **Folga / buffer** (a vida acontece) |
-
-**Marco da semana:**
-- 🎯 18 sprites finais em `public/sprites/`
-- 🎯 Matriz validada por pelo menos 1 colega
-
-**Riscos:**
-- Leonardo.ai pode gerar inconsistentes → considerar fallback: contratar sprite freelance (~R$ 200) se até dia 23 não tiver coesão
+| ~~Coleta de nome/cidade/escola/IG do aluno~~ | LGPD: muito risco em 7 dias |
+| ~~Tela de consentimento LGPD~~ | Não precisa sem PII |
+| ~~Política de privacidade extensa~~ | 1 parágrafo basta |
+| ~~Feed Instagram 1:1~~ | Stories é o motor viral, basta |
+| ~~OG image dinâmica via @vercel/og~~ | PNG estático funciona |
+| ~~Cena 11 (Reflexão)~~ | Quiz vai pra 11 cenas (1 onboard + 10 pontuáveis + resultado) |
+| ~~18 sprites (com variações de cor)~~ | 6 sprites, 1 por eixo dominante |
+| ~~Validação externa da matriz~~ | Ana valida sozinha |
+| ~~Consulta formal à Procuradoria UFTM~~ | Não precisa sem PII |
+| ~~Subdomínio uftm.edu.br~~ | Usar `*.vercel.app` direto |
+| ~~Animações elaboradas~~ | CSS simples basta |
 
 ---
 
-## 🗓️ Semana 2 — Build Core
+## 🚨 O que NÃO pode acontecer
 
-**Dias 8-14 (26/05-01/06) — Quiz funcionando end-to-end**
-
-| Dia | Entregas |
-|---|---|
-| Seg 26 | Setup Next.js + Supabase + repo conectado à Vercel |
-| Ter 27 | Schema do banco (respostas, eventos, leads) + RLS |
-| Qua 28 | Componente `CenaQuiz.tsx` + roteamento Cena 1 → 12 |
-| Qui 29 | Implementar matriz de eixos + cálculo de similaridade cosseno |
-| Sex 30 | Tela de resultado (Carta) em React, portando do protótipo HTML |
-| Sáb-Dom 31-01 | **Folga / buffer** |
-
-**Marco da semana:**
-- 🎯 Quiz end-to-end funcionando (sem LLM ainda, sem share)
-- 🎯 Pode passar pelas 12 cenas, ver resultado mockado
-
----
-
-## 🗓️ Semana 3 — LLM + Compartilhamento + LGPD
-
-**Dias 15-21 (02-08/06)**
-
-| Dia | Entregas |
-|---|---|
-| Seg 02 | Integração Claude Haiku — prompt + endpoint Server Action |
-| Ter 03 | Pipeline html2canvas → PNG 9:16 (Story) e 1:1 (Feed) |
-| Qua 04 | Botões de share + Web Share API + fallback download |
-| Qui 05 | Tela de consentimento LGPD + política de privacidade publicada |
-| Sex 06 | Open Graph image (@vercel/og) pra preview em WhatsApp/X |
-| Sáb-Dom 07-08 | **Folga / buffer** |
-
-**Marco da semana:**
-- 🎯 Produto completo, end-to-end, com IA e share funcionando
-- 🎯 Aprovação LGPD em andamento com Procuradoria
-
----
-
-## 🗓️ Semana 3,5 — Testes + Polish + Deploy
-
-**Dias 22-25 (09-12/06)**
-
-| Dia | Entregas |
-|---|---|
-| Seg 09 | Teste com 5-10 estudantes reais (amigos/familiares) |
-| Ter 10 | Ajustes pós-teste (UX, copy, bugs) |
-| Qua 11 | Performance audit (Lighthouse), otimização de bundle |
-| Qui 12 | Deploy de produção + QR Codes impressos pro estande |
-
-**Marco da semana:**
-- 🎯 Site em `protocolo.uftm.edu.br` (ou Vercel preview)
-- 🎯 QR Code físico impresso em vinil/banner
-
----
-
-## 🚀 Dia da Feira
-
-**Domingo a definir (~15/06)**
-
-- 🎯 Banner/cartaz no estande UFTM com QR Code grande
-- 🎯 Monitorar dashboard de eventos em tempo real
-- 🎯 Estar disponível pra hotfix urgente
-
----
-
-## 📈 Pós-feira (semana 4+)
-
-- Analisar métricas (taxa de conclusão, share, NPS)
-- Documentar lições aprendidas
-- Considerar v2 / abertura pra outras IFES
-- Compartilhar resultados em rede acadêmica
-
----
-
-## ✂️ Cortes de Escopo (em ordem de prioridade)
-
-Se o cronograma apertar, cortar nesta ordem:
-
-1. **Open Graph image (@vercel/og)** — WhatsApp/X funcionam sem preview rico
-2. **Feed 1:1** — Stories é o canal principal
-3. **NPS pós-quiz** — pode fazer pesquisa manual depois
-4. **Personalidade do bixinho gerada por LLM** — usar templates fixos por curso
-5. **Cena 11 (Reflexão)** — quiz pode terminar em 10 cenas
-
-**Não cortar:**
-- Pixel art (é a identidade)
-- Story 9:16 (é o motor viral)
-- Compartilhamento em pelo menos uma rede (WhatsApp)
-- LGPD (é obrigação legal)
-
----
-
-## 🚨 Bloqueios a destravar AGORA
-
-1. **Data exata da feira** — ajusta todo o cronograma
-2. **Email DPO/Procuradoria UFTM** — pra iniciar consulta jurídica em paralelo
-3. **Aprovação pra usar @uftm.oficial** ou similar no rodapé do story
+1. **Mudar narrativa, paleta ou roteiro** — estão fechados
+2. **Adicionar features novas** — qualquer "seria legal" vai pra v2
+3. **Mudar de stack** — Next.js + Supabase + Haiku, decidido
+4. **Refazer sprites do zero** — se o primeiro lote ficou ok, segue
+5. **Esperar feedback externo pra avançar** — execução é unilateral
 
 ---
 
 ## 📊 Risk burndown
 
-| Semana | Risco residual | Confiança no prazo |
+| Dia | Risco residual | Confiança no prazo |
 |---|---|---|
-| Início | 🔴 Alto | 60% |
-| Fim S1 | 🟡 Médio | 75% |
-| Fim S2 | 🟢 Baixo | 90% |
-| Fim S3 | 🟢 Baixo | 95% |
-| Pré-deploy | 🟢 Mínimo | 98% |
+| D1 fim | 🔴 Alto | 60% |
+| D2 fim | 🟡 Médio | 70% |
+| D3 fim | 🟡 Médio | 80% |
+| D4 fim | 🟢 Baixo | 90% |
+| D5 fim | 🟢 Baixo | 95% |
+| D6 fim | 🟢 Mínimo | 98% |
+
+---
+
+## 🔥 Plano de contingência
+
+**Se em D3 noite o quiz ainda não navega end-to-end:**
+- Cortar pra 8 cenas em vez de 11
+- Usar apenas 4 sprites (não 6)
+
+**Se em D4 noite a integração com Haiku não funcionar:**
+- Cortar LLM, usar 12 templates pré-escritos (1 por curso âncora + variações)
+- Bixinho ainda tem nome único via combinação `[PREFIXO]-[NÚMERO]` aleatórios
+- Mensagem de despedida fixa por eixo dominante
+
+**Se em D5 noite o share via html2canvas der problema:**
+- Cortar Story 9:16
+- Manter só link compartilhável (WhatsApp/X com texto pronto)
+
+**Se em D6 algo crítico quebrar:**
+- Domingo 25 vira dia de trabalho
+- Cortar features menores até voltar a funcionar
+
+---
+
+## ✅ Definition of Done — Dia da Feira
+
+Produto está pronto se:
+- [ ] Aluno escaneia QR e abre o site no celular
+- [ ] Passa pelas 11 cenas sem bugs
+- [ ] Vê resultado com bixinho + curso + texto gerado
+- [ ] Consegue compartilhar em pelo menos UMA rede (WhatsApp mínimo)
+- [ ] Funciona em iOS Safari + Chrome Android
+- [ ] Carrega em < 5s no 4G
+- [ ] Supabase está gravando as sessões

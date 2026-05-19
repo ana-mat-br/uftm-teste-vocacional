@@ -41,10 +41,11 @@
 > *Ano 2087. Você está na sala de pré-embarque da nave UFTM-Kepler. Tudo cheira a plástico novo. Uma luzinha rosa flutua até você e gira em volta da sua cabeça.*
 
 **[BIXINHO-IA]**
-> *"oi. eu sou seu nó-companheiro de bordo. me chama do que quiser por enquanto, depois eu te conto meu nome verdadeiro. antes da gente decolar — qual é o seu?"*
+> *"oi. eu sou seu nó-companheiro de bordo. seu código de candidate na nave é **ESTRELA-7**. anota aí caso queira mostrar pros amigos. agora respira — vamos começar."*
 
-`→ [campo de texto: nome do aluno]`
-`→ [campos opcionais: @instagram, cidade, escola]`
+> O **codinome** é gerado aleatoriamente pelo sistema na hora (formato `[PREFIXO ASTRONÔMICO]-[NÚMERO]`). Prefixos possíveis: ESTRELA, COMETA, NEBULA, PULSAR, QUASAR, GALÁXIA, ASTEROIDE, METEORO, ECLIPSE, NOVA, SUPERNOVA, ORION.
+>
+> **Sem coleta de dados pessoais.** Nada do aluno é pedido. Ver [LGPD.md](LGPD.md).
 
 ---
 
@@ -213,11 +214,12 @@
 **[BIXINHO]** *"meu nome é [NOME GERADO]. e o seu papel é…"*
 
 → Renderiza a **Carta** (ver [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md)):
+- Codinome do aluno (ex: "ESTRELA-7")
 - Top 1 curso + 2 alternativos
-- Sprite do bixinho
-- Nome e personalidade do bixinho (gerados pelo LLM)
-- Mensagem de despedida do bixinho (gerada pelo LLM, baseada nas escolhas)
-- Botões de compartilhamento (Stories, Feed, WhatsApp, X)
+- Sprite do bixinho (1 de 6, segundo eixo dominante)
+- Nome e personalidade do bixinho (gerados pelo Claude Haiku)
+- Mensagem de despedida do bixinho (gerada pelo Haiku, baseada nas escolhas e referenciando o codinome)
+- Botões de compartilhamento (Stories, WhatsApp, X — Feed 1:1 cortado por prazo)
 
 ---
 
@@ -243,4 +245,4 @@ Distribuição razoável — todos os eixos têm caminho viável até o topo.
 - Cenas são **lineares**, não ramificadas. Todo aluno passa pelas 12 em ordem fixa
 - Pontuação é **acumulada num vetor** [CUI, INV, CON, COM, TRA, CUL]
 - Resultado final = top 3 cursos por **similaridade de cosseno** entre vetor do aluno e vetor dos cursos (ver [MATRIZ-EIXOS.md](MATRIZ-EIXOS.md))
-- O LLM (Claude Haiku 4.5) recebe o vetor + curso + nome do aluno e gera: nome do bixinho, personalidade, mensagem de despedida
+- O LLM (Claude Haiku 4.5) recebe o vetor + curso + **codinome gerado** (não nome real do aluno) e gera: nome do bixinho, personalidade, mensagem de despedida

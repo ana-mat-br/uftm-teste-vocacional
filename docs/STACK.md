@@ -1,6 +1,6 @@
 # 🛠️ Stack Técnica
 
-**Restrições:** orçamento R$ 0, < 1 mês, 1 dev, mobile-first, escala de centenas–milhares de usuários no evento
+**Restrições:** orçamento R$ 0, 7 dias, 1 dev, mobile-first, centenas–milhares de usuários
 
 ---
 
@@ -14,16 +14,19 @@
                  ▼
 ┌─────────────────────────────────────────────────┐
 │  VERCEL (Next.js 14 — App Router)               │
-│  • SSR/SSG  • Server Actions  • @vercel/og      │
+│  • SSR/SSG  • Server Actions                    │
+│  • html2canvas client-side                      │
 └────┬────────────────────────┬───────────────────┘
      │                        │
      ▼                        ▼
 ┌──────────────┐    ┌──────────────────────────┐
 │  SUPABASE    │    │  ANTHROPIC API           │
 │  (Postgres)  │    │  Claude Haiku 4.5        │
-│  • respostas │    │  • nome+personalidade    │
-│  • leads     │    │    do bixinho            │
-│  • métricas  │    │  • mensagem despedida    │
+│  ANÔNIMO:    │    │  Input: codinome, vetor, │
+│  • sessoes   │    │         curso            │
+│  • eventos   │    │  Output: nome bixinho,   │
+│              │    │          personalidade,  │
+│              │    │          msg despedida   │
 └──────────────┘    └──────────────────────────┘
 ```
 
@@ -34,134 +37,188 @@
 ### Frontend + Backend: **Next.js 14 (App Router)**
 
 **Por quê:**
-- ✅ Ana já sabe React/Next
-- ✅ Server Actions eliminam necessidade de API separada
-- ✅ SSG/ISR pras páginas estáticas (quiz scaffolding)
-- ✅ Bundle splitting automático
-- ✅ Deploy zero-config na Vercel
-- ✅ `@vercel/og` integrado pra gerar OG images dinâmicas (preview WhatsApp/X)
-
-**Versão:** 14.x (latest stable)
+- Ana já sabe React/Next
+- Server Actions eliminam necessidade de API separada
+- Bundle splitting automático
+- Deploy zero-config na Vercel
 
 ### Hosting: **Vercel (Free Tier)**
 
-| Recurso | Free tier | Suficiente? |
-|---|---|---|
-| Bandwidth | 100 GB/mês | ✅ Sim — assets leves |
-| Builds | 6000 min/mês | ✅ Sim |
-| Serverless Functions | 100 GB-h | ✅ Sim |
-| Edge Functions | 500k invocações | ✅ Sim |
-| Domínio custom | Sim, com SSL | ✅ Sim |
+| Recurso | Free tier |
+|---|---|
+| Bandwidth | 100 GB/mês |
+| Builds | 6000 min/mês |
+| Serverless Functions | 100 GB-h |
+| Edge Functions | 500k invocações |
 
-**Risco:** se viralizar muito (>10k usuários simultâneos), pode estourar bandwidth. Mitigação: configurar alerta de 80% do limite.
+### Banco: **Supabase (Free Tier)**
 
-### Banco de Dados: **Supabase (Free Tier)**
+Schema simplificado (sem PII):
 
-| Recurso | Free tier | Suficiente? |
-|---|---|---|
-| Database | 500 MB | ✅ Sim |
-| Bandwidth | 5 GB/mês | ✅ Sim |
-| Auth users | 50k | ✅ N/A (sem login) |
-| Edge Functions | 500k invocações | ✅ N/A |
+```sql
+-- Cada quiz feito gera uma sessão anônima
+CREATE TABLE sessoes (
+  id              uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  codinome        text NOT NULL,            -- "ESTRELA-7" (gerado, não fornecido)
+  iniciado_em     timestamptz DEFAULT now(),
+  finalizado_em   timestamptz,
+  respostas       jsonb,                    -- [{cena:2, opcao:"A"}, ...]
+  vetor           jsonb,                    -- [CUI, INV, CON, COM, TRA, CUL]
+  curso_top       text,
+  curso_alt1      text,
+  curso_alt2      text,
+  bixinho_nome    text,                     -- "KÉPLER-Δ7"
+  user_agent_tipo text                      -- "mobile-ios"|"mobile-android"|"desktop"
+);
 
-**Por quê:** Postgres relacional cabe perfeito (respostas → cursos via JOIN), tem RLS pra LGPD, dashboards prontos.
+-- Eventos granulares pra análise de UX
+CREATE TABLE eventos (
+  id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  sessao_id   uuid REFERENCES sessoes(id) ON DELETE CASCADE,
+  tipo        text NOT NULL,                -- "cena_completada", "share_clicado"
+  payload     jsonb,
+  criado_em   timestamptz DEFAULT now()
+);
+
+-- Configuração crítica: NÃO logar IP
+-- Em Supabase Dashboard: Database → Logs → desativar IP retention
+```
+
+**Por quê este schema:**
+- 2 tabelas só → simples
+- jsonb pra respostas/vetor → flexível
+- ON DELETE CASCADE pra evitar órfãos
+- Sem campo de IP, geo, ou identificador externo
 
 ### LLM: **Claude Haiku 4.5** (Anthropic API)
 
-**Por quê este modelo:**
-- ✅ Excelente em PT-BR (importante pro tom criativo)
-- ✅ Latência baixa (~1-2s)
-- ✅ Custo baixíssimo
-- ✅ Suporte a system prompt longo (template controlado)
+**Input enviado** (zero PII):
+```json
+{
+  "codinome": "ESTRELA-7",
+  "vetor": [6, 8, 3, 5, 4, 7],
+  "curso_top": "Biomedicina",
+  "eixo_dominante": "Investigador"
+}
+```
 
-**Custos estimados:**
+**Output esperado:**
+```json
+{
+  "bixinho_nome": "KÉPLER-Δ12",
+  "personalidade": "curiosa demais pro próprio bem. acha pista em tudo.",
+  "msg_despedida": "valeu ESTRELA-7, foi um barato investigar contigo. me marca no insta quando passar no vestibular."
+}
+```
 
-| Item | Tokens | Custo unitário* | Custo por aluno |
-|---|---|---|---|
-| Input (prompt + escolhas) | ~600 | US$ 1/MTok | US$ 0,0006 |
-| Output (nome + personalidade + msg) | ~150 | US$ 5/MTok | US$ 0,00075 |
-| **Total por aluno** | | | **~R$ 0,007** |
-
-*Valores aproximados em 2026. 1000 alunos = ~R$ 7. 10000 alunos = ~R$ 70.
+**Custos:** ~R$ 0,007/aluno. 1000 alunos = R$ 7. 10000 alunos = R$ 70.
 
 **Configuração de segurança:**
-- `max_tokens: 200` — cap pra evitar custos descontrolados
-- System prompt restrito a templates pré-aprovados
-- Sem PII no prompt (só nome de bixinho e vetor numérico)
+- `max_tokens: 200` — cap pra evitar custos
+- `temperature: 0.9` — variedade nos textos
+- System prompt restrito (templates de comportamento)
 
-### Compartilhamento social: **html2canvas**
+### Compartilhamento: **html2canvas**
 
-- Biblioteca client-side que captura DOM como imagem
-- Gera PNG 1080×1920 (Story) e 1080×1080 (Feed) no momento do compartilhamento
+- Client-side, gera PNG 9:16 (Stories)
 - ~30kb gzip
-- Trade-off: rende um pouco diferente de browser pra browser → testar em iOS Safari + Chrome Android
+- Web Share API quando disponível, download como fallback
 
-**Alternativa avaliada:** `@vercel/og` server-side. Pros: consistência total. Contras: latência extra + complexidade. **Decisão:** usar html2canvas pro MVP, considerar `@vercel/og` em v2.
+### Analytics: **Vercel Analytics + queries no Supabase**
 
-### Analytics: **Vercel Analytics + tabela própria**
-
-- Vercel Analytics (free): page views, web vitals
-- Tabela `eventos` no Supabase pra métricas de produto:
-  - quiz_iniciado
-  - cena_completada (cena_id, eixo_dominante)
-  - quiz_concluido (curso_top, tempo_total)
-  - compartilhamento_clicado (rede)
-  - share_completado (rede) — via callback
+Vercel Analytics free + tabela `eventos` no Supabase.
 
 ---
 
-## Estrutura de Pastas (proposta)
+## Métricas que dá pra extrair do banco
+
+Queries que rodam direto no Supabase SQL Editor:
+
+```sql
+-- 1. Total e taxa de conclusão
+SELECT
+  COUNT(*) AS iniciados,
+  COUNT(finalizado_em) AS finalizados,
+  ROUND(COUNT(finalizado_em)::numeric / COUNT(*) * 100, 1) AS taxa_conclusao
+FROM sessoes;
+
+-- 2. Top 10 cursos resultantes
+SELECT curso_top, COUNT(*) AS qtd
+FROM sessoes
+WHERE finalizado_em IS NOT NULL
+GROUP BY curso_top
+ORDER BY qtd DESC
+LIMIT 10;
+
+-- 3. Distribuição de eixos dominantes
+SELECT
+  CASE
+    WHEN (vetor->>'0')::int = (SELECT MAX(v::int) FROM jsonb_array_elements_text(vetor) v) THEN 'CUI'
+    WHEN (vetor->>'1')::int = (SELECT MAX(v::int) FROM jsonb_array_elements_text(vetor) v) THEN 'INV'
+    -- etc...
+  END AS eixo_dominante,
+  COUNT(*) AS qtd
+FROM sessoes
+WHERE finalizado_em IS NOT NULL
+GROUP BY eixo_dominante;
+
+-- 4. Tempo médio de conclusão
+SELECT
+  AVG(EXTRACT(EPOCH FROM (finalizado_em - iniciado_em))) AS segundos_medio
+FROM sessoes
+WHERE finalizado_em IS NOT NULL;
+
+-- 5. Cliques em compartilhar por rede
+SELECT
+  payload->>'rede' AS rede,
+  COUNT(*) AS cliques
+FROM eventos
+WHERE tipo = 'share_clicado'
+GROUP BY rede;
+
+-- 6. Cena com maior abandono
+SELECT
+  payload->>'ultima_cena' AS ultima_cena,
+  COUNT(*) AS abandonos
+FROM sessoes
+WHERE finalizado_em IS NULL
+GROUP BY ultima_cena
+ORDER BY abandonos DESC;
+```
+
+---
+
+## Estrutura de Pastas
 
 ```
 uftm-teste-vocacional/
-├── app/                          # Next.js App Router
-│   ├── (quiz)/
-│   │   ├── page.tsx              # Onboarding (Cena 1)
-│   │   ├── cena/[id]/page.tsx    # Cena 2-11 dinâmica
-│   │   └── resultado/page.tsx    # Cena 12 (Carta)
+├── app/
+│   ├── page.tsx                      # Onboarding
+│   ├── cena/[id]/page.tsx            # Cena 2-11
+│   ├── resultado/page.tsx            # Carta
 │   ├── api/
-│   │   ├── gerar-bixinho/route.ts  # chama Claude Haiku
-│   │   └── salvar-resposta/route.ts # salva no Supabase
-│   ├── og/route.tsx              # Open Graph image (@vercel/og)
+│   │   └── finalizar/route.ts        # Salva no Supabase + chama Haiku
 │   ├── layout.tsx
 │   └── globals.css
 ├── components/
 │   ├── BixinhoSprite.tsx
 │   ├── CartaResultado.tsx
 │   ├── CenaQuiz.tsx
-│   └── BotoesShare.tsx
+│   └── StoryTemplate.tsx             # 9:16 oculto pra html2canvas
 ├── lib/
-│   ├── matriz-eixos.ts           # vetores dos 31 cursos
-│   ├── matching.ts               # similaridade cosseno
+│   ├── matching.ts                   # similaridade cosseno
+│   ├── codinome.ts                   # gerador "ESTRELA-7"
 │   ├── supabase.ts
 │   └── claude.ts
 ├── data/
-│   ├── cenas.ts                  # roteiro estruturado
-│   └── bixinhos.ts               # mapa eixo → variação sprite
+│   ├── cenas.ts                      # roteiro estruturado
+│   ├── cursos.ts                     # 31 cursos com vetor
+│   └── codinomes.ts                  # prefixos astronômicos
 ├── public/
-│   ├── sprites/                  # 20 PNGs pixel art
-│   └── qr-code-uftm.png
-├── docs/                         # esta documentação
-├── prototipos/                   # protótipos HTML standalone
+│   ├── sprites/                      # 6 PNGs pixel art
+│   ├── og-image.png                  # OG image estática
+│   └── qr-code.png                   # QR Code do quiz
 └── ...
-```
-
----
-
-## Comandos de setup (futuro)
-
-```bash
-# Criar projeto Next.js
-npx create-next-app@latest uftm-teste-vocacional --typescript --tailwind --app
-
-# Dependências
-npm install @supabase/supabase-js @anthropic-ai/sdk html2canvas qrcode
-
-# Dev
-npm run dev
-
-# Deploy
-vercel
 ```
 
 ---
@@ -171,33 +228,38 @@ vercel
 ```bash
 # .env.local (NUNCA commitar)
 ANTHROPIC_API_KEY=sk-ant-...
-NEXT_PUBLIC_SUPABASE_URL=https://...
+NEXT_PUBLIC_SUPABASE_URL=https://....supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=ey...
 SUPABASE_SERVICE_ROLE_KEY=ey...
-NEXT_PUBLIC_SITE_URL=https://protocolo.uftm.edu.br
+NEXT_PUBLIC_SITE_URL=https://protocolo-vocacao-uftm.vercel.app
+```
+
+---
+
+## Comandos de setup (D1)
+
+```bash
+npx create-next-app@latest uftm-teste-vocacional --typescript --tailwind --app
+
+cd uftm-teste-vocacional
+npm install @supabase/supabase-js @anthropic-ai/sdk html2canvas
+
+# Já está no git, conectar à Vercel:
+vercel link
+vercel env add ANTHROPIC_API_KEY
+vercel env add NEXT_PUBLIC_SUPABASE_URL
+# etc...
+
+npm run dev
 ```
 
 ---
 
 ## Métricas de Performance Target
 
-| Métrica | Target | Por quê |
-|---|---|---|
-| First Contentful Paint | < 1.5s no 3G | Aluno não desistir antes de começar |
-| Time to Interactive | < 3s no 3G | Quiz responsivo |
-| Bundle JS inicial | < 200kb gzip | Wifi/4G ruim na feira |
-| Imagens totais | < 500kb | Sprites comprimidos (TinyPNG) |
-| Lighthouse Mobile | ≥ 90 | Boa prática |
-
----
-
-## Decisões avaliadas e descartadas
-
-| Opção | Por que descartei |
+| Métrica | Target |
 |---|---|
-| **Astro em vez de Next.js** | Ana já sabe Next; menos integração com html2canvas/OG |
-| **Vercel KV / Upstash Redis** | Sobra grátis no Supabase; complexidade extra desnecessária |
-| **GPT-4o-mini em vez de Haiku** | Haiku mais barato e melhor em PT-BR pra texto criativo |
-| **Geração de sprite real-time (Stable Diffusion)** | Latência alta + risco de geração inadequada + custo $$ |
-| **App nativo iOS/Android** | Atrito de instalação mata conversão; web mobile basta |
-| **Tailwind sem CSS custom** | Estética synthwave precisa CSS custom (gradientes complexos) |
+| First Contentful Paint | < 1.5s no 3G |
+| Time to Interactive | < 3s no 3G |
+| Bundle JS inicial | < 200kb gzip |
+| Lighthouse Mobile | ≥ 80 |

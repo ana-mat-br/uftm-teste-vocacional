@@ -1,9 +1,9 @@
 # PRD — Protocolo Vocação UFTM 2087
 
-**Versão:** 1.0
+**Versão:** 2.0
 **Data:** 2026-05-19
 **Autora:** Ana Paula Fernandes (UFTM)
-**Status:** Design fechado, pré-implementação
+**Status:** Design fechado, implementação em 7 dias (feira em 2026-05-26)
 
 ---
 
@@ -44,8 +44,7 @@ Estudantes do Ensino Médio que visitam a Feira de Profissões da UFTM enfrentam
 | Engajar visitantes | Taxa de conclusão do quiz | ≥ 70% |
 | Viralizar | % de concluintes que clica em "compartilhar" | ≥ 30% |
 | Cobrir cursos | Cursos representados nos resultados (no mín. uma vez) | 100% dos 31 |
-| Validar experiência | NPS pós-quiz (1 pergunta no fim) | ≥ 50 |
-| Aproximar UFTM | % com @instagram preenchido (opt-in) | ≥ 40% |
+| Aproximar UFTM | Total de quizzes finalizados no dia | ≥ 100 |
 
 ### Métricas operacionais
 - Tempo médio de conclusão: **4–6 minutos**
@@ -77,17 +76,23 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 
 ### IN — entra no MVP
 - ✅ Web app mobile-first, acesso via QR Code
-- ✅ 12 perguntas/cenas em formato narrativo
+- ✅ 11 cenas em formato narrativo (1 onboarding + 10 pontuáveis)
 - ✅ Algoritmo de matching: respostas → 6 eixos → top 3 cursos
 - ✅ Carta final estilo "Comunicado da Comissão Interestelar"
-- ✅ Bixinho pixel art (sprite + nome/personalidade gerados por LLM)
-- ✅ Geração de imagem 9:16 (Stories) e 1:1 (Feed) via html2canvas
-- ✅ Compartilhamento: Instagram, WhatsApp, X
-- ✅ Coleta opcional: nome + @instagram + cidade + escola
-- ✅ Consentimento LGPD explícito
-- ✅ Dashboard simples de métricas
+- ✅ Bixinho pixel art (6 sprites, 1 por eixo) + nome/personalidade gerados por Claude Haiku
+- ✅ Codinome gerado pelo sistema (ex: "ESTRELA-7") — sem pedir nada do aluno
+- ✅ Geração de imagem 9:16 (Stories) via html2canvas
+- ✅ Compartilhamento: Instagram Stories, WhatsApp, X
+- ✅ Métricas anônimas agregadas (sessões, cursos, eventos)
 
-### OUT — fica pra v2
+### OUT — fica pra v2 ou foi cortado
+- ❌ Coleta de qualquer dado pessoal (nome real, @instagram, cidade, escola, email)
+- ❌ Cena 11 de Reflexão (cortada — vamos com 11 cenas no total)
+- ❌ Feed Instagram 1:1 (só Stories)
+- ❌ Variações de cor dos sprites (só 6 sprites base)
+- ❌ Open Graph image dinâmica (estática)
+- ❌ Validação externa da matriz com colegas
+- ❌ Subdomínio próprio (uso direto `*.vercel.app`)
 - ❌ Geração de imagem por IA em tempo real
 - ❌ Conta persistente / login
 - ❌ Versão multi-vestibular / multi-instituição
@@ -101,13 +106,13 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 
 | Restrição | Implicação |
 |---|---|
-| **Prazo:** < 1 mês a partir de 2026-05-19 | Escopo enxuto, MVP só |
+| **Prazo:** 7 dias a partir de 2026-05-19 (feira em 26/05) | Cortes agressivos, ver [CRONOGRAMA.md](CRONOGRAMA.md) |
 | **Orçamento:** R$ 0 | Stack 100% free tier |
 | **Equipe:** 1 pessoa (Ana, voluntária) | Cortar tudo que não for crítico |
-| **Sem aprovação institucional pesada** | Decisões diretas, sem comitê |
+| **UFTM já está ciente** | Sem barreira institucional, mas comunicar status à PROEXT antes do lançamento |
 | **Mobile-first via QR Code** | Web app responsivo, < 500kb JS |
 | **Wifi/4G ruim na feira** | App leve, tolerante a 3G |
-| **Público menor de idade** | LGPD rigorosa, coleta mínima |
+| **Sem coleta de PII** | Sem LGPD complexa. Apenas dados anônimos agregados. Ver [LGPD.md](LGPD.md) |
 
 ---
 
@@ -116,10 +121,11 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 | Risco | Probabilidade | Impacto | Mitigação |
 |---|:-:|:-:|---|
 | Wifi/4G fraco na feira | 🔴 Alta | 🔴 Alto | Bundle JS < 500kb, sprites em PNG otimizado, sem vídeos |
-| Coleta de dados de menor + LGPD | 🟡 Média | 🔴 Alto | Consentimento explícito, dados opcionais, sem foto, sem geo |
-| LLM gera carta inadequada | 🟡 Média | 🔴 Alto | Prompt restrito + templates pré-aprovados por curso |
+| ~~Coleta de dados de menor + LGPD~~ | — | — | **Mitigado:** decisão de não coletar PII (ver [LGPD.md](LGPD.md)) |
+| LLM gera carta inadequada | 🟡 Média | 🔴 Alto | Prompt restrito + fallback de templates fixos se Haiku falhar |
 | Quiz "errar" o curso e frustrar | 🟡 Média | 🟡 Médio | Sempre top 3, framing "explore também" — não "você é isso" |
-| Ana sozinha não dar conta em < 1 mês | 🔴 Alta | 🔴 Alto | Cortar escopo agressivo, usar bibliotecas prontas, sem features novas |
+| Ana sozinha não dar conta em 7 dias | 🔴 Alta | 🔴 Alto | Cortes agressivos (ver CRONOGRAMA.md), dia 25 como buffer |
+| Pico de tráfego na feira sobrecarrega Supabase free tier | 🟡 Média | 🟡 Médio | Free tier aguenta 500 connections; pior caso pago US$25/mês ad-hoc |
 | Estudantes não escanearem o QR | 🟡 Média | 🟡 Médio | Banner físico chamativo + estande UFTM "te ajudo a escanear" |
 | Resultado parece raso/genérico | 🟡 Média | 🟡 Médio | LLM personaliza a carta com base nas escolhas, não só no curso final |
 | 31 cursos = muitas combinações | 🟢 Baixa | 🟡 Médio | Sistema de similaridade vetorial, não árvore de decisão |
@@ -128,19 +134,30 @@ A pontuação dos eixos de personalidade é **invisível** ao aluno. Ele não sa
 
 ## 8. Métricas de Sucesso pós-feira
 
-Em 30 dias após a feira:
-- Posts no Instagram com #ProtocoloVocacaoUFTM ou marcando @uftm.oficial
-- Aumento de visitas no site uftm.edu.br (Google Analytics)
-- Aumento de menções da UFTM no Twitter/X
-- Inscrições no vestibular (longo prazo, difícil de atribuir diretamente)
+Análise direto no Supabase (queries SQL em [STACK.md](STACK.md)):
+- Total e taxa de conclusão dos quizzes
+- Top 10 cursos resultantes (qual curso "ganhou" mais)
+- Distribuição dos 6 eixos na população de alunos
+- Tempo médio de conclusão
+- Cliques em compartilhar por rede
+- Cena com maior abandono
+
+Indireto:
+- Posts no Instagram com #ProtocoloVocacaoUFTM (busca manual)
+- Menções da UFTM no Twitter/X (busca manual)
 
 ---
 
 ## 9. Próximos passos
 
-Ver [CRONOGRAMA.md](CRONOGRAMA.md) para detalhes das 3,5 semanas até o evento.
+Ver [CRONOGRAMA.md](CRONOGRAMA.md) para o plano dia-a-dia até a feira (2026-05-26).
 
-**Bloqueios imediatos:**
-1. Data exata da feira (ainda não definida)
-2. Validação da matriz curso↔eixos com colegas de áreas que Ana conhece menos
-3. Decisão sobre quem produz os 20 sprites pixel art
+**Bloqueios já destravados:**
+- ✅ Data exata da feira: 26/05/2026
+- ✅ UFTM ciente do projeto
+- ✅ Stack técnica decidida
+- ✅ Direção criativa fechada
+- ✅ Roteiro escrito
+- ✅ Matriz curso↔eixos v0.1
+
+**Próxima ação imediata:** começar D1 — setup do Next.js + gerar sprites brutos.
