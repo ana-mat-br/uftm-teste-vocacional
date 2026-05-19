@@ -184,15 +184,40 @@ export default function Resultado() {
         COMISSÃO<br />INTERESTELAR UFTM
       </h1>
 
+      {/* Bloco: VOCÊ */}
+      <div
+        className="w-full px-3 py-2 mb-5 flex items-center justify-center gap-2"
+        style={{
+          background: "rgba(255, 204, 0, 0.08)",
+          border: "1px dashed rgba(255, 204, 0, 0.3)",
+        }}
+      >
+        <span className="text-xl">👤</span>
+        <div className="text-left">
+          <div
+            className="font-terminal text-xs tracking-widest uppercase"
+            style={{ color: "var(--text-dim)" }}
+          >
+            // você
+          </div>
+          <div
+            className="font-pixel-title text-xs"
+            style={{ color: "var(--sun-yellow)", textShadow: "0 0 8px var(--sun-orange)" }}
+          >
+            {sessao.codinome}
+          </div>
+        </div>
+      </div>
+
+      {/* Bloco: SEU COMPANHEIRO DE BORDO */}
       <p
-        className="font-terminal text-xs tracking-widest uppercase mb-6"
+        className="font-terminal text-xs uppercase tracking-widest mb-2"
         style={{ color: "var(--text-dim)" }}
       >
-        // candidate <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
+        🤖 // seu companheiro de bordo
       </p>
 
-      {/* Bixinho */}
-      <div className="my-4">
+      <div className="my-2">
         <Image
           src={sprite}
           alt={`Bixinho do eixo ${resultado.eixoDominante}`}

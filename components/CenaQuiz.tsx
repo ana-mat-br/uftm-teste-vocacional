@@ -69,12 +69,12 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
         UFTM-KEPLER · CENA {progresso}/{total}
       </div>
 
-      {/* Codinome */}
+      {/* Codinome do aluno */}
       <div
-        className="font-terminal text-xs tracking-widest uppercase mb-4 opacity-80"
+        className="font-terminal text-xs tracking-widest uppercase mb-4 opacity-90"
         style={{ color: "var(--text-dim)" }}
       >
-        // candidate: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
+        👤 // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
       </div>
 
       {/* Título da cena */}
