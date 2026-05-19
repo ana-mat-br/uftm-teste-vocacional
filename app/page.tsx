@@ -1,19 +1,31 @@
-import Link from "next/link";
+import BotaoEmbarcar from "@/components/BotaoEmbarcar";
 
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen max-w-[480px] flex-col items-center justify-center px-6 py-10 text-center">
 
-      <div className="font-terminal text-base tracking-widest uppercase glow-cyan anim-flicker" style={{ color: "var(--grid-cyan)" }}>
-        <span className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse" style={{ background: "var(--sun-pink)" }} />
+      <div
+        className="font-terminal text-base tracking-widest uppercase glow-cyan anim-flicker"
+        style={{ color: "var(--grid-cyan)" }}
+      >
+        <span
+          className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse"
+          style={{ background: "var(--sun-pink)" }}
+        />
         UFTM-KEPLER • OS v2087.5
       </div>
 
-      <h1 className="font-pixel-title text-base sm:text-lg leading-relaxed mt-10 glow-yellow" style={{ color: "var(--sun-yellow)" }}>
+      <h1
+        className="font-pixel-title text-base sm:text-lg leading-relaxed mt-10 glow-yellow"
+        style={{ color: "var(--sun-yellow)" }}
+      >
         COMISSÃO<br />INTERESTELAR<br />UFTM
       </h1>
 
-      <p className="font-terminal text-base tracking-wide uppercase mt-2" style={{ color: "var(--text-dim)" }}>
+      <p
+        className="font-terminal text-base tracking-wide uppercase mt-2"
+        style={{ color: "var(--text-dim)" }}
+      >
         // protocolo vocação
       </p>
 
@@ -34,24 +46,19 @@ export default function Home() {
         </p>
       </div>
 
-      <Link
-        href="/cena/1"
-        className="font-pixel-title text-sm px-8 py-4 border-2 tracking-widest hover:scale-105 transition-transform"
-        style={{
-          background: "var(--sun-pink)",
-          color: "var(--bg-deep)",
-          borderColor: "var(--sun-yellow)",
-          boxShadow: "0 0 25px rgba(255, 46, 147, 0.6), 0 4px 0 var(--sun-orange)",
-        }}
-      >
-        ▸ EMBARCAR
-      </Link>
+      <BotaoEmbarcar />
 
-      <p className="font-terminal text-sm mt-8 max-w-xs" style={{ color: "var(--text-dim)" }}>
+      <p
+        className="font-terminal text-sm mt-8 max-w-xs"
+        style={{ color: "var(--text-dim)" }}
+      >
         // nenhum dado pessoal seu é coletado.<br />nem precisa logar.
       </p>
 
-      <footer className="font-terminal text-sm mt-16 opacity-70" style={{ color: "var(--text-dim)" }}>
+      <footer
+        className="font-terminal text-sm mt-16 opacity-70"
+        style={{ color: "var(--text-dim)" }}
+      >
         UFTM • Feira de Profissões 2026
       </footer>
     </main>

@@ -1,13 +1,25 @@
-// TODO D3: implementar cena dinâmica do quiz
-// Vai consumir data/cenas.ts e atualizar o vetor de eixos no localStorage
+import { notFound } from "next/navigation";
+import { CENAS, getCena } from "@/data/cenas";
+import CenaQuiz from "@/components/CenaQuiz";
 
-export default async function CenaPage({ params }: { params: Promise<{ id: string }> }) {
+// Pré-gera as páginas estáticas pras 9 cenas pontuáveis
+export function generateStaticParams() {
+  return CENAS.map((c) => ({ id: String(c.id) }));
+}
+
+export default async function CenaPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
-  return (
-    <main className="mx-auto flex min-h-screen max-w-[480px] flex-col items-center justify-center px-6 py-10 text-center">
-      <p className="font-terminal text-base" style={{ color: "var(--text-dim)" }}>
-        // cena {id} — em construção
-      </p>
-    </main>
-  );
+  const cenaId = parseInt(id, 10);
+  const cena = getCena(cenaId);
+  if (!cena) notFound();
+
+  const proximoIndex = CENAS.findIndex((c) => c.id === cenaId) + 1;
+  const proximaCena = CENAS[proximoIndex] ?? null;
+  const proximoId = proximaCena ? proximaCena.id : null;
+
+  return <CenaQuiz cena={cena} proximoId={proximoId} />;
 }
