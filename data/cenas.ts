@@ -29,7 +29,7 @@ export type Cena = {
 export const CENAS: Cena[] = [
   {
     id: 2,
-    titulo: "Briefing",
+    titulo: "Embarque",
     narrativa:
       "Uma luzinha rosa flutua até você — é seu co-piloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma: 14 meses até Kepler-186f, tripulação de 12. Vocês não foram escolhidos por nota. Foram escolhidos pelo Protocolo Vocação. E ele começa agora.",
     falaBixinho: "oi! sou eu, teu co-piloto. vou te acompanhar a missão inteira. ela é sempre dramática assim, relaxa.",

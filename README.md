@@ -69,7 +69,7 @@ Custo total estimado por aluno: **~R$ 0,007** (só LLM). Infra: **R$ 0** no free
 
 ## 🚦 Status atual
 
-**Mantenedora:** [@ana-mat-br](https://github.com/ana-mat-br) (UFTM)
+**Mantenedores:** [@ana-mat-br](https://github.com/ana-mat-br) · [@hebert-almeida](https://github.com/hebert-almeida) (UFTM)
 
 ### Implementação
 | Sprint | Status |
