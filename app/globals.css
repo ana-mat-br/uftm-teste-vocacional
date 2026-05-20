@@ -31,7 +31,7 @@
 html, body {
   background: var(--bg-deep);
   color: var(--text);
-  font-family: 'Pixelify Sans', monospace;
+  font-family: 'Share Tech Mono', monospace;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -85,7 +85,7 @@ body > * {
   font-family: 'Press Start 2P', monospace;
 }
 .font-pixel-body {
-  font-family: 'Pixelify Sans', monospace;
+  font-family: 'Share Tech Mono', monospace;
 }
 .font-terminal {
   font-family: 'VT323', monospace;
