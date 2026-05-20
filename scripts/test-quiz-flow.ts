@@ -30,20 +30,18 @@ const PERSONAS: Persona[] = [
   {
     // Medicina-leaning: 🤔, 🧬*NOVA*, 🛡️, 🫂, 📊, 🧠, 🌊, 🍞, 🩺
     // Vetor esperado: [10, 10, 0, 4, 3, 2, 4] → top Medicina
-    // Gap top1-top2 = 2.4% < 5% → /desempate; clica primeiro card (Medicina)
+    // Gap 2.4% e top1 92% → "híbrido", NÃO dispara desempate (v0.2.1)
     nome: "medicina-leaning",
     escolhas: [0, 1, 3, 0, 1, 2, 2, 1, 0],
     topEsperado: "Medicina",
-    esperaDesempate: true,
   },
   {
     // Comunicador puro: 😅, 📡, 🗣️, 🫂, 🚨, 📝, 🏕️, 📡, 🗣️
-    // Vetor esperado: [5, 2, 2, 16, 4, 0, 0] → empate Letras/Pedagogia
-    // (gap < 5%) → /desempate; clica primeiro card (Letras)
+    // Vetor esperado: [5, 2, 2, 16, 4, 0, 0] → Letras top 1
+    // Gap 2.5% e top1 90% → "híbrido", NÃO dispara desempate (v0.2.1)
     nome: "comunicador-puro",
     escolhas: [1, 3, 2, 0, 2, 1, 3, 3, 3],
     topEsperado: "Letras",
-    esperaDesempate: true,
   },
 ];
 

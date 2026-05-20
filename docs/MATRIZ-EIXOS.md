@@ -131,7 +131,11 @@ Similaridade de cosseno mede **direção** do vetor, não magnitude. Um aluno qu
 ## Mecanismos de aprimoramento do acerto (v0.2)
 
 ### Cena de desempate (`/desempate`)
-Quando o top 1 e top 2 estão a menos de **5% de similaridade**, o aluno é redirecionado pra uma cena especial mostrando os top 3 cursos como cards. A escolha do aluno aplica `vetor_curso × 2` ao vetor original, deslocando o resultado pra família correta. Ver `lib/matching.ts::precisaDesempate`.
+Dispara quando o resultado seria classificado como **"exploratório"** pelo `nivelConfianca` — i.e., gap < 2% OU top1 < 80%. O aluno é redirecionado pra uma cena especial mostrando os top 3 cursos como cards; a escolha aplica `vetor_curso × 2` ao vetor original, deslocando o resultado pra família correta.
+
+Perfis com top1 alto (mesmo com top2 colado por afinidade de família, ex: Medicina vs Biomedicina, Letras vs Pedagogia) vão **direto pro resultado**: o badge "🔀 perfil híbrido" já avisa que vale visitar todos os 3 estandes, e uma cena extra dilui a revelação final. Ver `lib/matching.ts::precisaDesempate`.
+
+**v0.2 → v0.2.1 (2026-05-20):** threshold endurecido. Antes, `gap < 5%` disparava em quase todo perfil (ex: persona Medicina-leaning com top1 92% e gap 2.4% caía em desempate). Agora segue a mesma condição de "exploratório", reduzindo desempates a ~10-20% dos perfis genuinamente confusos.
 
 ### Indicador de confiança no resultado
 Após o cálculo final, o aluno vê um badge informando a qualidade do match:

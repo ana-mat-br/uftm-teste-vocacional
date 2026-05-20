@@ -67,13 +67,19 @@ export function eixoDominante(vetor: VetorEixos): EixoSigla {
 }
 
 /**
- * Detecta se o top 1 venceu por uma margem apertada sobre o top 2.
- * Threshold = 0.05 (5%) de gap de similaridade cosseno.
+ * Decide se o aluno deve passar pela cena de desempate antes do resultado.
+ *
+ * Dispara somente quando o resultado seria classificado como "exploratório"
+ * por nivelConfianca() — i.e., gap < 2% OU top1 < 80%. Perfis com top1 alto
+ * (mesmo com top2 colado por afinidade de família, ex: Medicina vs Biomed)
+ * vão direto pro resultado: o badge "🔀 perfil híbrido" já avisa que vale
+ * visitar todos os 3 estandes, e a cena extra dilui a revelação final.
  */
-export function precisaDesempate(top3: CursoComScore[], threshold = 0.05): boolean {
+export function precisaDesempate(top3: CursoComScore[]): boolean {
   if (top3.length < 2) return false;
-  const gap = top3[0].score - top3[1].score;
-  return gap < threshold;
+  const top1 = top3[0].score;
+  const gap = top1 - top3[1].score;
+  return gap < 0.02 || top1 < 0.80;
 }
 
 /**
