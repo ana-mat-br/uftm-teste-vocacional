@@ -1,18 +1,58 @@
 @import "tailwindcss";
 
-/* === Paleta Synthwave Sunset === */
+/* === Paleta Vaporwave (default) === */
+/* Pra voltar pro synthwave sunset original: ?palette=warm na URL */
 :root {
+  /* Backgrounds */
+  --bg-deep: #0d0221;
+  --bg-mid: #2d1b69;
+
+  /* Sol / acentos (nomes preservados pra não quebrar componentes) */
+  --sun-orange: #ff71ce;   /* retro sun salmon */
+  --sun-pink: #ff2e93;     /* magenta neon */
+  --sun-yellow: #fff700;   /* acid yellow */
+
+  /* Grid / acentos frios */
+  --grid-cyan: #01cdfe;
+  --grid-cyan-rgb: 1, 205, 254;
+  --mint: #05ffa1;
+  --violet: #b967ff;
+
+  /* Texto */
+  --text: #fff8e7;
+  --text-dim: #d4a8ff;
+
+  /* Sky gradient (vaporwave) */
+  --sky-1: #0d0221;
+  --sky-2: #1a0a40;
+  --sky-3: #2d1b69;
+  --sky-4: #6f1a91;
+  --sky-5: #ff2e93;
+  --sky-6: #ff71ce;
+
+  /* Auxiliares */
+  --whatsapp: #25d366;
+  --twitter: #1da1f2;
+}
+
+/* Toggle pra paleta synthwave-sunset original */
+html.theme-warm {
   --bg-deep: #1a0633;
   --bg-mid: #4a1078;
   --sun-orange: #ff6b35;
   --sun-pink: #ff2e93;
   --sun-yellow: #ffcc00;
   --grid-cyan: #00f0ff;
-  --text: #fff8e7;
-  --text-dim: #d4a8ff;
+  --grid-cyan-rgb: 0, 240, 255;
+  --mint: #c8ff66;
+  --violet: #d4a8ff;
 
-  --whatsapp: #25d366;
-  --twitter: #1da1f2;
+  --sky-1: #1a0633;
+  --sky-2: #3d0a5c;
+  --sky-3: #6b0f8a;
+  --sky-4: #ff2e93;
+  --sky-5: #ff6b35;
+  --sky-6: #ffcc00;
 }
 
 @theme inline {
@@ -22,11 +62,16 @@
   --color-sun-pink: var(--sun-pink);
   --color-sun-yellow: var(--sun-yellow);
   --color-grid-cyan: var(--grid-cyan);
+  --color-mint: var(--mint);
+  --color-violet: var(--violet);
   --color-text-bright: var(--text);
   --color-text-dim: var(--text-dim);
 }
 
 * { box-sizing: border-box; }
+
+/* Type scale bump: 16 → 17px base (~6% maior, ainda confortável) */
+html { font-size: 17px; }
 
 html, body {
   background: var(--bg-deep);
@@ -36,48 +81,107 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Fundo synthwave global */
+/* Sky gradient — pseudo-elemento no body pra render sem flash, sem JS */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
+  background: linear-gradient(180deg,
+    var(--sky-1) 0%,
+    var(--sky-2) 22%,
+    var(--sky-3) 42%,
+    var(--sky-4) 58%,
+    var(--sky-5) 75%,
+    var(--sky-6) 92%,
+    var(--sky-1) 100%
+  );
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* === Camadas da VaporwaveBg (component renderiza os divs) === */
+
+.vapor-sun {
+  position: fixed;
+  left: 50%;
+  bottom: 22%;
+  width: 78vw;
+  max-width: 620px;
+  aspect-ratio: 1 / 1;
+  transform: translate3d(-50%, 0, 0);
   background:
-    radial-gradient(ellipse 600px 400px at 50% 75%, var(--sun-yellow) 0%, var(--sun-orange) 25%, var(--sun-pink) 50%, transparent 70%),
-    linear-gradient(180deg,
-      #1a0633 0%,
-      #3d0a5c 25%,
-      #6b0f8a 45%,
-      #ff2e93 60%,
-      #ff6b35 75%,
-      #ffcc00 85%,
-      #1a0633 100%
-    );
+    radial-gradient(circle at center,
+      var(--sun-yellow) 0%,
+      var(--sun-orange) 38%,
+      var(--sun-pink) 62%,
+      transparent 72%);
+  /* corte horizontal — meio-sol estilo vapor */
+  mask-image: linear-gradient(to bottom, black 60%, transparent 60%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 60%);
+  filter: blur(1px);
+  opacity: 0.9;
+  pointer-events: none;
   z-index: -2;
 }
 
-/* Grid em perspectiva no chão */
-body::after {
+/* Listras horizontais no sol — outro toque vapor clássico */
+.vapor-sun::after {
   content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 9%,
+    rgba(0, 0, 0, 0.35) 9% 11%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, black 50%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 50%);
+  pointer-events: none;
+}
+
+.vapor-grid {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 40vh;
+  height: 48vh;
   background-image:
-    linear-gradient(rgba(0, 240, 255, 0.4) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.4) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(var(--grid-cyan-rgb), 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--grid-cyan-rgb), 0.55) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: 0 0;
   transform: perspective(300px) rotateX(60deg);
   transform-origin: bottom;
-  opacity: 0.5;
+  mask-image: linear-gradient(to top, black 45%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 45%, transparent 100%);
   pointer-events: none;
   z-index: -1;
-  mask-image: linear-gradient(to top, black 50%, transparent 100%);
 }
 
-/* Scanlines CRT sutis */
-body > * {
-  position: relative;
+.vapor-scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 2px,
+    rgba(255, 255, 255, 0.04) 2px 3px
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Partículas leves flutuando — só visíveis em telas confortáveis */
+.vapor-particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--grid-cyan);
+  box-shadow: 0 0 6px var(--grid-cyan);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.7;
 }
 
 /* === Tipografia pixel === */
@@ -86,6 +190,7 @@ body > * {
 }
 .font-pixel-body {
   font-family: 'Pixelify Sans', monospace;
+  line-height: 1.55;
 }
 .font-terminal {
   font-family: 'VT323', monospace;
@@ -100,6 +205,9 @@ body > * {
 }
 .glow-cyan {
   text-shadow: 0 0 8px var(--grid-cyan);
+}
+.glow-mint {
+  text-shadow: 0 0 10px var(--mint);
 }
 
 /* === Pixel art sprite === */
@@ -134,4 +242,5 @@ body > * {
   .anim-float, .anim-pulse, .anim-flicker {
     animation: none;
   }
+  .vapor-sun::after { display: none; }
 }
