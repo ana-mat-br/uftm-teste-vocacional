@@ -8,25 +8,23 @@
 
 ## Resumo
 
-**16/31 cursos validados** ✅
+**18/31 cursos validados** ✅
 
 ### ⚠️ Cursos não alcançáveis como top 1
 
-- **Medicina** → veio Enfermagem (93.1%)
-- **Psicologia** → veio Enfermagem (94.3%)
-- **Fisioterapia** → veio Enfermagem (93.2%)
-- **Terapia Ocupacional** → veio Enfermagem (92.0%)
-- **Biomedicina** → veio Matemática (88.7%)
-- **Engenharia Mecânica** → veio Física (97.4%)
-- **Engenharia Elétrica** → veio Física (97.4%)
-- **Engenharia Química** → veio Engenharia Mecânica (97.6%)
-- **Engenharia Ambiental** → veio Agronomia (88.3%)
-- **Engenharia de Alimentos** → veio Engenharia Química (97.3%)
-- **Banco de Dados** → veio Inteligência Artificial (93.7%)
-- **Inteligência Artificial** → veio Matemática (88.7%)
-- **Educação Física** → veio Enfermagem (93.0%)
-- **Agronomia** → veio Ciências Biológicas (95.5%)
-- **Zootecnia** → veio Ciências Biológicas (95.5%)
+- **Psicologia** → veio Enfermagem (94.0%)
+- **Terapia Ocupacional** → veio Enfermagem (92.6%)
+- **Serviço Social** → veio Educação Especial e Inclusiva (96.3%)
+- **Educação Especial e Inclusiva** → veio Enfermagem (90.1%)
+- **Engenharia Elétrica** → veio Engenharia Mecânica (98.3%)
+- **Engenharia Química** → veio Engenharia Mecânica (97.7%)
+- **Engenharia Ambiental** → veio Agronomia (90.1%)
+- **Engenharia de Alimentos** → veio Engenharia Química (97.1%)
+- **Banco de Dados** → veio Inteligência Artificial (91.3%)
+- **Inteligência Artificial** → veio Biomedicina (89.0%)
+- **Educação Física** → veio Enfermagem (91.3%)
+- **Agronomia** → veio Ciências Biológicas (95.7%)
+- **Zootecnia** → veio Ciências Biológicas (95.7%)
 
 Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor "redondo demais" que faz outro curso vencer por cosseno mesmo no greedy, ou gap de cobertura nas cenas. Investigar.
 
@@ -44,7 +42,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 ### 🩺 Saúde / Cuidado
 
-#### Medicina ⚠️
+#### Medicina ✅
 
 *Oficial Médica de Bordo* · Uberaba
 
@@ -62,15 +60,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[13,7,0,5,3,3,0]`
+**Vetor resultante do aluno:** `[15,9,0,5,3,3,0]`
 
-**⚠️ Top 1 calculado: Enfermagem** (esperado: Medicina)
+**✅ Top 1: Medicina** 92.1%
 
-**Top 3 completo:** Enfermagem 93.1% · Medicina 92.4% · Psicologia 91.7%
+**Top 3 completo:** Medicina 92.1% · Enfermagem 90.9% · Psicologia 89.6%
 
 #### Enfermagem ✅
 
@@ -90,15 +89,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🛏️ Acomodo os três, monitoro sinais a cada 30 min, hidratação … *(idx 1)* | CUI+3 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[15,1,0,10,1,3,0]`
+**Vetor resultante do aluno:** `[18,1,0,10,1,3,0]`
 
-**✅ Top 1: Enfermagem** 92.6%
+**✅ Top 1: Enfermagem** 91.9%
 
-**Top 3 completo:** Enfermagem 92.6% · Psicologia 88.2% · Pedagogia 86.9%
+**Top 3 completo:** Enfermagem 91.9% · Psicologia 85.8% · Educação Física 85.8%
 
 #### Psicologia ⚠️
 
@@ -118,17 +118,18 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[14,3,0,10,1,3,0]`
+**Vetor resultante do aluno:** `[15,4,0,12,1,3,0]`
 
 **⚠️ Top 1 calculado: Enfermagem** (esperado: Psicologia)
 
-**Top 3 completo:** Enfermagem 94.3% · Psicologia 92.2% · Pedagogia 88.6%
+**Top 3 completo:** Enfermagem 94.0% · Psicologia 93.0% · Pedagogia 89.4%
 
-#### Fisioterapia ⚠️
+#### Fisioterapia ✅
 
 *Técnica de Reabilitação* · Uberaba
 
@@ -146,15 +147,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[15,2,4,7,1,0,0]`
+**Vetor resultante do aluno:** `[17,2,6,7,1,0,0]`
 
-**⚠️ Top 1 calculado: Enfermagem** (esperado: Fisioterapia)
+**✅ Top 1: Fisioterapia** 93.7%
 
-**Top 3 completo:** Enfermagem 93.2% · Fisioterapia 91.7% · Terapia Ocupacional 91.1%
+**Top 3 completo:** Fisioterapia 93.7% · Enfermagem 92.2% · Terapia Ocupacional 91.9%
 
 #### Terapia Ocupacional ⚠️
 
@@ -174,15 +176,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[15,1,2,10,1,0,0]`
+**Vetor resultante do aluno:** `[17,1,4,10,1,0,0]`
 
 **⚠️ Top 1 calculado: Enfermagem** (esperado: Terapia Ocupacional)
 
-**Top 3 completo:** Enfermagem 92.0% · Pedagogia 89.8% · Educação Especial e Inclusiva 88.3%
+**Top 3 completo:** Enfermagem 92.6% · Terapia Ocupacional 89.8% · Pedagogia 89.0%
 
 #### Nutrição ✅
 
@@ -202,17 +205,18 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[12,6,0,3,3,7,0]`
+**Vetor resultante do aluno:** `[14,8,0,3,3,7,0]`
 
-**✅ Top 1: Nutrição** 94.2%
+**✅ Top 1: Nutrição** 93.4%
 
-**Top 3 completo:** Nutrição 94.2% · Psicologia 90.6% · Enfermagem 89.5%
+**Top 3 completo:** Nutrição 93.4% · Psicologia 89.4% · Medicina 88.8%
 
-#### Serviço Social ✅
+#### Serviço Social ⚠️
 
 *Defensora de Direitos da Tripulação* · Uberaba
 
@@ -230,17 +234,18 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 8 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🛏️ Acomodo os três, monitoro sinais a cada 30 min, hidratação … *(idx 1)* | CUI+3 |
+| 9 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[11,0,2,8,9,0,0]`
+**Vetor resultante do aluno:** `[14,0,2,8,9,0,0]`
 
-**✅ Top 1: Serviço Social** 96.4%
+**⚠️ Top 1 calculado: Educação Especial e Inclusiva** (esperado: Serviço Social)
 
-**Top 3 completo:** Serviço Social 96.4% · Educação Especial e Inclusiva 96.3% · Pedagogia 95.7%
+**Top 3 completo:** Educação Especial e Inclusiva 96.3% · Serviço Social 95.4% · Pedagogia 94.5%
 
-#### Educação Especial e Inclusiva ✅
+#### Educação Especial e Inclusiva ⚠️
 
 *Especialista em Inclusão* · Iturama
 
@@ -258,19 +263,20 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🛏️ Acomodo os três, monitoro sinais a cada 30 min, hidratação … *(idx 1)* | CUI+3 |
+| 9 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[16,0,2,7,4,0,0]`
+**Vetor resultante do aluno:** `[19,0,2,7,4,0,0]`
 
-**✅ Top 1: Educação Especial e Inclusiva** 91.6%
+**⚠️ Top 1 calculado: Enfermagem** (esperado: Educação Especial e Inclusiva)
 
-**Top 3 completo:** Educação Especial e Inclusiva 91.6% · Enfermagem 91.5% · Pedagogia 89.4%
+**Top 3 completo:** Enfermagem 90.1% · Educação Especial e Inclusiva 89.6% · Educação Física 87.3%
 
 ### 🔬 Investigação / Ciências Naturais
 
-#### Biomedicina ⚠️
+#### Biomedicina ✅
 
 *Pesquisadora de Vida Alienígena* · Uberaba/Iturama
 
@@ -288,15 +294,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,19,0,0,1,3,8]`
+**Vetor resultante do aluno:** `[4,21,0,0,1,3,8]`
 
-**⚠️ Top 1 calculado: Matemática** (esperado: Biomedicina)
+**✅ Top 1: Biomedicina** 89.0%
 
-**Top 3 completo:** Matemática 88.7% · Inteligência Artificial 87.5% · Biomedicina 85.9%
+**Top 3 completo:** Biomedicina 89.0% · Matemática 86.6% · Inteligência Artificial 85.4%
 
 #### Ciências Biológicas ✅
 
@@ -316,15 +323,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🌬️ Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,13,1,0,1,12,3]`
+**Vetor resultante do aluno:** `[4,15,1,0,1,12,3]`
 
-**✅ Top 1: Ciências Biológicas** 93.0%
+**✅ Top 1: Ciências Biológicas** 93.2%
 
-**Top 3 completo:** Ciências Biológicas 93.0% · Agronomia 88.3% · Zootecnia 86.1%
+**Top 3 completo:** Ciências Biológicas 93.2% · Agronomia 88.4% · Zootecnia 88.0%
 
 #### Física ✅
 
@@ -344,15 +352,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[0,17,4,0,1,1,8]`
+**Vetor resultante do aluno:** `[2,19,4,0,1,1,8]`
 
-**✅ Top 1: Física** 93.0%
+**✅ Top 1: Física** 92.3%
 
-**Top 3 completo:** Física 93.0% · Inteligência Artificial 92.9% · Matemática 89.3%
+**Top 3 completo:** Física 92.3% · Inteligência Artificial 91.0% · Matemática 87.9%
 
 #### Química ✅
 
@@ -372,15 +381,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,15,6,0,1,5,2]`
+**Vetor resultante do aluno:** `[4,17,6,0,1,5,2]`
 
-**✅ Top 1: Química** 96.2%
+**✅ Top 1: Química** 96.5%
 
-**Top 3 completo:** Química 96.2% · Física 91.8% · Biomedicina 90.2%
+**Top 3 completo:** Química 96.5% · Biomedicina 93.5% · Física 90.2%
 
 ### 🔧 Construção / Engenharias físicas
 
@@ -402,17 +412,18 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | ⚖️ Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | TRA+3 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,6,12,3,5,1,2]`
+**Vetor resultante do aluno:** `[2,6,14,3,5,1,2]`
 
 **✅ Top 1: Engenharia Civil** 97.5%
 
 **Top 3 completo:** Engenharia Civil 97.5% · Engenharia Mecânica 90.3% · Engenharia Elétrica 90.3%
 
-#### Engenharia Mecânica ⚠️
+#### Engenharia Mecânica ✅
 
 *Mecânica-Chefe da Nave* · Uberaba
 
@@ -430,15 +441,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,11,11,0,1,1,6]`
+**Vetor resultante do aluno:** `[2,11,13,0,1,1,6]`
 
-**⚠️ Top 1 calculado: Física** (esperado: Engenharia Mecânica)
+**✅ Top 1: Engenharia Mecânica** 98.3%
 
-**Top 3 completo:** Física 97.4% · Engenharia Mecânica 97.4% · Engenharia Elétrica 97.4%
+**Top 3 completo:** Engenharia Mecânica 98.3% · Engenharia Elétrica 98.3% · Física 95.3%
 
 #### Engenharia Elétrica ⚠️
 
@@ -458,15 +470,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,11,11,0,1,1,6]`
+**Vetor resultante do aluno:** `[2,11,13,0,1,1,6]`
 
-**⚠️ Top 1 calculado: Física** (esperado: Engenharia Elétrica)
+**⚠️ Top 1 calculado: Engenharia Mecânica** (esperado: Engenharia Elétrica)
 
-**Top 3 completo:** Física 97.4% · Engenharia Mecânica 97.4% · Engenharia Elétrica 97.4%
+**Top 3 completo:** Engenharia Mecânica 98.3% · Engenharia Elétrica 98.3% · Física 95.3%
 
 #### Engenharia Química ⚠️
 
@@ -486,15 +499,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,10,12,0,1,3,4]`
+**Vetor resultante do aluno:** `[2,10,14,0,1,3,4]`
 
 **⚠️ Top 1 calculado: Engenharia Mecânica** (esperado: Engenharia Química)
 
-**Top 3 completo:** Engenharia Mecânica 97.6% · Engenharia Elétrica 97.6% · Engenharia Química 96.0%
+**Top 3 completo:** Engenharia Mecânica 97.7% · Engenharia Elétrica 97.7% · Engenharia Química 96.2%
 
 #### Engenharia de Produção ✅
 
@@ -514,15 +528,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,7,9,6,0,0,7]`
+**Vetor resultante do aluno:** `[1,8,9,8,0,0,7]`
 
 **✅ Top 1: Engenharia de Produção** 93.0%
 
-**Top 3 completo:** Engenharia de Produção 93.0% · Engenharia Mecânica 87.5% · Engenharia Elétrica 87.5%
+**Top 3 completo:** Engenharia de Produção 93.0% · Engenharia Mecânica 83.0% · Engenharia Elétrica 83.0%
 
 #### Engenharia Ambiental ⚠️
 
@@ -542,15 +557,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 🧪 Coleto amostras (sem machucar) pra entender a biologia delas *(idx 2)* | INV+2 CUL+2 |
-| 10 Crise final | 🌱 Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 🧪 Coleto amostras (sem machucar) pra entender a biologia delas *(idx 2)* | INV+2 CUL+2 |
+| 11 Crise final | 🌱 Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
-**Vetor resultante do aluno:** `[0,6,7,0,1,15,1]`
+**Vetor resultante do aluno:** `[2,6,9,0,1,15,1]`
 
 **⚠️ Top 1 calculado: Agronomia** (esperado: Engenharia Ambiental)
 
-**Top 3 completo:** Agronomia 88.3% · Ciências Biológicas 85.7% · Engenharia Ambiental 85.6%
+**Top 3 completo:** Agronomia 90.1% · Engenharia de Alimentos 89.7% · Engenharia Ambiental 89.1%
 
 #### Engenharia de Alimentos ⚠️
 
@@ -570,15 +586,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[0,8,12,0,1,6,3]`
+**Vetor resultante do aluno:** `[2,8,14,0,1,6,3]`
 
 **⚠️ Top 1 calculado: Engenharia Química** (esperado: Engenharia de Alimentos)
 
-**Top 3 completo:** Engenharia Química 97.3% · Engenharia de Alimentos 94.7% · Engenharia Mecânica 92.2%
+**Top 3 completo:** Engenharia Química 97.1% · Engenharia de Alimentos 96.4% · Engenharia Mecânica 92.6%
 
 ### 💻 Decifrador / Computação + Dados + Matemática
 
@@ -600,15 +617,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🔋 Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[2,16,2,0,1,3,10]`
+**Vetor resultante do aluno:** `[4,18,2,0,1,3,10]`
 
 **⚠️ Top 1 calculado: Inteligência Artificial** (esperado: Banco de Dados)
 
-**Top 3 completo:** Inteligência Artificial 93.7% · Matemática 92.5% · Banco de Dados 88.9%
+**Top 3 completo:** Inteligência Artificial 91.3% · Matemática 90.4% · Biomedicina 90.3%
 
 #### Inteligência Artificial ⚠️
 
@@ -628,15 +646,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,19,0,0,1,3,8]`
+**Vetor resultante do aluno:** `[4,21,0,0,1,3,8]`
 
-**⚠️ Top 1 calculado: Matemática** (esperado: Inteligência Artificial)
+**⚠️ Top 1 calculado: Biomedicina** (esperado: Inteligência Artificial)
 
-**Top 3 completo:** Matemática 88.7% · Inteligência Artificial 87.5% · Biomedicina 85.9%
+**Top 3 completo:** Biomedicina 89.0% · Matemática 86.6% · Inteligência Artificial 85.4%
 
 #### Matemática ✅
 
@@ -656,15 +675,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[0,19,0,1,1,3,8]`
+**Vetor resultante do aluno:** `[2,21,0,1,1,3,8]`
 
-**✅ Top 1: Matemática** 90.1%
+**✅ Top 1: Matemática** 88.5%
 
-**Top 3 completo:** Matemática 90.1% · Inteligência Artificial 87.8% · Física 83.2%
+**Top 3 completo:** Matemática 88.5% · Inteligência Artificial 86.3% · Biomedicina 85.5%
 
 ### 📢 Comunicação / Educação
 
@@ -686,15 +706,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[3,5,2,16,2,0,2]`
+**Vetor resultante do aluno:** `[4,6,2,18,2,0,2]`
 
-**✅ Top 1: Letras** 93.5%
+**✅ Top 1: Letras** 93.9%
 
-**Top 3 completo:** Letras 93.5% · Pedagogia 79.9% · Psicologia 76.4%
+**Top 3 completo:** Letras 93.9% · Pedagogia 80.8% · Psicologia 78.2%
 
 #### Letras (PT/ING) ✅
 
@@ -714,15 +735,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 8 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 9 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
+| 10 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[3,5,2,16,2,0,2]`
+**Vetor resultante do aluno:** `[4,6,2,18,2,0,2]`
 
-**✅ Top 1: Letras** 93.5%
+**✅ Top 1: Letras** 93.9%
 
-**Top 3 completo:** Letras 93.5% · Pedagogia 79.9% · Psicologia 76.4%
+**Top 3 completo:** Letras 93.9% · Pedagogia 80.8% · Psicologia 78.2%
 
 #### Pedagogia ✅
 
@@ -742,15 +764,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[12,0,2,12,4,0,0]`
+**Vetor resultante do aluno:** `[13,1,2,14,4,0,0]`
 
-**✅ Top 1: Pedagogia** 95.4%
+**✅ Top 1: Pedagogia** 95.6%
 
-**Top 3 completo:** Pedagogia 95.4% · Educação Especial e Inclusiva 91.5% · Enfermagem 91.2%
+**Top 3 completo:** Pedagogia 95.6% · Enfermagem 91.4% · Educação Especial e Inclusiva 91.1%
 
 ### ⚡ Transformação / Humanidades
 
@@ -772,15 +795,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | ⚖️ Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | TRA+3 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 8 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 9 Contato | 🛡️ Recuo a equipe e estabeleço protocolo de não-contato preven… *(idx 4)* | CUI+1 TRA+2 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | 🛡️ Recuo a equipe e estabeleço protocolo de não-contato preven… *(idx 4)* | CUI+1 TRA+2 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[6,4,1,2,15,2,0]`
+**Vetor resultante do aluno:** `[7,5,1,4,15,2,0]`
 
-**✅ Top 1: História** 87.8%
+**✅ Top 1: História** 92.2%
 
-**Top 3 completo:** História 87.8% · Serviço Social 87.5% · Geografia 85.2%
+**Top 3 completo:** História 92.2% · Serviço Social 92.1% · Geografia 86.6%
 
 #### Geografia ✅
 
@@ -800,15 +824,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | ⚖️ Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | TRA+3 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[3,8,1,2,12,4,2]`
+**Vetor resultante do aluno:** `[5,10,1,2,12,4,2]`
 
-**✅ Top 1: Geografia** 95.4%
+**✅ Top 1: Geografia** 94.2%
 
-**Top 3 completo:** Geografia 95.4% · História 89.4% · Licenciatura em Educação do Campo 81.4%
+**Top 3 completo:** Geografia 94.2% · História 89.4% · Medicina 86.0%
 
 #### Educação Física ⚠️
 
@@ -828,15 +853,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 8 Doença misteriosa | 🛏️ Acomodo os três, monitoro sinais a cada 30 min, hidratação … *(idx 1)* | CUI+3 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🩺 Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
-**Vetor resultante do aluno:** `[16,1,0,7,3,3,0]`
+**Vetor resultante do aluno:** `[19,1,0,7,3,3,0]`
 
 **⚠️ Top 1 calculado: Enfermagem** (esperado: Educação Física)
 
-**Top 3 completo:** Enfermagem 93.0% · Educação Física 89.4% · Educação Especial e Inclusiva 87.9%
+**Top 3 completo:** Enfermagem 91.3% · Educação Física 87.4% · Educação Especial e Inclusiva 86.4%
 
 #### Licenciatura em Educação do Campo ✅
 
@@ -856,15 +882,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | ⚖️ Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | TRA+3 |
 | 6 Falha técnica | 🌬️ Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
-| 10 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
+| 8 Doença misteriosa | 🥗 Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 11 Crise final | 🗣️ Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[3,1,1,4,10,11,0]`
+**Vetor resultante do aluno:** `[5,2,1,4,10,12,0]`
 
-**✅ Top 1: Licenciatura em Educação do Campo** 94.8%
+**✅ Top 1: Licenciatura em Educação do Campo** 96.5%
 
-**Top 3 completo:** Licenciatura em Educação do Campo 94.8% · Geografia 85.9% · Engenharia Ambiental 78.0%
+**Top 3 completo:** Licenciatura em Educação do Campo 96.5% · Geografia 87.1% · Nutrição 83.3%
 
 ### 🌱 Cultivo / Natureza
 
@@ -886,15 +913,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🌬️ Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,12,3,0,1,12,1]`
+**Vetor resultante do aluno:** `[4,14,3,0,1,12,1]`
 
 **⚠️ Top 1 calculado: Ciências Biológicas** (esperado: Agronomia)
 
-**Top 3 completo:** Ciências Biológicas 95.5% · Agronomia 93.1% · Zootecnia 90.7%
+**Top 3 completo:** Ciências Biológicas 95.7% · Agronomia 92.9% · Zootecnia 92.4%
 
 #### Zootecnia ⚠️
 
@@ -914,15 +942,16 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 6 Falha técnica | 🌬️ Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 8 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 9 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 10 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 8 Doença misteriosa | 🔬 Lab AGORA — sangue, imagem, secreção. Não toco em ninguém a… *(idx 0)* | CUI+2 INV+2 |
+| 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
+| 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
+| 11 Crise final | 🧬 Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
-**Vetor resultante do aluno:** `[2,12,3,0,1,12,1]`
+**Vetor resultante do aluno:** `[4,14,3,0,1,12,1]`
 
 **⚠️ Top 1 calculado: Ciências Biológicas** (esperado: Zootecnia)
 
-**Top 3 completo:** Ciências Biológicas 95.5% · Agronomia 93.1% · Zootecnia 90.7%
+**Top 3 completo:** Ciências Biológicas 95.7% · Agronomia 92.9% · Zootecnia 92.4%
 
 ---
 *Gerado automaticamente em 2026-05-20 pelo `scripts/personas-ideais.ts`*

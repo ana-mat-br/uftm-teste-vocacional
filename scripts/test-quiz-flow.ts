@@ -28,24 +28,24 @@ type Persona = {
 
 const PERSONAS: Persona[] = [
   {
-    // Medicina-leaning: 🤔, 🧬*NOVA*, 🛡️, 🫂, 📊, 🧠, 🌊, 🍞, 🩺
-    // Vetor esperado: [10, 10, 0, 4, 3, 2, 4] → top Medicina
-    // Gap 2.4% e top1 92% → "híbrido", NÃO dispara desempate (v0.2.1)
+    // Medicina-leaning: 🤔, 🧬, 🛡️, 🫂, 📊, 🧠, 🔬*NOVA*, 🌊, 🍞, 🩺
+    // Cena 8 nova "Doença misteriosa" → 🔬 (CUI+INV) puxa pra Medicina
+    // Gap top1↔top2 fica < 2% (Medicina vs Biomedicina) → /desempate
     nome: "medicina-leaning",
-    escolhas: [0, 1, 3, 0, 1, 2, 2, 1, 0],
+    escolhas: [0, 1, 3, 0, 1, 2, 0, 2, 1, 0],
     topEsperado: "Medicina",
+    esperaDesempate: true,
   },
   {
-    // Comunicador puro: 😅, 📡, 🗣️, 🫂, 🚨, 📝, 🏕️, 📡, 🗣️
-    // Vetor esperado: [5, 2, 2, 16, 4, 0, 0] → Letras top 1
-    // Gap 2.5% e top1 90% → "híbrido", NÃO dispara desempate (v0.2.1)
+    // Comunicador puro: 😅, 📡, 🗣️, 🫂, 🚨, 📝, 🗣️*NOVA*, 🏕️, 📡, 🗣️
+    // Cena 8 nova → 🗣️ (escuta psicológica, único com COM)
     nome: "comunicador-puro",
-    escolhas: [1, 3, 2, 0, 2, 1, 3, 3, 3],
+    escolhas: [1, 3, 2, 0, 2, 1, 2, 3, 3, 3],
     topEsperado: "Letras",
   },
 ];
 
-const IDS_CENAS = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+const IDS_CENAS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 async function rodarPersona(page: Page, p: Persona): Promise<void> {
   console.log(`\n▸ ${p.nome}`);

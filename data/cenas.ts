@@ -108,6 +108,20 @@ export const CENAS: Cena[] = [
   },
   {
     id: 8,
+    titulo: "Doença misteriosa",
+    narrativa:
+      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, sensibilidade à luz, dor difusa. Ninguém viu nada parecido. Você é o primeiro responsável da rodada de saúde. Qual sua jogada?",
+    falaBixinho: "amor, isso aqui é literatura de medicina espacial. respira.",
+    opcoes: [
+      { emoji: "🔬", texto: "Lab AGORA — sangue, imagem, secreção. Não toco em ninguém antes de saber o que é.", pontos: [2, 2, 0, 0, 0, 0, 0] },
+      { emoji: "🛏️", texto: "Acomodo os três, monitoro sinais a cada 30 min, hidratação contínua", pontos: [3, 0, 0, 0, 0, 0, 0] },
+      { emoji: "🗣️", texto: "Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser psicossomático coletivo", pontos: [1, 1, 0, 2, 0, 0, 0] },
+      { emoji: "💪", texto: "Avaliação motora — se o corpo tá afetado, prescrevo movimento certo pra recuperar", pontos: [2, 0, 2, 0, 0, 0, 0] },
+      { emoji: "🥗", texto: "Investigo as últimas refeições — comida fresca, contaminação, deficiência de nutriente?", pontos: [2, 1, 0, 0, 0, 1, 0] },
+    ],
+  },
+  {
+    id: 9,
     titulo: "Chegada ao planeta",
     narrativa:
       "Kepler-186f na tela. Atmosfera respirável (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
@@ -120,7 +134,7 @@ export const CENAS: Cena[] = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     titulo: "Contato",
     narrativa:
       "Terceira semana no planeta. Vocês encontram algo. Pequenas criaturas bioluminescentes saem das tocas à noite. Curiosas. Não parecem perigosas.",
@@ -134,7 +148,7 @@ export const CENAS: Cena[] = [
     ],
   },
   {
-    id: 10,
+    id: 11,
     titulo: "Crise final",
     narrativa:
       "Mês 7 no planeta. Tempestade magnética inesperada. Os sistemas de suporte vital estão piscando. Você tem 12 minutos pra decidir o que priorizar.",
