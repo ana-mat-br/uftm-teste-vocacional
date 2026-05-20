@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import VaporwaveBg from "@/components/VaporwaveBg";
+import StarField from "@/components/StarField";
 import MuteToggle from "@/components/MuteToggle";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function RootLayout({
       </head>
       <body>
         <VaporwaveBg />
+        <StarField />
         {children}
         <MuteToggle />
       </body>
