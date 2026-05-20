@@ -162,7 +162,7 @@ export default function Desempate() {
               className="font-pixel-body text-xl font-bold"
               style={{ color: "var(--sun-yellow)" }}
             >
-              {curso.nome}
+              {curso.grupo ?? curso.nome}
             </div>
             <div
               className="font-terminal text-xs mt-1 uppercase tracking-widest"

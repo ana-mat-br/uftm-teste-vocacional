@@ -94,6 +94,7 @@ export async function POST(request: Request) {
     eixoDominante: eixo,
     top3: top3.map((c) => ({
       nome: c.nome,
+      grupo: c.grupo,
       papelMissao: c.papelMissao,
       campus: c.campus,
       score: c.score,

@@ -36,13 +36,25 @@ export function similaridadeCosseno(a: VetorEixos, b: VetorEixos): number {
 export type CursoComScore = Curso & { score: number };
 
 export function topCursos(vetorAluno: VetorEixos, limite = 3): CursoComScore[] {
-  return CURSOS
+  const ordenados = CURSOS
     .map((curso) => ({
       ...curso,
       score: similaridadeCosseno(vetorAluno, curso.vetor),
     }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limite);
+    .sort((a, b) => b.score - a.score);
+
+  // Dedupe por grupo: cursos com mesmo grupo aparecem uma vez só (o de maior score).
+  // Cursos sem grupo são únicos por nome.
+  const vistos = new Set<string>();
+  const unicos: CursoComScore[] = [];
+  for (const curso of ordenados) {
+    const chave = curso.grupo ?? curso.nome;
+    if (vistos.has(chave)) continue;
+    vistos.add(chave);
+    unicos.push(curso);
+    if (unicos.length === limite) break;
+  }
+  return unicos;
 }
 
 /** Retorna a sigla do eixo dominante no vetor (maior valor). */

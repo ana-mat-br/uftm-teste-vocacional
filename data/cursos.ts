@@ -14,6 +14,10 @@ export type Curso = {
   papelMissao: string;
   vetor: VetorEixos;
   campus: Campus;
+  /** Quando preenchido, cursos com mesmo grupo são tratados como UM no resultado.
+   *  Ex: Letras (PT/ESP) e Letras (PT/ING) têm grupo:"Letras" — só aparece um no top 3.
+   *  Usado pelo display (mostrar curso.grupo ?? curso.nome). */
+  grupo?: string;
 };
 
 export const CURSOS: Curso[] = [
@@ -48,8 +52,8 @@ export const CURSOS: Curso[] = [
   { nome: "Matemática", papelMissao: "Estrategista de Rotas", vetor: [0, 3, 0, 1, 0, 0, 3], campus: "Uberaba" },
 
   // === Comunicação / Educação ===
-  { nome: "Letras (PT/ESP)", papelMissao: "Linguista Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
-  { nome: "Letras (PT/ING)", papelMissao: "Linguista Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
+  { nome: "Letras (PT/ESP)", grupo: "Letras", papelMissao: "Linguista Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
+  { nome: "Letras (PT/ING)", grupo: "Letras", papelMissao: "Linguista Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
   { nome: "Pedagogia", papelMissao: "Educadora da Próxima Geração", vetor: [3, 1, 1, 3, 2, 0, 0], campus: "Uberaba" },
 
   // === Transformação / Humanidades ===

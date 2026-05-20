@@ -10,6 +10,7 @@ import type { Campus } from "@/data/cursos";
 
 type CursoResultado = {
   nome: string;
+  grupo?: string;
   papelMissao: string;
   campus: Campus;
   score: number;
@@ -413,7 +414,7 @@ export default function Resultado() {
             textShadow: "0 0 16px var(--sun-orange), 0 2px 0 var(--sun-pink)",
           }}
         >
-          {top1.nome}
+          {top1.grupo ?? top1.nome}
         </p>
         <p
           className="font-terminal text-xs mt-1 uppercase tracking-widest"
@@ -454,7 +455,7 @@ export default function Resultado() {
           <ul className="font-pixel-body text-base">
             {alts.map((c) => (
               <li key={c.nome} className="py-1">
-                <span style={{ color: "var(--grid-cyan)" }}>▸</span> {c.nome}{" "}
+                <span style={{ color: "var(--grid-cyan)" }}>▸</span> {c.grupo ?? c.nome}{" "}
                 <span
                   className="font-terminal text-xs px-2 py-0.5 ml-1"
                   style={{

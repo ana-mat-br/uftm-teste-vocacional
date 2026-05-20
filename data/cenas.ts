@@ -44,10 +44,11 @@ export const CENAS: Cena[] = [
     id: 3,
     titulo: "Primeiro turno",
     narrativa:
-      "14:23 UTC. Três alertas piscam ao mesmo tempo. Você só atende UM agora.",
+      "14:23 UTC. Vários alertas piscam ao mesmo tempo. Você só atende UM agora.",
     falaBixinho: "clássico. respira.",
     opcoes: [
       { emoji: "🩺", texto: "Enfermaria — colega passou mal no treino físico", pontos: [3, 0, 0, 0, 0, 0, 0] },
+      { emoji: "🧬", texto: "Enfermaria também — mas paro pra entender a causa antes de medicar: sinais vitais, histórico recente", pontos: [2, 2, 0, 0, 0, 0, 0] },
       { emoji: "🔧", texto: "Engenharia — vazamento pequeno crescendo no compartimento 7", pontos: [0, 1, 2, 0, 0, 0, 0] },
       { emoji: "📡", texto: "Comunicações — sinal estranho da Terra, talvez urgente", pontos: [0, 2, 0, 1, 0, 0, 0] },
       { emoji: "🌿", texto: "Estufa — sistema de irrigação travou nas mudas", pontos: [0, 0, 1, 0, 0, 2, 0] },
