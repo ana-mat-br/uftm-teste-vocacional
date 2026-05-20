@@ -5,6 +5,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useSessao } from "@/lib/use-sessao";
 import { topCursos, aplicarBonusDesempate, precisaDesempate } from "@/lib/matching";
 import { CURSOS } from "@/data/cursos";
+import NarratorBox from "@/components/NarratorBox";
+
+const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
 
 /**
  * Cena de desempate: aparece SOMENTE quando o top 1 venceu por margem
@@ -66,7 +69,7 @@ export default function Desempate() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6">
+    <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6 md:max-w-5xl md:px-10 md:py-10">
 
       {/* Header */}
       <div
@@ -87,91 +90,86 @@ export default function Desempate() {
         👤 // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
       </div>
 
-      {/* Título + contexto */}
-      <h1
-        className="font-pixel-title text-xs sm:text-sm leading-relaxed mt-2 mb-4 uppercase"
-        style={{
-          color: "var(--sun-yellow)",
-          textShadow: "0 0 10px var(--sun-orange)",
-          letterSpacing: 1,
-        }}
-      >
-        ▸ EMPATE TÉCNICO
-      </h1>
+      <div className="md:grid md:grid-cols-2 md:gap-10 md:items-start">
 
-      <div
-        className="px-4 py-3 border-l-2 backdrop-blur-sm mb-4"
-        style={{
-          borderColor: "var(--sun-pink)",
-          background: "rgba(26, 6, 51, 0.6)",
-        }}
-      >
-        <p className="font-pixel-body text-base leading-relaxed">
-          Acabou. Mas seu perfil ficou muito próximo entre 3 jornadas diferentes.
-          Antes do veredito, me diz: qual dessas três te puxou mais?
-        </p>
-      </div>
-
-      <div
-        className="px-3 py-2 mb-5"
-        style={{
-          background: "rgba(0, 240, 255, 0.08)",
-          borderLeft: "3px solid var(--grid-cyan)",
-        }}
-      >
-        <p
-          className="font-pixel-body text-sm italic"
-          style={{ color: "var(--text)" }}
-        >
-          <span style={{ color: "var(--grid-cyan)" }}>&gt; </span>
-          escolhe com a barriga, não com a cabeça.
-        </p>
-      </div>
-
-      {/* Cards das 3 opções */}
-      <div className="flex flex-col gap-3">
-        {top3.map((curso, idx) => (
-          <button
-            key={curso.nome}
-            onClick={() => handleEscolher(curso.nome)}
-            disabled={enviando}
-            className="text-left px-4 py-4 border-2 transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+        {/* Coluna esquerda: pergunta */}
+        <div className="md:sticky md:top-10">
+          <h1
+            className="font-pixel-title text-xs sm:text-sm md:text-base leading-relaxed mt-2 mb-4 uppercase"
             style={{
-              borderColor: "var(--sun-pink)",
-              background: "rgba(26, 6, 51, 0.7)",
-              color: "var(--text)",
-              boxShadow: "0 0 12px rgba(255, 46, 147, 0.25)",
+              color: "var(--sun-yellow)",
+              textShadow: "0 0 10px var(--sun-orange)",
+              letterSpacing: 1,
             }}
           >
-            <div
-              className="font-terminal text-xs uppercase tracking-widest mb-1"
-              style={{ color: "var(--text-dim)" }}
-            >
-              // jornada {idx + 1}
-            </div>
-            <div
-              className="font-pixel-title text-xs mb-2"
+            ▸ EMPATE TÉCNICO
+          </h1>
+
+          <div
+            className="px-4 py-3 border-l-2 backdrop-blur-sm mb-4"
+            style={{
+              borderColor: "var(--sun-pink)",
+              background: "rgba(26, 6, 51, 0.6)",
+            }}
+          >
+            <p className="font-pixel-body text-base md:text-lg leading-relaxed">
+              Acabou. Mas seu perfil ficou muito próximo entre 3 jornadas diferentes.
+              Antes do veredito, me diz: qual dessas três te puxou mais?
+            </p>
+          </div>
+
+          <NarratorBox
+            portrait={NARRATOR_PORTRAIT}
+            text="escolhe com a barriga, não com a cabeça."
+            variant="desempate"
+          />
+        </div>
+
+        {/* Coluna direita: cards das 3 jornadas */}
+        <div className="flex flex-col gap-3">
+          {top3.map((curso, idx) => (
+            <button
+              key={curso.nome}
+              onClick={() => handleEscolher(curso.nome)}
+              disabled={enviando}
+              className="text-left px-4 py-4 border-2 transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               style={{
-                color: "var(--sun-pink)",
-                textShadow: "0 0 8px var(--sun-pink)",
+                borderColor: "var(--sun-pink)",
+                background: "rgba(26, 6, 51, 0.7)",
+                color: "var(--text)",
+                boxShadow: "0 0 12px rgba(255, 46, 147, 0.25)",
               }}
             >
-              {curso.papelMissao.toUpperCase()}
-            </div>
-            <div
-              className="font-pixel-body text-xl font-bold"
-              style={{ color: "var(--sun-yellow)" }}
-            >
-              {curso.nome}
-            </div>
-            <div
-              className="font-terminal text-xs mt-1 uppercase tracking-widest"
-              style={{ color: "var(--text-dim)" }}
-            >
-              campus · {curso.campus}
-            </div>
-          </button>
-        ))}
+              <div
+                className="font-terminal text-xs uppercase tracking-widest mb-1"
+                style={{ color: "var(--text-dim)" }}
+              >
+                // jornada {idx + 1}
+              </div>
+              <div
+                className="font-pixel-title text-xs mb-2"
+                style={{
+                  color: "var(--sun-pink)",
+                  textShadow: "0 0 8px var(--sun-pink)",
+                }}
+              >
+                {curso.papelMissao.toUpperCase()}
+              </div>
+              <div
+                className="font-pixel-body text-xl md:text-2xl font-bold"
+                style={{ color: "var(--sun-yellow)" }}
+              >
+                {curso.nome}
+              </div>
+              <div
+                className="font-terminal text-xs mt-1 uppercase tracking-widest"
+                style={{ color: "var(--text-dim)" }}
+              >
+                campus · {curso.campus}
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
 
     </main>
