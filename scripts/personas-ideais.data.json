@@ -1,0 +1,469 @@
+[
+  {
+    "curso": "Medicina",
+    "escolhas": [
+      1,
+      1,
+      3,
+      0,
+      2,
+      0,
+      2,
+      0,
+      0
+    ],
+    "topEsperado": "Medicina"
+  },
+  {
+    "curso": "Enfermagem",
+    "escolhas": [
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      1,
+      1,
+      0
+    ],
+    "topEsperado": "Enfermagem"
+  },
+  {
+    "curso": "Psicologia",
+    "escolhas": [
+      1,
+      1,
+      2,
+      0,
+      2,
+      0,
+      1,
+      1,
+      0
+    ],
+    "topEsperado": "Psicologia"
+  },
+  {
+    "curso": "Fisioterapia",
+    "escolhas": [
+      1,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    "topEsperado": "Fisioterapia"
+  },
+  {
+    "curso": "Terapia Ocupacional",
+    "escolhas": [
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    "topEsperado": "Terapia Ocupacional"
+  },
+  {
+    "curso": "Nutrição",
+    "escolhas": [
+      3,
+      1,
+      3,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "topEsperado": "Nutrição"
+  },
+  {
+    "curso": "Serviço Social",
+    "escolhas": [
+      1,
+      0,
+      3,
+      0,
+      2,
+      3,
+      3,
+      1,
+      3
+    ],
+    "topEsperado": "Serviço Social"
+  },
+  {
+    "curso": "Educação Especial e Inclusiva",
+    "escolhas": [
+      1,
+      0,
+      3,
+      0,
+      2,
+      0,
+      3,
+      1,
+      0
+    ],
+    "topEsperado": "Educação Especial e Inclusiva"
+  },
+  {
+    "curso": "Biomedicina",
+    "escolhas": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2,
+      0,
+      2
+    ],
+    "topEsperado": "Biomedicina"
+  },
+  {
+    "curso": "Ciências Biológicas",
+    "escolhas": [
+      3,
+      1,
+      0,
+      3,
+      3,
+      2,
+      1,
+      0,
+      2
+    ],
+    "topEsperado": "Ciências Biológicas"
+  },
+  {
+    "curso": "Física",
+    "escolhas": [
+      0,
+      2,
+      0,
+      1,
+      1,
+      2,
+      0,
+      0,
+      2
+    ],
+    "topEsperado": "Física"
+  },
+  {
+    "curso": "Química",
+    "escolhas": [
+      0,
+      1,
+      1,
+      3,
+      0,
+      2,
+      2,
+      0,
+      2
+    ],
+    "topEsperado": "Química"
+  },
+  {
+    "curso": "Engenharia Civil",
+    "escolhas": [
+      2,
+      2,
+      1,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "topEsperado": "Engenharia Civil"
+  },
+  {
+    "curso": "Engenharia Mecânica",
+    "escolhas": [
+      0,
+      2,
+      1,
+      1,
+      0,
+      2,
+      0,
+      0,
+      1
+    ],
+    "topEsperado": "Engenharia Mecânica"
+  },
+  {
+    "curso": "Engenharia Elétrica",
+    "escolhas": [
+      0,
+      2,
+      1,
+      1,
+      0,
+      2,
+      0,
+      0,
+      1
+    ],
+    "topEsperado": "Engenharia Elétrica"
+  },
+  {
+    "curso": "Engenharia Química",
+    "escolhas": [
+      0,
+      2,
+      1,
+      3,
+      0,
+      2,
+      0,
+      0,
+      1
+    ],
+    "topEsperado": "Engenharia Química"
+  },
+  {
+    "curso": "Engenharia de Produção",
+    "escolhas": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      1,
+      0,
+      3,
+      1
+    ],
+    "topEsperado": "Engenharia de Produção"
+  },
+  {
+    "curso": "Engenharia Ambiental",
+    "escolhas": [
+      3,
+      4,
+      1,
+      3,
+      0,
+      2,
+      1,
+      2,
+      4
+    ],
+    "topEsperado": "Engenharia Ambiental"
+  },
+  {
+    "curso": "Engenharia de Alimentos",
+    "escolhas": [
+      3,
+      2,
+      1,
+      3,
+      0,
+      2,
+      0,
+      0,
+      1
+    ],
+    "topEsperado": "Engenharia de Alimentos"
+  },
+  {
+    "curso": "Banco de Dados",
+    "escolhas": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2,
+      0,
+      1
+    ],
+    "topEsperado": "Banco de Dados"
+  },
+  {
+    "curso": "Inteligência Artificial",
+    "escolhas": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2,
+      0,
+      2
+    ],
+    "topEsperado": "Inteligência Artificial"
+  },
+  {
+    "curso": "Matemática",
+    "escolhas": [
+      0,
+      3,
+      0,
+      1,
+      1,
+      2,
+      2,
+      0,
+      2
+    ],
+    "topEsperado": "Matemática"
+  },
+  {
+    "curso": "Letras (PT/ESP)",
+    "grupo": "Letras",
+    "escolhas": [
+      1,
+      3,
+      2,
+      0,
+      1,
+      1,
+      0,
+      3,
+      3
+    ],
+    "topEsperado": "Letras"
+  },
+  {
+    "curso": "Letras (PT/ING)",
+    "grupo": "Letras",
+    "escolhas": [
+      1,
+      3,
+      2,
+      0,
+      1,
+      1,
+      0,
+      3,
+      3
+    ],
+    "topEsperado": "Letras"
+  },
+  {
+    "curso": "Pedagogia",
+    "escolhas": [
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      3,
+      1,
+      3
+    ],
+    "topEsperado": "Pedagogia"
+  },
+  {
+    "curso": "História",
+    "escolhas": [
+      2,
+      1,
+      3,
+      2,
+      2,
+      3,
+      2,
+      4,
+      3
+    ],
+    "topEsperado": "História"
+  },
+  {
+    "curso": "Geografia",
+    "escolhas": [
+      2,
+      1,
+      3,
+      2,
+      1,
+      3,
+      1,
+      0,
+      3
+    ],
+    "topEsperado": "Geografia"
+  },
+  {
+    "curso": "Educação Física",
+    "escolhas": [
+      1,
+      0,
+      3,
+      0,
+      2,
+      0,
+      1,
+      1,
+      0
+    ],
+    "topEsperado": "Educação Física"
+  },
+  {
+    "curso": "Licenciatura em Educação do Campo",
+    "escolhas": [
+      3,
+      4,
+      3,
+      2,
+      3,
+      3,
+      1,
+      1,
+      3
+    ],
+    "topEsperado": "Licenciatura em Educação do Campo"
+  },
+  {
+    "curso": "Agronomia",
+    "escolhas": [
+      3,
+      1,
+      1,
+      3,
+      3,
+      2,
+      1,
+      0,
+      2
+    ],
+    "topEsperado": "Agronomia"
+  },
+  {
+    "curso": "Zootecnia",
+    "escolhas": [
+      3,
+      1,
+      1,
+      3,
+      3,
+      2,
+      1,
+      0,
+      2
+    ],
+    "topEsperado": "Zootecnia"
+  }
+]
