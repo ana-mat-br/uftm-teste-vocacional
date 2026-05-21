@@ -1,24 +1,27 @@
 <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-  <!-- Co-piloto-mistério B: só olhos cyan piscando no escuro -->
-  <!-- Fundo escuro semi-transparente (sugere "espaço") -->
+  <!-- Co-piloto-misterioso: 2 olhos rosa piscando — alinhado com a lore ("luzinha rosa flutua até você") -->
+  <!-- Fundo escuro semi-transparente (espaço) -->
   <rect x="2" y="4" width="12" height="8" fill="#1a0633" opacity="0.6"/>
-  <!-- Brilho ambiente atrás dos olhos -->
-  <rect x="3" y="6" width="4" height="4" fill="#00f0ff" opacity="0.15"/>
-  <rect x="9" y="6" width="4" height="4" fill="#00f0ff" opacity="0.15"/>
-  <!-- Olho esquerdo -->
-  <rect x="4" y="7" width="2" height="2" fill="#00f0ff">
+  <!-- Glow ambiente rosa atrás dos olhos -->
+  <rect x="3" y="6" width="4" height="4" fill="#ff2e93" opacity="0.2"/>
+  <rect x="9" y="6" width="4" height="4" fill="#ff2e93" opacity="0.2"/>
+  <!-- Halo mais amplo (suave) -->
+  <rect x="2" y="7" width="6" height="2" fill="#ff5fa8" opacity="0.12"/>
+  <rect x="8" y="7" width="6" height="2" fill="#ff5fa8" opacity="0.12"/>
+  <!-- Olho esquerdo (rosa quente) -->
+  <rect x="4" y="7" width="2" height="2" fill="#ff5fa8">
     <animate attributeName="height" values="2;0.3;2;2;2" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
   </rect>
-  <!-- Pupila/brilho esquerdo -->
-  <rect x="4" y="7" width="1" height="1" fill="#fff">
+  <!-- Brilho/pupila esquerda (rosa claríssimo) -->
+  <rect x="4" y="7" width="1" height="1" fill="#ffd6e8">
     <animate attributeName="height" values="1;0;1;1;1" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
   </rect>
   <!-- Olho direito -->
-  <rect x="10" y="7" width="2" height="2" fill="#00f0ff">
+  <rect x="10" y="7" width="2" height="2" fill="#ff5fa8">
     <animate attributeName="height" values="2;0.3;2;2;2" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
   </rect>
-  <!-- Pupila/brilho direito -->
-  <rect x="10" y="7" width="1" height="1" fill="#fff">
+  <!-- Brilho/pupila direita -->
+  <rect x="10" y="7" width="1" height="1" fill="#ffd6e8">
     <animate attributeName="height" values="1;0;1;1;1" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
   </rect>
 </svg>
