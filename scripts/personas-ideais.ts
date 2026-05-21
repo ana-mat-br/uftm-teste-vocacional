@@ -190,7 +190,7 @@ function renderPersonaMd(p: PersonaIdeal): string {
   CENAS.forEach((cena, i) => {
     const idx = p.escolhas[i];
     const opc = cena.opcoes[idx];
-    linhas.push(`| ${cena.id} ${cena.titulo} | ${opc.emoji} ${trim(opc.texto, 60)} *(idx ${idx})* | ${fmtPontosEscolha(i, idx)} |`);
+    linhas.push(`| ${cena.id} ${cena.titulo} | [${opc.icon}] ${trim(opc.texto, 60)} *(idx ${idx})* | ${fmtPontosEscolha(i, idx)} |`);
   });
   linhas.push("");
   linhas.push(`**Vetor resultante do aluno:** \`${fmtVetor(p.vetorAluno)}\``);

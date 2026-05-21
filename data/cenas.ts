@@ -31,10 +31,10 @@ export type Cena = {
 export const CENAS: Cena[] = [
   {
     id: 2,
-    titulo: "Embarque",
+    titulo: "Briefing",
     narrativa:
-      "Ano 2087. A Terra está em colapso e a UFTM está montando a primeira viagem tripulada ao planeta Kepler-186f: 14 meses de viagem, tripulação de 12. Vocês não foram escolhidos por nota — foram escolhidos pelo Protocolo Vocação. Uma luzinha verde flutua até você no hangar; é seu co-piloto, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma. O Protocolo começa agora.",
-    falaBixinho: "oi! sou eu, teu co-piloto. cola comigo a missão inteira. ela curte um drama, relaxa.",
+      "Ano 2087. A Terra está em colapso e a UFTM está montando a primeira expedição tripulada ao exoplaneta Kepler-186f: 14 meses de viagem, tripulação de 12. Vocês não foram escolhidos por nota — foram escolhidos pelo Protocolo Vocação. Uma luzinha verde flutua até você no hangar; é seu co-piloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma. O Protocolo começa agora.",
+    falaBixinho: "oi! sou eu, teu co-piloto. vou te acompanhar a missão inteira. ela é sempre dramática assim, relaxa.",
     opcoes: [
       { icon: "thinking", texto: "Anoto tudo, levanto a mão pra perguntar das margens de erro do Protocolo", pontos: [0, 2, 0, 0, 0, 0, 1] },
       { icon: "uncertain", texto: "Olho pros outros candidatos pra ver se alguém também tá perdido", pontos: [1, 0, 0, 2, 0, 0, 0] },
@@ -46,7 +46,7 @@ export const CENAS: Cena[] = [
     id: 3,
     titulo: "Primeiro turno",
     narrativa:
-      "14h23. Vários alertas piscam ao mesmo tempo. Você só atende UM agora.",
+      "14:23 UTC. Três alertas piscam ao mesmo tempo. Você só atende UM agora.",
     falaBixinho: "clássico. respira.",
     opcoes: [
       { icon: "stethoscope", texto: "Enfermaria — colega passou mal no treino físico", pontos: [3, 0, 0, 0, 0, 0, 0] },
@@ -59,7 +59,7 @@ export const CENAS: Cena[] = [
     id: 4,
     titulo: "Anomalia",
     narrativa:
-      "Dia 47 da viagem. Um sensor externo detecta um sinal de energia que não tá no manual. Não é asteroide. Não é nave. Não é nada que humano já tenha registrado.",
+      "Dia 47 da viagem. Um sensor externo detecta uma assinatura de energia que não tá no manual. Não é asteroide. Não é nave. Não é nada que humano já tenha registrado.",
     falaBixinho: "eu fingiria que tô calmo se eu tivesse pulmão.",
     opcoes: [
       { icon: "chart", texto: "Vou pra sala de dados cruzar a assinatura com todos os arquivos da Terra", pontos: [0, 2, 0, 0, 0, 0, 2] },
@@ -72,7 +72,7 @@ export const CENAS: Cena[] = [
     id: 5,
     titulo: "Conflito de tripulação",
     narrativa:
-      "Dois colegas estão brigando alto no refeitório. Um acha que tão dividindo comida demais, o outro acha que não tão dividindo suficiente. A discussão tá ficando feia.",
+      "Dois colegas estão brigando alto no refeitório. Um acha que tão racionando comida demais, o outro acha que não tão racionando suficiente. A discussão tá ficando feia.",
     falaBixinho: "vai lá. eu seguro pipoca holográfica.",
     opcoes: [
       { icon: "hug", texto: "Chego perto e peço pros dois respirarem antes de continuar", pontos: [2, 0, 0, 2, 0, 0, 0] },
@@ -82,24 +82,10 @@ export const CENAS: Cena[] = [
     ],
   },
   {
-    id: 12,
-    titulo: "Rotina coletiva",
-    narrativa:
-      "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa pra cuidar do grupo. Você se voluntaria pra criar. Qual aposta?",
-    falaBixinho: "que coisa de adulto. respira que dá certo.",
-    opcoes: [
-      { emoji: "🧘", texto: "Espaço de escuta semanal — individual, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
-      { emoji: "🛠️", texto: "Oficina de adaptação — ajusto pequenas tarefas pra cada um trabalhar sozinho", pontos: [2, 0, 2, 2, 0, 0, 0] },
-      { emoji: "🌈", texto: "Programa inclusivo — todo mundo na rotina, com adaptações pra quem tem necessidade específica", pontos: [2, 0, 1, 2, 2, 0, 0] },
-      { emoji: "🏃", texto: "Rotina física coletiva — esporte como cuidado e amizade entre a galera", pontos: [2, 0, 1, 1, 2, 1, 0] },
-      { emoji: "⚖️", texto: "Carta de direitos da tripulação — formal, com regras justas e canal de denúncia", pontos: [1, 0, 0, 2, 3, 0, 0] },
-    ],
-  },
-  {
     id: 6,
     titulo: "Falha técnica",
     narrativa:
-      "03h da manhã. O sistema de oxigênio do dormitório B começou a variar (2% pra menos). Não é perigoso AINDA. Mas em 6 horas vira.",
+      "03h da manhã. O sistema de oxigênio do dormitório B começou a oscilar 2%. Não é perigoso AINDA. Mas em 6 horas vira.",
     falaBixinho: "se eu morrer aqui eu juro que volto te assombrar via wifi.",
     opcoes: [
       { icon: "tools", texto: "Vou direto pra engenharia, abro o painel e tento diagnosticar", pontos: [0, 0, 3, 0, 0, 0, 0] },
@@ -113,7 +99,7 @@ export const CENAS: Cena[] = [
     titulo: "Mensagem da Terra",
     narrativa:
       "Chegou uma transmissão. Sua família mandou um vídeo. Tá tudo bem — mas é a primeira notícia em 3 meses. Você sente o nó na garganta.",
-    falaBixinho: "pode chorar, mano. fica entre nós.",
+    falaBixinho: "sabe que você pode chorar, né. eu não conto pra ninguém.",
     opcoes: [
       { icon: "video", texto: "Assisto sozinho no meu quarto, depois respondo com calma", pontos: [2, 0, 0, 1, 0, 0, 0] },
       { icon: "letter", texto: "Escrevo uma carta longa de volta, contando tudo da viagem", pontos: [0, 0, 0, 3, 0, 0, 0] },
@@ -123,10 +109,10 @@ export const CENAS: Cena[] = [
   },
   {
     id: 8,
-    titulo: "Doença misteriosa",
+    titulo: "Chegada ao planeta",
     narrativa:
-      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, luz forte machucando os olhos, dor espalhada pelo corpo. Ninguém viu nada parecido. Você tá no plantão. Qual sua jogada?",
-    falaBixinho: "cara, isso aqui é novela médica espacial. respira.",
+      "Kepler-186f na tela. Atmosfera respirável (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
+    falaBixinho: "olha esse planetinha. eu já tô com ciúmes da terra.",
     opcoes: [
       { icon: "mountain", texto: "Perto das montanhas — terreno estável, vista pra tudo", pontos: [0, 1, 2, 0, 0, 0, 0] },
       { icon: "tree", texto: "Perto da floresta densa — onde tem mais vida pra estudar", pontos: [0, 1, 0, 0, 0, 3, 0] },
@@ -136,10 +122,10 @@ export const CENAS: Cena[] = [
   },
   {
     id: 9,
-    titulo: "Chegada ao planeta",
+    titulo: "Contato",
     narrativa:
-      "Kepler-186f na tela. Dá pra respirar (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
-    falaBixinho: "olha esse planetinha. eu já tô com ciúmes da terra.",
+      "Terceira semana no planeta. Vocês encontram algo. Pequenas criaturas bioluminescentes saem das tocas à noite. Curiosas. Não parecem perigosas.",
+    falaBixinho: "tipo eu mas em carbono.",
     opcoes: [
       { icon: "camera", texto: "Observo de longe, anoto comportamento, não interfiro", pontos: [0, 3, 0, 0, 0, 1, 0] },
       { icon: "offering", texto: "Tento oferecer algo — gesto de paz interespécie", pontos: [2, 0, 0, 2, 0, 0, 0] },
@@ -150,23 +136,9 @@ export const CENAS: Cena[] = [
   },
   {
     id: 10,
-    titulo: "Contato",
-    narrativa:
-      "Terceira semana no planeta. Vocês encontram algo. Pequenas criaturas que brilham no escuro saem das tocas à noite. Elas parecem curiosas. Não perigosas.",
-    falaBixinho: "tipo eu mas em carbono.",
-    opcoes: [
-      { emoji: "📸", texto: "Observo de longe, anoto o comportamento, não chego perto", pontos: [0, 3, 0, 0, 0, 1, 0] },
-      { emoji: "🍞", texto: "Tento oferecer algo — gesto de paz, primeira ponte entre espécies", pontos: [2, 0, 0, 2, 0, 0, 0] },
-      { emoji: "🧪", texto: "Coleto amostras (sem machucar) pra entender como elas funcionam", pontos: [0, 2, 0, 0, 0, 2, 0] },
-      { emoji: "📡", texto: "Mando imagens pra Terra na hora — humanidade inteira precisa ver isso", pontos: [0, 0, 0, 3, 0, 0, 0] },
-      { emoji: "🛡️", texto: "Tiro a equipe de perto e crio regra: ninguém se aproxima, por garantia", pontos: [1, 0, 0, 0, 2, 0, 0] },
-    ],
-  },
-  {
-    id: 11,
     titulo: "Crise final",
     narrativa:
-      "Mês 7 no planeta. Tempestade magnética do nada. Os sistemas de suporte vital estão piscando. Você tem 12 minutos pra decidir o que salvar primeiro.",
+      "Mês 7 no planeta. Tempestade magnética inesperada. Os sistemas de suporte vital estão piscando. Você tem 12 minutos pra decidir o que priorizar.",
     falaBixinho: "tá. agora é sério. confio em você.",
     opcoes: [
       { icon: "stethoscope", texto: "Garanto que a enfermaria fique online — vidas primeiro, dados depois", pontos: [3, 0, 0, 0, 0, 0, 0] },

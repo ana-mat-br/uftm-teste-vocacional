@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion";
 import BotaoEmbarcar from "@/components/BotaoEmbarcar";
 import SceneHeader from "@/components/SceneHeader";
-import SplitText from "@/components/SplitText";
 
 const TITLE_TOP = "COMISSÃO INTERESTELAR";
 const TITLE_BIG = "UFTM";
@@ -71,11 +70,40 @@ export default function Hero() {
 
       <h1
         ref={titleRef}
-        className="font-pixel-title text-lg sm:text-xl md:text-2xl leading-relaxed mt-10 glow-yellow"
-        style={{ color: "var(--sun-yellow)" }}
-        aria-label={TITLE}
+        className="font-pixel-title mt-10 text-center"
+        aria-label={`${TITLE_TOP} ${TITLE_BIG}`}
       >
-        <SplitText text={TITLE} letterClass="hero-letter" />
+        {/* Linha 1: "Comissão Interestelar" — flex-wrap pra cada palavra centralizar
+            independentemente quando quebra em mobile (sem &nbsp; arrastando alinhamento) */}
+        <span
+          className="flex flex-wrap justify-center gap-x-3 text-base sm:text-lg leading-relaxed glow-yellow"
+          style={{ color: "var(--sun-yellow)" }}
+        >
+          {TITLE_TOP.split(" ").map((word, wi) => (
+            <span key={wi} className="whitespace-nowrap">
+              {word.split("").map((char, ci) => (
+                <span key={ci} className="hero-letter inline-block">
+                  {char}
+                </span>
+              ))}
+            </span>
+          ))}
+        </span>
+
+        {/* Linha 2: "UFTM" — protagonista em verde neon */}
+        <span
+          className="block text-4xl sm:text-5xl leading-none mt-3 glow-mint"
+          style={{
+            color: "var(--mint)",
+            textShadow: "0 0 14px var(--mint), 0 0 28px var(--mint)",
+          }}
+        >
+          {TITLE_BIG.split("").map((char, ci) => (
+            <span key={ci} className="hero-letter inline-block">
+              {char}
+            </span>
+          ))}
+        </span>
       </h1>
 
       <p
@@ -109,7 +137,7 @@ export default function Hero() {
       </p>
 
       <footer
-        className="font-terminal text-base mt-16 opacity-70"
+        className="font-terminal text-sm mt-16 opacity-70 text-center leading-relaxed"
         style={{ color: "var(--text-dim)" }}
       >
         UFTM • Feira de Profissões 2026
