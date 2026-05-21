@@ -33,7 +33,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Medicina ✅
 
-*Comando Médico de Bordo* · Uberaba
+*Posto Médico de Bordo* · Uberaba
 
 > Diagnostica e trata doenças com contato direto ao paciente. Cuidador clinicamente curioso.
 
@@ -193,7 +193,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Nutrição ✅
 
-*Comando de Sustento Vital* · Uberaba
+*Posto de Sustento Vital* · Uberaba
 
 > Alimentação como saúde. Ciência aplicada ao bem-estar.
 
@@ -581,7 +581,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Ambiental ✅
 
-*Sentinela do Ecossistema da Nave* · Uberaba
+*Posto Ambiental da Nave* · Uberaba
 
 > Meio ambiente com técnica de engenharia. Sustentabilidade aplicada.
 
@@ -679,7 +679,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Inteligência Artificial ✅
 
-*Comando IA da Missão* · Uberaba
+*Posto de IA da Missão* · Uberaba
 
 > Machine learning, sistemas inteligentes. Investigador digital.
 
