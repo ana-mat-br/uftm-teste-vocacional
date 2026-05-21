@@ -84,12 +84,12 @@
   .size-24 { width: 144px; height: 144px; }
   .size-32 { width: 160px; height: 160px; }
 
-  /* Hue-rotate demo */
-  .hue-1 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93); }
-  .hue-2 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(60deg); }
-  .hue-3 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(140deg); }
-  .hue-4 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(220deg); }
-  .hue-5 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(300deg); }
+  /* Hue-rotate demo — selectors mais específicos pra vencer .item img */
+  .item img.hue-1 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93); }
+  .item img.hue-2 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(60deg); }
+  .item img.hue-3 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(140deg); }
+  .item img.hue-4 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(220deg); }
+  .item img.hue-5 { filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 14px #ff2e93) hue-rotate(300deg); }
 
   .footer {
     text-align: center;
