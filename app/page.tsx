@@ -39,7 +39,7 @@ export default function Home() {
       >
         <p className="font-pixel-body text-base leading-relaxed">
           ano <span className="font-semibold" style={{ color: "var(--sun-yellow)" }}>2087</span>. a terra está em colapso.
-          a uftm está montando a primeira expedição tripulada ao exoplaneta kepler-186f.
+          a uftm está montando a primeira viagem tripulada ao planeta kepler-186f.
         </p>
         <p className="font-pixel-body text-base leading-relaxed mt-3">
           em <span className="font-semibold" style={{ color: "var(--sun-pink)" }}>6 minutos</span>, o protocolo vocação vai descobrir qual papel é o seu na nave.

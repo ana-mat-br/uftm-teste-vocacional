@@ -97,7 +97,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Psicologia ✅
 
-*Posto Psíquico de Bordo* · Uberaba
+*Posto de Saúde Mental* · Uberaba
 
 > Saúde mental, escuta, intervenção comportamental. Cuida via comunicação.
 
@@ -111,11 +111,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 3 Primeiro turno | 🧬 Enfermaria também — mas paro pra entender a causa antes de … *(idx 1)* | CUI+2 INV+2 |
 | 4 Anomalia | 🗣️ Reúno a tripulação — isso precisa de várias cabeças decidin… *(idx 2)* | COM+3 |
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
-| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, com técnicas … *(idx 0)* | CUI+1 INV+1 COM+3 |
+| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, pra lidar mel… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
 | 13 Sistema da nave | ∫ Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
-| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | 🐑 Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
 | 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
@@ -147,7 +147,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
@@ -161,7 +161,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Terapia Ocupacional ✅
 
-*Posto de Adaptação Funcional* · Uberaba
+*Posto de Adaptação à Rotina* · Uberaba
 
 > Ajuda pessoas a recuperar autonomia em atividades cotidianas.
 
@@ -179,7 +179,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | 🐑 Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
 | 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
@@ -303,7 +303,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 🧬 Enfermaria também — mas paro pra entender a causa antes de … *(idx 1)* | CUI+2 INV+2 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
@@ -335,7 +335,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🌱 Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
 | 3 Primeiro turno | 📡 Comunicações — sinal estranho da Terra, talvez urgente *(idx 3)* | INV+3 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 🧑‍🍳 Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 12 Rotina coletiva | 🏃 Rotina física coletiva — esporte como cuidado e vínculo ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
 | 6 Falha técnica | 🌬️ Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
@@ -355,7 +355,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Física ✅
 
-*Analista de Anomalias Espaciais* · Uberaba
+*Investigador de Mistérios Espaciais* · Uberaba
 
 > Estuda fenômenos físicos e teoria. Curiosidade abstrata pro mundo natural.
 
@@ -367,7 +367,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 📡 Comunicações — sinal estranho da Terra, talvez urgente *(idx 3)* | INV+3 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
@@ -439,7 +439,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
@@ -470,8 +470,8 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | ⚡ Refatoro o hardware — circuitos novos, processamento físico… *(idx 3)* | INV+1 CON+3 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 13 Sistema da nave | ⚡ Reconstruo o hardware — circuitos novos, processamento físi… *(idx 3)* | INV+1 CON+3 TEC+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
@@ -497,12 +497,12 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 🔧 Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 2)* | INV+1 CON+2 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | ⚡ Refatoro o hardware — circuitos novos, processamento físico… *(idx 3)* | INV+1 CON+3 TEC+2 |
+| 13 Sistema da nave | ⚡ Reconstruo o hardware — circuitos novos, processamento físi… *(idx 3)* | INV+1 CON+3 TEC+2 |
 | 8 Doença misteriosa | 📡 Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+2 TEC+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
@@ -549,7 +549,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia de Produção ✅
 
-*Coordenação Logística da Nave* · Uberaba
+*Coordenação da Operação da Nave* · Uberaba
 
 > Gestão e otimização de processos. Construtor que lidera equipes.
 
@@ -561,7 +561,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 🔧 Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 2)* | INV+1 CON+2 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
@@ -599,7 +599,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🌳 Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 🧪 Coleto amostras (sem machucar) pra entender a biologia delas *(idx 2)* | INV+2 CUL+2 |
@@ -630,8 +630,8 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | ⚡ Refatoro o hardware — circuitos novos, processamento físico… *(idx 3)* | INV+1 CON+3 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 13 Sistema da nave | ⚡ Reconstruo o hardware — circuitos novos, processamento físi… *(idx 3)* | INV+1 CON+3 TEC+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | 🌾 Variedades terrestres em solo alienígena — técnica agrícola… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | 📸 Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
@@ -659,12 +659,12 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 😅 Olho pros outros candidatos pra ver se alguém também tá per… *(idx 1)* | CUI+1 COM+2 |
 | 3 Primeiro turno | 🩺 Enfermaria — colega passou mal no treino físico *(idx 0)* | CUI+3 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, com técnicas … *(idx 0)* | CUI+1 INV+1 COM+3 |
+| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, pra lidar mel… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 13 Sistema da nave | 💾 Banco centralizado — tabelas otimizadas, queries rápidas. F… *(idx 0)* | COM+1 TEC+3 |
+| 13 Sistema da nave | 💾 Banco centralizado — tabelas bem organizadas, busca rápida … *(idx 0)* | COM+1 TEC+3 |
 | 8 Doença misteriosa | 📡 Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+2 TEC+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | 🔬 Apenas observação científica — mapeio o ecossistema antes d… *(idx 2)* | INV+3 COM+1 CUL+1 |
@@ -691,7 +691,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 📡 Comunicações — sinal estranho da Terra, talvez urgente *(idx 3)* | INV+3 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | 🛠️ Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
@@ -723,9 +723,9 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | 🤔 Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | 📡 Comunicações — sinal estranho da Terra, talvez urgente *(idx 3)* | INV+3 |
-| 4 Anomalia | 📊 Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | 📊 Vou pra sala de dados cruzar o sinal com todos os arquivos … *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | 📈 Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, com técnicas … *(idx 0)* | CUI+1 INV+1 COM+3 |
+| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, pra lidar mel… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 🧠 Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | ∫ Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
@@ -745,7 +745,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Letras (PT/ESP) ✅
 
-*Linguista Interestelar* · Uberaba
+*Tradutor Interestelar* · Uberaba
 
 > Língua, literatura, ensino. Conector via palavra (espanhol).
 
@@ -759,11 +759,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 3 Primeiro turno | 🧬 Enfermaria também — mas paro pra entender a causa antes de … *(idx 1)* | CUI+2 INV+2 |
 | 4 Anomalia | 🗣️ Reúno a tripulação — isso precisa de várias cabeças decidin… *(idx 2)* | COM+3 |
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
-| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, com técnicas … *(idx 0)* | CUI+1 INV+1 COM+3 |
+| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, pra lidar mel… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
 | 13 Sistema da nave | ∫ Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
-| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | 🔬 Apenas observação científica — mapeio o ecossistema antes d… *(idx 2)* | INV+3 COM+1 CUL+1 |
 | 10 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
@@ -777,7 +777,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Letras (PT/ING) ✅
 
-*Linguista Interestelar* · Uberaba
+*Tradutor Interestelar* · Uberaba
 
 > Idem, mas em inglês. Mesma essência (são agrupados como 'Letras' no resultado).
 
@@ -791,11 +791,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 3 Primeiro turno | 🧬 Enfermaria também — mas paro pra entender a causa antes de … *(idx 1)* | CUI+2 INV+2 |
 | 4 Anomalia | 🗣️ Reúno a tripulação — isso precisa de várias cabeças decidin… *(idx 2)* | COM+3 |
 | 5 Conflito de tripulação | 🫂 Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
-| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, com técnicas … *(idx 0)* | CUI+1 INV+1 COM+3 |
+| 12 Rotina coletiva | 🧘 Espaço de escuta semanal — 1:1, confidencial, pra lidar mel… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | 📊 Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | 📝 Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
 | 13 Sistema da nave | ∫ Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
-| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | 🏔️ Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | 🔬 Apenas observação científica — mapeio o ecossistema antes d… *(idx 2)* | INV+3 COM+1 CUL+1 |
 | 10 Contato | 📡 Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
@@ -827,7 +827,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🎥 Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
@@ -843,7 +843,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### História ✅
 
-*Cronista da Expedição* · Uberaba
+*Narrador da Expedição* · Uberaba
 
 > Estudo do passado, memória, contexto. Cronista crítico.
 
@@ -861,7 +861,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🚨 Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser… *(idx 2)* | CUI+1 INV+1 COM+2 |
+| 8 Doença misteriosa | 🗣️ Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | 🌊 Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | 🔬 Apenas observação científica — mapeio o ecossistema antes d… *(idx 2)* | INV+3 COM+1 CUL+1 |
 | 10 Contato | 🛡️ Recuo a equipe e estabeleço protocolo de não-contato preven… *(idx 4)* | CUI+1 TRA+2 |
@@ -875,7 +875,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Geografia ✅
 
-*Cartografia de Mundos Novos* · Uberaba
+*Mapas de Mundos Novos* · Uberaba
 
 > Espaço, território, humano↔ambiente. Multidisciplinar.
 
@@ -925,7 +925,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 6 Falha técnica | 🔧 Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | 🌍 Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
 | 13 Sistema da nave | 🤖 IA aplicada — modelo que aprende dos logs, age automático, … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | 💪 Avaliação motora — se o corpo tá afetado, prescrevo movimen… *(idx 3)* | CUI+2 CON+2 |
+| 8 Doença misteriosa | 💪 Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | 🏕️ No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | ♻️ Sistema fechado — recursos reciclados, impacto ambiental mí… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | 🍞 Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
@@ -939,7 +939,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Licenciatura em Educação do Campo ✅
 
-*Educação de Colônia Agrária* · Uberaba
+*Educação de Vila Rural* · Uberaba
 
 > Educação no contexto rural/agrário. Justiça social + terra.
 

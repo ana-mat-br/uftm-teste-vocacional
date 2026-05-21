@@ -374,9 +374,9 @@ export default function Resultado() {
                   : "0 0 8px var(--sun-pink)",
           }}
         >
-          {confianca === "alta" && "🎯 alta afinidade"}
-          {confianca === "hibrido" && "🔀 perfil híbrido"}
-          {confianca === "exploratorio" && "⚠️ resultado exploratório"}
+          {confianca === "alta" && "🎯 combinação forte"}
+          {confianca === "hibrido" && "🔀 perfil misto"}
+          {confianca === "exploratorio" && "⚠️ ainda em aberto"}
         </div>
       )}
 
@@ -430,7 +430,7 @@ export default function Resultado() {
           className="font-pixel-body text-sm italic mb-4 max-w-xs"
           style={{ color: "var(--text-dim)" }}
         >
-          seu perfil tem afinidades múltiplas — vale visitar TODOS os 3 estandes na feira
+          seu perfil combina com várias áreas — vale visitar TODOS os 3 estandes na feira
         </p>
       )}
       {confianca === "exploratorio" && (
@@ -438,7 +438,7 @@ export default function Resultado() {
           className="font-pixel-body text-sm italic mb-4 max-w-xs"
           style={{ color: "var(--text-dim)" }}
         >
-          esse é um chute calibrado — sua resposta tem espaço pra muitos caminhos, leia sobre cada um com calma
+          é um chute pensado — sua resposta abre vários caminhos, leia sobre cada um com calma
         </p>
       )}
       {confianca === "alta" && <div className="mb-2" />}
@@ -450,7 +450,7 @@ export default function Resultado() {
             className="font-terminal text-xs uppercase tracking-widest mb-2"
             style={{ color: "var(--text-dim)" }}
           >
-            // funções compatíveis também observadas
+            // outras funções que também combinam
           </p>
           <ul className="font-pixel-body text-base">
             {alts.map((c) => (

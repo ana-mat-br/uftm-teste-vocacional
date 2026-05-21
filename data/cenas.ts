@@ -58,10 +58,10 @@ export const CENAS: Cena[] = [
     id: 4,
     titulo: "Anomalia",
     narrativa:
-      "Dia 47 da viagem. Um sensor externo detecta uma assinatura de energia que não tá no manual. Não é asteroide. Não é nave. Não é nada que humano já tenha registrado.",
+      "Dia 47 da viagem. Um sensor externo detecta um sinal de energia que não tá no manual. Não é asteroide. Não é nave. Não é nada que humano já tenha registrado.",
     falaBixinho: "eu fingiria que tô calmo se eu tivesse pulmão.",
     opcoes: [
-      { emoji: "📊", texto: "Vou pra sala de dados cruzar a assinatura com todos os arquivos da Terra", pontos: [0, 2, 0, 0, 0, 0, 2] },
+      { emoji: "📊", texto: "Vou pra sala de dados cruzar o sinal com todos os arquivos da Terra", pontos: [0, 2, 0, 0, 0, 0, 2] },
       { emoji: "🛰️", texto: "Sugiro mandar um drone pra mais perto antes de qualquer coisa", pontos: [0, 1, 2, 0, 0, 0, 0] },
       { emoji: "🗣️", texto: "Reúno a tripulação — isso precisa de várias cabeças decidindo", pontos: [0, 0, 0, 3, 0, 0, 0] },
       { emoji: "🛡️", texto: "Aviso a Capitã imediatamente e protocolo de segurança", pontos: [1, 0, 0, 0, 2, 0, 0] },
@@ -87,7 +87,7 @@ export const CENAS: Cena[] = [
       "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa de cuidado coletivo. Você se voluntaria pra desenhar. Qual aposta?",
     falaBixinho: "ai que coisa adulta. respira que vai dar certo.",
     opcoes: [
-      { emoji: "🧘", texto: "Espaço de escuta semanal — 1:1, confidencial, com técnicas de regulação emocional", pontos: [1, 1, 0, 3, 0, 0, 0] },
+      { emoji: "🧘", texto: "Espaço de escuta semanal — 1:1, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
       { emoji: "🛠️", texto: "Oficina de adaptação — ajusto pequenas tarefas pra cada um trabalhar com autonomia", pontos: [2, 0, 2, 2, 0, 0, 0] },
       { emoji: "🌈", texto: "Programa inclusivo — todo mundo na rotina, com adaptações pra quem tem necessidade específica", pontos: [2, 0, 1, 2, 2, 0, 0] },
       { emoji: "🏃", texto: "Rotina física coletiva — esporte como cuidado e vínculo entre tripulação", pontos: [2, 0, 1, 1, 2, 1, 0] },
@@ -127,24 +127,24 @@ export const CENAS: Cena[] = [
       "Os logs do sistema cresceram além do limite seguro. Performance tá despencando. Você lidera o redesign técnico — por onde começa?",
     falaBixinho: "amor, isso eu sou EU me reorganizando. mete a mão.",
     opcoes: [
-      { emoji: "💾", texto: "Banco centralizado — tabelas otimizadas, queries rápidas. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
+      { emoji: "💾", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
       { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos logs, age automático, evolui sozinho", pontos: [0, 2, 2, 0, 2, 0, 2] },
       { emoji: "∫", texto: "Teoria primeiro — provo o problema matematicamente antes de tocar uma linha de código", pontos: [0, 3, 0, 1, 0, 0, 2] },
-      { emoji: "⚡", texto: "Refatoro o hardware — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
-      { emoji: "📊", texto: "Dashboard pro time — visualização de tudo, gestão por dados", pontos: [0, 1, 1, 1, 1, 0, 2] },
+      { emoji: "⚡", texto: "Reconstruo o hardware — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
+      { emoji: "📊", texto: "Painel pro time — visualização de tudo, gestão por dados", pontos: [0, 1, 1, 1, 1, 0, 2] },
     ],
   },
   {
     id: 8,
     titulo: "Doença misteriosa",
     narrativa:
-      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, sensibilidade à luz, dor difusa. Ninguém viu nada parecido. Você é o primeiro responsável da rodada de saúde. Qual sua jogada?",
+      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, sensibilidade à luz, dor espalhada pelo corpo. Ninguém viu nada parecido. Você é o primeiro responsável da rodada de saúde. Qual sua jogada?",
     falaBixinho: "amor, isso aqui é literatura de medicina espacial. respira.",
     opcoes: [
       { emoji: "🔬", texto: "Lab AGORA — sangue, imagem, secreção. Não toco em ninguém antes de saber o que é.", pontos: [2, 2, 0, 0, 0, 0, 0] },
       { emoji: "🛏️", texto: "Acomodo os três, monitoro sinais a cada 30 min, hidratação contínua", pontos: [3, 0, 0, 0, 0, 0, 0] },
-      { emoji: "🗣️", texto: "Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser psicossomático coletivo", pontos: [1, 1, 0, 2, 0, 0, 0] },
-      { emoji: "💪", texto: "Avaliação motora — se o corpo tá afetado, prescrevo movimento certo pra recuperar", pontos: [2, 0, 2, 0, 0, 0, 0] },
+      { emoji: "🗣️", texto: "Sento, escuto. Pergunto rotina, sono, ansiedades — talvez seja estresse de todo mundo, não doença", pontos: [1, 1, 0, 2, 0, 0, 0] },
+      { emoji: "💪", texto: "Avalio o corpo, os movimentos — se tá afetado, prescrevo exercício certo pra recuperar", pontos: [2, 0, 2, 0, 0, 0, 0] },
       { emoji: "🥗", texto: "Investigo as últimas refeições — comida fresca, contaminação, deficiência de nutriente?", pontos: [2, 1, 0, 0, 0, 1, 0] },
       { emoji: "📡", texto: "Mando os dados pra IA de bordo cruzar com base de doenças conhecidas — depois decido", pontos: [0, 2, 0, 0, 0, 0, 2] },
     ],
@@ -173,7 +173,7 @@ export const CENAS: Cena[] = [
       { emoji: "🐑", texto: "Criação animal sustentável — começo pequeno, foco em bem-estar dos animais", pontos: [2, 0, 1, 0, 0, 3, 0] },
       { emoji: "🔬", texto: "Apenas observação científica — mapeio o ecossistema antes de qualquer ação", pontos: [0, 3, 0, 1, 0, 1, 0] },
       { emoji: "♻️", texto: "Sistema fechado — recursos reciclados, impacto ambiental mínimo", pontos: [0, 1, 3, 0, 2, 1, 0] },
-      { emoji: "🏭", texto: "Alimentos processados de longa duração — escala industrial, eficiência calórica", pontos: [0, 1, 3, 0, 0, 1, 0] },
+      { emoji: "🏭", texto: "Alimentos processados de longa duração — escala industrial, máximo de energia por porção", pontos: [0, 1, 3, 0, 0, 1, 0] },
     ],
   },
   {
