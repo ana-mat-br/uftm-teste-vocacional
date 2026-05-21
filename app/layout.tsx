@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import VaporwaveBg from "@/components/VaporwaveBg";
+import StarField from "@/components/StarField";
+import MuteToggle from "@/components/MuteToggle";
 
 export const metadata: Metadata = {
   title: "Protocolo Vocação — UFTM 2087",
@@ -15,8 +18,14 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#1a0633",
+  themeColor: "#0d0221",
 };
+
+/**
+ * Script inline pra resolver o tema antes do paint e evitar FOUC.
+ * Default é vaporwave (cool). ?palette=warm volta pra synthwave-sunset.
+ */
+const PALETTE_INIT = `(function(){try{var p=new URLSearchParams(location.search).get('palette');if(p==='warm')document.documentElement.classList.add('theme-warm');}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -32,8 +41,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
           rel="stylesheet"
         />
+        <script dangerouslySetInnerHTML={{ __html: PALETTE_INIT }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <VaporwaveBg />
+        <StarField />
+        {children}
+        <MuteToggle />
+      </body>
     </html>
   );
 }

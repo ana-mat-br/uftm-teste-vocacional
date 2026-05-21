@@ -31,7 +31,7 @@ export const CENAS: Cena[] = [
     id: 2,
     titulo: "Embarque",
     narrativa:
-      "Uma luzinha rosa flutua até você — é seu co-piloto, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma: 14 meses até Kepler-186f, tripulação de 12. Vocês não foram escolhidos por nota. Foram escolhidos pelo Protocolo Vocação. E ele começa agora.",
+      "Ano 2087. A Terra está em colapso e a UFTM está montando a primeira viagem tripulada ao planeta Kepler-186f: 14 meses de viagem, tripulação de 12. Vocês não foram escolhidos por nota — foram escolhidos pelo Protocolo Vocação. Uma luzinha rosa flutua até você no hangar; é seu co-piloto, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma. O Protocolo começa agora.",
     falaBixinho: "oi! sou eu, teu co-piloto. cola comigo a missão inteira. ela curte um drama, relaxa.",
     opcoes: [
       { emoji: "🤔", texto: "Anoto tudo, levanto a mão pra perguntar se o Protocolo pode errar", pontos: [0, 2, 0, 0, 0, 0, 1] },
