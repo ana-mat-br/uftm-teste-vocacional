@@ -112,7 +112,7 @@ function FeedbackBlock({ sessaoId }: { sessaoId: string | null }) {
           className="font-terminal text-xs text-center mt-3 italic"
           style={{ color: "var(--text-dim)" }}
         >
-          // valeu pelo feedback{escolha === "negativo" ? " — vou refinar o algoritmo" : ""}
+          // valeu pelo feedback{escolha === "negativo" ? " — vou melhorar o sistema" : ""}
         </p>
       )}
     </div>
@@ -252,7 +252,7 @@ export default function Resultado() {
           className="font-pixel-body text-base mt-4"
           style={{ color: "var(--text-dim)" }}
         >
-          {erro ?? "resposta vazia do servidor"}
+          {erro ?? "resposta vazia do sistema"}
         </p>
         <button
           onClick={() => {
@@ -472,7 +472,7 @@ export default function Resultado() {
             className="font-terminal text-xs mt-3 italic"
             style={{ color: "var(--text-dim)" }}
           >
-            → visite os estandes correspondentes na feira
+            → visite os estandes desses cursos na feira
           </p>
         </div>
       )}
@@ -502,7 +502,7 @@ export default function Resultado() {
         className="font-terminal text-xs uppercase tracking-widest mb-3 mt-6"
         style={{ color: "var(--text-dim)" }}
       >
-        // compartilhamento chega no D4
+        // compartilhamento em breve
       </p>
 
       {/* Refazer */}

@@ -274,7 +274,7 @@ export default async function PainelPage() {
             className="font-terminal text-xs uppercase tracking-widest mb-3"
             style={{ color: "var(--text-dim)" }}
           >
-            // top cursos (curso top 1)
+            // cursos mais escolhidos
           </h2>
           {topCursos.length === 0 ? (
             <p className="font-terminal text-xs opacity-50" style={{ color: "var(--text-dim)" }}>
@@ -330,7 +330,7 @@ export default async function PainelPage() {
             className="font-terminal text-xs uppercase tracking-widest mb-3"
             style={{ color: "var(--text-dim)" }}
           >
-            // eixo dominante dos alunos
+            // eixo principal dos alunos
           </h2>
           {EIXOS.map((e) => (
             <BarraHorizontal
@@ -382,7 +382,7 @@ export default async function PainelPage() {
                 className="font-terminal text-xs mt-2 opacity-70"
                 style={{ color: "var(--text-dim)" }}
               >
-                taxa de resposta: {fmtPct(totalFeedback, total)} · n={totalFeedback}
+                {fmtPct(totalFeedback, total)} dos alunos votaram ({totalFeedback} de {total})
               </p>
             </>
           )}
@@ -399,7 +399,7 @@ export default async function PainelPage() {
             className="font-terminal text-xs uppercase tracking-widest mb-3"
             style={{ color: "var(--sun-pink)" }}
           >
-            ⚠️ cursos com mais &quot;👎 não me representa&quot; (revisar matriz v0.4)
+            ⚠️ cursos onde mais alunos discordam do resultado
           </h2>
           {piores.map(([nome, count]) => (
             <BarraHorizontal
@@ -448,7 +448,7 @@ export default async function PainelPage() {
         className="font-terminal text-xs mt-10 opacity-70 text-center"
         style={{ color: "var(--text-dim)" }}
       >
-        UFTM · Feira de Profissões 2026 · zero PII coletada
+        UFTM · Feira de Profissões 2026 · zero dado pessoal coletado
       </footer>
     </main>
   );

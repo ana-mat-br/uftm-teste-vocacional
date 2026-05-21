@@ -96,7 +96,7 @@ export default function Desempate() {
           letterSpacing: 1,
         }}
       >
-        ▸ EMPATE TÉCNICO
+        ▸ DEU EMPATE
       </h1>
 
       <div
@@ -108,7 +108,7 @@ export default function Desempate() {
       >
         <p className="font-pixel-body text-base leading-relaxed">
           Acabou. Mas seu perfil ficou muito próximo entre 3 jornadas diferentes.
-          Antes do veredito, me diz: qual dessas três te puxou mais?
+          Antes da decisão final, me diz: qual dessas três te puxou mais?
         </p>
       </div>
 
