@@ -15,8 +15,8 @@
 | B — Hero page | ✅ complete |
 | C — Star Fox narrator | ✅ complete |
 | D — Wrapped-style result | ✅ complete |
-| E — Share card 9:16 | ⏳ pending |
-| F — Stats + gallery | ⏳ pending |
+| E — Share card 9:16 | ✅ complete |
+| F — Stats + gallery | ✅ complete |
 | G — Audio polish | ⏳ pending |
 
 ---
@@ -164,6 +164,8 @@
 
 **Validation:** generated PNG opens at 1080×1920, Web Share works on Android Chrome, fallback download works on desktop.
 
+**E complete** — 2026-05-21. Files landed: `lib/share.ts` (import dinâmico de html2canvas — não pesa o bundle inicial; Web Share API com files quando suportado, fallback download via blob+anchor; estados `shared|downloaded|cancelled|error`), `components/ShareCard.tsx` (1080×1920 com fonts inline VT323/Press Start 2P/Pixelify Sans, gradient + grid + scanlines reproduzidos via styles, sprite 560px com drop-shadow, codinome/eixo/papel/curso/campus/hashtag — sem next/image porque html2canvas precisa de `<img>` nativo), `components/CursoRevealScene.tsx` (props `codinome` + `eixoLongo`, monta ShareCard offscreen via forwardRef, botão primário "compartilhar" com 4 estados + microcopy "imagem salva nos downloads"; GSAP timeline atualizada). `components/WrappedSequence.tsx` propaga `sessao.codinome` + `eixoLongo`. QR Code adiado pra D6 (URL de produção ainda não fechada). `npx tsc --noEmit` limpo; rotas `/`, `/cena/2`, `/resultado`, `/galeria` 200.
+
 ---
 
 ## Phase F — Stats + gallery
@@ -174,11 +176,13 @@
 - `components/StatsBar.tsx` (new) — shown after `CenaQuiz` answer, animates GSAP bar to %.
 - `app/api/galeria/route.ts` (new) — paginated `{codinome, eixo, curso_top, bixinho_nome}[]`.
 - `app/galeria/page.tsx` (new) — grid of pet cards, infinite scroll or pages.
-- `supabase/migrations/002_galeria.sql` — additive index on `finalizado_em DESC`.
+- `supabase/migrations/003_galeria.sql` — additive index on `finalizado_em DESC` + função SQL `stats_cena`.
 - `components/CenaQuiz.tsx` — pause flow to show stats bar 1.5s after pick before navigating.
 - `components/WrappedSequence.tsx` — final scene shows "vê todos os co-pilotos" link to /galeria.
 
 **Validation:** answer a question → see "47% também escolheu isso", finish quiz → pet appears in /galeria, /galeria loads paginated without N+1.
+
+**F complete** — 2026-05-21. Files landed: `supabase/migrations/003_galeria.sql` (aditivo: índice `idx_sessoes_finalizado_em_desc` partial WHERE finalizado_em IS NOT NULL + função SQL `stats_cena(cena_id int)` que agrega via `jsonb_array_elements` — sem fetch JS pesado), `app/api/stats/cena/[id]/route.ts` (RPC + total + pct arredondado, Cache-Control s-maxage=30 swr=120, valida cena 2..99), `app/api/galeria/route.ts` (paginado `?page=&size=` com `size` capado a 60, ORDER BY finalizado_em DESC NULLS LAST, count: exact, retorna eixo dominante calculado server-side via `eixoDominante(vetor)`), `components/StatsBar.tsx` (barras GSAP scaleX + contagem animada com snap inteiro, destaque na escolha do usuário, reduced-motion bypass), `components/CenaQuiz.tsx` (state `pickedIdx` + `stats`, fetch paralelo com timeout 1.5s, pausa 1.8s pra revelar antes de navegar; opções dim das não-escolhidas + glow yellow na escolha), `app/galeria/page.tsx` (grid 2/3/4 colunas, paginação "carregar mais", sprite por eixo + codinome + curso + label do eixo), `components/CursoRevealScene.tsx` (link "// ver toda a tripulação" → `/galeria` entre share e refazer). Aguardando aplicar `003_galeria.sql` no Supabase pra APIs responderem 200 — dev local sem env vars retorna 500 idêntico ao `/finalizar`. `npx tsc --noEmit` limpo.
 
 ---
 

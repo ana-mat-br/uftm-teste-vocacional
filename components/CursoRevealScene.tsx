@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "@/lib/motion";
 import WrappedScene from "@/components/WrappedScene";
 import NarratorBox from "@/components/NarratorBox";
 import Icon from "@/components/Icon";
 import SplitText from "@/components/SplitText";
+import ShareCard from "@/components/ShareCard";
+import { shareOrDownload } from "@/lib/share";
 
 type Alt = {
   nome: string;
@@ -17,6 +20,8 @@ type Props = {
   active: boolean;
   sprite: string;
   bixinhoNome: string;
+  codinome: string;
+  eixoLongo: string;
   papelMissao: string;
   cursoNome: string;
   campus: string;
@@ -25,10 +30,22 @@ type Props = {
   onReset: () => void;
 };
 
+type ShareState = "idle" | "rendering" | "shared" | "downloaded" | "error";
+
+const SHARE_LABELS: Record<ShareState, string> = {
+  idle: "compartilhar",
+  rendering: "gerando…",
+  shared: "compartilhado ✓",
+  downloaded: "baixado ✓",
+  error: "tenta de novo",
+};
+
 export default function CursoRevealScene({
   active,
   sprite,
   bixinhoNome,
+  codinome,
+  eixoLongo,
   papelMissao,
   cursoNome,
   campus,
@@ -46,6 +63,25 @@ export default function CursoRevealScene({
   const altsRef = useRef<HTMLDivElement>(null);
   const narratorWrapRef = useRef<HTMLDivElement>(null);
   const resetRef = useRef<HTMLButtonElement>(null);
+  const shareCardRef = useRef<HTMLDivElement>(null);
+  const shareBtnRef = useRef<HTMLButtonElement>(null);
+
+  const [shareState, setShareState] = useState<ShareState>("idle");
+
+  async function handleShare(e: React.MouseEvent) {
+    e.stopPropagation();
+    if (!shareCardRef.current || shareState === "rendering") return;
+    setShareState("rendering");
+    const result = await shareOrDownload(shareCardRef.current, {
+      filename: `protocolo-vocacao-${codinome.toLowerCase()}.png`,
+      title: `Eu sou ${bixinhoNome}!`,
+      text: `Acabei de descobrir meu curso na UFTM: ${cursoNome}. #protocolovocacaouftm`,
+    });
+    if (result === "shared") setShareState("shared");
+    else if (result === "downloaded") setShareState("downloaded");
+    else if (result === "error") setShareState("error");
+    else setShareState("idle"); // cancelado
+  }
 
   useEffect(() => {
     if (!active) return;
@@ -71,6 +107,7 @@ export default function CursoRevealScene({
       gsap.set(petRef.current, { x: 60, opacity: 0, rotate: 15 });
       gsap.set(altsItems, { x: -20, opacity: 0 });
       gsap.set(narratorWrapRef.current, { opacity: 0, y: 16 });
+      gsap.set(shareBtnRef.current, { opacity: 0, y: 12 });
       gsap.set(resetRef.current, { opacity: 0, y: 8 });
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -129,6 +166,7 @@ export default function CursoRevealScene({
       }
 
       tl.to(narratorWrapRef.current, { opacity: 1, y: 0, duration: 0.5 }, "-=0.1");
+      tl.to(shareBtnRef.current, { opacity: 1, y: 0, duration: 0.45 }, "-=0.25");
       tl.to(resetRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.2");
 
       if (petRef.current) {
@@ -164,6 +202,7 @@ export default function CursoRevealScene({
           campusRef.current,
           petRef.current,
           narratorWrapRef.current,
+          shareBtnRef.current,
           resetRef.current,
         ],
         { opacity: 1, x: 0, y: 0, scale: 1, scaleX: 1, rotate: 0 },
@@ -311,19 +350,73 @@ export default function CursoRevealScene({
         </div>
 
         <button
+          ref={shareBtnRef}
+          type="button"
+          onClick={handleShare}
+          disabled={shareState === "rendering"}
+          className="font-pixel-title text-base sm:text-lg uppercase tracking-widest mt-4 px-5 py-3 inline-flex items-center gap-3 relative z-10 transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:cursor-wait"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255,46,147,0.35) 0%, rgba(255,247,0,0.25) 100%)",
+            border: "2px solid var(--sun-yellow)",
+            color: "var(--sun-yellow)",
+            textShadow: "0 0 10px var(--sun-pink)",
+            boxShadow:
+              "0 0 18px rgba(255,247,0,0.45), inset 0 0 12px rgba(255,46,147,0.3)",
+          }}
+        >
+          <Icon name="sparkles" size="1.1em" />
+          {SHARE_LABELS[shareState]}
+        </button>
+
+        {shareState === "downloaded" && (
+          <p
+            className="font-terminal text-sm uppercase tracking-widest mt-2 relative z-10"
+            style={{ color: "var(--mint)" }}
+          >
+            // imagem salva nos downloads
+          </p>
+        )}
+
+        <Link
+          href="/galeria"
+          onClick={(e) => e.stopPropagation()}
+          className="font-terminal text-base uppercase tracking-widest mt-4 inline-flex items-center gap-2 relative z-10 opacity-80 hover:opacity-100"
+          style={{ color: "var(--grid-cyan)" }}
+        >
+          <Icon name="rocket" size="1em" />
+          // ver toda a tripulação
+        </Link>
+
+        <button
           ref={resetRef}
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onReset();
           }}
-          className="font-pixel-body text-base underline opacity-70 hover:opacity-100 mt-2 inline-flex items-center gap-2 relative z-10"
+          className="font-pixel-body text-base underline opacity-70 hover:opacity-100 mt-3 inline-flex items-center gap-2 relative z-10"
           style={{ color: "var(--sun-yellow)" }}
         >
           <Icon name="repeat" size="1em" />
           refazer protocolo
         </button>
       </div>
+
+      {/* Card offscreen pra captura via html2canvas — só monta quando a cena
+          ativa pra não rodar a rasterização SVG→PNG em quem nunca chega aqui */}
+      {active && (
+        <ShareCard
+          ref={shareCardRef}
+          codinome={codinome}
+          sprite={sprite}
+          bixinhoNome={bixinhoNome}
+          eixoLongo={eixoLongo}
+          cursoNome={cursoNome}
+          papelMissao={papelMissao}
+          campus={campus}
+        />
+      )}
     </WrappedScene>
   );
 }

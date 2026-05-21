@@ -15,7 +15,7 @@
 D1 ter 19/05  │ ✅ Scaffolding + quiz E2E + Supabase + Haiku + Phase A (vapor)
 D2 qua 20/05  │ ✅ Phase B (Hero) + Phase C (Star Fox narrator)
 D3 qui 21/05  │ ✅ Phase D (Wrapped result, 5 cenas paced) + StarField canvas
-D4 sex 22/05  │ Phase E (Share card 9:16) + Phase F (Stats + Galeria)
+D4 sex 22/05  │ ✅ Phase E (Share card 9:16) + Phase F (Stats + Galeria)
 D5 sáb 23/05  │ Phase G (Audio) + deploy de produção
 D6 dom 24/05  │ Testes com pessoas reais + bugs + QR Code
 D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
@@ -89,25 +89,27 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 
 ---
 
-## D4 — Sexta 22/05 — Phase E + F
+## D4 — Sex 22/05 (executado em 21/05) — Phase E + F ✅ CONCLUÍDO
 
-**Foco:** compartilhamento + dimensão coletiva.
+**Foco:** compartilhamento + dimensão coletiva. **Real:** D4 fechado um dia antes — sobra fôlego pra D5.
 
 ### Phase E — Share card 9:16
-- [ ] `components/ShareCard.tsx` (DOM offscreen 1080×1920)
-- [ ] `lib/share.ts` (html2canvas → blob → Web Share API)
-- [ ] Conteúdo: logo UFTM, sprite grande, codinome, curso, copy em 1ª pessoa, QR, hashtag
-- [ ] Fallback download no desktop
+- [x] `components/ShareCard.tsx` (DOM offscreen 1080×1920 via forwardRef + position fixed -99999px)
+- [x] `lib/share.ts` (import dinâmico de html2canvas, Web Share API com files, fallback download)
+- [x] Conteúdo: header UFTM-Kepler, codinome, sprite gigante 560px, "eu sou [pet]", eixo, papel, curso, campus, hashtag
+- [x] Fallback download no desktop com microcopy "imagem salva nos downloads"
+- [x] QR Code adiado pra D6 (precisa da URL de produção final)
 
 ### Phase F — Stats + Galeria
-- [ ] `app/api/stats/cena/[id]/route.ts` (% por opção)
-- [ ] `components/StatsBar.tsx` (bar animada GSAP após resposta)
-- [ ] `app/api/galeria/route.ts` (paginado, sem PII)
-- [ ] `app/galeria/page.tsx` (grid de co-pilotos públicos)
-- [ ] `supabase/migrations/002_galeria.sql` — índice em `finalizado_em DESC`
-- [ ] Link "vê todos os co-pilotos" na cena final do Wrapped
+- [x] `app/api/stats/cena/[id]/route.ts` (% por opção via RPC `stats_cena`)
+- [x] `components/StatsBar.tsx` (bar GSAP scaleX + número animado com snap, destaque na escolha)
+- [x] `app/api/galeria/route.ts` (paginado `?page=&size=`, sem PII, eixo calculado server-side)
+- [x] `app/galeria/page.tsx` (grid 2/3/4 colunas + "carregar mais")
+- [x] `supabase/migrations/003_galeria.sql` — índice DESC NULLS LAST + função SQL `stats_cena`
+- [x] Link "// ver toda a tripulação" → `/galeria` no finale do Wrapped
+- [x] CenaQuiz pausa 1.8s pra revelar stats após escolha (timeout fetch 1.5s)
 
-**Entrega:** PNG compartilhável + ponte individual↔coletivo.
+**Entrega:** PNG compartilhável + ponte individual↔coletivo. `npx tsc --noEmit` limpo, todas as rotas 200. APIs aguardam aplicar migration 003 + env vars no Supabase pra responder 200 em prod.
 
 ---
 
@@ -210,7 +212,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 | D1 fim | ~~🔴 Alto~~ 🟢 **Baixo** | ~~60%~~ **95%** | D1-D4 fechados num dia |
 | D2 fim | 🟢 Baixo | 96% | Hero + narrador são bounded |
 | D3 fim | 🟢 Baixo | 97% | Wrapped é refactor, não greenfield |
-| D4 fim | 🟢 Baixo | 98% | html2canvas e Supabase já provados |
+| D4 fim | 🟢 Baixo | ~~98%~~ **99%** | Phase E+F fechadas um dia antes |
 | D5 fim | 🟢 Mínimo | 99% | Áudio é cherry-on-top |
 | D6 fim | 🟢 Mínimo | 99% | Buffer real |
 

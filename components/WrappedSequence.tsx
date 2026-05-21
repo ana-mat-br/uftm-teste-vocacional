@@ -382,6 +382,8 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
           active={idx === 5}
           sprite={sprite}
           bixinhoNome={resultado.bixinho.bixinho_nome}
+          codinome={sessao.codinome}
+          eixoLongo={eixoLongo}
           papelMissao={top1.papelMissao}
           cursoNome={top1.nome}
           campus={top1.campus}
