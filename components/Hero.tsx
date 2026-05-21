@@ -76,21 +76,19 @@ export default function Hero() {
         className="font-pixel-title mt-10 text-center"
         aria-label={`${TITLE_TOP} ${TITLE_BIG}`}
       >
-        {/* Linha 1: "Comissão Interestelar" — menor, amarela */}
+        {/* Linha 1: "Comissão Interestelar" — flex-wrap pra cada palavra centralizar
+            independentemente quando quebra em mobile (sem &nbsp; arrastando alinhamento) */}
         <span
-          className="block text-base sm:text-lg leading-relaxed glow-yellow"
+          className="flex flex-wrap justify-center gap-x-3 text-base sm:text-lg leading-relaxed glow-yellow"
           style={{ color: "var(--sun-yellow)" }}
         >
-          {TITLE_TOP.split(" ").map((word, wi, arr) => (
-            <span key={wi} className="inline-block whitespace-nowrap">
+          {TITLE_TOP.split(" ").map((word, wi) => (
+            <span key={wi} className="whitespace-nowrap">
               {word.split("").map((char, ci) => (
                 <span key={ci} className="hero-letter inline-block">
                   {char}
                 </span>
               ))}
-              {wi < arr.length - 1 && (
-                <span className="hero-letter inline-block">&nbsp;</span>
-              )}
             </span>
           ))}
         </span>
