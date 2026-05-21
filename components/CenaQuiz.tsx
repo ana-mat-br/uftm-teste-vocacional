@@ -7,7 +7,9 @@ import { useSessao } from "@/lib/use-sessao";
 import { CENAS, TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
 import NarratorBox from "@/components/NarratorBox";
 
-const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
+// Co-piloto ainda misterioso durante o quiz — só olhos cyan piscando no escuro.
+// A identidade real (1 dos 7 bixinhos) é revelada no /resultado.
+const NARRATOR_PORTRAIT = "/sprites/co-piloto-misterio.svg";
 
 type Props = {
   cena: Cena;

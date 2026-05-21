@@ -7,7 +7,8 @@ import { topCursos, aplicarBonusDesempate, precisaDesempate } from "@/lib/matchi
 import { CURSOS } from "@/data/cursos";
 import NarratorBox from "@/components/NarratorBox";
 
-const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
+// Continua misterioso até a revelação final no /resultado.
+const NARRATOR_PORTRAIT = "/sprites/co-piloto-misterio.svg";
 
 /**
  * Cena de desempate: aparece SOMENTE quando o top 1 venceu por margem
