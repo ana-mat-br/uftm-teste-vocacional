@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion";
 import BotaoEmbarcar from "@/components/BotaoEmbarcar";
 
-const TITLE = "COMISSÃO INTERESTELAR UFTM";
+const TITLE_TOP = "COMISSÃO INTERESTELAR";
+const TITLE_BIG = "UFTM";
 
 export default function Hero() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -72,22 +73,42 @@ export default function Hero() {
 
       <h1
         ref={titleRef}
-        className="font-pixel-title text-base sm:text-lg leading-relaxed mt-10 glow-yellow"
-        style={{ color: "var(--sun-yellow)" }}
-        aria-label={TITLE}
+        className="font-pixel-title mt-10 text-center"
+        aria-label={`${TITLE_TOP} ${TITLE_BIG}`}
       >
-        {TITLE.split(" ").map((word, wi, arr) => (
-          <span key={wi} className="inline-block whitespace-nowrap">
-            {word.split("").map((char, ci) => (
-              <span key={ci} className="hero-letter inline-block">
-                {char}
-              </span>
-            ))}
-            {wi < arr.length - 1 && (
-              <span className="hero-letter inline-block">&nbsp;</span>
-            )}
-          </span>
-        ))}
+        {/* Linha 1: "Comissão Interestelar" — menor, amarela */}
+        <span
+          className="block text-base sm:text-lg leading-relaxed glow-yellow"
+          style={{ color: "var(--sun-yellow)" }}
+        >
+          {TITLE_TOP.split(" ").map((word, wi, arr) => (
+            <span key={wi} className="inline-block whitespace-nowrap">
+              {word.split("").map((char, ci) => (
+                <span key={ci} className="hero-letter inline-block">
+                  {char}
+                </span>
+              ))}
+              {wi < arr.length - 1 && (
+                <span className="hero-letter inline-block">&nbsp;</span>
+              )}
+            </span>
+          ))}
+        </span>
+
+        {/* Linha 2: "UFTM" — protagonista em verde neon */}
+        <span
+          className="block text-4xl sm:text-5xl leading-none mt-3 glow-mint"
+          style={{
+            color: "var(--mint)",
+            textShadow: "0 0 14px var(--mint), 0 0 28px var(--mint)",
+          }}
+        >
+          {TITLE_BIG.split("").map((char, ci) => (
+            <span key={ci} className="hero-letter inline-block">
+              {char}
+            </span>
+          ))}
+        </span>
       </h1>
 
       <p
