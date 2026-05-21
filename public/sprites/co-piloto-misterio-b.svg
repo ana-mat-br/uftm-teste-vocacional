@@ -1,0 +1,24 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <!-- Co-piloto-mistério B: só olhos cyan piscando no escuro -->
+  <!-- Fundo escuro semi-transparente (sugere "espaço") -->
+  <rect x="2" y="4" width="12" height="8" fill="#1a0633" opacity="0.6"/>
+  <!-- Brilho ambiente atrás dos olhos -->
+  <rect x="3" y="6" width="4" height="4" fill="#00f0ff" opacity="0.15"/>
+  <rect x="9" y="6" width="4" height="4" fill="#00f0ff" opacity="0.15"/>
+  <!-- Olho esquerdo -->
+  <rect x="4" y="7" width="2" height="2" fill="#00f0ff">
+    <animate attributeName="height" values="2;0.3;2;2;2" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
+  </rect>
+  <!-- Pupila/brilho esquerdo -->
+  <rect x="4" y="7" width="1" height="1" fill="#fff">
+    <animate attributeName="height" values="1;0;1;1;1" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
+  </rect>
+  <!-- Olho direito -->
+  <rect x="10" y="7" width="2" height="2" fill="#00f0ff">
+    <animate attributeName="height" values="2;0.3;2;2;2" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
+  </rect>
+  <!-- Pupila/brilho direito -->
+  <rect x="10" y="7" width="1" height="1" fill="#fff">
+    <animate attributeName="height" values="1;0;1;1;1" dur="3.5s" keyTimes="0;0.4;0.45;0.9;1" repeatCount="indefinite"/>
+  </rect>
+</svg>
