@@ -141,8 +141,8 @@ export default function NarratorBox({
       <div
         className="flex-shrink-0 self-start flex items-center justify-center"
         style={{
-          width: 56,
-          height: 56,
+          width: 64,
+          height: 64,
           background: "rgba(13, 2, 33, 0.6)",
           border: "1px solid var(--grid-cyan)",
           padding: 4,
@@ -151,8 +151,8 @@ export default function NarratorBox({
         <Image
           src={portrait}
           alt={speaker}
-          width={48}
-          height={48}
+          width={56}
+          height={56}
           className="pixel-sprite"
           style={{
             filter: "drop-shadow(0 0 6px var(--grid-cyan))",
@@ -161,13 +161,13 @@ export default function NarratorBox({
       </div>
       <div className="flex-1 min-w-0">
         <div
-          className="font-terminal text-xs uppercase tracking-widest mb-1"
+          className="font-terminal text-base uppercase tracking-widest mb-1"
           style={{ color: "var(--grid-cyan)" }}
         >
           &gt; {speaker}
         </div>
         <p
-          className="font-pixel-body text-base italic leading-relaxed"
+          className="font-pixel-body text-lg md:text-xl italic leading-relaxed"
           style={{ color: "var(--text)" }}
         >
           {shown}
@@ -182,7 +182,7 @@ export default function NarratorBox({
         </p>
         {!done && (
           <div
-            className="font-terminal text-xs uppercase tracking-widest mt-2 opacity-60"
+            className="font-terminal text-sm uppercase tracking-widest mt-2 opacity-60"
             style={{ color: "var(--text-dim)" }}
           >
             // tap pra pular

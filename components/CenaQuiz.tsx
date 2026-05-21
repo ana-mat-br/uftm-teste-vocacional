@@ -6,6 +6,8 @@ import type { Cena } from "@/data/cenas";
 import { useSessao } from "@/lib/use-sessao";
 import { TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
 import NarratorBox from "@/components/NarratorBox";
+import Icon from "@/components/Icon";
+import SceneHeader from "@/components/SceneHeader";
 
 const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
 
@@ -46,7 +48,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
   if (carregando || !sessao) {
     return (
       <main className="mx-auto flex min-h-screen max-w-[480px] items-center justify-center px-6 text-center">
-        <p className="font-terminal text-base" style={{ color: "var(--text-dim)" }}>
+        <p className="font-terminal text-lg" style={{ color: "var(--text-dim)" }}>
           carregando sessão…
         </p>
       </main>
@@ -60,24 +62,17 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
   return (
     <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6 md:max-w-5xl md:px-10 md:py-10">
 
-      {/* Header terminal */}
-      <div
-        className="font-terminal text-sm tracking-widest uppercase mb-3"
-        style={{ color: "var(--grid-cyan)" }}
-      >
-        <span
-          className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse"
-          style={{ background: "var(--sun-pink)" }}
-        />
+      <SceneHeader icon="radar" className="mb-3">
         UFTM-KEPLER · CENA {progresso}/{total}
-      </div>
+      </SceneHeader>
 
       {/* Codinome do aluno */}
       <div
-        className="font-terminal text-xs tracking-widest uppercase mb-4 opacity-90"
+        className="font-terminal text-base tracking-widest uppercase mb-4 opacity-90 inline-flex items-center gap-2"
         style={{ color: "var(--text-dim)" }}
       >
-        👤 // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
+        <Icon name="compass" size="1em" />
+        // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
       </div>
 
       {/* Conteúdo em 2 colunas no desktop: pergunta à esquerda, opções à direita */}
@@ -87,7 +82,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
         <div className="md:sticky md:top-10">
           {/* Título da cena */}
           <h1
-            className="font-pixel-title text-xs sm:text-sm md:text-base leading-relaxed mt-2 mb-4 uppercase"
+            className="font-pixel-title text-sm sm:text-base md:text-lg leading-relaxed mt-2 mb-4 uppercase"
             style={{
               color: "var(--sun-yellow)",
               textShadow: "0 0 10px var(--sun-orange)",
@@ -99,13 +94,13 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
 
           {/* Narrativa */}
           <div
-            className="px-4 py-3 border-l-2 backdrop-blur-sm mb-4"
+            className="px-5 py-4 border-l-2 backdrop-blur-sm mb-4"
             style={{
               borderColor: "var(--sun-pink)",
               background: "rgba(26, 6, 51, 0.6)",
             }}
           >
-            <p className="font-pixel-body text-base md:text-lg leading-relaxed">{cena.narrativa}</p>
+            <p className="font-pixel-body text-lg md:text-xl leading-relaxed">{cena.narrativa}</p>
           </div>
 
           {/* Fala do bixinho (Star Fox narrator) */}
@@ -126,7 +121,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
               key={idx}
               onClick={() => handleEscolher(idx)}
               disabled={enviando}
-              className="text-left px-4 py-3 border-2 transition-all font-pixel-body text-base md:text-lg hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-left px-4 py-4 border-2 transition-all font-pixel-body text-lg md:text-xl hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-4"
               style={{
                 borderColor: "var(--sun-pink)",
                 background: "rgba(26, 6, 51, 0.7)",
@@ -134,8 +129,25 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
                 boxShadow: "0 0 12px rgba(255, 46, 147, 0.25)",
               }}
             >
-              <span className="text-xl mr-2">{opcao.emoji}</span>
-              <span>{opcao.texto}</span>
+              <span
+                className="flex-shrink-0 flex items-center justify-center"
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: "rgba(13, 2, 33, 0.7)",
+                  border: "1px solid var(--grid-cyan)",
+                  color: "var(--grid-cyan)",
+                  boxShadow:
+                    "0 0 10px rgba(1, 205, 254, 0.35), inset 0 0 8px rgba(1, 205, 254, 0.15)",
+                }}
+              >
+                <Icon
+                  name={opcao.icon}
+                  size={22}
+                  strokeWidth={2}
+                />
+              </span>
+              <span className="leading-snug">{opcao.texto}</span>
             </button>
           ))}
         </div>

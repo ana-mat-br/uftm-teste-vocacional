@@ -6,6 +6,8 @@ import { useSessao } from "@/lib/use-sessao";
 import { topCursos, aplicarBonusDesempate, precisaDesempate } from "@/lib/matching";
 import { CURSOS } from "@/data/cursos";
 import NarratorBox from "@/components/NarratorBox";
+import Icon from "@/components/Icon";
+import SceneHeader from "@/components/SceneHeader";
 
 const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
 
@@ -71,23 +73,16 @@ export default function Desempate() {
   return (
     <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6 md:max-w-5xl md:px-10 md:py-10">
 
-      {/* Header */}
-      <div
-        className="font-terminal text-sm tracking-widest uppercase mb-3"
-        style={{ color: "var(--grid-cyan)" }}
-      >
-        <span
-          className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse"
-          style={{ background: "var(--sun-pink)" }}
-        />
+      <SceneHeader icon="shuffle" className="mb-3">
         UFTM-KEPLER · DESEMPATE
-      </div>
+      </SceneHeader>
 
       <div
-        className="font-terminal text-xs tracking-widest uppercase mb-4 opacity-90"
+        className="font-terminal text-base tracking-widest uppercase mb-4 opacity-90 inline-flex items-center gap-2"
         style={{ color: "var(--text-dim)" }}
       >
-        👤 // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
+        <Icon name="compass" size="1em" />
+        // você: <span style={{ color: "var(--sun-yellow)" }}>{sessao.codinome}</span>
       </div>
 
       <div className="md:grid md:grid-cols-2 md:gap-10 md:items-start">
@@ -95,7 +90,7 @@ export default function Desempate() {
         {/* Coluna esquerda: pergunta */}
         <div className="md:sticky md:top-10">
           <h1
-            className="font-pixel-title text-xs sm:text-sm md:text-base leading-relaxed mt-2 mb-4 uppercase"
+            className="font-pixel-title text-sm sm:text-base md:text-lg leading-relaxed mt-2 mb-4 uppercase"
             style={{
               color: "var(--sun-yellow)",
               textShadow: "0 0 10px var(--sun-orange)",
@@ -106,13 +101,13 @@ export default function Desempate() {
           </h1>
 
           <div
-            className="px-4 py-3 border-l-2 backdrop-blur-sm mb-4"
+            className="px-5 py-4 border-l-2 backdrop-blur-sm mb-4"
             style={{
               borderColor: "var(--sun-pink)",
               background: "rgba(26, 6, 51, 0.6)",
             }}
           >
-            <p className="font-pixel-body text-base md:text-lg leading-relaxed">
+            <p className="font-pixel-body text-lg md:text-xl leading-relaxed">
               Acabou. Mas seu perfil ficou muito próximo entre 3 jornadas diferentes.
               Antes do veredito, me diz: qual dessas três te puxou mais?
             </p>
@@ -141,13 +136,13 @@ export default function Desempate() {
               }}
             >
               <div
-                className="font-terminal text-xs uppercase tracking-widest mb-1"
+                className="font-terminal text-base uppercase tracking-widest mb-1"
                 style={{ color: "var(--text-dim)" }}
               >
                 // jornada {idx + 1}
               </div>
               <div
-                className="font-pixel-title text-xs mb-2"
+                className="font-pixel-title text-sm mb-2"
                 style={{
                   color: "var(--sun-pink)",
                   textShadow: "0 0 8px var(--sun-pink)",
@@ -156,13 +151,13 @@ export default function Desempate() {
                 {curso.papelMissao.toUpperCase()}
               </div>
               <div
-                className="font-pixel-body text-xl md:text-2xl font-bold"
+                className="font-pixel-body text-2xl md:text-3xl font-bold"
                 style={{ color: "var(--sun-yellow)" }}
               >
                 {curso.nome}
               </div>
               <div
-                className="font-terminal text-xs mt-1 uppercase tracking-widest"
+                className="font-terminal text-base mt-1 uppercase tracking-widest"
                 style={{ color: "var(--text-dim)" }}
               >
                 campus · {curso.campus}

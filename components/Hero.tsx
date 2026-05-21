@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion";
 import BotaoEmbarcar from "@/components/BotaoEmbarcar";
+import SceneHeader from "@/components/SceneHeader";
+import SplitText from "@/components/SplitText";
 
 const TITLE = "COMISSÃO INTERESTELAR UFTM";
 
@@ -58,41 +60,26 @@ export default function Hero() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-[480px] flex-col items-center justify-center px-6 py-10 text-center">
-      <div
+      <SceneHeader
         ref={headerRef}
-        className="font-terminal text-base tracking-widest uppercase glow-cyan anim-flicker"
-        style={{ color: "var(--grid-cyan)" }}
+        icon="rocket"
+        className="glow-cyan anim-flicker"
       >
-        <span
-          className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse"
-          style={{ background: "var(--sun-pink)" }}
-        />
         UFTM-KEPLER • OS v2087.5
-      </div>
+      </SceneHeader>
 
       <h1
         ref={titleRef}
-        className="font-pixel-title text-base sm:text-lg leading-relaxed mt-10 glow-yellow"
+        className="font-pixel-title text-lg sm:text-xl md:text-2xl leading-relaxed mt-10 glow-yellow"
         style={{ color: "var(--sun-yellow)" }}
         aria-label={TITLE}
       >
-        {TITLE.split(" ").map((word, wi, arr) => (
-          <span key={wi} className="inline-block whitespace-nowrap">
-            {word.split("").map((char, ci) => (
-              <span key={ci} className="hero-letter inline-block">
-                {char}
-              </span>
-            ))}
-            {wi < arr.length - 1 && (
-              <span className="hero-letter inline-block">&nbsp;</span>
-            )}
-          </span>
-        ))}
+        <SplitText text={TITLE} letterClass="hero-letter" />
       </h1>
 
       <p
         ref={subtitleRef}
-        className="font-terminal text-base tracking-wide uppercase mt-3"
+        className="font-terminal text-xl tracking-wide uppercase mt-3"
         style={{ color: "var(--text-dim)" }}
       >
         // protocolo vocação
@@ -100,7 +87,7 @@ export default function Hero() {
 
       <p
         ref={taglineRef}
-        className="font-pixel-body text-base mt-10 max-w-xs leading-relaxed"
+        className="font-pixel-body text-lg md:text-xl mt-10 max-w-sm leading-relaxed"
         style={{ color: "var(--text)" }}
       >
         ano <span style={{ color: "var(--sun-yellow)" }}>2087</span>. kepler-186f
@@ -114,14 +101,14 @@ export default function Hero() {
 
       <p
         ref={privacyRef}
-        className="font-terminal text-sm mt-8 max-w-xs"
+        className="font-terminal text-base mt-8 max-w-xs"
         style={{ color: "var(--text-dim)" }}
       >
         // nenhum dado pessoal seu é coletado.<br />nem precisa logar.
       </p>
 
       <footer
-        className="font-terminal text-sm mt-16 opacity-70"
+        className="font-terminal text-base mt-16 opacity-70"
         style={{ color: "var(--text-dim)" }}
       >
         UFTM • Feira de Profissões 2026

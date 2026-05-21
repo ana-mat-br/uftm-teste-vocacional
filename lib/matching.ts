@@ -73,10 +73,30 @@ export function aplicarBonusDesempate(vetor: VetorEixos, vetorCurso: VetorEixos)
   return vetor.map((v, i) => v + vetorCurso[i] * FATOR) as unknown as VetorEixos;
 }
 
+/**
+ * Distribuição L1 (em %) do vetor por eixo. Usado em UIs que mostram
+ * assinatura/perfil do aluno em barras ou pra insights baseados em
+ * concentração vs. espalhamento.
+ */
+export type DistribuicaoEixo = {
+  sigla: EixoSigla;
+  raw: number;
+  pct: number;
+};
+
+export function vetorParaPct(vetor: VetorEixos): DistribuicaoEixo[] {
+  const total = vetor.reduce((s, n) => s + n, 0) || 1;
+  return EIXOS.map((sigla, i) => ({
+    sigla,
+    raw: vetor[i],
+    pct: Math.round((vetor[i] / total) * 100),
+  }));
+}
+
 /** Níveis de confiança no resultado, baseado no gap de score. */
 export type NivelConfianca = "alta" | "hibrido" | "exploratorio";
 
-export function nivelConfianca(top3: CursoComScore[]): NivelConfianca {
+export function nivelConfianca(top3: { score: number }[]): NivelConfianca {
   if (top3.length < 2) return "alta";
   const top1 = top3[0].score;
   const gap = top1 - top3[1].score;
