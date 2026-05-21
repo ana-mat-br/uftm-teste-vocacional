@@ -1,29 +1,38 @@
 <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-  <!-- Comunicador: rosa+amarelo + balão de fala no topo -->
-  <!-- Balão de fala -->
+  <!-- Comunicador: amarelo + balão de fala com "..." no topo, sorrindo -->
+  <!-- Balão de fala (mais arredondado) -->
   <rect x="9" y="0" width="6" height="1" fill="#fff8e7"/>
-  <rect x="9" y="1" width="6" height="2" fill="#fff8e7"/>
+  <rect x="8" y="1" width="7" height="2" fill="#fff8e7"/>
+  <rect x="9" y="3" width="5" height="1" fill="#fff8e7"/>
+  <!-- "..." dentro do balão (pontos de fala) -->
   <rect x="10" y="1" width="1" height="1" fill="#ff2e93"/>
   <rect x="12" y="1" width="1" height="1" fill="#ff2e93"/>
   <rect x="14" y="1" width="1" height="1" fill="#ff2e93"/>
-  <rect x="9" y="3" width="1" height="1" fill="#fff8e7"/>
+  <!-- Cauda do balão (apontando pra boca) -->
   <rect x="8" y="3" width="1" height="1" fill="#fff8e7"/>
+  <rect x="7" y="4" width="1" height="1" fill="#fff8e7"/>
   <!-- Cabeça -->
-  <rect x="4" y="4" width="8" height="1" fill="#ffcc00"/>
+  <rect x="4" y="4" width="3" height="1" fill="#ffcc00"/>
+  <rect x="8" y="4" width="4" height="1" fill="#ffcc00"/>
   <rect x="3" y="5" width="10" height="1" fill="#fff95e"/>
   <rect x="3" y="6" width="10" height="1" fill="#fff95e"/>
   <rect x="3" y="7" width="10" height="1" fill="#fff95e"/>
-  <!-- Olhos -->
+  <!-- Highlight no rosto -->
+  <rect x="3" y="5" width="1" height="1" fill="#ffffaa"/>
+  <rect x="4" y="5" width="1" height="1" fill="#ffffaa"/>
+  <!-- Olhos (sorrindo, semi-fechados) -->
   <rect x="5" y="6" width="2" height="2" fill="#4a1078"/>
   <rect x="9" y="6" width="2" height="2" fill="#4a1078"/>
   <rect x="6" y="6" width="1" height="1" fill="#fff"/>
   <rect x="10" y="6" width="1" height="1" fill="#fff"/>
-  <!-- Bochechas (rosa quente, marcadas) -->
+  <!-- Bochechas marcadas (sorriso) -->
   <rect x="3" y="8" width="2" height="1" fill="#ff5fa8"/>
   <rect x="11" y="8" width="2" height="1" fill="#ff5fa8"/>
-  <!-- Bocha aberta (sorrindo) -->
+  <!-- Boca aberta (falando alto) -->
   <rect x="6" y="8" width="4" height="1" fill="#ff2e93"/>
   <rect x="7" y="9" width="2" height="1" fill="#ff2e93"/>
+  <!-- Língua/sorriso interior -->
+  <rect x="7" y="8" width="2" height="1" fill="#ff8fc8"/>
   <!-- Corpo -->
   <rect x="4" y="8" width="2" height="1" fill="#fff95e"/>
   <rect x="10" y="8" width="2" height="1" fill="#fff95e"/>

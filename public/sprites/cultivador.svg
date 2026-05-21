@@ -1,19 +1,30 @@
 <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-  <!-- Cultivador: rosa + folha verde no topo -->
-  <!-- Folha (formato de gota) -->
+  <!-- Cultivador: rosa + folhinha verde + florzinha no topo -->
+  <!-- Folha principal (formato de gota) -->
   <rect x="7" y="0" width="2" height="1" fill="#7ee787"/>
   <rect x="6" y="1" width="4" height="1" fill="#7ee787"/>
   <rect x="5" y="2" width="4" height="1" fill="#7ee787"/>
   <rect x="9" y="2" width="1" height="1" fill="#5cb868"/>
   <rect x="6" y="3" width="2" height="1" fill="#5cb868"/>
-  <rect x="7" y="4" width="1" height="1" fill="#3d8848"/>
+  <!-- Brilho da folha (orvalho) -->
+  <rect x="6" y="1" width="1" height="1" fill="#a8f0ad"/>
+  <!-- Florzinha pequena (pétala amarela à direita) -->
+  <rect x="10" y="1" width="1" height="1" fill="#ffcc00"/>
+  <rect x="11" y="1" width="1" height="1" fill="#fff95e"/>
+  <rect x="10" y="2" width="2" height="1" fill="#ffcc00"/>
+  <!-- Talo -->
+  <rect x="7" y="4" width="1" height="1" fill="#5cb868"/>
+  <rect x="8" y="4" width="1" height="1" fill="#3d8848"/>
   <!-- Cabeça -->
   <rect x="4" y="4" width="3" height="1" fill="#ff8fc8"/>
-  <rect x="8" y="4" width="4" height="1" fill="#ff8fc8"/>
+  <rect x="9" y="4" width="3" height="1" fill="#ff8fc8"/>
   <rect x="3" y="5" width="10" height="1" fill="#ff8fc8"/>
   <rect x="3" y="6" width="10" height="1" fill="#ff8fc8"/>
   <rect x="3" y="7" width="10" height="1" fill="#ff8fc8"/>
-  <!-- Olhos -->
+  <!-- Highlight no rosto -->
+  <rect x="3" y="5" width="1" height="1" fill="#ffb3d9"/>
+  <rect x="4" y="5" width="1" height="1" fill="#ffb3d9"/>
+  <!-- Olhos cyan (vivos) -->
   <rect x="5" y="6" width="2" height="2" fill="#00f0ff"/>
   <rect x="9" y="6" width="2" height="2" fill="#00f0ff"/>
   <rect x="6" y="6" width="1" height="1" fill="#fff"/>
@@ -21,13 +32,20 @@
   <!-- Bochechas -->
   <rect x="3" y="8" width="1" height="1" fill="#ffcc00"/>
   <rect x="12" y="8" width="1" height="1" fill="#ffcc00"/>
-  <!-- Corpo (com leve toque de verde) -->
-  <rect x="4" y="8" width="8" height="1" fill="#ff8fc8"/>
+  <!-- Sorriso terreno -->
+  <rect x="7" y="8" width="2" height="1" fill="#ff2e93"/>
+  <!-- Corpo -->
+  <rect x="4" y="8" width="3" height="1" fill="#ff8fc8"/>
+  <rect x="9" y="8" width="3" height="1" fill="#ff8fc8"/>
   <rect x="4" y="9" width="8" height="1" fill="#ff8fc8"/>
+  <!-- Pequena vinha no peito -->
   <rect x="6" y="9" width="1" height="1" fill="#7ee787"/>
   <rect x="9" y="9" width="1" height="1" fill="#7ee787"/>
-  <rect x="5" y="10" width="6" height="1" fill="#ff5fa8"/>
-  <!-- Pernas -->
+  <rect x="7" y="10" width="2" height="1" fill="#7ee787"/>
+  <!-- Cinto/barra inferior -->
+  <rect x="5" y="10" width="2" height="1" fill="#ff5fa8"/>
+  <rect x="9" y="10" width="2" height="1" fill="#ff5fa8"/>
+  <!-- Pernas (verde, "raízes") -->
   <rect x="4" y="11" width="2" height="1" fill="#5cb868"/>
   <rect x="10" y="11" width="2" height="1" fill="#5cb868"/>
 </svg>
