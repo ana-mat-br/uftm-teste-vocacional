@@ -31,7 +31,7 @@ export const CENAS: Cena[] = [
     id: 2,
     titulo: "Embarque",
     narrativa:
-      "Uma luzinha rosa flutua até você — é seu co-piloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma: 14 meses até Kepler-186f, tripulação de 12. Vocês não foram escolhidos por nota. Foram escolhidos pelo Protocolo Vocação. E ele começa agora.",
+      "Uma luzinha rosa flutua até você — é seu co-piloto, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma: 14 meses até Kepler-186f, tripulação de 12. Vocês não foram escolhidos por nota. Foram escolhidos pelo Protocolo Vocação. E ele começa agora.",
     falaBixinho: "oi! sou eu, teu co-piloto. cola comigo a missão inteira. ela curte um drama, relaxa.",
     opcoes: [
       { emoji: "🤔", texto: "Anoto tudo, levanto a mão pra perguntar se o Protocolo pode errar", pontos: [0, 2, 0, 0, 0, 0, 1] },
@@ -84,7 +84,7 @@ export const CENAS: Cena[] = [
     id: 12,
     titulo: "Rotina coletiva",
     narrativa:
-      "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa de cuidado coletivo. Você se voluntaria pra criar. Qual aposta?",
+      "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa pra cuidar do grupo. Você se voluntaria pra criar. Qual aposta?",
     falaBixinho: "que coisa de adulto. respira que dá certo.",
     opcoes: [
       { emoji: "🧘", texto: "Espaço de escuta semanal — individual, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
@@ -98,7 +98,7 @@ export const CENAS: Cena[] = [
     id: 6,
     titulo: "Falha técnica",
     narrativa:
-      "03h da manhã. O sistema de oxigênio do dormitório B começou a variar 2%. Não é perigoso AINDA. Mas em 6 horas vira.",
+      "03h da manhã. O sistema de oxigênio do dormitório B começou a variar (2% pra menos). Não é perigoso AINDA. Mas em 6 horas vira.",
     falaBixinho: "se eu morrer aqui eu juro que volto te assombrar via wifi.",
     opcoes: [
       { emoji: "🔧", texto: "Vou direto pra engenharia, abro o painel e tento achar o problema", pontos: [0, 0, 3, 0, 0, 0, 0] },
@@ -124,7 +124,7 @@ export const CENAS: Cena[] = [
     id: 13,
     titulo: "Sistema da nave",
     narrativa:
-      "Os registros do sistema cresceram além do limite seguro. Tudo tá ficando lento. Você lidera a reorganização técnica — por onde começa?",
+      "Os registros do sistema tão maiores do que ele aguenta. Tudo tá ficando lento. Você lidera a reorganização — por onde começa?",
     falaBixinho: "véi, isso aqui sou EU me reorganizando. mete a mão.",
     opcoes: [
       { emoji: "💾", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
@@ -138,7 +138,7 @@ export const CENAS: Cena[] = [
     id: 8,
     titulo: "Doença misteriosa",
     narrativa:
-      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, luz forte machucando os olhos, dor espalhada pelo corpo. Ninguém viu nada parecido. Você é o primeiro responsável da rodada de saúde. Qual sua jogada?",
+      "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, luz forte machucando os olhos, dor espalhada pelo corpo. Ninguém viu nada parecido. Você tá no plantão. Qual sua jogada?",
     falaBixinho: "cara, isso aqui é novela médica espacial. respira.",
     opcoes: [
       { emoji: "🔬", texto: "Lab AGORA — exames de sangue e imagem, amostras. Não toco em ninguém antes de saber o que é.", pontos: [2, 2, 0, 0, 0, 0, 0] },
@@ -153,7 +153,7 @@ export const CENAS: Cena[] = [
     id: 9,
     titulo: "Chegada ao planeta",
     narrativa:
-      "Kepler-186f na tela. Atmosfera respirável (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
+      "Kepler-186f na tela. Dá pra respirar (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
     falaBixinho: "olha esse planetinha. eu já tô com ciúmes da terra.",
     opcoes: [
       { emoji: "🏔️", texto: "Perto das montanhas — terreno estável, vista pra tudo", pontos: [0, 1, 2, 0, 0, 0, 0] },
@@ -194,7 +194,7 @@ export const CENAS: Cena[] = [
     id: 11,
     titulo: "Crise final",
     narrativa:
-      "Mês 7 no planeta. Tempestade magnética inesperada. Os sistemas de suporte vital estão piscando. Você tem 12 minutos pra decidir o que salvar primeiro.",
+      "Mês 7 no planeta. Tempestade magnética do nada. Os sistemas de suporte vital estão piscando. Você tem 12 minutos pra decidir o que salvar primeiro.",
     falaBixinho: "tá. agora é sério. confio em você.",
     opcoes: [
       { emoji: "🩺", texto: "Garanto que a enfermaria fique online — vidas primeiro, dados depois", pontos: [3, 0, 0, 0, 0, 0, 0] },
