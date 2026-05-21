@@ -33,7 +33,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Medicina ✅
 
-*Oficial Médica de Bordo* · Uberaba
+*Comando Médico de Bordo* · Uberaba
 
 > Diagnostica e trata doenças com contato direto ao paciente. Cuidador clinicamente curioso.
 
@@ -97,7 +97,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Psicologia ✅
 
-*Conselheira de Tripulação* · Uberaba
+*Apoio Psíquico de Bordo* · Uberaba
 
 > Saúde mental, escuta, intervenção comportamental. Cuida via comunicação.
 
@@ -129,7 +129,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Fisioterapia ✅
 
-*Técnica de Reabilitação* · Uberaba
+*Posto de Reabilitação Motora* · Uberaba
 
 > Reabilita o corpo. Cuidado pelo movimento e técnica física.
 
@@ -161,7 +161,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Terapia Ocupacional ✅
 
-*Mediadora de Adaptação* · Uberaba
+*Posto de Adaptação Funcional* · Uberaba
 
 > Ajuda pessoas a recuperar autonomia em atividades cotidianas.
 
@@ -193,7 +193,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Nutrição ✅
 
-*Engenheira de Sustento* · Uberaba
+*Comando de Sustento Vital* · Uberaba
 
 > Alimentação como saúde. Ciência aplicada ao bem-estar.
 
@@ -225,7 +225,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Serviço Social ⚠️
 
-*Defensora de Direitos da Tripulação* · Uberaba
+*Defesa de Direitos da Tripulação* · Uberaba
 
 > Defende direitos sociais, ponte com políticas públicas.
 
@@ -291,7 +291,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Biomedicina ✅
 
-*Pesquisadora de Vida Alienígena* · Uberaba/Iturama
+*Pesquisa de Vida Alienígena* · Uberaba/Iturama
 
 > Pesquisa em saúde — lab, análises clínicas. Curiosidade científica com vocação de cuidar.
 
@@ -421,7 +421,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Civil ✅
 
-*Arquiteta de Bases Planetárias* · Uberaba
+*Arquitetura de Bases Planetárias* · Uberaba
 
 > Projeta e constrói infraestrutura. Construtor do macroespaço urbano.
 
@@ -453,7 +453,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Mecânica ✅
 
-*Mecânica-Chefe da Nave* · Uberaba
+*Engenharia Mecânica de Bordo* · Uberaba
 
 > Máquinas, motores, sistemas mecânicos. Construtor que entende o como.
 
@@ -485,7 +485,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Elétrica ✅
 
-*Engenheira de Sistemas Vitais* · Uberaba
+*Engenharia de Sistemas Vitais* · Uberaba
 
 > Sistemas elétricos, eletrônicos e energia. Construtor + lógica de circuitos.
 
@@ -517,7 +517,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Química ✅
 
-*Engenheira de Processos* · Uberaba
+*Engenharia de Processos* · Uberaba
 
 > Processos químicos industriais. Ponte ciência↔produção.
 
@@ -549,7 +549,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia de Produção ✅
 
-*Coordenadora de Operações* · Uberaba
+*Coordenação Logística da Nave* · Uberaba
 
 > Gestão e otimização de processos. Construtor que lidera equipes.
 
@@ -581,7 +581,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia Ambiental ✅
 
-*Guardiã do Ecossistema da Nave* · Uberaba
+*Sentinela do Ecossistema da Nave* · Uberaba
 
 > Meio ambiente com técnica de engenharia. Sustentabilidade aplicada.
 
@@ -613,7 +613,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Engenharia de Alimentos ✅
 
-*Engenheira de Suprimentos* · Uberaba
+*Engenharia de Suprimentos* · Uberaba
 
 > Tecnologia de alimentos, processos da fazenda à mesa.
 
@@ -647,7 +647,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Banco de Dados ⚠️
 
-*Arquiveira de Bordo* · Uberaba
+*Posto de Arquivo de Bordo* · Uberaba
 
 > Dados, armazenamento, queries. Organiza o digital.
 
@@ -679,7 +679,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Inteligência Artificial ✅
 
-*Operadora-IA da Missão* · Uberaba
+*Comando IA da Missão* · Uberaba
 
 > Machine learning, sistemas inteligentes. Investigador digital.
 
@@ -809,7 +809,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Pedagogia ✅
 
-*Educadora da Próxima Geração* · Uberaba
+*Educação da Próxima Geração* · Uberaba
 
 > Educação básica, formação de criança/jovem. Cuidado via ensino.
 
@@ -875,7 +875,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Geografia ✅
 
-*Cartógrafa de Mundos Novos* · Uberaba
+*Cartografia de Mundos Novos* · Uberaba
 
 > Espaço, território, humano↔ambiente. Multidisciplinar.
 
@@ -907,7 +907,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Educação Física ✅
 
-*Treinadora da Tripulação* · Uberaba
+*Treinamento da Tripulação* · Uberaba
 
 > Movimento, esporte, saúde corporal. Cuidado pelo corpo em ação.
 
@@ -939,7 +939,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Licenciatura em Educação do Campo ✅
 
-*Engenheira Agrária Comunitária* · Uberaba
+*Educação de Colônia Agrária* · Uberaba
 
 > Educação no contexto rural/agrário. Justiça social + terra.
 
@@ -973,7 +973,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Agronomia ✅
 
-*Cultivadora de Vida Planetária* · Uberaba/Iturama
+*Cultivo de Vida Planetária* · Uberaba/Iturama
 
 > Agricultura técnica e científica. Investigação aplicada à terra (Uberaba/Iturama).
 
@@ -1005,7 +1005,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Zootecnia ✅
 
-*Criadora de Vida Animal* · Iturama
+*Criação de Vida Animal* · Iturama
 
 > Produção animal sustentável (exclusivo Iturama).
 
