@@ -124,13 +124,21 @@ export default function Icon({
   ...rest
 }: Props) {
   const LucideCmp = MAP[name] ?? Circle;
+  // `absoluteStrokeWidth` faz Lucide computar `strokeWidth * (24 / size)`.
+  // Com size string ("1em"), a divisão vira NaN e quebra o atributo SVG.
+  // Só ativa quando size é número de verdade.
+  const useAbsolute = typeof size === "number" && Number.isFinite(size);
   return (
     <span
       className={`inline-flex items-center align-middle leading-none ${className}`}
       style={color ? { color } : undefined}
       aria-hidden={rest["aria-hidden"] ?? true}
     >
-      <LucideCmp size={size} strokeWidth={strokeWidth} absoluteStrokeWidth />
+      <LucideCmp
+        size={size}
+        strokeWidth={strokeWidth}
+        absoluteStrokeWidth={useAbsolute}
+      />
     </span>
   );
 }

@@ -8,6 +8,7 @@ import { TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
 import NarratorBox from "@/components/NarratorBox";
 import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
+import StatsBar from "@/components/StatsBar";
 
 const NARRATOR_PORTRAIT = "/sprites/decifrador.svg";
 
@@ -17,10 +18,21 @@ type Props = {
   proximoId: number | null;
 };
 
+type StatsPayload = {
+  cena: number;
+  total: number;
+  opcoes: { opcao: number; n: number; pct: number }[];
+};
+
+const STATS_FETCH_TIMEOUT_MS = 1500;
+const STATS_REVEAL_MS = 1800;
+
 export default function CenaQuiz({ cena, proximoId }: Props) {
   const router = useRouter();
   const { sessao, carregando, responder } = useSessao();
   const [enviando, setEnviando] = useState(false);
+  const [pickedIdx, setPickedIdx] = useState<number | null>(null);
+  const [stats, setStats] = useState<StatsPayload | null>(null);
 
   // Se o aluno cair direto numa cena sem ter iniciado a sessão na home,
   // mandamos pra raiz pra começar do início.
@@ -30,19 +42,45 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
     }
   }, [carregando, sessao, router]);
 
-  function handleEscolher(opcaoIndex: number) {
+  function navegar() {
+    if (proximoId !== null) {
+      router.push(`/cena/${proximoId}`);
+    } else {
+      router.push("/resultado");
+    }
+  }
+
+  async function handleEscolher(opcaoIndex: number) {
     if (enviando || !sessao) return;
     setEnviando(true);
+    setPickedIdx(opcaoIndex);
     const opcao = cena.opcoes[opcaoIndex];
     responder(cena.id, opcaoIndex, opcao.pontos);
-    // pequeno delay pra dar sensação de "processando"
-    setTimeout(() => {
-      if (proximoId !== null) {
-        router.push(`/cena/${proximoId}`);
-      } else {
-        router.push("/resultado");
-      }
-    }, 200);
+
+    // Prefetch do próximo destino enquanto stats carrega / revela
+    if (proximoId !== null) router.prefetch(`/cena/${proximoId}`);
+    else router.prefetch("/resultado");
+
+    // Busca stats em paralelo com timeout — se demorar, segue sem mostrar.
+    const statsPromise = fetch(`/api/stats/cena/${cena.id}`, { cache: "no-store" })
+      .then((r) => (r.ok ? (r.json() as Promise<StatsPayload>) : null))
+      .catch(() => null);
+
+    const timeout = new Promise<null>((resolve) =>
+      setTimeout(() => resolve(null), STATS_FETCH_TIMEOUT_MS),
+    );
+
+    const resolved = await Promise.race([statsPromise, timeout]);
+
+    if (resolved && resolved.total > 0) {
+      setStats(resolved);
+      await new Promise((r) => setTimeout(r, STATS_REVEAL_MS));
+    } else {
+      // sem stats, mantém o feel de "processando" curto
+      await new Promise((r) => setTimeout(r, 200));
+    }
+
+    navegar();
   }
 
   if (carregando || !sessao) {
@@ -116,40 +154,61 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
 
         {/* Coluna direita: opções */}
         <div className="flex flex-col gap-3">
-          {cena.opcoes.map((opcao, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleEscolher(idx)}
-              disabled={enviando}
-              className="text-left px-4 py-4 border-2 transition-all font-pixel-body text-lg md:text-xl hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-4"
-              style={{
-                borderColor: "var(--sun-pink)",
-                background: "rgba(26, 6, 51, 0.7)",
-                color: "var(--text)",
-                boxShadow: "0 0 12px rgba(255, 46, 147, 0.25)",
-              }}
-            >
-              <span
-                className="flex-shrink-0 flex items-center justify-center"
+          {cena.opcoes.map((opcao, idx) => {
+            const isPick = pickedIdx === idx;
+            const dimmed = pickedIdx !== null && !isPick;
+            return (
+              <button
+                key={idx}
+                onClick={() => handleEscolher(idx)}
+                disabled={enviando}
+                className="text-left px-4 py-4 border-2 transition-all font-pixel-body text-lg md:text-xl hover:scale-[1.02] disabled:cursor-not-allowed flex items-center gap-4"
                 style={{
-                  width: 44,
-                  height: 44,
-                  background: "rgba(13, 2, 33, 0.7)",
-                  border: "1px solid var(--grid-cyan)",
-                  color: "var(--grid-cyan)",
-                  boxShadow:
-                    "0 0 10px rgba(1, 205, 254, 0.35), inset 0 0 8px rgba(1, 205, 254, 0.15)",
+                  borderColor: isPick ? "var(--sun-yellow)" : "var(--sun-pink)",
+                  background: isPick
+                    ? "rgba(255, 247, 0, 0.12)"
+                    : "rgba(26, 6, 51, 0.7)",
+                  color: "var(--text)",
+                  boxShadow: isPick
+                    ? "0 0 18px rgba(255, 247, 0, 0.5)"
+                    : "0 0 12px rgba(255, 46, 147, 0.25)",
+                  opacity: dimmed ? 0.4 : 1,
                 }}
               >
-                <Icon
-                  name={opcao.icon}
-                  size={22}
-                  strokeWidth={2}
-                />
-              </span>
-              <span className="leading-snug">{opcao.texto}</span>
-            </button>
-          ))}
+                <span
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    background: "rgba(13, 2, 33, 0.7)",
+                    border: `1px solid ${isPick ? "var(--sun-yellow)" : "var(--grid-cyan)"}`,
+                    color: isPick ? "var(--sun-yellow)" : "var(--grid-cyan)",
+                    boxShadow: isPick
+                      ? "0 0 12px rgba(255, 247, 0, 0.5), inset 0 0 8px rgba(255, 247, 0, 0.2)"
+                      : "0 0 10px rgba(1, 205, 254, 0.35), inset 0 0 8px rgba(1, 205, 254, 0.15)",
+                  }}
+                >
+                  <Icon
+                    name={opcao.icon}
+                    size={22}
+                    strokeWidth={2}
+                  />
+                </span>
+                <span className="leading-snug">{opcao.texto}</span>
+              </button>
+            );
+          })}
+
+          {stats && pickedIdx !== null && (
+            <StatsBar
+              opcoes={cena.opcoes.map((_, idx) => {
+                const row = stats.opcoes.find((o) => o.opcao === idx);
+                return { pct: row?.pct ?? 0, n: row?.n ?? 0 };
+              })}
+              userPick={pickedIdx}
+              total={stats.total}
+            />
+          )}
         </div>
       </div>
 
