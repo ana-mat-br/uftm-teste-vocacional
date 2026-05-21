@@ -32,7 +32,7 @@ export const CENAS: Cena[] = [
     titulo: "Embarque",
     narrativa:
       "Uma luzinha rosa flutua até você — é seu co-piloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma: 14 meses até Kepler-186f, tripulação de 12. Vocês não foram escolhidos por nota. Foram escolhidos pelo Protocolo Vocação. E ele começa agora.",
-    falaBixinho: "oi! sou eu, teu co-piloto. vou te acompanhar a missão inteira. ela é sempre dramática assim, relaxa.",
+    falaBixinho: "oi! sou eu, teu co-piloto. cola comigo a missão inteira. ela curte um drama, relaxa.",
     opcoes: [
       { emoji: "🤔", texto: "Anoto tudo, levanto a mão pra perguntar se o Protocolo pode errar", pontos: [0, 2, 0, 0, 0, 0, 1] },
       { emoji: "😅", texto: "Olho pros outros candidatos pra ver se alguém também tá perdido", pontos: [1, 0, 0, 2, 0, 0, 0] },
@@ -85,7 +85,7 @@ export const CENAS: Cena[] = [
     titulo: "Rotina coletiva",
     narrativa:
       "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa de cuidado coletivo. Você se voluntaria pra criar. Qual aposta?",
-    falaBixinho: "ai que coisa adulta. respira que vai dar certo.",
+    falaBixinho: "que coisa de adulto. respira que dá certo.",
     opcoes: [
       { emoji: "🧘", texto: "Espaço de escuta semanal — individual, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
       { emoji: "🛠️", texto: "Oficina de adaptação — ajusto pequenas tarefas pra cada um trabalhar sozinho", pontos: [2, 0, 2, 2, 0, 0, 0] },
@@ -112,7 +112,7 @@ export const CENAS: Cena[] = [
     titulo: "Mensagem da Terra",
     narrativa:
       "Chegou uma transmissão. Sua família mandou um vídeo. Tá tudo bem — mas é a primeira notícia em 3 meses. Você sente o nó na garganta.",
-    falaBixinho: "sabe que você pode chorar, né. eu não conto pra ninguém.",
+    falaBixinho: "pode chorar, mano. fica entre nós.",
     opcoes: [
       { emoji: "🎥", texto: "Assisto sozinho no meu quarto, depois respondo com calma", pontos: [2, 0, 0, 1, 0, 0, 0] },
       { emoji: "📝", texto: "Escrevo uma carta longa de volta, contando tudo da viagem", pontos: [0, 0, 0, 3, 0, 0, 0] },
@@ -125,7 +125,7 @@ export const CENAS: Cena[] = [
     titulo: "Sistema da nave",
     narrativa:
       "Os registros do sistema cresceram além do limite seguro. Tudo tá ficando lento. Você lidera a reorganização técnica — por onde começa?",
-    falaBixinho: "amor, isso eu sou EU me reorganizando. mete a mão.",
+    falaBixinho: "véi, isso aqui sou EU me reorganizando. mete a mão.",
     opcoes: [
       { emoji: "💾", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
       { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos registros, age automático, evolui sozinho", pontos: [0, 2, 2, 0, 2, 0, 2] },
@@ -139,7 +139,7 @@ export const CENAS: Cena[] = [
     titulo: "Doença misteriosa",
     narrativa:
       "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, luz forte machucando os olhos, dor espalhada pelo corpo. Ninguém viu nada parecido. Você é o primeiro responsável da rodada de saúde. Qual sua jogada?",
-    falaBixinho: "amor, isso aqui é literatura de medicina espacial. respira.",
+    falaBixinho: "cara, isso aqui é novela médica espacial. respira.",
     opcoes: [
       { emoji: "🔬", texto: "Lab AGORA — exames de sangue e imagem, amostras. Não toco em ninguém antes de saber o que é.", pontos: [2, 2, 0, 0, 0, 0, 0] },
       { emoji: "🛏️", texto: "Acomodo os três, fico de olho a cada 30 min, dando água o tempo todo", pontos: [3, 0, 0, 0, 0, 0, 0] },
@@ -167,7 +167,7 @@ export const CENAS: Cena[] = [
     titulo: "Cultivo planetário",
     narrativa:
       "Mês 1 em Kepler-186f. A equipe decide testar produção de comida no planeta. Você lidera o primeiro experimento. Por onde começa?",
-    falaBixinho: "amor, eu sou má em ler plantas. ajuda.",
+    falaBixinho: "cara, plantas não são minha praia. ajuda.",
     opcoes: [
       { emoji: "🌾", texto: "Planto variedades da Terra no solo alienígena — técnica agrícola, acompanho quanto cresce", pontos: [0, 2, 1, 0, 0, 3, 0] },
       { emoji: "🐑", texto: "Criação animal sustentável — começo pequeno, foco em bem-estar dos animais", pontos: [2, 0, 1, 0, 0, 3, 0] },
