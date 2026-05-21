@@ -50,7 +50,7 @@ export const CENAS: Cena[] = [
       { emoji: "🩺", texto: "Enfermaria — colega passou mal no treino físico", pontos: [3, 0, 0, 0, 0, 0, 0] },
       { emoji: "🧬", texto: "Enfermaria também — mas paro pra entender a causa antes de medicar: sinais vitais, histórico recente", pontos: [2, 2, 0, 0, 0, 0, 0] },
       { emoji: "🔧", texto: "Engenharia — vazamento pequeno crescendo no compartimento 7", pontos: [0, 1, 2, 0, 0, 0, 0] },
-      { emoji: "📡", texto: "Comunicações — sinal estranho da Terra, talvez urgente", pontos: [0, 2, 0, 1, 0, 0, 0] },
+      { emoji: "📡", texto: "Comunicações — sinal estranho da Terra, talvez urgente", pontos: [0, 3, 0, 0, 0, 0, 0] },
       { emoji: "🌿", texto: "Estufa — sistema de irrigação travou nas mudas", pontos: [0, 0, 1, 0, 0, 2, 0] },
     ],
   },
@@ -127,8 +127,8 @@ export const CENAS: Cena[] = [
       "Os logs do sistema cresceram além do limite seguro. Performance tá despencando. Você lidera o redesign técnico — por onde começa?",
     falaBixinho: "amor, isso eu sou EU me reorganizando. mete a mão.",
     opcoes: [
-      { emoji: "💾", texto: "Banco centralizado — tabelas otimizadas, queries rápidas. Foco em organização prática", pontos: [0, 1, 0, 0, 0, 0, 3] },
-      { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos logs, age automático, evolui sozinho", pontos: [0, 2, 1, 0, 1, 0, 2] },
+      { emoji: "💾", texto: "Banco centralizado — tabelas otimizadas, queries rápidas. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
+      { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos logs, age automático, evolui sozinho", pontos: [0, 2, 2, 0, 2, 0, 2] },
       { emoji: "∫", texto: "Teoria primeiro — provo o problema matematicamente antes de tocar uma linha de código", pontos: [0, 3, 0, 1, 0, 0, 2] },
       { emoji: "⚡", texto: "Refatoro o hardware — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
       { emoji: "📊", texto: "Dashboard pro time — visualização de tudo, gestão por dados", pontos: [0, 1, 1, 1, 1, 0, 2] },
@@ -146,6 +146,7 @@ export const CENAS: Cena[] = [
       { emoji: "🗣️", texto: "Sento, escuto. Pergunto rotina, sono, ansiedades — pode ser psicossomático coletivo", pontos: [1, 1, 0, 2, 0, 0, 0] },
       { emoji: "💪", texto: "Avaliação motora — se o corpo tá afetado, prescrevo movimento certo pra recuperar", pontos: [2, 0, 2, 0, 0, 0, 0] },
       { emoji: "🥗", texto: "Investigo as últimas refeições — comida fresca, contaminação, deficiência de nutriente?", pontos: [2, 1, 0, 0, 0, 1, 0] },
+      { emoji: "📡", texto: "Mando os dados pra IA de bordo cruzar com base de doenças conhecidas — depois decido", pontos: [0, 2, 0, 0, 0, 0, 2] },
     ],
   },
   {

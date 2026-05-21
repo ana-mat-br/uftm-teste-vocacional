@@ -1,6 +1,6 @@
 # 🧬 Matriz de Eixos × Cursos UFTM
 
-**Versão:** 0.2 (eixo TEC adicionado; Matemática realocada)
+**Versão:** 0.3 (micro-ajustes pra discriminar intra-família — 29/31 cursos validados via greedy)
 **Cursos:** 31 (29 Uberaba + 2 exclusivos Iturama)
 **Eixos:** 7
 
@@ -20,6 +20,19 @@
 
 ### Histórico de mudanças
 
+- **v0.3 (2026-05-20)** — Discriminação intra-família após validação greedy (16/31 → 29/31 cursos alcançáveis como top 1):
+  - **Bio** CON 1→0 (Bio observa, não constrói)
+  - **Agronomia** CON 2→3 (cultivo = engenharia da terra)
+  - **Zootecnia** CUI 2→3 (cuidado animal)
+  - **Eng. Elétrica** TEC 1→2 (eletrônica é mais digital que mecânica)
+  - **Eng. Química** INV 2→3 (química é research-heavy)
+  - **Ed. Física** [3,1,1,2,2,1,0] → [2,1,2,1,2,1,0] (mais corporal/movimento, menos cuidador puro)
+  - **BD** [0,2,0,0,0,0,3] → [0,0,0,2,0,0,3] (prático/organizacional, sem investigação)
+  - **IA** CON 1→2 (engenheira de sistemas inteligentes)
+  - Cena 3 📡 [0,2,0,1,0,0,0] → [0,3,0,0,0,0,0] (INV puro, sem COM)
+  - Cena 8 ganha 6ª opção 📡 (delegar pra IA) — discrimina IA/BD no contexto saúde
+  - Cena 13 💾 sem INV, 🤖 ganha CON+TRA — discrimina BD/IA/Mat
+  - Restam ambíguos: Serv. Social↔Ed. Especial (essência muito próxima), BD↔Mat (TEC overlap). Aparecem como alts no top 3.
 - **v0.2 (2026-05-19)** — Split do Construtor:
   - Adicionado eixo **TEC ("Decifrador")** pra distinguir "construir coisas físicas" de "decifrar/operar sistemas digitais"
   - **Matemática** movida de CON→INV+TEC (mais coerente com a natureza teórica do curso na UFTM)
@@ -51,7 +64,7 @@ Pesos de 0 a 3 (3 = afinidade máxima). Vetor do curso = `[CUI, INV, CON, COM, T
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
 | Biomedicina | 2 | **3** | 1 | 0 | 0 | 1 | 1 | Uberaba/Iturama |
-| Ciências Biológicas | 1 | **3** | 1 | 1 | 1 | 3 | 0 | Uberaba/Iturama |
+| Ciências Biológicas | 1 | **3** | **0** | 1 | 1 | **3** | 0 | Uberaba/Iturama |
 | Física | 0 | **3** | 2 | 0 | 0 | 0 | 1 | Uberaba |
 | Química | 1 | **3** | 2 | 0 | 0 | 1 | 0 | Uberaba/Iturama |
 
@@ -61,8 +74,8 @@ Pesos de 0 a 3 (3 = afinidade máxima). Vetor do curso = `[CUI, INV, CON, COM, T
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
 | Engenharia Civil | 0 | 1 | **3** | 1 | 1 | 0 | 0 | Uberaba |
 | Engenharia Mecânica | 0 | 2 | **3** | 0 | 0 | 0 | 1 | Uberaba |
-| Engenharia Elétrica | 0 | 2 | **3** | 0 | 0 | 0 | 1 | Uberaba |
-| Engenharia Química | 0 | 2 | **3** | 0 | 0 | 1 | 0 | Uberaba |
+| Engenharia Elétrica | 0 | 2 | **3** | 0 | 0 | 0 | **2** | Uberaba |
+| Engenharia Química | 0 | **3** | **3** | 0 | 0 | 1 | 0 | Uberaba |
 | Engenharia de Produção | 0 | 1 | 2 | 2 | 1 | 0 | 2 | Uberaba |
 | Engenharia Ambiental | 1 | 2 | **3** | 1 | 2 | **3** | 0 | Uberaba |
 | Engenharia de Alimentos | 1 | 2 | **3** | 0 | 0 | 2 | 0 | Uberaba |
@@ -71,8 +84,8 @@ Pesos de 0 a 3 (3 = afinidade máxima). Vetor do curso = `[CUI, INV, CON, COM, T
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Banco de Dados | 0 | 2 | 0 | 0 | 0 | 0 | **3** | Uberaba |
-| Inteligência Artificial | 0 | **3** | 1 | 0 | 1 | 0 | **3** | Uberaba |
+| Banco de Dados | 0 | **0** | 0 | **2** | 0 | 0 | **3** | Uberaba |
+| Inteligência Artificial | 0 | **3** | **2** | 0 | 1 | 0 | **3** | Uberaba |
 | Matemática | 0 | **3** | 0 | 1 | 0 | 0 | **3** | Uberaba |
 
 ### 📢 Área Comunicação / Educação
@@ -89,15 +102,15 @@ Pesos de 0 a 3 (3 = afinidade máxima). Vetor do curso = `[CUI, INV, CON, COM, T
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
 | História | 1 | 2 | 0 | 2 | **3** | 0 | 0 | Uberaba |
 | Geografia | 1 | 2 | 1 | 1 | **3** | 2 | 1 | Uberaba |
-| Educação Física | **3** | 1 | 1 | 2 | 2 | 1 | 0 | Uberaba |
+| Educação Física | 2 | 1 | **2** | 1 | 2 | 1 | 0 | Uberaba |
 | Licenciatura em Educação do Campo | 2 | 1 | 1 | 2 | **3** | **3** | 0 | Uberaba |
 
 ### 🌱 Área Cultivo / Natureza
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Agronomia | 1 | **3** | 2 | 1 | 1 | **3** | 0 | Uberaba/Iturama |
-| Zootecnia | 2 | **3** | 2 | 1 | 0 | **3** | 0 | Iturama |
+| Agronomia | 1 | **3** | **3** | 1 | 1 | **3** | 0 | Uberaba/Iturama |
+| Zootecnia | **3** | **3** | 2 | 1 | 0 | **3** | 0 | Iturama |
 
 ---
 
