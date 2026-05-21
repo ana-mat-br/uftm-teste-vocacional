@@ -97,7 +97,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 #### Psicologia ✅
 
-*Apoio Psíquico de Bordo* · Uberaba
+*Posto Psíquico de Bordo* · Uberaba
 
 > Saúde mental, escuta, intervenção comportamental. Cuida via comunicação.
 

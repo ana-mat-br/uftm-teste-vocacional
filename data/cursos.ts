@@ -24,7 +24,7 @@ export const CURSOS: Curso[] = [
   // === Saúde / Cuidado ===
   { nome: "Medicina", papelMissao: "Posto Médico de Bordo", vetor: [3, 3, 1, 2, 2, 1, 0], campus: "Uberaba" },
   { nome: "Enfermagem", papelMissao: "Especialista em Cuidado Vital", vetor: [3, 1, 1, 2, 1, 1, 0], campus: "Uberaba" },
-  { nome: "Psicologia", papelMissao: "Apoio Psíquico de Bordo", vetor: [3, 2, 0, 3, 1, 2, 0], campus: "Uberaba" },
+  { nome: "Psicologia", papelMissao: "Posto Psíquico de Bordo", vetor: [3, 2, 0, 3, 1, 2, 0], campus: "Uberaba" },
   { nome: "Fisioterapia", papelMissao: "Posto de Reabilitação Motora", vetor: [3, 1, 2, 1, 1, 0, 0], campus: "Uberaba" },
   { nome: "Terapia Ocupacional", papelMissao: "Posto de Adaptação Funcional", vetor: [3, 1, 2, 2, 1, 1, 0], campus: "Uberaba" },
   { nome: "Nutrição", papelMissao: "Posto de Sustento Vital", vetor: [3, 2, 1, 1, 2, 2, 0], campus: "Uberaba" },
