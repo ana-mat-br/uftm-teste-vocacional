@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSessao } from "@/lib/use-sessao";
 import { CENAS } from "@/data/cenas";
 import { gsap } from "@/lib/motion";
+import Icon from "@/components/Icon";
 
 /**
  * Botão "EMBARCAR" da home. Antes de navegar, inicia uma nova sessão
@@ -46,7 +47,7 @@ export default function BotaoEmbarcar() {
       ref={btnRef}
       onClick={handleEmbarcar}
       disabled={embarcando}
-      className="font-pixel-title text-sm px-8 py-4 border-2 tracking-widest hover:scale-105 transition-transform disabled:opacity-60"
+      className="font-pixel-title text-base md:text-lg px-9 py-5 border-2 tracking-widest hover:scale-105 transition-transform disabled:opacity-60 inline-flex items-center gap-3"
       style={{
         background: "var(--sun-pink)",
         color: "var(--bg-deep)",
@@ -54,7 +55,8 @@ export default function BotaoEmbarcar() {
         boxShadow: "0 0 25px rgba(255, 46, 147, 0.6), 0 4px 0 var(--sun-orange)",
       }}
     >
-      {embarcando ? "▸ EMBARCANDO…" : "▸ EMBARCAR"}
+      <Icon name="rocket" size="1.1em" strokeWidth={2.5} />
+      {embarcando ? "EMBARCANDO…" : "EMBARCAR"}
     </button>
   );
 }

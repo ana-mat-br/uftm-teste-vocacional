@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion";
 import BotaoEmbarcar from "@/components/BotaoEmbarcar";
+import SceneHeader from "@/components/SceneHeader";
+import SplitText from "@/components/SplitText";
 
 const TITLE_TOP = "COMISSÃO INTERESTELAR";
 const TITLE_BIG = "UFTM";
@@ -59,59 +61,26 @@ export default function Hero() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-[480px] flex-col items-center justify-center px-6 py-10 text-center">
-      <div
+      <SceneHeader
         ref={headerRef}
-        className="font-terminal text-base tracking-widest uppercase glow-cyan anim-flicker"
-        style={{ color: "var(--grid-cyan)" }}
+        icon="rocket"
+        className="glow-cyan anim-flicker"
       >
-        <span
-          className="inline-block w-2 h-2 rounded-full mr-2 anim-pulse"
-          style={{ background: "var(--sun-pink)" }}
-        />
         UFTM-KEPLER • OS v2087.5
-      </div>
+      </SceneHeader>
 
       <h1
         ref={titleRef}
-        className="font-pixel-title mt-10 text-center"
-        aria-label={`${TITLE_TOP} ${TITLE_BIG}`}
+        className="font-pixel-title text-lg sm:text-xl md:text-2xl leading-relaxed mt-10 glow-yellow"
+        style={{ color: "var(--sun-yellow)" }}
+        aria-label={TITLE}
       >
-        {/* Linha 1: "Comissão Interestelar" — flex-wrap pra cada palavra centralizar
-            independentemente quando quebra em mobile (sem &nbsp; arrastando alinhamento) */}
-        <span
-          className="flex flex-wrap justify-center gap-x-3 text-base sm:text-lg leading-relaxed glow-yellow"
-          style={{ color: "var(--sun-yellow)" }}
-        >
-          {TITLE_TOP.split(" ").map((word, wi) => (
-            <span key={wi} className="whitespace-nowrap">
-              {word.split("").map((char, ci) => (
-                <span key={ci} className="hero-letter inline-block">
-                  {char}
-                </span>
-              ))}
-            </span>
-          ))}
-        </span>
-
-        {/* Linha 2: "UFTM" — protagonista em verde neon */}
-        <span
-          className="block text-4xl sm:text-5xl leading-none mt-3 glow-mint"
-          style={{
-            color: "var(--mint)",
-            textShadow: "0 0 14px var(--mint), 0 0 28px var(--mint)",
-          }}
-        >
-          {TITLE_BIG.split("").map((char, ci) => (
-            <span key={ci} className="hero-letter inline-block">
-              {char}
-            </span>
-          ))}
-        </span>
+        <SplitText text={TITLE} letterClass="hero-letter" />
       </h1>
 
       <p
         ref={subtitleRef}
-        className="font-terminal text-base tracking-wide uppercase mt-3"
+        className="font-terminal text-xl tracking-wide uppercase mt-3"
         style={{ color: "var(--text-dim)" }}
       >
         // protocolo vocação
@@ -119,7 +88,7 @@ export default function Hero() {
 
       <p
         ref={taglineRef}
-        className="font-pixel-body text-base mt-10 max-w-xs leading-relaxed"
+        className="font-pixel-body text-lg md:text-xl mt-10 max-w-sm leading-relaxed"
         style={{ color: "var(--text)" }}
       >
         ano <span style={{ color: "var(--sun-yellow)" }}>2087</span>. kepler-186f
@@ -133,14 +102,14 @@ export default function Hero() {
 
       <p
         ref={privacyRef}
-        className="font-terminal text-sm mt-8 max-w-xs"
+        className="font-terminal text-base mt-8 max-w-xs"
         style={{ color: "var(--text-dim)" }}
       >
         // nenhum dado pessoal seu é coletado.<br />nem precisa logar.
       </p>
 
       <footer
-        className="font-terminal text-sm mt-16 opacity-70 text-center leading-relaxed"
+        className="font-terminal text-base mt-16 opacity-70"
         style={{ color: "var(--text-dim)" }}
       >
         UFTM • Feira de Profissões 2026
