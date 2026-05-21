@@ -13,8 +13,10 @@
  */
 
 import { chromium, type Page } from "playwright";
+import { CENAS } from "@/data/cenas";
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3000";
+const IDS_CENAS = CENAS.map((c) => c.id);
 
 type Persona = {
   nome: string;
@@ -28,24 +30,20 @@ type Persona = {
 
 const PERSONAS: Persona[] = [
   {
-    // Medicina-leaning: 🤔, 🧬, 🛡️, 🫂, 📊, 🧠, 🔬*NOVA*, 🌊, 🍞, 🩺
-    // Cena 8 nova "Doença misteriosa" → 🔬 (CUI+INV) puxa pra Medicina
-    // Gap top1↔top2 fica < 2% (Medicina vs Biomedicina) → /desempate
+    // Medicina-leaning passa por: c2,c3,c4,c5,c12-NOVA,c6,c7,c13-NOVA,c8,c9,c14-NOVA,c10,c11
+    // Picks: 🤔, 🧬, 🛡️, 🫂, 🌈(c12), 📊, 🧠, ∫(c13), 🔬(c8), 🌊, 🔬(c14), 🍞, 🩺
     nome: "medicina-leaning",
-    escolhas: [0, 1, 3, 0, 1, 2, 0, 2, 1, 0],
+    escolhas: [0, 1, 3, 0, 2, 1, 2, 2, 0, 2, 2, 1, 0],
     topEsperado: "Medicina",
-    esperaDesempate: true,
   },
   {
-    // Comunicador puro: 😅, 📡, 🗣️, 🫂, 🚨, 📝, 🗣️*NOVA*, 🏕️, 📡, 🗣️
-    // Cena 8 nova → 🗣️ (escuta psicológica, único com COM)
+    // Comunicador puro: heavy COM nas opções de cada cena
+    // 😅, 📡, 🗣️, 🫂, 🧘(c12), 🚨, 📝, 📊(c13), 🗣️(c8), 🏕️, 🔬(c14), 📡, 🗣️
     nome: "comunicador-puro",
-    escolhas: [1, 3, 2, 0, 2, 1, 2, 3, 3, 3],
+    escolhas: [1, 3, 2, 0, 0, 2, 1, 4, 2, 3, 2, 3, 3],
     topEsperado: "Letras",
   },
 ];
-
-const IDS_CENAS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 async function rodarPersona(page: Page, p: Persona): Promise<void> {
   console.log(`\n▸ ${p.nome}`);

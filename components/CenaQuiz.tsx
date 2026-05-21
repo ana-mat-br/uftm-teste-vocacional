@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Cena } from "@/data/cenas";
 import { useSessao } from "@/lib/use-sessao";
-import { TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
+import { CENAS, TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
 
 type Props = {
   cena: Cena;
@@ -50,8 +50,8 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
     );
   }
 
-  // Cena 2 é a "primeira pontuável" → progresso = 1/9
-  const progresso = cena.id - 1;
+  // Progresso = posição da cena no array CENAS (desacoplado do id)
+  const progresso = CENAS.findIndex((c) => c.id === cena.id) + 1;
   const total = TOTAL_CENAS_PONTUAVEIS;
 
   return (

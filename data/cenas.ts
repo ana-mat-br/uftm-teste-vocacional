@@ -81,6 +81,20 @@ export const CENAS: Cena[] = [
     ],
   },
   {
+    id: 12,
+    titulo: "Rotina coletiva",
+    narrativa:
+      "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa de cuidado coletivo. Você se voluntaria pra desenhar. Qual aposta?",
+    falaBixinho: "ai que coisa adulta. respira que vai dar certo.",
+    opcoes: [
+      { emoji: "🧘", texto: "Espaço de escuta semanal — 1:1, confidencial, com técnicas de regulação emocional", pontos: [1, 1, 0, 3, 0, 0, 0] },
+      { emoji: "🛠️", texto: "Oficina de adaptação — ajusto pequenas tarefas pra cada um trabalhar com autonomia", pontos: [2, 0, 2, 2, 0, 0, 0] },
+      { emoji: "🌈", texto: "Programa inclusivo — todo mundo na rotina, com adaptações pra quem tem necessidade específica", pontos: [2, 0, 1, 2, 2, 0, 0] },
+      { emoji: "🏃", texto: "Rotina física coletiva — esporte como cuidado e vínculo entre tripulação", pontos: [2, 0, 1, 1, 2, 1, 0] },
+      { emoji: "⚖️", texto: "Carta de direitos da tripulação — formal, com regras justas e canal de denúncia", pontos: [1, 0, 0, 2, 3, 0, 0] },
+    ],
+  },
+  {
     id: 6,
     titulo: "Falha técnica",
     narrativa:
@@ -104,6 +118,20 @@ export const CENAS: Cena[] = [
       { emoji: "📝", texto: "Escrevo uma carta longa de volta, contando tudo da viagem", pontos: [0, 0, 0, 3, 0, 0, 0] },
       { emoji: "🧠", texto: "Anoto como o impacto emocional mudou minha performance nos turnos", pontos: [0, 2, 0, 0, 1, 0, 1] },
       { emoji: "🌍", texto: "Reflito sobre o quanto a Terra precisa que essa missão dê certo", pontos: [0, 0, 0, 0, 3, 0, 0] },
+    ],
+  },
+  {
+    id: 13,
+    titulo: "Sistema da nave",
+    narrativa:
+      "Os logs do sistema cresceram além do limite seguro. Performance tá despencando. Você lidera o redesign técnico — por onde começa?",
+    falaBixinho: "amor, isso eu sou EU me reorganizando. mete a mão.",
+    opcoes: [
+      { emoji: "💾", texto: "Banco centralizado — tabelas otimizadas, queries rápidas. Foco em organização prática", pontos: [0, 1, 0, 0, 0, 0, 3] },
+      { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos logs, age automático, evolui sozinho", pontos: [0, 2, 1, 0, 1, 0, 2] },
+      { emoji: "∫", texto: "Teoria primeiro — provo o problema matematicamente antes de tocar uma linha de código", pontos: [0, 3, 0, 1, 0, 0, 2] },
+      { emoji: "⚡", texto: "Refatoro o hardware — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
+      { emoji: "📊", texto: "Dashboard pro time — visualização de tudo, gestão por dados", pontos: [0, 1, 1, 1, 1, 0, 2] },
     ],
   },
   {
@@ -131,6 +159,20 @@ export const CENAS: Cena[] = [
       { emoji: "🌳", texto: "Perto da floresta densa — onde tem mais vida pra estudar", pontos: [0, 1, 0, 0, 0, 3, 0] },
       { emoji: "🌊", texto: "Perto do mar — fonte de água e possíveis ecossistemas marinhos", pontos: [0, 2, 0, 0, 0, 2, 0] },
       { emoji: "🏕️", texto: "No vale central — perto de tudo, mais fácil de organizar a base depois", pontos: [0, 0, 2, 0, 1, 0, 0] },
+    ],
+  },
+  {
+    id: 14,
+    titulo: "Cultivo planetário",
+    narrativa:
+      "Mês 1 em Kepler-186f. A equipe decide testar produção local de alimento. Você lidera o primeiro experimento. Qual abordagem?",
+    falaBixinho: "amor, eu sou má em ler plantas. ajuda.",
+    opcoes: [
+      { emoji: "🌾", texto: "Variedades terrestres em solo alienígena — técnica agrícola, monitoro rendimento", pontos: [0, 2, 1, 0, 0, 3, 0] },
+      { emoji: "🐑", texto: "Criação animal sustentável — começo pequeno, foco em bem-estar dos animais", pontos: [2, 0, 1, 0, 0, 3, 0] },
+      { emoji: "🔬", texto: "Apenas observação científica — mapeio o ecossistema antes de qualquer ação", pontos: [0, 3, 0, 1, 0, 1, 0] },
+      { emoji: "♻️", texto: "Sistema fechado — recursos reciclados, impacto ambiental mínimo", pontos: [0, 1, 3, 0, 2, 1, 0] },
+      { emoji: "🏭", texto: "Alimentos processados de longa duração — escala industrial, eficiência calórica", pontos: [0, 1, 3, 0, 0, 1, 0] },
     ],
   },
   {
