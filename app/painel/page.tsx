@@ -449,6 +449,8 @@ export default async function PainelPage() {
         style={{ color: "var(--text-dim)" }}
       >
         UFTM · Feira de Profissões 2026 · zero dado pessoal coletado
+        <br />
+        // OPERAÇÃO HEBERT × ANA · PROPPG-UFTM
       </footer>
     </main>
   );

@@ -121,10 +121,12 @@ export default function Hero() {
       </p>
 
       <footer
-        className="font-terminal text-sm mt-16 opacity-70"
+        className="font-terminal text-sm mt-16 opacity-70 text-center leading-relaxed"
         style={{ color: "var(--text-dim)" }}
       >
         UFTM • Feira de Profissões 2026
+        <br />
+        // OPERAÇÃO HEBERT × ANA · PROPPG-UFTM
       </footer>
     </main>
   );
