@@ -44,7 +44,7 @@ export const CENAS: Cena[] = [
     id: 3,
     titulo: "Primeiro turno",
     narrativa:
-      "14:23 UTC. Vários alertas piscam ao mesmo tempo. Você só atende UM agora.",
+      "14h23. Vários alertas piscam ao mesmo tempo. Você só atende UM agora.",
     falaBixinho: "clássico. respira.",
     opcoes: [
       { emoji: "🩺", texto: "Enfermaria — colega passou mal no treino físico", pontos: [3, 0, 0, 0, 0, 0, 0] },
@@ -71,7 +71,7 @@ export const CENAS: Cena[] = [
     id: 5,
     titulo: "Conflito de tripulação",
     narrativa:
-      "Dois colegas estão brigando alto no refeitório. Um acha que tão racionando comida demais, o outro acha que não tão racionando suficiente. A discussão tá ficando feia.",
+      "Dois colegas estão brigando alto no refeitório. Um acha que tão dividindo comida demais, o outro acha que não tão dividindo suficiente. A discussão tá ficando feia.",
     falaBixinho: "vai lá. eu seguro pipoca holográfica.",
     opcoes: [
       { emoji: "🫂", texto: "Chego perto e peço pros dois respirarem antes de continuar", pontos: [2, 0, 0, 2, 0, 0, 0] },
@@ -87,7 +87,7 @@ export const CENAS: Cena[] = [
       "Algumas semanas depois do conflito, todo mundo concorda: a tripulação precisa de UM programa de cuidado coletivo. Você se voluntaria pra desenhar. Qual aposta?",
     falaBixinho: "ai que coisa adulta. respira que vai dar certo.",
     opcoes: [
-      { emoji: "🧘", texto: "Espaço de escuta semanal — 1:1, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
+      { emoji: "🧘", texto: "Espaço de escuta semanal — individual, confidencial, pra lidar melhor com sentimentos", pontos: [1, 1, 0, 3, 0, 0, 0] },
       { emoji: "🛠️", texto: "Oficina de adaptação — ajusto pequenas tarefas pra cada um trabalhar com autonomia", pontos: [2, 0, 2, 2, 0, 0, 0] },
       { emoji: "🌈", texto: "Programa inclusivo — todo mundo na rotina, com adaptações pra quem tem necessidade específica", pontos: [2, 0, 1, 2, 2, 0, 0] },
       { emoji: "🏃", texto: "Rotina física coletiva — esporte como cuidado e vínculo entre tripulação", pontos: [2, 0, 1, 1, 2, 1, 0] },
@@ -98,12 +98,12 @@ export const CENAS: Cena[] = [
     id: 6,
     titulo: "Falha técnica",
     narrativa:
-      "03h da manhã. O sistema de oxigênio do dormitório B começou a oscilar 2%. Não é perigoso AINDA. Mas em 6 horas vira.",
+      "03h da manhã. O sistema de oxigênio do dormitório B começou a variar 2%. Não é perigoso AINDA. Mas em 6 horas vira.",
     falaBixinho: "se eu morrer aqui eu juro que volto te assombrar via wifi.",
     opcoes: [
       { emoji: "🔧", texto: "Vou direto pra engenharia, abro o painel e tento diagnosticar", pontos: [0, 0, 3, 0, 0, 0, 0] },
-      { emoji: "📊", texto: "Pego os logs dos últimos 30 dias pra entender o padrão antes de mexer", pontos: [0, 2, 0, 0, 0, 0, 2] },
-      { emoji: "🚨", texto: "Acordo a tripulação do dormitório B pra realocar enquanto consertam", pontos: [2, 0, 0, 0, 1, 0, 0] },
+      { emoji: "📊", texto: "Pego os registros dos últimos 30 dias pra entender o padrão antes de mexer", pontos: [0, 2, 0, 0, 0, 0, 2] },
+      { emoji: "🚨", texto: "Acordo a tripulação do dormitório B pra mudar de lugar enquanto consertam", pontos: [2, 0, 0, 0, 1, 0, 0] },
       { emoji: "🌬️", texto: "Verifico se as plantas da estufa podem ajudar a estabilizar o O2", pontos: [0, 0, 0, 0, 0, 3, 0] },
     ],
   },
@@ -124,13 +124,13 @@ export const CENAS: Cena[] = [
     id: 13,
     titulo: "Sistema da nave",
     narrativa:
-      "Os logs do sistema cresceram além do limite seguro. Performance tá despencando. Você lidera o redesign técnico — por onde começa?",
+      "Os registros do sistema cresceram além do limite seguro. Performance tá despencando. Você lidera o redesign técnico — por onde começa?",
     falaBixinho: "amor, isso eu sou EU me reorganizando. mete a mão.",
     opcoes: [
       { emoji: "💾", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
-      { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos logs, age automático, evolui sozinho", pontos: [0, 2, 2, 0, 2, 0, 2] },
+      { emoji: "🤖", texto: "IA aplicada — modelo que aprende dos registros, age automático, evolui sozinho", pontos: [0, 2, 2, 0, 2, 0, 2] },
       { emoji: "∫", texto: "Teoria primeiro — provo o problema matematicamente antes de tocar uma linha de código", pontos: [0, 3, 0, 1, 0, 0, 2] },
-      { emoji: "⚡", texto: "Reconstruo o hardware — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
+      { emoji: "⚡", texto: "Reconstruo os equipamentos — circuitos novos, processamento físico mais rápido", pontos: [0, 1, 3, 0, 0, 0, 2] },
       { emoji: "📊", texto: "Painel pro time — visualização de tudo, gestão por dados", pontos: [0, 1, 1, 1, 1, 0, 2] },
     ],
   },
@@ -180,7 +180,7 @@ export const CENAS: Cena[] = [
     id: 10,
     titulo: "Contato",
     narrativa:
-      "Terceira semana no planeta. Vocês encontram algo. Pequenas criaturas bioluminescentes saem das tocas à noite. Curiosas. Não parecem perigosas.",
+      "Terceira semana no planeta. Vocês encontram algo. Pequenas criaturas que brilham no escuro saem das tocas à noite. Curiosas. Não parecem perigosas.",
     falaBixinho: "tipo eu mas em carbono.",
     opcoes: [
       { emoji: "📸", texto: "Observo de longe, anoto comportamento, não interfiro", pontos: [0, 3, 0, 0, 0, 1, 0] },
@@ -198,7 +198,7 @@ export const CENAS: Cena[] = [
     falaBixinho: "tá. agora é sério. confio em você.",
     opcoes: [
       { emoji: "🩺", texto: "Garanto que a enfermaria fique online — vidas primeiro, dados depois", pontos: [3, 0, 0, 0, 0, 0, 0] },
-      { emoji: "🔋", texto: "Reroteio toda energia pros sistemas críticos, manualmente", pontos: [0, 0, 2, 0, 0, 0, 2] },
+      { emoji: "🔋", texto: "Redireciono toda energia pros sistemas críticos, manualmente", pontos: [0, 0, 2, 0, 0, 0, 2] },
       { emoji: "🧬", texto: "Salvo os dados de pesquisa antes que se percam — justifica a missão", pontos: [0, 3, 0, 0, 0, 0, 0] },
       { emoji: "🗣️", texto: "Coordeno a tripulação inteira, distribuo funções por voz", pontos: [0, 0, 0, 2, 2, 0, 0] },
       { emoji: "🌱", texto: "Protejo a estufa — sem ela, ninguém volta pra casa", pontos: [0, 0, 0, 0, 0, 3, 0] },
