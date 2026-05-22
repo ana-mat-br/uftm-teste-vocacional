@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion";
+import { startAmbientPad, stopAmbientPad } from "@/lib/audio";
 import BotaoEmbarcar from "@/components/BotaoEmbarcar";
 import SceneHeader from "@/components/SceneHeader";
 
@@ -15,6 +16,13 @@ export default function Hero() {
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const privacyRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    startAmbientPad();
+    return () => {
+      stopAmbientPad();
+    };
+  }, []);
 
   useEffect(() => {
     const mm = gsap.matchMedia();

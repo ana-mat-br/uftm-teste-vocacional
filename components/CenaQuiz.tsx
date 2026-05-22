@@ -9,6 +9,12 @@ import NarratorBox from "@/components/NarratorBox";
 import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
 import StatsBar from "@/components/StatsBar";
+import {
+  playChoiceSelect,
+  playQuestionTransition,
+  startAmbientPad,
+  stopAmbientPad,
+} from "@/lib/audio";
 
 // Co-piloto ainda misterioso durante o quiz — só olhos cyan piscando no escuro.
 // A identidade real (1 dos 7 bixinhos) é revelada no /resultado.
@@ -44,6 +50,13 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
     }
   }, [carregando, sessao, router]);
 
+  useEffect(() => {
+    startAmbientPad();
+    return () => {
+      stopAmbientPad();
+    };
+  }, []);
+
   function navegar() {
     if (proximoId !== null) {
       router.push(`/cena/${proximoId}`);
@@ -56,6 +69,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
     if (enviando || !sessao) return;
     setEnviando(true);
     setPickedIdx(opcaoIndex);
+    playChoiceSelect();
     const opcao = cena.opcoes[opcaoIndex];
     responder(cena.id, opcaoIndex, opcao.pontos);
 
@@ -82,6 +96,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
       await new Promise((r) => setTimeout(r, 200));
     }
 
+    playQuestionTransition();
     navegar();
   }
 

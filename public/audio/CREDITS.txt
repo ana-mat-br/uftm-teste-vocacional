@@ -1,0 +1,13 @@
+Music: "Metroidvania Symphony" pack by Helen Lati Hatencia / SmellyCatCafe
+  - adventure-theme-4.mp3   (original: Adventure Theme 4.mp3)
+  - secret-area-theme-1.mp3 (original: Secret Area Theme 1.mp3)
+
+Source / mais assets: https://smellycatcafe.itch.io/
+Contato: @smellycatcafe (Twitter / Twitch / Discord)
+
+License (do pack original):
+  - Uso livre em projetos free ou comerciais.
+  - Modificação permitida.
+  - Crédito não é obrigatório, mas é apreciado.
+  - Proibido: repackage / redistribuição / revenda dos assets isoladamente
+    (inclui compilações de assets e treino de IA).

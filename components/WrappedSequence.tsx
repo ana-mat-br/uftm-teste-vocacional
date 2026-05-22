@@ -7,6 +7,14 @@ import PetHeroScene from "@/components/PetHeroScene";
 import CursoRevealScene from "@/components/CursoRevealScene";
 import AssinaturaScene from "@/components/AssinaturaScene";
 import Icon, { type IconName } from "@/components/Icon";
+import {
+  playCursoReveal,
+  playPetReveal,
+  playTransitionSwell,
+  playWrappedFinale,
+  releaseMusic,
+  requestMusic,
+} from "@/lib/audio";
 import { NOME_EIXO_LONGO, SPRITES_POR_EIXO } from "@/data/bixinhos";
 import {
   nivelConfianca,
@@ -137,6 +145,32 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
       setPaused(true);
     }
   }, []);
+
+  useEffect(() => {
+    // Troca a trilha de fundo do quiz pela "Secret Area" no wrapped — o crossfade
+    // é tratado pelo engine de áudio quando duas trilhas têm ref ativa.
+    requestMusic("secret");
+    return () => {
+      releaseMusic("secret");
+    };
+  }, []);
+
+  const firstSceneRef = useRef(true);
+  useEffect(() => {
+    if (firstSceneRef.current) {
+      firstSceneRef.current = false;
+      return;
+    }
+    if (idx === PET_REVEAL_SCENE) {
+      playPetReveal();
+    } else if (idx === FINAL_SCENE) {
+      playCursoReveal();
+      // Atraso pra fanfarra entrar depois do impacto do slam, não em cima.
+      window.setTimeout(() => playWrappedFinale(), 700);
+    } else {
+      playTransitionSwell();
+    }
+  }, [idx]);
 
   const next = useCallback(() => {
     setIdx((i) => Math.min(SCENE_COUNT - 1, i + 1));
