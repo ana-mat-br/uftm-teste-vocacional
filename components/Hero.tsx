@@ -150,7 +150,7 @@ export default function Hero() {
       >
         UFTM • Feira de Profissões 2026
         <br />
-        // OPERAÇÃO HEBERT×ANA · PROPPG-UFTM
+        // OPERAÇÃO7 HEBERT×ANA · PROPPG-UFTM
       </footer>
     </main>
   );

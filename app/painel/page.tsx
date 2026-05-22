@@ -450,7 +450,7 @@ export default async function PainelPage() {
       >
         UFTM · Feira de Profissões 2026 · zero dado pessoal coletado
         <br />
-        // OPERAÇÃO HEBERT×ANA · PROPPG-UFTM
+        // OPERAÇÃO7 HEBERT×ANA · PROPPG-UFTM
       </footer>
     </main>
   );
