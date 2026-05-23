@@ -1,6 +1,6 @@
 # 🧬 Matriz de Eixos × Cursos UFTM
 
-**Versão:** 0.3 (micro-ajustes pra discriminar intra-família — 29/31 cursos validados via greedy)
+**Versão:** 0.4 (recalibragem profunda pós-Monte Carlo — 27/31 cursos validados via greedy, 22/31 top1 e 29/31 top3 via Monte Carlo T=1.0)
 **Cursos:** 31 (29 Uberaba + 2 exclusivos Iturama)
 **Eixos:** 7
 
@@ -20,6 +20,17 @@
 
 ### Histórico de mudanças
 
+- **v0.4 (2026-05-23)** — Recalibragem profunda após Monte Carlo:
+  - Validação via simulação Monte Carlo de 1000 alunos sintéticos por curso (`scripts/monte-carlo.ts`, T=1.0 = aluno "típico")
+  - Cenas revisadas pra 5 opções uniformes e cobertura equilibrada de eixos por cena
+  - Linguagem das opções suavizada pra ensino médio
+  - Recalibragem de 19 cursos pra discriminar pares próximos:
+    - Cluster Saúde: Pedagogia diminuiu CUI (3→2) +TRA (1→2); Psico [3,2,0,3,2,0,0]→[2,2,0,3,3,0,0]; TO ganhou CON+1; Ed.Esp ganhou CON+1 e TRA+1
+    - Cluster Tech: BD perdeu INV (1→0) ganhou COM (2→3); IA ganhou INV (1→3) depois recalibrada pra CON+3+COM+1 distinta de Mat e Eng.El; Mat virou puro INV+TEC
+    - Cluster Engenharia: Eng.Civil +TRA+CUL (cidades sustentáveis); Eng.El ganhou TRA+1 (energia social); Eng.Prod virou +COM+TRA (gestão)
+    - Cluster Cultivo: Agro tirou CUI ganhou CON+3 (engenharia da terra); Zoot ganhou CUI+1 (cuidado animal)
+    - Medicina: +CON+TEC, -COM/TRA (ciência aplicada+tech)
+  - Resultado: greedy 27/31, Monte Carlo T=1.0 22/31 top1 e 29/31 top3 — confusões restantes são intra-família (Med↔Biomed, IA↔Eng.El, Quim↔Fis, Ped↔Letras, etc), todas capturadas pelo top 3 + cena de desempate
 - **v0.3 (2026-05-20)** — Discriminação intra-família após validação greedy (16/31 → 29/31 cursos alcançáveis como top 1):
   - **Bio** CON 1→0 (Bio observa, não constrói)
   - **Agronomia** CON 2→3 (cultivo = engenharia da terra)
@@ -50,67 +61,67 @@ Pesos de 0 a 3 (3 = afinidade máxima). Vetor do curso = `[CUI, INV, CON, COM, T
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Medicina | **3** | 3 | 1 | 2 | 2 | 1 | 0 | Uberaba |
-| Enfermagem | **3** | 1 | 1 | 2 | 1 | 1 | 0 | Uberaba |
-| Psicologia | **3** | 2 | 0 | 3 | 1 | 2 | 0 | Uberaba |
-| Fisioterapia | **3** | 1 | 2 | 1 | 1 | 0 | 0 | Uberaba |
-| Terapia Ocupacional | **3** | 1 | 2 | 2 | 1 | 1 | 0 | Uberaba |
-| Nutrição | **3** | 2 | 1 | 1 | 2 | 2 | 0 | Uberaba |
+| Medicina | **3** | **3** | 2 | 1 | 1 | 0 | 1 | Uberaba |
+| Enfermagem | **3** | 1 | 2 | 1 | 0 | 0 | 0 | Uberaba |
+| Psicologia | 2 | 2 | 0 | **3** | **3** | 0 | 0 | Uberaba |
+| Fisioterapia | **3** | 2 | **3** | 0 | 1 | 0 | 0 | Uberaba |
+| Terapia Ocupacional | **3** | 0 | **3** | 2 | 0 | 0 | 0 | Uberaba |
+| Nutrição | **3** | 2 | 0 | 0 | 2 | 2 | 0 | Uberaba |
 | Serviço Social | **3** | 1 | 0 | 2 | **3** | 0 | 0 | Uberaba |
-| Educação Especial e Inclusiva | **3** | 1 | 1 | 2 | 2 | 0 | 0 | Iturama |
+| Educação Especial e Inclusiva | **3** | 0 | **3** | 2 | **3** | 0 | 0 | Iturama |
 
 ### 🔬 Área Investigação / Ciências Naturais
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Biomedicina | 2 | **3** | 1 | 0 | 0 | 1 | 1 | Uberaba/Iturama |
-| Ciências Biológicas | 1 | **3** | **0** | 1 | 1 | **3** | 0 | Uberaba/Iturama |
-| Física | 0 | **3** | 2 | 0 | 0 | 0 | 1 | Uberaba |
+| Biomedicina | 1 | **3** | 0 | 0 | 0 | 1 | 1 | Uberaba/Iturama |
+| Ciências Biológicas | 0 | **3** | 0 | 1 | 1 | **3** | 0 | Uberaba/Iturama |
+| Física | 0 | **3** | 2 | 0 | 1 | 0 | 1 | Uberaba |
 | Química | 1 | **3** | 2 | 0 | 0 | 1 | 0 | Uberaba/Iturama |
 
 ### 🔧 Área Construtor / Engenharias físicas
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Engenharia Civil | 0 | 1 | **3** | 1 | 1 | 0 | 0 | Uberaba |
-| Engenharia Mecânica | 0 | 2 | **3** | 0 | 0 | 0 | 1 | Uberaba |
-| Engenharia Elétrica | 0 | 2 | **3** | 0 | 0 | 0 | **2** | Uberaba |
-| Engenharia Química | 0 | **3** | **3** | 0 | 0 | 1 | 0 | Uberaba |
-| Engenharia de Produção | 0 | 1 | 2 | 2 | 1 | 0 | 2 | Uberaba |
-| Engenharia Ambiental | 1 | 2 | **3** | 1 | 2 | **3** | 0 | Uberaba |
-| Engenharia de Alimentos | 1 | 2 | **3** | 0 | 0 | 2 | 0 | Uberaba |
+| Engenharia Civil | 0 | 1 | **3** | 1 | 2 | 1 | 0 | Uberaba |
+| Engenharia Mecânica | 0 | 1 | **3** | 1 | 1 | 0 | 1 | Uberaba |
+| Engenharia Elétrica | 0 | 2 | **3** | 0 | 1 | 0 | **3** | Uberaba |
+| Engenharia Química | 0 | **3** | **3** | 0 | 1 | 1 | 0 | Uberaba |
+| Engenharia de Produção | 0 | 1 | **3** | 2 | 2 | 0 | 1 | Uberaba |
+| Engenharia Ambiental | 0 | 2 | **3** | 0 | 2 | **3** | 0 | Uberaba |
+| Engenharia de Alimentos | 0 | 2 | **3** | 0 | 0 | 2 | 1 | Uberaba |
 
 ### 💻 Área Decifrador / Computação + Dados + Matemática ⭐ novo
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Banco de Dados | 0 | **0** | 0 | **2** | 0 | 0 | **3** | Uberaba |
-| Inteligência Artificial | 0 | **3** | **2** | 0 | 1 | 0 | **3** | Uberaba |
-| Matemática | 0 | **3** | 0 | 1 | 0 | 0 | **3** | Uberaba |
+| Banco de Dados | 0 | 0 | 1 | **3** | 0 | 0 | **3** | Uberaba |
+| Inteligência Artificial | 0 | 2 | **3** | 1 | 0 | 0 | **3** | Uberaba |
+| Matemática | 0 | **3** | 0 | 0 | 0 | 0 | **3** | Uberaba |
 
 ### 📢 Área Comunicação / Educação
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Letras (PT/ESP) | 1 | 2 | 1 | **3** | 1 | 0 | 0 | Uberaba |
-| Letras (PT/ING) | 1 | 2 | 1 | **3** | 1 | 0 | 0 | Uberaba |
-| Pedagogia | **3** | 1 | 1 | **3** | 2 | 0 | 0 | Uberaba |
+| Letras (PT/ESP) | 1 | 1 | 0 | **3** | 1 | 0 | 0 | Uberaba |
+| Letras (PT/ING) | 1 | 1 | 0 | **3** | 1 | 0 | 0 | Uberaba |
+| Pedagogia | 2 | 1 | 0 | **3** | 2 | 0 | 0 | Uberaba |
 
 ### ⚡ Área Transformação / Humanidades
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
 | História | 1 | 2 | 0 | 2 | **3** | 0 | 0 | Uberaba |
-| Geografia | 1 | 2 | 1 | 1 | **3** | 2 | 1 | Uberaba |
-| Educação Física | 2 | 1 | **2** | 1 | 2 | 1 | 0 | Uberaba |
-| Licenciatura em Educação do Campo | 2 | 1 | 1 | 2 | **3** | **3** | 0 | Uberaba |
+| Geografia | 0 | 2 | 1 | 0 | **3** | 2 | 0 | Uberaba |
+| Educação Física | 1 | 0 | **2** | 0 | 1 | 1 | 0 | Uberaba |
+| Licenciatura em Educação do Campo | 2 | 0 | 0 | 1 | **3** | **3** | 0 | Uberaba |
 
 ### 🌱 Área Cultivo / Natureza
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Agronomia | 1 | **3** | **3** | 1 | 1 | **3** | 0 | Uberaba/Iturama |
-| Zootecnia | **3** | **3** | 2 | 1 | 0 | **3** | 0 | Iturama |
+| Agronomia | 0 | 2 | **3** | 0 | 0 | **3** | 0 | Uberaba/Iturama |
+| Zootecnia | **3** | 2 | 1 | 0 | 0 | **3** | 0 | Iturama |
 
 ---
 
@@ -176,6 +187,24 @@ Cursos com muitos "👎" são fortes candidatos a revisão da matriz na v0.3.
 
 ---
 
+## Validação via Monte Carlo (v0.4)
+
+Além do greedy (`scripts/personas-ideais.ts` — aluno "ideal-fit" que sempre escolhe a melhor opção pro curso), foi adicionado `scripts/monte-carlo.ts` que simula 1000 alunos sintéticos por curso com escolhas probabilísticas via softmax sobre o produto escalar opção·curso, com temperatura T:
+
+- T=0.5 — aluno determinístico (próximo do greedy)
+- T=1.0 — aluno "típico" (escolhe a melhor com viés, mas dispersa)
+- T=2.0 — aluno indeciso (escolhas mais uniformes)
+
+Métricas:
+- **top1_rate** — % de alunos cuja recomendação top 1 = curso esperado
+- **top3_rate** — % de alunos cujo top 3 contém o curso esperado
+
+Metas: T=1.0 com ≥70% top1 e ≥90% top3. Cursos abaixo são candidatos a revisão na próxima versão.
+
+Uso: `npx tsx scripts/monte-carlo.ts [N] [T1] [T2] ...`
+
+---
+
 ## Validação Recomendada
 
 Antes do MVP ir ao ar, a matriz deve ser revisada por:
@@ -195,5 +224,5 @@ Cada um confirma se os pesos do(s) curso(s) dele(a) parecem coerentes. Tempo est
 1. **Cursos disponíveis em ambos campi** (Agronomia, Biomedicina, Bio, Química) devem mostrar "disponível em Uberaba e Iturama" no resultado
 2. **Educação Especial e Zootecnia** são exclusivos de Iturama — destacar isso no resultado pra alunos que se encaixarem
 3. **Empates** entre top 1 e top 2 (gap < 5%) acionam a cena de desempate `/desempate`
-4. A matriz é uma **v0.2** — pode (e deve) ser ajustada com base no feedback dos alunos coletado em `feedback_resultado`
+4. A matriz é uma **v0.4** — pode (e deve) ser ajustada com base no feedback dos alunos coletado em `feedback_resultado`
 5. **Decifrador (TEC)** é o eixo mais novo e o que mais merece atenção em validação — definir se IA pertence majoritariamente a TEC ou compartilha com INV é decisão de campo
