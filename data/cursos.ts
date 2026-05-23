@@ -32,9 +32,9 @@ export const CURSOS: Curso[] = [
   { nome: "Educação Especial e Inclusiva", papelMissao: "Especialista em Inclusão", vetor: [3, 0, 2, 3, 2, 0, 0], campus: "Iturama" },
 
   // === Investigação / Ciências Naturais ===
-  { nome: "Biomedicina", papelMissao: "Pesquisa de Vida Alienígena", vetor: [2, 3, 0, 0, 0, 1, 1], campus: "Uberaba/Iturama" },
+  { nome: "Biomedicina", papelMissao: "Pesquisa de Vida Alienígena", vetor: [1, 3, 0, 0, 0, 1, 1], campus: "Uberaba/Iturama" },
   { nome: "Ciências Biológicas", papelMissao: "Cientista de Ecossistemas", vetor: [0, 3, 0, 1, 1, 3, 0], campus: "Uberaba/Iturama" },
-  { nome: "Física", papelMissao: "Investigador de Mistérios Espaciais", vetor: [0, 3, 2, 1, 0, 0, 2], campus: "Uberaba" },
+  { nome: "Física", papelMissao: "Investigador de Mistérios Espaciais", vetor: [0, 3, 2, 0, 0, 0, 2], campus: "Uberaba" },
   { nome: "Química", papelMissao: "Especialista em Atmosferas", vetor: [1, 3, 2, 0, 0, 1, 0], campus: "Uberaba/Iturama" },
 
   // === Construção / Engenharias físicas ===
@@ -48,18 +48,18 @@ export const CURSOS: Curso[] = [
 
   // === Decifrador / Computação + Dados + Matemática ===
   { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 1, 1, 2, 0, 0, 3], campus: "Uberaba" },
-  { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 2, 2, 0, 1, 0, 3], campus: "Uberaba" },
+  { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 1, 2, 0, 1, 0, 3], campus: "Uberaba" },
   { nome: "Matemática", papelMissao: "Estrategista de Rotas", vetor: [0, 3, 0, 1, 0, 0, 3], campus: "Uberaba" },
 
   // === Comunicação / Educação ===
-  { nome: "Letras (PT/ESP)", grupo: "Letras", papelMissao: "Tradutor Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
-  { nome: "Letras (PT/ING)", grupo: "Letras", papelMissao: "Tradutor Interestelar", vetor: [1, 2, 1, 3, 1, 0, 0], campus: "Uberaba" },
-  { nome: "Pedagogia", papelMissao: "Educação da Próxima Geração", vetor: [3, 1, 1, 3, 2, 0, 0], campus: "Uberaba" },
+  { nome: "Letras (PT/ESP)", grupo: "Letras", papelMissao: "Tradutor Interestelar", vetor: [1, 1, 0, 3, 1, 0, 0], campus: "Uberaba" },
+  { nome: "Letras (PT/ING)", grupo: "Letras", papelMissao: "Tradutor Interestelar", vetor: [1, 1, 0, 3, 1, 0, 0], campus: "Uberaba" },
+  { nome: "Pedagogia", papelMissao: "Educação da Próxima Geração", vetor: [3, 1, 0, 3, 1, 0, 0], campus: "Uberaba" },
 
   // === Transformação / Humanidades ===
   { nome: "História", papelMissao: "Narrador da Expedição", vetor: [1, 2, 0, 2, 3, 0, 0], campus: "Uberaba" },
-  { nome: "Geografia", papelMissao: "Mapas de Mundos Novos", vetor: [1, 2, 0, 1, 3, 2, 0], campus: "Uberaba" },
-  { nome: "Educação Física", papelMissao: "Treinamento da Tripulação", vetor: [2, 1, 2, 0, 2, 1, 0], campus: "Uberaba" },
+  { nome: "Geografia", papelMissao: "Mapas de Mundos Novos", vetor: [0, 2, 1, 0, 3, 2, 0], campus: "Uberaba" },
+  { nome: "Educação Física", papelMissao: "Treinamento da Tripulação", vetor: [1, 0, 2, 0, 1, 1, 0], campus: "Uberaba" },
   { nome: "Licenciatura em Educação do Campo", papelMissao: "Educação de Vila Rural", vetor: [2, 0, 0, 1, 3, 3, 0], campus: "Uberaba" },
 
   // === Cultivo / Natureza ===

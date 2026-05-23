@@ -4,10 +4,10 @@
  * Estrutura:
  * - Cena 1 (Hero)     = home page `/` — gera codinome, sem pontuação
  * - Cenas 2-17        = 15 cenas pontuáveis, em /cena/[id] (16, 18, 19 removidas)
- *                       Ordem narrativa: 2, 3, 4, 5, 12, 6, 17, 7, 13, 8, 9, 15, 14, 10, 11
+ *                       Ordem narrativa: 2, 3, 4, 5, 12, 6, 7, 13, 8, 17, 9, 15, 14, 10, 11
  *                       IDs discriminantes: 12 (educação), 13 (sistema/tech),
  *                       14 (cultivo), 8 (saúde clínica), 15 (tech alienígena),
- *                       17 (saúde mental)
+ *                       17 (festival/social — TRA/COM/CUL)
  *                       Ver docs/PERSONAS-IDEAIS.md
  *
  * Cada opção pontua de 1 a 3 eixos.
@@ -115,48 +115,31 @@ export const CENAS: Cena[] = [
     ],
   },
   {
-    id: 17,
-    titulo: "Atendimento à tripulação",
-    narrativa:
-      "Um colega vem até você abalado — não consegue dormir, perdeu o apetite, tá afastado da galera. Não é doença física. O que você faz?",
-    falaBixinho: "isso aqui é importante. cuidar de gente é tudo nessa missão.",
-    opcoes: [
-      { icon: "stethoscope", texto: "Investigo sintomas físicos primeiro — pressão, sono, exames. Mente e corpo conversam.", pontos: [3, 3, 0, 0, 0, 0, 0] },
-      { icon: "hug", texto: "Fico junto, sem precisar resolver — presença e rotina de cuidado diária", pontos: [3, 0, 0, 1, 0, 0, 0] },
-      { icon: "voice", texto: "Escuto sem julgar — abro espaço pra ele falar o que sente, sem pressa", pontos: [2, 0, 0, 3, 0, 0, 0] },
-      { icon: "dna", texto: "Avalio postura e movimento — corpo tenso afeta a mente. Prescrevo exercício.", pontos: [2, 1, 2, 0, 0, 0, 0] },
-      { icon: "tools", texto: "Reorganizo as tarefas dele — adapto a rotina pra ele participar de outro jeito", pontos: [2, 0, 2, 2, 0, 0, 0] },
-      { icon: "leaf", texto: "Reviso o que ele anda comendo — falta de nutriente afeta humor e energia", pontos: [2, 1, 0, 0, 0, 2, 0] },
-      { icon: "scale", texto: "Crio uma rede de apoio na tripulação — coletivo cuida melhor que indivíduo", pontos: [1, 0, 0, 1, 3, 0, 0] },
-      { icon: "shield", texto: "Faço um plano de inclusão pra ele voltar com adaptações que respeitem o ritmo dele", pontos: [2, 0, 0, 2, 2, 0, 0] },
-    ],
-  },
-  {
     id: 7,
     titulo: "Mensagem da Terra",
     narrativa:
       "Chegou uma transmissão. Sua família mandou um vídeo. Tá tudo bem — mas é a primeira notícia em 3 meses. Você sente o nó na garganta.",
     falaBixinho: "sabe que você pode chorar, né. eu não conto pra ninguém.",
     opcoes: [
-      { icon: "video", texto: "Assisto sozinho no meu quarto, depois respondo com calma", pontos: [2, 0, 0, 1, 0, 0, 0] },
-      { icon: "letter", texto: "Escrevo uma carta longa de volta, contando tudo da viagem", pontos: [0, 0, 0, 3, 0, 0, 0] },
-      { icon: "brain", texto: "Anoto como o impacto emocional mudou meu jeito de trabalhar nos plantões", pontos: [0, 2, 0, 0, 1, 0, 1] },
-      { icon: "globe", texto: "Reflito sobre o quanto a Terra precisa que essa missão dê certo", pontos: [0, 0, 0, 0, 3, 0, 0] },
-      { icon: "chart", texto: "Salvo a mensagem num arquivo encriptado pra reler nos momentos difíceis — meu backup pessoal", pontos: [0, 0, 0, 1, 0, 0, 3] },
+      { icon: "video", texto: "Assisto sozinho no meu quarto — preciso processar antes de responder", pontos: [1, 0, 0, 1, 0, 0, 0] },
+      { icon: "letter", texto: "Escrevo uma carta longa de volta, contando tudo da viagem com calma", pontos: [0, 0, 0, 3, 0, 0, 0] },
+      { icon: "hug", texto: "Chamo um colega de tripulação pra assistir junto comigo — não quero ficar sozinho nessa", pontos: [3, 0, 0, 2, 0, 0, 0] },
+      { icon: "globe", texto: "Vejo isso como motor: cada palavra deles é mais motivo pra missão dar certo pra Terra inteira", pontos: [0, 0, 0, 0, 3, 0, 0] },
+      { icon: "sprout", texto: "Vou pra estufa cuidar das plantas que lembram minha família — me reconecto com a vida", pontos: [0, 0, 0, 0, 0, 3, 0] },
     ],
   },
   {
     id: 13,
-    titulo: "Sistema da nave",
+    titulo: "Computador da nave",
     narrativa:
-      "Os registros do sistema tão maiores do que ele aguenta. Tudo tá ficando lento. Você lidera a reorganização — por onde começa?",
+      "O computador da nave tá cheio demais e travando. Você ficou responsável por arrumar isso — por onde começa?",
     falaBixinho: "olha, isso aqui sou EU me reorganizando. bora junto?",
     opcoes: [
-      { icon: "logs", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
-      { icon: "brain", texto: "IA que aprende sozinha vendo os registros — age automático e melhora com o tempo", pontos: [0, 2, 2, 0, 2, 0, 2] },
-      { icon: "thinking", texto: "Matemática primeiro — explico o problema no papel antes de programar uma linha", pontos: [0, 3, 0, 1, 0, 0, 2] },
-      { icon: "wrench", texto: "Reconstruo os equipamentos — circuitos novos, máquinas mais rápidas", pontos: [0, 1, 3, 0, 0, 0, 2] },
-      { icon: "chart", texto: "Painel pro time — todo mundo enxerga tudo, decisões com base em números", pontos: [0, 1, 1, 1, 1, 0, 2] },
+      { icon: "logs", texto: "Junto tudo num lugar só, bem organizado — fica fácil de achar qualquer coisa depois", pontos: [0, 0, 0, 1, 0, 0, 3] },
+      { icon: "brain", texto: "Crio uma IA que aprende sozinha lendo os arquivos antigos — ela melhora com o tempo", pontos: [0, 2, 2, 0, 2, 0, 2] },
+      { icon: "thinking", texto: "Primeiro entendo o problema no papel — só depois mexo no código", pontos: [0, 3, 0, 1, 0, 0, 2] },
+      { icon: "wrench", texto: "Troco as peças do computador — coisas novas e bem mais rápidas", pontos: [0, 1, 3, 0, 0, 0, 2] },
+      { icon: "chart", texto: "Crio um painel que todo mundo da nave consegue ver — a galera ajuda a decidir junto", pontos: [0, 1, 1, 1, 1, 0, 2] },
     ],
   },
   {
@@ -171,7 +154,20 @@ export const CENAS: Cena[] = [
       { icon: "voice", texto: "Sento, escuto. Pergunto rotina, sono, ansiedades — talvez seja estresse de todo mundo, não doença", pontos: [1, 1, 0, 2, 0, 0, 0] },
       { icon: "dna", texto: "Avalio o corpo, os movimentos — se tá afetado, prescrevo exercício certo pra recuperar", pontos: [2, 0, 2, 0, 0, 0, 0] },
       { icon: "leaf", texto: "Investigo as últimas refeições — comida fresca, contaminação, falta de algum nutriente?", pontos: [2, 1, 0, 0, 0, 1, 0] },
-      { icon: "satellite", texto: "Mando os dados pra IA de bordo cruzar com base de doenças conhecidas — depois decido", pontos: [0, 1, 0, 0, 0, 0, 3] },
+    ],
+  },
+  {
+    id: 17,
+    titulo: "Festa dos 100 dias",
+    narrativa:
+      "Já são 100 dias de viagem. A galera quer fazer uma festa e cada um pode ajudar do seu jeito. Você topa cuidar do quê?",
+    falaBixinho: "agora sim! cara, finalmente uma festa nesse drama todo.",
+    opcoes: [
+      { icon: "letter", texto: "Faço um vídeo da viagem até aqui — entrevisto todo mundo e conto a história dos 100 dias", pontos: [0, 2, 0, 2, 2, 0, 0] },
+      { icon: "voice", texto: "Organizo um show de talentos — música, poesia, brincadeiras da galera", pontos: [1, 0, 0, 3, 0, 0, 0] },
+      { icon: "leaf", texto: "Cuido da comida — pratos especiais com o que cresceu na estufa, comida pra confortar", pontos: [2, 0, 1, 0, 0, 2, 0] },
+      { icon: "scale", texto: "Monto uma gincana com a galera dividida em times — todo mundo joga junto, ninguém fora", pontos: [1, 0, 1, 1, 3, 0, 0] },
+      { icon: "sprout", texto: "Monto uma exposição com plantas e amostras que a gente coletou — pra mostrar o que descobrimos", pontos: [0, 2, 0, 0, 0, 3, 0] },
     ],
   },
   {
@@ -192,14 +188,15 @@ export const CENAS: Cena[] = [
     id: 15,
     titulo: "Linguagem alienígena",
     narrativa:
-      "Drone de exploração encontra um artefato com símbolos que se repetem em padrão. Parece código. Você é chamado pra liderar a decifração — por onde começa?",
-    falaBixinho: "isso aqui me lembra muito CSS quebrado. respira que a gente decifra.",
+      "Um drone acha um objeto com símbolos que se repetem. Parece um código. Você tem que descobrir o que significa — por onde começa?",
+    falaBixinho: "calma. já vi muita gente decifrar coisa mais difícil que isso.",
     opcoes: [
-      { icon: "logs", texto: "Catalogo cada símbolo num banco de dados — sem catálogo, não tem análise possível", pontos: [0, 0, 0, 0, 0, 0, 3] },
-      { icon: "brain", texto: "Treino uma IA pra reconhecer padrões nos símbolos — deixo a máquina aprender", pontos: [0, 1, 0, 0, 0, 0, 3] },
-      { icon: "thinking", texto: "Provo matematicamente que a sequência segue alguma lógica antes de chutar", pontos: [0, 3, 0, 0, 0, 0, 1] },
-      { icon: "chart", texto: "Crio um dashboard pro time inteiro contribuir — todo mundo vê os padrões", pontos: [0, 0, 0, 2, 0, 0, 2] },
-      { icon: "wrench", texto: "Monto um decodificador físico — circuito que traduz os símbolos pra som", pontos: [0, 0, 2, 0, 0, 0, 2] },
+      { icon: "logs", texto: "Organizo todos os símbolos num arquivo — sem organizar, não dá pra estudar", pontos: [0, 0, 0, 0, 0, 0, 3] },
+      { icon: "brain", texto: "Uso visão computacional — programo a câmera pra enxergar detalhes que olho humano não pega", pontos: [0, 1, 1, 0, 0, 0, 3] },
+      { icon: "thinking", texto: "Tento achar a lógica matemática — vejo se os símbolos seguem alguma sequência", pontos: [0, 3, 0, 0, 0, 0, 1] },
+      { icon: "letter", texto: "Comparo com escritas antigas da Terra — pode ser parecido com hieróglifo ou letra de jogo", pontos: [0, 2, 0, 3, 1, 0, 0] },
+      { icon: "voice", texto: "Chamo a galera da nave — cada um manda uma ideia, a melhor a gente testa junto", pontos: [0, 0, 0, 3, 1, 0, 0] },
+      { icon: "globe", texto: "Penso quem fez isso — que tipo de gente era? o que queria dizer pra outros mundos?", pontos: [0, 2, 0, 1, 3, 0, 0] },
     ],
   },
   {
