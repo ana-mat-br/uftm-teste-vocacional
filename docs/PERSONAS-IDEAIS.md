@@ -8,13 +8,7 @@
 
 ## Resumo
 
-**30/31 cursos validados** ✅
-
-### ⚠️ Cursos não alcançáveis como top 1
-
-- **Banco de Dados** → veio Matemática (94.2%)
-
-Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor "redondo demais" que faz outro curso vencer por cosseno mesmo no greedy, ou gap de cobertura nas cenas. Investigar.
+**31/31 cursos validados** ✅
 
 ## Fundamentação do método
 
@@ -220,7 +214,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Nutrição** 95.6%
 
-**Top 3 completo:** Nutrição 95.6% · Zootecnia 91.1% · Enfermagem 90.8%
+**Top 3 completo:** Nutrição 95.6% · Enfermagem 90.8% · Psicologia 88.2%
 
 #### Serviço Social ✅
 
@@ -350,7 +344,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Ciências Biológicas** 95.5%
 
-**Top 3 completo:** Ciências Biológicas 95.5% · Zootecnia 89.7% · Biomedicina 88.3%
+**Top 3 completo:** Ciências Biológicas 95.5% · Zootecnia 89.3% · Biomedicina 88.3%
 
 #### Física ✅
 
@@ -382,7 +376,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Física** 93.9%
 
-**Top 3 completo:** Física 93.9% · Inteligência Artificial 90.5% · Química 87.0%
+**Top 3 completo:** Física 93.9% · Química 87.0% · Matemática 86.4%
 
 #### Química ✅
 
@@ -414,7 +408,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Química** 97.2%
 
-**Top 3 completo:** Química 97.2% · Engenharia Química 90.8% · Agronomia 90.6%
+**Top 3 completo:** Química 97.2% · Engenharia Química 90.8% · Física 90.5%
 
 ### 🔧 Construção / Engenharias físicas
 
@@ -512,7 +506,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Engenharia Elétrica** 97.8%
 
-**Top 3 completo:** Engenharia Elétrica 97.8% · Inteligência Artificial 95.1% · Engenharia Mecânica 94.7%
+**Top 3 completo:** Engenharia Elétrica 97.8% · Engenharia Mecânica 94.7% · Inteligência Artificial 94.2%
 
 #### Engenharia Química ✅
 
@@ -560,11 +554,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [logs] Escrevo script pra IA de bordo monitorar a anomalia 24/7 e … *(idx 4)* | COM+1 TEC+3 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [letter] Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
+| 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
 | 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
@@ -572,11 +566,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 10 Contato | [comms] Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
 | 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
 
-**Vetor resultante do aluno:** `[2,11,14,10,4,1,13]`
+**Vetor resultante do aluno:** `[2,9,14,9,4,1,17]`
 
-**✅ Top 1: Engenharia de Produção** 96.5%
+**✅ Top 1: Engenharia de Produção** 96.2%
 
-**Top 3 completo:** Engenharia de Produção 96.5% · Engenharia Elétrica 88.6% · Inteligência Artificial 88.0%
+**Top 3 completo:** Engenharia de Produção 96.2% · Inteligência Artificial 92.1% · Engenharia Elétrica 88.2%
 
 #### Engenharia Ambiental ✅
 
@@ -601,14 +595,14 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [lab] Coleto amostras (sem machucar) pra entender a biologia delas *(idx 2)* | INV+2 CUL+2 |
+| 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
 | 11 Crise final | [sprout] Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
-**Vetor resultante do aluno:** `[4,9,15,1,7,17,3]`
+**Vetor resultante do aluno:** `[4,8,15,1,7,18,3]`
 
-**✅ Top 1: Engenharia Ambiental** 97.0%
+**✅ Top 1: Engenharia Ambiental** 96.5%
 
-**Top 3 completo:** Engenharia Ambiental 97.0% · Agronomia 92.7% · Engenharia de Alimentos 92.0%
+**Top 3 completo:** Engenharia Ambiental 96.5% · Agronomia 93.5% · Engenharia de Alimentos 90.8%
 
 #### Engenharia de Alimentos ✅
 
@@ -640,11 +634,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 **✅ Top 1: Engenharia de Alimentos** 96.3%
 
-**Top 3 completo:** Engenharia de Alimentos 96.3% · Agronomia 92.1% · Engenharia Química 91.9%
+**Top 3 completo:** Engenharia de Alimentos 96.3% · Engenharia Química 91.9% · Engenharia Mecânica 91.3%
 
 ### 💻 Decifrador / Computação + Dados + Matemática
 
-#### Banco de Dados ⚠️
+#### Banco de Dados ✅
 
 *Posto de Arquivo de Bordo* · Uberaba
 
@@ -658,11 +652,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 |---|---|---|
 | 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [radio] Comunicações — sinal estranho da Terra, talvez urgente *(idx 2)* | INV+2 COM+1 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [logs] Escrevo script pra IA de bordo monitorar a anomalia 24/7 e … *(idx 4)* | COM+1 TEC+3 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
-| 7 Mensagem da Terra | [letter] Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
+| 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
 | 13 Sistema da nave | [logs] Banco centralizado — tabelas bem organizadas, busca rápida … *(idx 0)* | COM+1 TEC+3 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
@@ -670,11 +664,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 10 Contato | [comms] Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
 | 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
 
-**Vetor resultante do aluno:** `[1,16,0,14,0,3,16]`
+**Vetor resultante do aluno:** `[1,14,0,13,0,3,20]`
 
-**⚠️ Top 1 calculado: Matemática** (esperado: Banco de Dados)
+**✅ Top 1: Banco de Dados** 96.0%
 
-**Top 3 completo:** Matemática 94.2% · Banco de Dados 91.8% · Engenharia de Produção 75.8%
+**Top 3 completo:** Banco de Dados 96.0% · Matemática 94.8% · Engenharia de Produção 76.8%
 
 #### Inteligência Artificial ✅
 
@@ -682,7 +676,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 > Machine learning, sistemas inteligentes. Investigador digital.
 
-**Vetor do curso:** `[0,3,2,0,1,0,3]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
+**Vetor do curso:** `[0,2,2,0,1,0,3]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
 
 **Persona ideal — escolhas por cena:**
 
@@ -694,7 +688,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
 | 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
@@ -702,11 +696,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
 | 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
 
-**Vetor resultante do aluno:** `[2,18,13,2,5,2,15]`
+**Vetor resultante do aluno:** `[2,16,13,3,4,2,17]`
 
-**✅ Top 1: Inteligência Artificial** 98.7%
+**✅ Top 1: Inteligência Artificial** 97.5%
 
-**Top 3 completo:** Inteligência Artificial 98.7% · Engenharia Elétrica 92.7% · Física 92.4%
+**Top 3 completo:** Inteligência Artificial 97.5% · Engenharia Elétrica 93.2% · Física 89.0%
 
 #### Matemática ✅
 
@@ -726,7 +720,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
 | 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
@@ -734,11 +728,11 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
 | 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
 
-**Vetor resultante do aluno:** `[1,24,0,8,1,4,16]`
+**Vetor resultante do aluno:** `[1,22,0,9,0,4,18]`
 
-**✅ Top 1: Matemática** 97.1%
+**✅ Top 1: Matemática** 98.3%
 
-**Top 3 completo:** Matemática 97.1% · Inteligência Artificial 83.5% · Biomedicina 80.3%
+**Top 3 completo:** Matemática 98.3% · Banco de Dados 83.5% · Biomedicina 77.2%
 
 ### 📢 Comunicação / Educação
 
@@ -959,14 +953,14 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
-**Vetor resultante do aluno:** `[9,4,5,6,14,16,2]`
+**Vetor resultante do aluno:** `[7,5,5,4,14,19,2]`
 
-**✅ Top 1: Licenciatura em Educação do Campo** 98.4%
+**✅ Top 1: Licenciatura em Educação do Campo** 95.2%
 
-**Top 3 completo:** Licenciatura em Educação do Campo 98.4% · Geografia 89.3% · Nutrição 83.7%
+**Top 3 completo:** Licenciatura em Educação do Campo 95.2% · Geografia 88.6% · Engenharia Ambiental 83.0%
 
 ### 🌱 Cultivo / Natureza
 
@@ -976,31 +970,31 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 > Agricultura técnica e científica. Investigação aplicada à terra (Uberaba/Iturama).
 
-**Vetor do curso:** `[1,3,3,0,0,3,0]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
+**Vetor do curso:** `[1,2,2,0,0,3,0]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
 
 **Persona ideal — escolhas por cena:**
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
 | 2 Embarque | [sprout] Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
-| 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
+| 3 Primeiro turno | [leaf] Estufa — sistema de irrigação travou nas mudas *(idx 3)* | CON+1 CUL+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
+| 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
+| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
-| 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
+| 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
-| 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [dna] Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
+| 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
+| 11 Crise final | [sprout] Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
-**Vetor resultante do aluno:** `[4,17,13,2,3,12,3]`
+**Vetor resultante do aluno:** `[4,10,8,1,5,24,3]`
 
-**✅ Top 1: Agronomia** 97.1%
+**✅ Top 1: Agronomia** 93.9%
 
-**Top 3 completo:** Agronomia 97.1% · Química 94.9% · Engenharia de Alimentos 94.1%
+**Top 3 completo:** Agronomia 93.9% · Zootecnia 90.5% · Engenharia Ambiental 87.9%
 
 #### Zootecnia ✅
 
@@ -1008,7 +1002,7 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 
 > Produção animal sustentável (exclusivo Iturama).
 
-**Vetor do curso:** `[3,3,1,0,0,3,0]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
+**Vetor do curso:** `[2,2,1,0,0,3,0]` (ordem: CUI, INV, CON, COM, TRA, CUL, TEC)
 
 **Persona ideal — escolhas por cena:**
 
@@ -1021,18 +1015,18 @@ Possíveis causas: vetor idêntico a outro curso (ex: Eng. Mec/Elétrica), vetor
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
 | 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
-| 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
+| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
-| 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
+| 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
+| 11 Crise final | [sprout] Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
-**Vetor resultante do aluno:** `[11,15,3,3,2,16,4]`
+**Vetor resultante do aluno:** `[8,11,5,2,4,22,4]`
 
-**✅ Top 1: Zootecnia** 96.4%
+**✅ Top 1: Zootecnia** 95.1%
 
-**Top 3 completo:** Zootecnia 96.4% · Ciências Biológicas 94.0% · Biomedicina 88.8%
+**Top 3 completo:** Zootecnia 95.1% · Agronomia 92.5% · Ciências Biológicas 91.3%
 
 ---
 *Gerado automaticamente em 2026-05-23 pelo `scripts/personas-ideais.ts`*

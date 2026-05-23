@@ -69,6 +69,7 @@ export const CENAS: Cena[] = [
       { icon: "satellite", texto: "Sugiro mandar um drone pra mais perto antes de qualquer coisa", pontos: [0, 1, 2, 0, 0, 0, 0] },
       { icon: "voice", texto: "Reúno a tripulação — isso precisa de várias cabeças decidindo", pontos: [0, 0, 0, 3, 0, 0, 0] },
       { icon: "shield", texto: "Aviso a Capitã imediatamente e protocolo de segurança", pontos: [1, 0, 0, 0, 2, 0, 0] },
+      { icon: "logs", texto: "Escrevo script pra IA de bordo monitorar a anomalia 24/7 e alertar se mudar de padrão", pontos: [0, 0, 0, 1, 0, 0, 3] },
     ],
   },
   {
@@ -122,6 +123,7 @@ export const CENAS: Cena[] = [
       { icon: "letter", texto: "Escrevo uma carta longa de volta, contando tudo da viagem", pontos: [0, 0, 0, 3, 0, 0, 0] },
       { icon: "brain", texto: "Anoto como o impacto emocional mudou minha performance nos turnos", pontos: [0, 2, 0, 0, 1, 0, 1] },
       { icon: "globe", texto: "Reflito sobre o quanto a Terra precisa que essa missão dê certo", pontos: [0, 0, 0, 0, 3, 0, 0] },
+      { icon: "chart", texto: "Salvo a mensagem num arquivo encriptado pra reler nos momentos difíceis — meu backup pessoal", pontos: [0, 0, 0, 1, 0, 0, 3] },
     ],
   },
   {
@@ -164,6 +166,7 @@ export const CENAS: Cena[] = [
       { icon: "tree", texto: "Perto da floresta densa — onde tem mais vida pra estudar", pontos: [0, 1, 0, 0, 0, 3, 0] },
       { icon: "waves", texto: "Perto do mar — fonte de água e possíveis ecossistemas marinhos", pontos: [0, 2, 0, 0, 0, 2, 0] },
       { icon: "tent", texto: "No vale central — perto de tudo, mais fácil de organizar a base depois", pontos: [0, 0, 2, 0, 1, 0, 0] },
+      { icon: "sprout", texto: "Num vale fértil — onde dá pra cultivar comida e começar uma estufa nativa", pontos: [0, 0, 0, 0, 0, 3, 0] },
     ],
   },
   {
@@ -192,6 +195,7 @@ export const CENAS: Cena[] = [
       { icon: "lab", texto: "Coleto amostras (sem machucar) pra entender a biologia delas", pontos: [0, 2, 0, 0, 0, 2, 0] },
       { icon: "comms", texto: "Mando imagens pra Terra na hora — humanidade inteira precisa ver isso", pontos: [0, 0, 0, 3, 0, 0, 0] },
       { icon: "shield", texto: "Recuo a equipe e estabeleço protocolo de não-contato preventivo", pontos: [1, 0, 0, 0, 2, 0, 0] },
+      { icon: "leaf", texto: "Observo o ecossistema que cerca elas — plantas, terreno, ciclos de luz — pra entender a vida que as sustenta", pontos: [0, 1, 0, 0, 0, 3, 0] },
     ],
   },
   {

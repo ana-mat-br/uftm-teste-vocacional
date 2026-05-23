@@ -48,7 +48,7 @@ export const CURSOS: Curso[] = [
 
   // === Decifrador / Computação + Dados + Matemática ===
   { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 1, 0, 2, 0, 0, 3], campus: "Uberaba" },
-  { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 3, 2, 0, 1, 0, 3], campus: "Uberaba" },
+  { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 2, 2, 0, 1, 0, 3], campus: "Uberaba" },
   { nome: "Matemática", papelMissao: "Estrategista de Rotas", vetor: [0, 3, 0, 1, 0, 0, 3], campus: "Uberaba" },
 
   // === Comunicação / Educação ===
@@ -63,6 +63,6 @@ export const CURSOS: Curso[] = [
   { nome: "Licenciatura em Educação do Campo", papelMissao: "Educação de Vila Rural", vetor: [2, 1, 1, 2, 3, 3, 0], campus: "Uberaba" },
 
   // === Cultivo / Natureza ===
-  { nome: "Agronomia", papelMissao: "Cultivo de Vida Planetária", vetor: [1, 3, 3, 0, 0, 3, 0], campus: "Uberaba/Iturama" },
-  { nome: "Zootecnia", papelMissao: "Criação de Vida Animal", vetor: [3, 3, 1, 0, 0, 3, 0], campus: "Iturama" },
+  { nome: "Agronomia", papelMissao: "Cultivo de Vida Planetária", vetor: [1, 2, 2, 0, 0, 3, 0], campus: "Uberaba/Iturama" },
+  { nome: "Zootecnia", papelMissao: "Criação de Vida Animal", vetor: [2, 2, 1, 0, 0, 3, 0], campus: "Iturama" },
 ];
