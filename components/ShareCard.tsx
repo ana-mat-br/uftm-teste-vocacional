@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import { useTintedSprite } from "@/lib/use-tinted-sprite";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   campus: string;
 };
 
-const SPRITE_PX = 560;
+const SPRITE_PX = 300;
 
 /**
  * Pre-rasteriza o SVG do sprite num <canvas> 560×560 e devolve um
@@ -67,6 +67,15 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
 ) {
   const tintedSprite = useTintedSprite(sprite, codinome);
   const spritePng = useRasterizedSprite(tintedSprite);
+  // Hash hex falso pra HUD — derivado do codinome
+  const sigHash = useMemo(() => {
+    let h = 0xcafe;
+    for (let i = 0; i < codinome.length; i++) {
+      h = (h * 31 + codinome.charCodeAt(i)) | 0;
+    }
+    return Math.abs(h).toString(16).toUpperCase().padStart(6, "0").slice(0, 6);
+  }, [codinome]);
+  void papelMissao;
 
   return (
     <div
@@ -77,8 +86,6 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
         top: 0,
         width: 1080,
         height: 1920,
-        // Gradiente menos violento: dark stays longer no topo, magenta
-        // passa rápido pelo meio, base volta pro escuro pro footer respirar
         background:
           "linear-gradient(180deg, #0d0221 0%, #1a0a40 30%, #2d1b69 55%, #4a1078 72%, #6f1a91 85%, #2d1b69 100%)",
         color: "#fff8e7",
@@ -109,6 +116,57 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
         }}
       />
 
+      {/* Estrelas decorativas espalhadas (32 estrelas) */}
+      {[
+        { top: 60, left: 80, size: 5, color: "#fff700" },
+        { top: 100, left: 320, size: 3, color: "#fff8e7" },
+        { top: 140, left: 950, size: 7, color: "#01cdfe" },
+        { top: 180, left: 200, size: 4, color: "#05ffa1" },
+        { top: 220, left: 60, size: 4, color: "#fff8e7" },
+        { top: 250, left: 700, size: 3, color: "#ff71ce" },
+        { top: 280, left: 480, size: 4, color: "#fff700" },
+        { top: 320, left: 990, size: 6, color: "#05ffa1" },
+        { top: 360, left: 180, size: 3, color: "#01cdfe" },
+        { top: 420, left: 870, size: 4, color: "#fff700" },
+        { top: 480, left: 100, size: 5, color: "#ff71ce" },
+        { top: 540, left: 580, size: 3, color: "#fff8e7" },
+        { top: 580, left: 50, size: 5, color: "#ff71ce" },
+        { top: 640, left: 920, size: 4, color: "#05ffa1" },
+        { top: 720, left: 980, size: 7, color: "#fff700" },
+        { top: 760, left: 140, size: 3, color: "#01cdfe" },
+        { top: 820, left: 480, size: 3, color: "#fff8e7" },
+        { top: 880, left: 880, size: 5, color: "#ff71ce" },
+        { top: 940, left: 70, size: 6, color: "#01cdfe" },
+        { top: 1000, left: 620, size: 3, color: "#fff700" },
+        { top: 1080, left: 540, size: 4, color: "#01cdfe" },
+        { top: 1140, left: 985, size: 5, color: "#05ffa1" },
+        { top: 1200, left: 220, size: 4, color: "#fff8e7" },
+        { top: 1260, left: 800, size: 3, color: "#ff71ce" },
+        { top: 1320, left: 90, size: 6, color: "#fff700" },
+        { top: 1380, left: 600, size: 3, color: "#01cdfe" },
+        { top: 1440, left: 920, size: 4, color: "#fff8e7" },
+        { top: 1480, left: 965, size: 4, color: "#fff8e7" },
+        { top: 1540, left: 180, size: 5, color: "#05ffa1" },
+        { top: 1600, left: 720, size: 3, color: "#fff700" },
+        { top: 1650, left: 70, size: 5, color: "#ff71ce" },
+        { top: 1720, left: 580, size: 4, color: "#01cdfe" },
+      ].map((s, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            top: s.top,
+            left: s.left,
+            width: s.size,
+            height: s.size,
+            background: s.color,
+            borderRadius: "50%",
+            boxShadow: `0 0 ${s.size * 3}px ${s.color}`,
+            pointerEvents: "none",
+          }}
+        />
+      ))}
+
       {/* Scanlines */}
       <div
         style={{
@@ -121,46 +179,64 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
         }}
       />
 
-      {/* Header — marca */}
+      {/* Header HUD horizontal + sub-label COMISSÃO INTERESTELAR */}
       <div
         style={{
           position: "relative",
-          textAlign: "center",
-          marginBottom: 24,
+          marginBottom: 36,
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'VT323', monospace",
+              fontSize: 30,
+              color: "#01cdfe",
+              letterSpacing: 4,
+              textTransform: "uppercase",
+            }}
+          >
+            // UFTM-KEPLER · OS v2087.5
+          </span>
+          <span
+            style={{
+              fontFamily: "'VT323', monospace",
+              fontSize: 30,
+              color: "#fff700",
+              letterSpacing: 2,
+            }}
+          >
+            0x{sigHash}
+          </span>
+        </div>
         <p
           style={{
             fontFamily: "'VT323', monospace",
-            fontSize: 36,
-            letterSpacing: 6,
-            color: "#d4a8ff",
-            margin: 0,
+            fontSize: 28,
+            color: "#05ffa1",
+            textShadow: "0 0 10px #05ffa1",
+            letterSpacing: 4,
             textTransform: "uppercase",
-          }}
-        >
-          // UFTM-Kepler · 2087
-        </p>
-        <h1
-          style={{
-            fontFamily: "'Press Start 2P', monospace",
-            fontSize: 52,
-            color: "#fff700",
-            textShadow: "0 0 22px #ff71ce, 0 4px 0 #ff2e93",
             margin: "12px 0 0 0",
-            letterSpacing: 2,
+            textAlign: "left",
           }}
         >
-          PROTOCOLO VOCAÇÃO
-        </h1>
+          // comissão interestelar · protocolo vocação
+        </p>
       </div>
 
-      {/* Codinome */}
+      {/* Narrativa em primeira pessoa: EU SOU + MEU COPILOTO */}
       <div
         style={{
           position: "relative",
           textAlign: "center",
-          marginBottom: 16,
+          marginBottom: 20,
         }}
       >
         <p
@@ -168,36 +244,61 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
             fontFamily: "'VT323', monospace",
             fontSize: 32,
             color: "#d4a8ff",
-            letterSpacing: 4,
+            letterSpacing: 6,
             textTransform: "uppercase",
             margin: 0,
           }}
         >
-          // codinome
+          // EU SOU
         </p>
         <p
           style={{
             fontFamily: "'Press Start 2P', monospace",
             fontSize: 44,
             color: "#01cdfe",
-            textShadow: "0 0 18px #01cdfe",
-            letterSpacing: 1,
-            margin: "8px 0 0 0",
+            textShadow: "0 0 20px #01cdfe, 0 2px 0 #015c70",
+            letterSpacing: 2,
+            margin: "16px 0 0 0",
+            lineHeight: 1.2,
           }}
         >
           {codinome}
         </p>
+        <p
+          style={{
+            fontFamily: "'VT323', monospace",
+            fontSize: 30,
+            color: "#d4a8ff",
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            margin: "20px 0 0 0",
+          }}
+        >
+          // MEU COPILOTO É
+        </p>
+        <p
+          style={{
+            fontFamily: "'Press Start 2P', monospace",
+            fontSize: 32,
+            color: "#ff71ce",
+            textShadow: "0 0 16px #ff71ce, 0 2px 0 #7a0e3a",
+            letterSpacing: 1.5,
+            margin: "12px 0 0 0",
+            lineHeight: 1.2,
+          }}
+        >
+          {bixinhoNome}
+        </p>
       </div>
 
-      {/* Sprite gigante — usa PNG pré-rasterizado (canvas) pra evitar
-          o html2canvas renderizar o SVG no tamanho do viewBox */}
+      {/* Sprite com aura — logo abaixo do nome do copiloto */}
       <div
         style={{
           position: "relative",
           width: "100%",
-          height: 600,
+          height: 300,
           flexShrink: 0,
-          margin: "24px 0",
+          margin: "8px 0 24px 0",
           display: "block",
         }}
       >
@@ -206,10 +307,10 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
             position: "absolute",
             top: "50%",
             left: "50%",
-            width: 600,
-            height: 600,
-            marginLeft: -300,
-            marginTop: -300,
+            width: 460,
+            height: 460,
+            marginLeft: -230,
+            marginTop: -230,
             borderRadius: "50%",
             background:
               "radial-gradient(circle, rgba(255,247,0,0.35) 0%, rgba(255,46,147,0.25) 40%, transparent 70%)",
@@ -232,124 +333,149 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
               marginLeft: -SPRITE_PX / 2,
               marginTop: -SPRITE_PX / 2,
               imageRendering: "pixelated",
-              filter:
-                "drop-shadow(0 0 24px #fff700) drop-shadow(0 0 48px #ff2e93)",
+              filter: "drop-shadow(0 0 24px #fff700) drop-shadow(0 0 48px #ff2e93)",
             }}
           />
         )}
       </div>
 
-      {/* Eu sou X */}
+      {/* Eixo dominante — 1 linha grande */}
+      <div style={{ position: "relative", textAlign: "center", marginBottom: 64 }}>
+        <span
+          style={{
+            fontFamily: "'VT323', monospace",
+            fontSize: 56,
+            color: "#05ffa1",
+            textShadow: "0 0 18px #05ffa1, 0 2px 0 #015c33",
+            letterSpacing: 6,
+            textTransform: "uppercase",
+          }}
+        >
+          ▸ EIXO {eixoLongo.toUpperCase()}
+        </span>
+      </div>
+
+      {/* CURSO — protagonista, sem fundo amarelo */}
       <div
         style={{
           position: "relative",
           textAlign: "center",
-          marginBottom: 28,
+          padding: "32px 24px",
+          borderTop: "2px solid #fff700",
+          marginBottom: 12,
         }}
       >
         <p
           style={{
             fontFamily: "'VT323', monospace",
-            fontSize: 32,
+            fontSize: 50,
             color: "#d4a8ff",
             textTransform: "uppercase",
-            letterSpacing: 4,
+            letterSpacing: 5,
             margin: 0,
+            opacity: 0.95,
           }}
         >
-          // eu sou
+          // meu curso na UFTM é
         </p>
         <p
           style={{
             fontFamily: "'Press Start 2P', monospace",
-            fontSize: 48,
+            fontSize: 52,
             color: "#fff700",
-            textShadow: "0 0 18px #ff2e93",
-            margin: "10px 0 0 0",
-            letterSpacing: 1,
+            textShadow: "0 0 22px #ff71ce, 0 3px 0 #ff2e93",
+            margin: "24px 0 0 0",
+            letterSpacing: 1.5,
+            lineHeight: 1.25,
           }}
         >
-          {bixinhoNome.toUpperCase()}
-        </p>
-        <p
-          style={{
-            fontFamily: "'VT323', monospace",
-            fontSize: 36,
-            color: "#05ffa1",
-            textShadow: "0 0 10px #05ffa1",
-            letterSpacing: 3,
-            margin: "12px 0 0 0",
-            textTransform: "uppercase",
-          }}
-        >
-          eixo · {eixoLongo}
+          {cursoNome.toUpperCase()}
         </p>
       </div>
 
-      {/* Papel + Curso — backdrop sólido escuro pra texto não brigar
-          com o gradiente. Mantém moldura amarela. */}
+      {/* UFTM — MEGA destaque com profundidade 3D + beam de luz vertical */}
       <div
         style={{
           position: "relative",
           textAlign: "center",
-          padding: "28px 32px",
-          borderTop: "2px solid #fff700",
-          borderBottom: "2px solid #fff700",
-          background: "rgba(13, 2, 33, 0.78)",
           marginBottom: 24,
+          padding: "0",
         }}
       >
-        <p
+        {/* Beam de luz vertical atrás do UFTM */}
+        <div
           style={{
-            fontFamily: "'VT323', monospace",
-            fontSize: 30,
-            color: "#fff8e7",
-            textTransform: "uppercase",
-            letterSpacing: 4,
-            margin: 0,
-            opacity: 0.85,
+            position: "absolute",
+            top: -40,
+            left: "50%",
+            width: 320,
+            height: 280,
+            marginLeft: -160,
+            background:
+              "radial-gradient(ellipse at center, rgba(5,255,161,0.45) 0%, rgba(5,255,161,0.15) 40%, transparent 70%)",
+            filter: "blur(12px)",
+            pointerEvents: "none",
           }}
-        >
-          // meu papel na missão
-        </p>
+        />
+        {/* Glow horizontal logo abaixo (chão de luz) */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 30,
+            left: "50%",
+            width: 480,
+            height: 12,
+            marginLeft: -240,
+            background:
+              "radial-gradient(ellipse at center, #05ffa1 0%, transparent 70%)",
+            filter: "blur(6px)",
+            opacity: 0.8,
+            pointerEvents: "none",
+          }}
+        />
+        {/* UFTM gigante com 3D extrusion */}
         <p
           style={{
+            position: "relative",
             fontFamily: "'Press Start 2P', monospace",
-            fontSize: 26,
+            fontSize: 140,
             color: "#05ffa1",
-            textShadow: "0 0 12px #05ffa1, 0 2px 0 #0d0221",
-            margin: "12px 0 24px 0",
-            letterSpacing: 1,
-            lineHeight: 1.4,
-          }}
-        >
-          {papelMissao.toUpperCase()}
-        </p>
-        <p
-          style={{
-            fontFamily: "'Pixelify Sans', monospace",
-            fontSize: 56,
-            color: "#fff700",
-            textShadow: "0 0 22px #ff71ce, 0 4px 0 #0d0221",
-            fontWeight: 700,
+            // Multi-layer text-shadow simulando extrusão 3D + glow externo
+            textShadow: [
+              // Extrusão progressiva (efeito de altura)
+              "0 2px 0 #04d488",
+              "0 4px 0 #03b073",
+              "0 6px 0 #028c5e",
+              "0 8px 0 #016847",
+              "0 10px 0 #014530",
+              "0 12px 0 #00321f",
+              // Sombra projetada
+              "0 14px 30px rgba(0,0,0,0.7)",
+              // Glow externo neon
+              "0 0 40px #05ffa1",
+              "0 0 80px rgba(5,255,161,0.6)",
+            ].join(", "),
+            letterSpacing: 8,
             margin: 0,
-            lineHeight: 1.2,
+            lineHeight: 1,
+            fontWeight: "normal",
           }}
         >
-          {cursoNome}
+          UFTM
         </p>
         <p
           style={{
+            position: "relative",
             fontFamily: "'VT323', monospace",
-            fontSize: 32,
-            color: "#01cdfe",
-            textShadow: "0 0 8px #01cdfe",
-            letterSpacing: 4,
-            margin: "16px 0 0 0",
+            fontSize: 48,
+            color: "#fff8e7",
+            letterSpacing: 8,
             textTransform: "uppercase",
+            margin: "24px 0 0 0",
+            textShadow: "0 0 12px rgba(255,255,255,0.5)",
           }}
         >
-          campus · {campus}
+          ⌖ {campus}
         </p>
       </div>
 
@@ -360,48 +486,63 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
           left: 0,
           right: 0,
           bottom: 0,
-          height: 220,
+          height: 260,
           background:
             "linear-gradient(180deg, transparent 0%, rgba(13,2,33,0.92) 50%, rgba(13,2,33,0.98) 100%)",
           pointerEvents: "none",
         }}
       />
 
-      {/* Footer — ancorado ao bottom com backdrop garantindo contraste */}
+      {/* Footer */}
       <div
         style={{
           position: "absolute",
           left: 0,
           right: 0,
-          bottom: 48,
+          bottom: 56,
           textAlign: "center",
           padding: "0 64px",
         }}
       >
         <p
           style={{
-            fontFamily: "'VT323', monospace",
-            fontSize: 32,
-            color: "#fff8e7",
-            letterSpacing: 4,
-            textTransform: "uppercase",
+            fontFamily: "'Press Start 2P', monospace",
+            fontSize: 38,
+            color: "#fff700",
+            textShadow:
+              "0 0 14px #ff71ce, 0 0 28px #ff2e93, 0 2px 0 #0d0221",
             margin: 0,
+            letterSpacing: 2,
+            lineHeight: 1.25,
           }}
         >
-          // feira de profissões UFTM · 2026
+          FEIRA DE PROFISSÕES
         </p>
         <p
           style={{
             fontFamily: "'Press Start 2P', monospace",
-            fontSize: 28,
+            fontSize: 38,
             color: "#fff700",
             textShadow:
               "0 0 14px #ff71ce, 0 0 28px #ff2e93, 0 2px 0 #0d0221",
-            margin: "16px 0 0 0",
+            margin: "12px 0 0 0",
             letterSpacing: 2,
+            lineHeight: 1.25,
           }}
         >
-          #protocolovocacaouftm
+          UFTM · 2026
+        </p>
+        <p
+          style={{
+            fontFamily: "'VT323', monospace",
+            fontSize: 52,
+            color: "#fff8e7",
+            letterSpacing: 3,
+            margin: "24px 0 0 0",
+          }}
+        >
+          <span style={{ fontSize: 62, verticalAlign: "-4px" }}>@</span>
+          proppg.uftm
         </p>
       </div>
     </div>
