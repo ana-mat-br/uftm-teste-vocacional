@@ -38,16 +38,16 @@
 |---|---|---|
 | 2 Embarque | [uncertain] Olho pros outros candidatos pra ver se alguém também tá per… *(idx 1)* | CUI+1 COM+2 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [hug] Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 12 Rotina coletiva | [hug] Programa inclusivo — todo mundo na rotina, com adaptações p… *(idx 2)* | CUI+2 CON+1 COM+2 TRA+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[19,12,1,11,5,3,2]`
@@ -75,11 +75,11 @@
 | 12 Rotina coletiva | [hug] Programa inclusivo — todo mundo na rotina, com adaptações p… *(idx 2)* | CUI+2 CON+1 COM+2 TRA+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [stethoscope] Acomodo os três, fico de olho a cada 30 min, dando água o t… *(idx 1)* | CUI+3 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[22,3,4,12,5,6,2]`
@@ -107,11 +107,11 @@
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [voice] Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[18,8,1,16,1,6,2]`
@@ -136,14 +136,14 @@
 | 3 Primeiro turno | [stethoscope] Enfermaria — colega passou mal no treino físico *(idx 0)* | CUI+3 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [hug] Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[19,5,13,9,5,1,2]`
@@ -168,14 +168,14 @@
 | 3 Primeiro turno | [stethoscope] Enfermaria — colega passou mal no treino físico *(idx 0)* | CUI+3 |
 | 4 Anomalia | [voice] Reúno a tripulação — isso precisa de várias cabeças decidin… *(idx 2)* | COM+3 |
 | 5 Conflito de tripulação | [hug] Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
 | 13 Sistema da nave | [wrench] Reconstruo os equipamentos — circuitos novos, máquinas mais… *(idx 3)* | INV+1 CON+3 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[19,2,13,12,0,3,2]`
@@ -198,12 +198,12 @@
 |---|---|---|
 | 2 Embarque | [sprout] Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [hug] Chego perto e peço pros dois respirarem antes de continuar *(idx 0)* | CUI+2 COM+2 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
@@ -230,16 +230,16 @@
 |---|---|---|
 | 2 Embarque | [uncertain] Olho pros outros candidatos pra ver se alguém também tá per… *(idx 1)* | CUI+1 COM+2 |
 | 3 Primeiro turno | [stethoscope] Enfermaria — colega passou mal no treino físico *(idx 0)* | CUI+3 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
 | 12 Rotina coletiva | [hug] Programa inclusivo — todo mundo na rotina, com adaptações p… *(idx 2)* | CUI+2 CON+1 COM+2 TRA+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [globe] Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [stethoscope] Acomodo os três, fico de olho a cada 30 min, dando água o t… *(idx 1)* | CUI+3 |
 | 9 Chegada ao planeta | [tent] No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
 **Vetor resultante do aluno:** `[14,3,8,9,18,1,2]`
@@ -267,11 +267,11 @@
 | 12 Rotina coletiva | [hug] Programa inclusivo — todo mundo na rotina, com adaptações p… *(idx 2)* | CUI+2 CON+1 COM+2 TRA+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [tent] No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
 **Vetor resultante do aluno:** `[16,3,10,14,10,1,2]`
@@ -294,14 +294,14 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
@@ -328,15 +328,15 @@
 |---|---|---|
 | 2 Embarque | [sprout] Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar com o ar *(idx 3)* | CUL+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
 | 11 Crise final | [dna] Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
@@ -358,14 +358,14 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
@@ -390,17 +390,17 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
 | 11 Crise final | [dna] Salvo os dados de pesquisa antes que se percam — justifica … *(idx 2)* | INV+3 |
 
@@ -428,15 +428,15 @@
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | [letter] Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 11 Crise final | [battery] Redireciono toda energia pros sistemas mais importantes, na… *(idx 1)* | CON+2 TEC+2 |
 
 **Vetor resultante do aluno:** `[4,9,21,6,9,2,4]`
 
@@ -456,19 +456,19 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | [wrench] Reconstruo os equipamentos — circuitos novos, máquinas mais… *(idx 3)* | INV+1 CON+3 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 11 Crise final | [battery] Redireciono toda energia pros sistemas mais importantes, na… *(idx 1)* | CON+2 TEC+2 |
 
 **Vetor resultante do aluno:** `[4,13,21,2,3,2,8]`
 
@@ -488,19 +488,19 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | [wrench] Reconstruo os equipamentos — circuitos novos, máquinas mais… *(idx 3)* | INV+1 CON+3 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 11 Crise final | [battery] Redireciono toda energia pros sistemas mais importantes, na… *(idx 1)* | CON+2 TEC+2 |
 
 **Vetor resultante do aluno:** `[2,15,17,2,3,2,13]`
 
@@ -520,14 +520,14 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
@@ -552,19 +552,19 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
-| 4 Anomalia | [logs] Escrevo script pra IA de bordo monitorar a anomalia 24/7 e … *(idx 4)* | COM+1 TEC+3 |
+| 4 Anomalia | [logs] Escrevo script pra IA de bordo ficar de olho na anomalia 24… *(idx 4)* | COM+1 TEC+3 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | [comms] Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
-| 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
+| 11 Crise final | [logs] Backup central dos bancos de bordo — perder dado de 7 meses… *(idx 5)* | COM+2 TEC+3 |
 
 **Vetor resultante do aluno:** `[2,9,14,9,4,1,17]`
 
@@ -589,9 +589,9 @@
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
@@ -620,15 +620,15 @@
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
 | 13 Sistema da nave | [wrench] Reconstruo os equipamentos — circuitos novos, máquinas mais… *(idx 3)* | INV+1 CON+3 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 11 Crise final | [battery] Redireciono toda energia pros sistemas mais importantes, na… *(idx 1)* | CON+2 TEC+2 |
 
 **Vetor resultante do aluno:** `[4,11,20,2,1,9,5]`
 
@@ -650,9 +650,9 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [radio] Comunicações — sinal estranho da Terra, talvez urgente *(idx 2)* | INV+2 COM+1 |
-| 4 Anomalia | [logs] Escrevo script pra IA de bordo monitorar a anomalia 24/7 e … *(idx 4)* | COM+1 TEC+3 |
+| 4 Anomalia | [logs] Escrevo script pra IA de bordo ficar de olho na anomalia 24… *(idx 4)* | COM+1 TEC+3 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
@@ -662,7 +662,7 @@
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
 | 10 Contato | [comms] Mando imagens pra Terra na hora — humanidade inteira precis… *(idx 3)* | COM+3 |
-| 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
+| 11 Crise final | [logs] Backup central dos bancos de bordo — perder dado de 7 meses… *(idx 5)* | COM+2 TEC+3 |
 
 **Vetor resultante do aluno:** `[1,14,0,13,0,3,20]`
 
@@ -682,19 +682,19 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [wrench] Engenharia — vazamento pequeno crescendo no compartimento 7 *(idx 1)* | INV+1 CON+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
-| 12 Rotina coletiva | [tools] Oficina de adaptação — ajusto pequenas tarefas pra cada um … *(idx 1)* | CUI+2 CON+2 COM+2 |
+| 12 Rotina coletiva | [tools] Oficina pra cada um aprender do próprio jeito — ajusto as t… *(idx 1)* | CUI+2 CON+2 COM+2 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [battery] Reroteio toda energia pros sistemas críticos, manualmente *(idx 1)* | CON+2 TEC+2 |
+| 11 Crise final | [battery] Redireciono toda energia pros sistemas mais importantes, na… *(idx 1)* | CON+2 TEC+2 |
 
 **Vetor resultante do aluno:** `[2,16,13,3,4,2,17]`
 
@@ -714,19 +714,19 @@
 
 | Cena | Opção (índice) | Pontos |
 |---|---|---|
-| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar das margens de erro… *(idx 0)* | INV+2 TEC+1 |
+| 2 Embarque | [thinking] Anoto tudo, levanto a mão pra perguntar se o Protocolo pode… *(idx 0)* | INV+2 TEC+1 |
 | 3 Primeiro turno | [radio] Comunicações — sinal estranho da Terra, talvez urgente *(idx 2)* | INV+2 COM+1 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [chart] Puxo os dados de estoque no tablet e mostro o que os número… *(idx 1)* | INV+1 TEC+2 |
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | [chart] Salvo a mensagem num arquivo encriptado pra reler nos momen… *(idx 4)* | COM+1 TEC+3 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [satellite] Mando os dados pra IA de bordo cruzar com base de doenças c… *(idx 5)* | INV+1 TEC+3 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
-| 11 Crise final | [logs] Backup centralizado dos bancos de bordo — perder dado de 7 … *(idx 5)* | COM+2 TEC+3 |
+| 11 Crise final | [logs] Backup central dos bancos de bordo — perder dado de 7 meses… *(idx 5)* | COM+2 TEC+3 |
 
 **Vetor resultante do aluno:** `[1,22,0,9,0,4,18]`
 
@@ -755,7 +755,7 @@
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | [letter] Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [voice] Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
@@ -787,7 +787,7 @@
 | 12 Rotina coletiva | [voice] Espaço de escuta semanal — individual, confidencial, pra li… *(idx 0)* | CUI+1 INV+1 COM+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | [letter] Escrevo uma carta longa de volta, contando tudo da viagem *(idx 1)* | COM+3 |
-| 13 Sistema da nave | [thinking] Teoria primeiro — provo o problema matematicamente antes de… *(idx 2)* | INV+3 COM+1 TEC+2 |
+| 13 Sistema da nave | [thinking] Matemática primeiro — explico o problema no papel antes de … *(idx 2)* | INV+3 COM+1 TEC+2 |
 | 8 Doença misteriosa | [voice] Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | [mountain] Perto das montanhas — terreno estável, vista pra tudo *(idx 0)* | INV+1 CON+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
@@ -819,11 +819,11 @@
 | 12 Rotina coletiva | [hug] Programa inclusivo — todo mundo na rotina, com adaptações p… *(idx 2)* | CUI+2 CON+1 COM+2 TRA+2 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [voice] Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | [tent] No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [offering] Tento oferecer algo — gesto de paz interespécie *(idx 1)* | CUI+2 COM+2 |
+| 10 Contato | [offering] Tento oferecer algo — gesto de paz entre espécies *(idx 1)* | CUI+2 COM+2 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
 **Vetor resultante do aluno:** `[15,4,8,16,10,1,2]`
@@ -848,16 +848,16 @@
 |---|---|---|
 | 2 Embarque | [flame] Já tô empolgado, quero saber quando começa pra valer *(idx 2)* | CON+1 TRA+2 |
 | 3 Primeiro turno | [radio] Comunicações — sinal estranho da Terra, talvez urgente *(idx 2)* | INV+2 COM+1 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
-| 12 Rotina coletiva | [scale] Carta de direitos da tripulação — formal, com regras justas… *(idx 4)* | CUI+1 COM+2 TRA+3 |
+| 12 Rotina coletiva | [scale] Documento de direitos da tripulação — formal, com regras ju… *(idx 4)* | CUI+1 COM+2 TRA+3 |
 | 6 Falha técnica | [alarm] Acordo a tripulação do dormitório B pra realocar enquanto c… *(idx 2)* | CUI+2 TRA+1 |
 | 7 Mensagem da Terra | [globe] Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [voice] Sento, escuto. Pergunto rotina, sono, ansiedades — talvez s… *(idx 2)* | CUI+1 INV+1 COM+2 |
 | 9 Chegada ao planeta | [waves] Perto do mar — fonte de água e possíveis ecossistemas marin… *(idx 2)* | INV+2 CUL+2 |
 | 14 Cultivo planetário | [lab] Apenas observação científica — estudo o ambiente antes de q… *(idx 2)* | INV+3 COM+1 CUL+1 |
-| 10 Contato | [shield] Recuo a equipe e estabeleço protocolo de não-contato preven… *(idx 4)* | CUI+1 TRA+2 |
+| 10 Contato | [shield] Recuo a equipe e estabeleço a regra de não chegar perto, po… *(idx 4)* | CUI+1 TRA+2 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
 **Vetor resultante do aluno:** `[6,10,3,9,20,3,2]`
@@ -880,15 +880,15 @@
 |---|---|---|
 | 2 Embarque | [flame] Já tô empolgado, quero saber quando começa pra valer *(idx 2)* | CON+1 TRA+2 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
-| 12 Rotina coletiva | [scale] Carta de direitos da tripulação — formal, com regras justas… *(idx 4)* | CUI+1 COM+2 TRA+3 |
+| 12 Rotina coletiva | [scale] Documento de direitos da tripulação — formal, com regras ju… *(idx 4)* | CUI+1 COM+2 TRA+3 |
 | 6 Falha técnica | [logs] Pego os logs dos últimos 30 dias pra entender o padrão ante… *(idx 1)* | INV+2 TEC+2 |
 | 7 Mensagem da Terra | [globe] Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [lab] Lab AGORA — exames de sangue e imagem, amostras. Não toco e… *(idx 0)* | CUI+2 INV+2 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [camera] Observo de longe, anoto comportamento, não interfiro *(idx 0)* | INV+3 CUL+1 |
 | 11 Crise final | [voice] Coordeno a tripulação inteira, distribuo funções por voz *(idx 3)* | COM+2 TRA+2 |
 
@@ -912,16 +912,16 @@
 |---|---|---|
 | 2 Embarque | [flame] Já tô empolgado, quero saber quando começa pra valer *(idx 2)* | CON+1 TRA+2 |
 | 3 Primeiro turno | [stethoscope] Enfermaria — colega passou mal no treino físico *(idx 0)* | CUI+3 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento diagnostic… *(idx 0)* | CON+3 |
+| 6 Falha técnica | [tools] Vou direto pra engenharia, abro o painel e tento descobrir … *(idx 0)* | CON+3 |
 | 7 Mensagem da Terra | [globe] Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [dna] Avalio o corpo, os movimentos — se tá afetado, prescrevo ex… *(idx 3)* | CUI+2 CON+2 |
 | 9 Chegada ao planeta | [tent] No vale central — perto de tudo, mais fácil de organizar a … *(idx 3)* | CON+2 TRA+1 |
 | 14 Cultivo planetário | [tree] Sistema fechado — tudo reciclado, quase sem afetar o ambien… *(idx 3)* | INV+1 CON+3 TRA+2 CUL+1 |
-| 10 Contato | [shield] Recuo a equipe e estabeleço protocolo de não-contato preven… *(idx 4)* | CUI+1 TRA+2 |
+| 10 Contato | [shield] Recuo a equipe e estabeleço a regra de não chegar perto, po… *(idx 4)* | CUI+1 TRA+2 |
 | 11 Crise final | [stethoscope] Garanto que a enfermaria fique online — vidas primeiro, dad… *(idx 0)* | CUI+3 |
 
 **Vetor resultante do aluno:** `[12,3,14,2,19,2,2]`
@@ -944,12 +944,12 @@
 |---|---|---|
 | 2 Embarque | [sprout] Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
 | 3 Primeiro turno | [leaf] Estufa — sistema de irrigação travou nas mudas *(idx 3)* | CON+1 CUL+2 |
-| 4 Anomalia | [shield] Aviso a Capitã imediatamente e protocolo de segurança *(idx 3)* | CUI+1 TRA+2 |
+| 4 Anomalia | [shield] Aviso a Capitã na hora e disparo alerta vermelho *(idx 3)* | CUI+1 TRA+2 |
 | 5 Conflito de tripulação | [scale] Proponho uma reunião com a tripulação inteira pra revisar a… *(idx 2)* | COM+1 TRA+3 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
+| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar com o ar *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | [globe] Reflito sobre o quanto a Terra precisa que essa missão dê c… *(idx 3)* | TRA+3 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
 | 14 Cultivo planetário | [tent] Criação animal sustentável — começo pequeno, foco em bem-es… *(idx 1)* | CUI+2 CON+1 CUL+3 |
@@ -981,12 +981,12 @@
 | 4 Anomalia | [satellite] Sugiro mandar um drone pra mais perto antes de qualquer coi… *(idx 1)* | INV+1 CON+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
-| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou minha performance nos … *(idx 2)* | INV+2 TRA+1 TEC+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar com o ar *(idx 3)* | CUL+3 |
+| 7 Mensagem da Terra | [brain] Anoto como o impacto emocional mudou meu jeito de trabalhar… *(idx 2)* | INV+2 TRA+1 TEC+1 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
 | 11 Crise final | [sprout] Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
@@ -1010,15 +1010,15 @@
 |---|---|---|
 | 2 Embarque | [sprout] Pergunto se a gente vai poder levar plantas pra estufa da n… *(idx 3)* | CUL+3 |
 | 3 Primeiro turno | [brain] Pauso 30 segundos, comparo os 3 alertas com histórico antes… *(idx 4)* | CUI+2 INV+2 |
-| 4 Anomalia | [chart] Vou pra sala de dados cruzar a assinatura com todos os arqu… *(idx 0)* | INV+2 TEC+2 |
+| 4 Anomalia | [chart] Vou pra sala de dados cruzar o rastro com todos os arquivos… *(idx 0)* | INV+2 TEC+2 |
 | 5 Conflito de tripulação | [sprout] Sugiro que a gente plante mais nas estufas pra resolver na … *(idx 3)* | CON+1 CUL+2 |
 | 12 Rotina coletiva | [mountain] Rotina física coletiva — esporte como cuidado e amizade ent… *(idx 3)* | CUI+2 CON+1 COM+1 TRA+2 CUL+1 |
-| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar a estabilizar… *(idx 3)* | CUL+3 |
+| 6 Falha técnica | [wind] Verifico se as plantas da estufa podem ajudar com o ar *(idx 3)* | CUL+3 |
 | 7 Mensagem da Terra | [video] Assisto sozinho no meu quarto, depois respondo com calma *(idx 0)* | CUI+2 COM+1 |
-| 13 Sistema da nave | [brain] IA aplicada — modelo que aprende dos registros, age automát… *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
+| 13 Sistema da nave | [brain] IA que aprende sozinha vendo os registros — age automático … *(idx 1)* | INV+2 CON+2 TRA+2 TEC+2 |
 | 8 Doença misteriosa | [leaf] Investigo as últimas refeições — comida fresca, contaminaçã… *(idx 4)* | CUI+2 INV+1 CUL+1 |
 | 9 Chegada ao planeta | [tree] Perto da floresta densa — onde tem mais vida pra estudar *(idx 1)* | INV+1 CUL+3 |
-| 14 Cultivo planetário | [sprout] Planto variedades da Terra no solo alienígena — técnica agr… *(idx 0)* | INV+2 CON+1 CUL+3 |
+| 14 Cultivo planetário | [sprout] Planto plantas da Terra no chão alienígena — técnica de pla… *(idx 0)* | INV+2 CON+1 CUL+3 |
 | 10 Contato | [leaf] Observo o ecossistema que cerca elas — plantas, terreno, ci… *(idx 5)* | INV+1 CUL+3 |
 | 11 Crise final | [sprout] Protejo a estufa — sem ela, ninguém volta pra casa *(idx 4)* | CUL+3 |
 
