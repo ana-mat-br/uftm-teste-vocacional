@@ -41,7 +41,7 @@ const TODOS_BOTTONS: Botton[] = CURSOS.map((c) => ({
   eixo: eixoDominante(c.vetor),
 }));
 
-const POR_PAGINA = 20;
+const POR_PAGINA = 15;
 function chunk<T>(arr: T[], size: number): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
@@ -91,7 +91,7 @@ export default function BottonsPage() {
       <style jsx global>{`
         @page {
           size: A4;
-          margin: 5mm;
+          margin: 10mm;
         }
 
         body {
@@ -121,11 +121,11 @@ export default function BottonsPage() {
           width: 210mm;
           min-height: 297mm;
           margin: 0 auto 16px;
-          padding: 5mm;
+          padding: 10mm;
           background: #fff;
           box-sizing: border-box;
           display: grid;
-          grid-template-columns: repeat(4, 46mm);
+          grid-template-columns: repeat(3, 46mm);
           grid-template-rows: repeat(5, 46mm);
           gap: 5mm;
           justify-content: center;
@@ -232,7 +232,7 @@ export default function BottonsPage() {
           }
           .a4-sheet {
             margin: 0;
-            padding: 5mm;
+            padding: 10mm;
             box-shadow: none;
           }
         }
