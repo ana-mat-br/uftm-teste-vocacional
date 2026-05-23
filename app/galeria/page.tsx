@@ -7,6 +7,7 @@ import { NOME_EIXO_LONGO, SPRITES_POR_EIXO } from "@/data/bixinhos";
 import type { EixoSigla } from "@/lib/matching";
 import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
+import { hueRotateFilter } from "@/lib/hue-codinome";
 
 type Item = {
   id: string;
@@ -127,7 +128,7 @@ export default function GaleriaPage() {
                     className="pixel-sprite"
                     style={{
                       filter:
-                        "drop-shadow(0 0 6px var(--sun-yellow)) drop-shadow(0 0 12px var(--sun-pink))",
+                        `${hueRotateFilter(it.codinome)} drop-shadow(0 0 6px var(--sun-yellow)) drop-shadow(0 0 12px var(--sun-pink))`.trim(),
                     }}
                   />
                 ) : (

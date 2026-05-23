@@ -1,49 +1,47 @@
 <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-  <!-- Decifrador: ciano + ondas wifi tricolor no topo, "tela" no rosto -->
-  <!-- Ondas wifi (sinal escalonando) -->
-  <rect x="5" y="0" width="6" height="1" fill="#00f0ff"/>
-  <rect x="4" y="1" width="1" height="1" fill="#00f0ff"/>
-  <rect x="11" y="1" width="1" height="1" fill="#00f0ff"/>
-  <rect x="6" y="1" width="4" height="1" fill="#fff95e"/>
-  <rect x="7" y="2" width="2" height="1" fill="#ff2e93"/>
-  <rect x="6" y="2" width="1" height="1" fill="#cc1a6e"/>
-  <rect x="9" y="2" width="1" height="1" fill="#cc1a6e"/>
-  <!-- Antena pequena -->
-  <rect x="7" y="3" width="2" height="1" fill="#00f0ff"/>
-  <!-- Brilho central (pulso) -->
-  <rect x="7" y="2" width="1" height="1" fill="#fff"/>
-  <!-- Cabeça -->
-  <rect x="4" y="4" width="3" height="1" fill="#7a1eab"/>
-  <rect x="9" y="4" width="3" height="1" fill="#7a1eab"/>
+  <!-- Decifrador 16x16 v3: simplificado — ondas wifi + óculos tech, sem tela CRT -->
+  <!-- Ondas wifi (3 arcos crescentes, lendo como "sinal") -->
+  <rect x="7" y="0" width="2" height="1" fill="#fff95e"/>
+  <rect x="6" y="1" width="1" height="1" fill="#00f0ff"/>
+  <rect x="9" y="1" width="1" height="1" fill="#00f0ff"/>
+  <rect x="5" y="2" width="1" height="1" fill="#00f0ff"/>
+  <rect x="7" y="2" width="2" height="1" fill="#00f0ff"/>
+  <rect x="10" y="2" width="1" height="1" fill="#00f0ff"/>
+  <rect x="7" y="3" width="2" height="1" fill="#0098b0"/>
+  <!-- Cabeça (3 tons de ciano) -->
+  <rect x="4" y="4" width="8" height="1" fill="#0098b0"/>
   <rect x="3" y="5" width="10" height="1" fill="#00f0ff"/>
-  <rect x="3" y="6" width="10" height="1" fill="#00f0ff"/>
-  <rect x="3" y="7" width="10" height="1" fill="#00f0ff"/>
-  <!-- Highlight no rosto -->
-  <rect x="3" y="5" width="1" height="1" fill="#7af6ff"/>
   <rect x="4" y="5" width="1" height="1" fill="#7af6ff"/>
-  <!-- Tela digital no rosto (pixels alternados) -->
-  <rect x="5" y="6" width="2" height="1" fill="#1a0633"/>
-  <rect x="9" y="6" width="2" height="1" fill="#1a0633"/>
-  <rect x="5" y="7" width="1" height="1" fill="#fff95e"/>
-  <rect x="6" y="7" width="1" height="1" fill="#1a0633"/>
-  <rect x="9" y="7" width="1" height="1" fill="#1a0633"/>
-  <rect x="10" y="7" width="1" height="1" fill="#fff95e"/>
-  <!-- LED bochechas piscando -->
-  <rect x="3" y="8" width="1" height="1" fill="#ff2e93"/>
-  <rect x="12" y="8" width="1" height="1" fill="#ff2e93"/>
-  <!-- "Boca" tipo barra de loading -->
-  <rect x="6" y="8" width="4" height="1" fill="#1a0633"/>
-  <rect x="6" y="8" width="2" height="1" fill="#fff95e"/>
-  <!-- Corpo (bytes em linhas) -->
-  <rect x="4" y="8" width="2" height="1" fill="#0098b0"/>
-  <rect x="10" y="8" width="2" height="1" fill="#0098b0"/>
-  <rect x="4" y="9" width="8" height="1" fill="#00f0ff"/>
-  <!-- Padrão de bytes (1010) -->
-  <rect x="5" y="9" width="1" height="1" fill="#fff95e"/>
-  <rect x="7" y="9" width="1" height="1" fill="#fff95e"/>
-  <rect x="9" y="9" width="1" height="1" fill="#fff95e"/>
-  <rect x="5" y="10" width="6" height="1" fill="#0098b0"/>
+  <rect x="3" y="6" width="10" height="1" fill="#7af6ff"/>
+  <rect x="3" y="7" width="10" height="1" fill="#00f0ff"/>
+  <rect x="3" y="8" width="10" height="1" fill="#0098b0"/>
+  <!-- Óculos tech (faixa preta com lentes brilhantes amarelas) -->
+  <rect x="4" y="6" width="8" height="1" fill="#1a0633"/>
+  <rect x="5" y="6" width="2" height="1" fill="#fff95e"/>
+  <rect x="9" y="6" width="2" height="1" fill="#fff95e"/>
+  <rect x="5" y="6" width="1" height="1" fill="#fff"/>
+  <rect x="9" y="6" width="1" height="1" fill="#fff"/>
+  <!-- Bochechas magenta -->
+  <rect x="3" y="9" width="1" height="1" fill="#ff2e93"/>
+  <rect x="12" y="9" width="1" height="1" fill="#ff2e93"/>
+  <!-- Boca (sorriso esperto) -->
+  <rect x="7" y="9" width="2" height="1" fill="#cc1a6e"/>
+  <rect x="6" y="9" width="1" height="1" fill="#ff5fa8"/>
+  <rect x="9" y="9" width="1" height="1" fill="#ff5fa8"/>
+  <!-- Corpo -->
+  <rect x="4" y="9" width="2" height="1" fill="#00f0ff"/>
+  <rect x="10" y="9" width="2" height="1" fill="#00f0ff"/>
+  <rect x="4" y="10" width="8" height="1" fill="#0098b0"/>
+  <rect x="5" y="10" width="6" height="1" fill="#00f0ff"/>
+  <rect x="5" y="11" width="6" height="1" fill="#0098b0"/>
+  <!-- Faixa amarela no peito (LED indicador único) -->
+  <rect x="7" y="11" width="2" height="1" fill="#fff95e"/>
+  <!-- Mãozinhas (simples, sem chip) -->
+  <rect x="2" y="10" width="1" height="1" fill="#00f0ff"/>
+  <rect x="13" y="10" width="1" height="1" fill="#00f0ff"/>
   <!-- Pernas -->
-  <rect x="4" y="11" width="2" height="1" fill="#ff2e93"/>
-  <rect x="10" y="11" width="2" height="1" fill="#ff2e93"/>
+  <rect x="4" y="12" width="2" height="1" fill="#ff2e93"/>
+  <rect x="10" y="12" width="2" height="1" fill="#ff2e93"/>
+  <rect x="4" y="13" width="2" height="1" fill="#cc1a6e"/>
+  <rect x="10" y="13" width="2" height="1" fill="#cc1a6e"/>
 </svg>

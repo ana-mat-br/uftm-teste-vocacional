@@ -1,0 +1,81 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <!-- Construtor 32x32 Stardew-tier -->
+  <!-- Engrenagem grande no topo -->
+  <rect x="14" y="0" width="4" height="1" fill="#ffcc00"/>
+  <rect x="10" y="1" width="2" height="1" fill="#ffcc00"/>
+  <rect x="13" y="1" width="6" height="1" fill="#ffcc00"/>
+  <rect x="20" y="1" width="2" height="1" fill="#ffcc00"/>
+  <rect x="10" y="2" width="12" height="2" fill="#ffcc00"/>
+  <rect x="11" y="2" width="3" height="1" fill="#fff95e"/>
+  <rect x="9" y="4" width="14" height="2" fill="#ffcc00"/>
+  <rect x="10" y="6" width="12" height="1" fill="#e6a800"/>
+  <rect x="11" y="7" width="10" height="1" fill="#cc8800"/>
+  <!-- Furo da engrenagem (mecanismo) -->
+  <rect x="14" y="3" width="4" height="3" fill="#ff6b35"/>
+  <rect x="15" y="4" width="2" height="1" fill="#cc4515"/>
+  <!-- Suporte -->
+  <rect x="14" y="8" width="4" height="1" fill="#996600"/>
+  <rect x="15" y="9" width="2" height="1" fill="#664400"/>
+  <!-- Cabeça (4 tons de laranja) -->
+  <rect x="9" y="10" width="14" height="1" fill="#cc4515"/>
+  <rect x="7" y="11" width="18" height="1" fill="#ff6b35"/>
+  <rect x="8" y="11" width="3" height="1" fill="#ff9966"/>
+  <rect x="6" y="12" width="20" height="1" fill="#ff8c5a"/>
+  <rect x="7" y="12" width="4" height="1" fill="#ffb38c"/>
+  <rect x="6" y="13" width="20" height="1" fill="#ff8c5a"/>
+  <rect x="6" y="14" width="20" height="1" fill="#ff6b35"/>
+  <rect x="6" y="15" width="20" height="1" fill="#cc4515"/>
+  <!-- Sobrancelhas determinadas -->
+  <rect x="9" y="12" width="3" height="1" fill="#7a2810"/>
+  <rect x="20" y="12" width="3" height="1" fill="#7a2810"/>
+  <!-- Olhos cyan determinados -->
+  <rect x="9" y="13" width="4" height="3" fill="#00f0ff"/>
+  <rect x="19" y="13" width="4" height="3" fill="#00f0ff"/>
+  <rect x="9" y="13" width="3" height="1" fill="#fff"/>
+  <rect x="19" y="13" width="3" height="1" fill="#fff"/>
+  <rect x="11" y="15" width="1" height="1" fill="#4a1078"/>
+  <rect x="21" y="15" width="1" height="1" fill="#4a1078"/>
+  <!-- Bochechas amarelas -->
+  <rect x="5" y="16" width="3" height="2" fill="#ffcc00"/>
+  <rect x="24" y="16" width="3" height="2" fill="#ffcc00"/>
+  <rect x="5" y="16" width="2" height="1" fill="#fff95e"/>
+  <rect x="24" y="16" width="2" height="1" fill="#fff95e"/>
+  <!-- Boca firme -->
+  <rect x="13" y="16" width="6" height="1" fill="#cc4515"/>
+  <rect x="14" y="17" width="4" height="1" fill="#7a2810"/>
+  <!-- Pescoço -->
+  <rect x="13" y="18" width="6" height="1" fill="#ff6b35"/>
+  <!-- Corpo (macacão) -->
+  <rect x="7" y="18" width="6" height="1" fill="#ff8c5a"/>
+  <rect x="19" y="18" width="6" height="1" fill="#ff8c5a"/>
+  <rect x="6" y="19" width="20" height="1" fill="#ff6b35"/>
+  <rect x="6" y="20" width="20" height="1" fill="#ff6b35"/>
+  <rect x="7" y="20" width="3" height="1" fill="#ff8c5a"/>
+  <rect x="6" y="21" width="20" height="1" fill="#cc4515"/>
+  <!-- Cinto com fivela dourada -->
+  <rect x="6" y="22" width="20" height="2" fill="#ffcc00"/>
+  <rect x="13" y="22" width="6" height="2" fill="#cc9900"/>
+  <rect x="15" y="22" width="2" height="2" fill="#664400"/>
+  <!-- Bolsas no cinto -->
+  <rect x="6" y="22" width="2" height="2" fill="#996600"/>
+  <rect x="24" y="22" width="2" height="2" fill="#996600"/>
+  <!-- Mãozinha esquerda com MARTELO -->
+  <rect x="4" y="19" width="2" height="2" fill="#ff8c5a"/>
+  <rect x="0" y="16" width="4" height="3" fill="#cc9900"/>
+  <rect x="0" y="16" width="2" height="1" fill="#ffcc00"/>
+  <rect x="1" y="19" width="2" height="4" fill="#664400"/>
+  <!-- Mãozinha direita com chave inglesa -->
+  <rect x="26" y="19" width="2" height="2" fill="#ff8c5a"/>
+  <rect x="28" y="17" width="2" height="2" fill="#cc9900"/>
+  <rect x="28" y="19" width="1" height="3" fill="#996600"/>
+  <!-- Pernas -->
+  <rect x="9" y="24" width="4" height="2" fill="#cc4515"/>
+  <rect x="19" y="24" width="4" height="2" fill="#cc4515"/>
+  <rect x="9" y="26" width="4" height="2" fill="#7a2810"/>
+  <rect x="19" y="26" width="4" height="2" fill="#7a2810"/>
+  <!-- Botas pesadas -->
+  <rect x="8" y="28" width="6" height="2" fill="#4a1078"/>
+  <rect x="18" y="28" width="6" height="2" fill="#4a1078"/>
+  <rect x="8" y="28" width="6" height="1" fill="#664400"/>
+  <rect x="18" y="28" width="6" height="1" fill="#664400"/>
+</svg>

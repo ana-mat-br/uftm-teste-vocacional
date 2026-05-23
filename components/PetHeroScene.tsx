@@ -5,6 +5,7 @@ import Image from "next/image";
 import { gsap } from "@/lib/motion";
 import WrappedScene from "@/components/WrappedScene";
 import SplitText from "@/components/SplitText";
+import { hueRotateFilter } from "@/lib/hue-codinome";
 
 type Props = {
   active: boolean;
@@ -294,7 +295,7 @@ export default function PetHeroScene({
             priority
             style={{
               filter:
-                "drop-shadow(0 0 22px var(--sun-yellow)) drop-shadow(0 0 40px var(--sun-pink)) drop-shadow(0 0 8px var(--grid-cyan))",
+                `${hueRotateFilter(codinome)} drop-shadow(0 0 22px var(--sun-yellow)) drop-shadow(0 0 40px var(--sun-pink)) drop-shadow(0 0 8px var(--grid-cyan))`.trim(),
             }}
           />
         </div>

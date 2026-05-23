@@ -10,6 +10,7 @@ import Icon from "@/components/Icon";
 import SplitText from "@/components/SplitText";
 import ShareCard from "@/components/ShareCard";
 import { shareOrDownload } from "@/lib/share";
+import { hueRotateFilter } from "@/lib/hue-codinome";
 
 type Alt = {
   nome: string;
@@ -234,7 +235,7 @@ export default function CursoRevealScene({
             className="pixel-sprite opacity-90"
             style={{
               filter:
-                "drop-shadow(0 0 12px var(--sun-yellow)) drop-shadow(0 0 24px var(--sun-pink))",
+                `${hueRotateFilter(codinome)} drop-shadow(0 0 12px var(--sun-yellow)) drop-shadow(0 0 24px var(--sun-pink))`.trim(),
             }}
           />
         </div>
