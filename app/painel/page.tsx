@@ -6,6 +6,7 @@
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { EIXOS, eixoDominante, type VetorEixos } from "@/lib/matching";
 import { AREAS, areaDoCurso, type AreaKey } from "@/lib/areas";
+import { PageNav } from "@/components/PageNav";
 
 export const revalidate = 30;
 
@@ -352,6 +353,8 @@ export default async function PainelPage() {
           cor="var(--text-dim)"
         />
       </section>
+
+      <PageNav current="painel" />
 
       <footer
         className="font-terminal text-xs mt-10 opacity-70 text-center"

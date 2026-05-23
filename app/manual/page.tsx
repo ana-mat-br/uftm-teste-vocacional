@@ -3,7 +3,7 @@
  * Página pública — pra curiosos, docentes, imprensa, qualquer um.
  */
 
-import Link from "next/link";
+import { PageNav } from "@/components/PageNav";
 
 export const metadata = {
   title: "Manual · Protocolo Vocação UFTM",
@@ -246,44 +246,7 @@ export default function ManualPage() {
         </p>
       </Section>
 
-      <div className="mt-12 flex flex-wrap gap-4 justify-center border-t pt-8" style={{ borderColor: "var(--sun-pink)" }}>
-        <Link
-          href="/"
-          className="font-pixel-title text-xs sm:text-sm uppercase tracking-widest px-5 py-3 border-2 transition-transform hover:scale-105"
-          style={{
-            borderColor: "var(--sun-yellow)",
-            color: "var(--sun-yellow)",
-            background: "rgba(255,247,0,0.08)",
-            textShadow: "0 0 8px var(--sun-orange)",
-          }}
-        >
-          ▸ EMBARCAR
-        </Link>
-        <Link
-          href="/galeria"
-          className="font-pixel-title text-xs sm:text-sm uppercase tracking-widest px-5 py-3 border-2 transition-transform hover:scale-105"
-          style={{
-            borderColor: "var(--grid-cyan)",
-            color: "var(--grid-cyan)",
-            background: "rgba(1,205,254,0.08)",
-            textShadow: "0 0 8px var(--grid-cyan)",
-          }}
-        >
-          ▸ TRIPULAÇÃO
-        </Link>
-        <Link
-          href="/painel"
-          className="font-pixel-title text-xs sm:text-sm uppercase tracking-widest px-5 py-3 border-2 transition-transform hover:scale-105"
-          style={{
-            borderColor: "var(--sun-pink)",
-            color: "var(--sun-pink)",
-            background: "rgba(255,46,147,0.08)",
-            textShadow: "0 0 8px var(--sun-pink)",
-          }}
-        >
-          ▸ ESTATÍSTICAS
-        </Link>
-      </div>
+      <PageNav current="manual" />
 
       <footer className="mt-10 text-center">
         <p

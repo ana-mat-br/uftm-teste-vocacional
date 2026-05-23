@@ -8,6 +8,7 @@ import type { EixoSigla } from "@/lib/matching";
 import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
 import { useTintedSprite } from "@/lib/use-tinted-sprite";
+import { PageNav } from "@/components/PageNav";
 
 function TintedSprite({
   sprite,
@@ -223,6 +224,8 @@ export default function GaleriaPage() {
           </button>
         </div>
       )}
+
+      <PageNav current="galeria" />
     </main>
   );
 }
