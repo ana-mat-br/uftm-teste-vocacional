@@ -27,11 +27,28 @@ A ideia: o aluno do Ensino Médio embarca numa missão interplanetária fictíci
 
 ---
 
+## ⚠️ Importante: isso NÃO é um diagnóstico
+
+Antes de qualquer coisa, **leia esse aviso e ajude a gente a comunicá-lo aos alunos durante a feira**:
+
+> **O Protocolo Vocação NÃO é um teste vocacional clínico nem um diagnóstico de personalidade.** É uma **ferramenta lúdica de engajamento e exploração** — uma conversa estruturada que sugere por quais estandes o aluno pode começar a visita. O resultado é uma sugestão de afinidade, não uma definição de carreira.
+
+Por quê esse aviso importa:
+
+- **Não passou por validação psicométrica** (análise fatorial, teste-reteste, amostra normativa). Quem faz isso são instrumentos como o Career Maturity Inventory ou o Strong Interest Inventory — esse aqui é uma versão *gamificada* inspirada em RIASEC (Holland, 1959), não uma réplica.
+- **Não substitui orientação vocacional profissional** com psicólogo(a) ou pedagogo(a).
+- **O resultado é probabilístico** — o sistema mostra os top 3 cursos mais compatíveis, não "o curso certo" pra aquela pessoa. Cabe ao aluno explorar.
+- **As respostas dele em 5-7 minutos não definem o futuro dele** — só sugerem onde começar a conversa.
+
+Esse aviso aparece na carta-resultado (rodapé) e no painel ao vivo, mas pedimos que **a equipe nos estandes reforce verbalmente**: *"esse quiz é pra você descobrir por quais cursos começar a visita — não é um teste oficial nem uma definição"*. Se um aluno chegar dizendo "deu Engenharia pra mim, agora eu vou fazer isso", **redirecione** pra orientação vocacional formal da escola dele.
+
+---
+
 # Como o sistema funciona (sem jargão técnico)
 
 ## A ideia básica
 
-Cada curso da UFTM tem um "perfil" expresso em **7 dimensões de personalidade**. O aluno responde 13 mini-decisões durante a aventura, e cada escolha "pontua" em uma ou mais dessas dimensões. No fim, o sistema compara o perfil acumulado do aluno com o perfil de cada curso — o(s) curso(s) mais parecidos com o aluno é(são) o(s) recomendado(s).
+Cada curso da UFTM tem um "perfil" expresso em **7 dimensões de personalidade**. O aluno responde **15 mini-decisões** durante a aventura (cada uma com 5 opções), e cada escolha "pontua" em uma ou mais dessas dimensões. No fim, o sistema compara o perfil acumulado do aluno com o perfil de cada curso — o(s) curso(s) mais parecidos com o aluno é(são) o(s) recomendado(s).
 
 ## Os 7 eixos de personalidade
 
@@ -53,24 +70,28 @@ Cada curso é descrito por um vetor de 7 números, cada um indo de **0 a 3** (0 
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Medicina | **3** | **3** | 0 | 2 | 2 | 0 | 0 |
-| Enfermagem | **3** | 1 | 1 | 2 | 1 | 1 | 0 |
-| Engenharia Civil | 0 | 1 | **3** | 1 | 1 | 0 | 0 |
-| Banco de Dados | 0 | 0 | 0 | 2 | 0 | 0 | **3** |
+| Medicina | **3** | **3** | 2 | 1 | 1 | 0 | 1 |
+| Enfermagem | **3** | 1 | 2 | 1 | 0 | 0 | 0 |
+| Engenharia Civil | 0 | 1 | **3** | 1 | 2 | 1 | 0 |
+| Banco de Dados | 0 | 0 | 1 | **3** | 0 | 0 | **3** |
 
-Leia "Medicina tem CUI=3 (cuidador máximo) e INV=3 (investigador máximo), com toques de comunicação e transformação social." É essa atribuição que pedimos pra você validar para o(s) curso(s) da sua área.
+Leia "Medicina tem CUI=3 (cuidador máximo) e INV=3 (investigador máximo), com toque de procedimentos técnicos (CON) e tecnologia médica (TEC)." É essa atribuição que pedimos pra você validar para o(s) curso(s) da sua área.
 
 ## Como o aluno é "perfilado"
 
-Durante o quiz, cada opção que o aluno escolhe contribui com pontos para 1-3 eixos. Por exemplo, na Cena "Doença misteriosa", se o aluno escolhe **"Lab AGORA — exames de sangue e imagem, amostras"**, ele ganha 2 pontos em CUI e 2 pontos em INV (postura médica investigativa).
+Durante o quiz, cada opção que o aluno escolhe contribui com pontos para 1-3 eixos. Por exemplo, na Cena "Doença misteriosa", se o aluno escolhe **"Corro pro laboratório fazer exame de sangue — nem chego perto deles antes de saber o que é"**, ele ganha 1 ponto em CUI e 3 pontos em INV (postura médica investigativa).
 
-Ao fim das 13 cenas pontuáveis, o aluno tem um vetor próprio (ex: `[10, 10, 0, 4, 3, 2, 4]`) que é comparado com os 31 vetores dos cursos via **similaridade de cosseno** (uma fórmula que mede a "direção" do perfil, não a "força"). Os 3 cursos mais parecidos em direção são apresentados.
+Ao fim das **15 cenas pontuáveis**, o aluno tem um vetor próprio (ex: `[10, 10, 0, 4, 3, 2, 4]`) que é comparado com os 31 vetores dos cursos via **similaridade de cosseno** (uma fórmula que mede a "direção" do perfil, não a "força"). Os 3 cursos mais parecidos em direção são apresentados.
 
-## O que ele NÃO é
+## O que ele NÃO é (revisitando)
 
-- **Não é um teste psicométrico validado.** Não passou por análise fatorial nem testes de confiabilidade com amostra grande.
-- **Não é diagnóstico.** É uma ferramenta de **engajamento e exploração** — uma conversa estruturada com o aluno.
-- **Funciona como um filtro vocacional informal**, ajudando o aluno a saber por quais estandes começar a visita na feira.
+Vale repetir o aviso da capa, mas agora com cabeça de método:
+
+- **Não é um teste psicométrico validado.** Não passou por análise fatorial, teste-reteste, análise de confiabilidade (α de Cronbach), nem amostra normativa. Os 7 eixos são uma adaptação livre de RIASEC (Holland, 1959) ao contexto UFTM — não são construtos com evidência empírica acumulada.
+- **Não é diagnóstico vocacional, psicológico ou de aptidão.** É uma **ferramenta lúdica de engajamento e exploração** — uma conversa estruturada com o aluno em formato de jogo.
+- **Não substitui orientação vocacional profissional.** Se um aluno mostra dúvida real sobre carreira, encaminhe pra orientação vocacional da escola dele ou pra serviço de psicologia.
+- **O método é um filtro informal**, calibrado pra sugerir por quais estandes da feira começar a visita — não pra responder "qual é a sua vocação".
+- **O algoritmo é simplificado:** similaridade de cosseno entre vetores de 7 dimensões, pesos atribuídos manualmente pela equipe. Não usa aprendizado de máquina nem dados reais de alunos da UFTM (ainda).
 
 Por isso a validação humana é importante: precisamos que docentes da área digam se os perfis fazem sentido institucional, ainda que o método seja simplificado.
 
@@ -115,67 +136,67 @@ Os pesos vão de **0 a 3** em cada eixo. **Em negrito** está o(s) eixo(s) domin
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Medicina | **3** | **3** | 0 | 2 | 2 | 0 | 0 | Uberaba |
-| Enfermagem | **3** | 1 | 1 | 2 | 1 | 1 | 0 | Uberaba |
-| Psicologia | **3** | 2 | 0 | **3** | 1 | 2 | 0 | Uberaba |
-| Fisioterapia | **3** | 1 | 2 | 1 | 1 | 0 | 0 | Uberaba |
-| Terapia Ocupacional | **3** | 1 | 2 | 2 | 0 | 0 | 0 | Uberaba |
+| Medicina | **3** | **3** | 2 | 1 | 1 | 0 | 1 | Uberaba |
+| Enfermagem | **3** | 1 | 2 | 1 | 0 | 0 | 0 | Uberaba |
+| Psicologia | 2 | 2 | 0 | **3** | **3** | 0 | 0 | Uberaba |
+| Fisioterapia | **3** | 2 | **3** | 0 | 1 | 0 | 0 | Uberaba |
+| Terapia Ocupacional | **3** | 0 | **3** | 2 | 0 | 0 | 0 | Uberaba |
 | Nutrição | **3** | 2 | 0 | 0 | 2 | 2 | 0 | Uberaba |
 | Serviço Social | **3** | 1 | 0 | 2 | **3** | 0 | 0 | Uberaba |
-| Ed. Especial e Inclusiva | **3** | 1 | 1 | 2 | 2 | 0 | 0 | Iturama |
+| Ed. Especial e Inclusiva | **3** | 0 | **3** | 2 | **3** | 0 | 0 | Iturama |
 
 ## Investigação / Ciências Naturais
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Biomedicina | 2 | **3** | 0 | 0 | 0 | 1 | 1 | Uberaba/Iturama |
-| Ciências Biológicas | 1 | **3** | 0 | 1 | 1 | **3** | 0 | Uberaba/Iturama |
-| Física | 0 | **3** | 2 | 0 | 0 | 0 | 1 | Uberaba |
+| Biomedicina | 1 | **3** | 0 | 0 | 0 | 1 | 1 | Uberaba/Iturama |
+| Ciências Biológicas | 0 | **3** | 0 | 1 | 1 | **3** | 0 | Uberaba/Iturama |
+| Física | 0 | **3** | 2 | 0 | 1 | 0 | 1 | Uberaba |
 | Química | 1 | **3** | 2 | 0 | 0 | 1 | 0 | Uberaba/Iturama |
 
 ## Engenharias
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Engenharia Civil | 0 | 1 | **3** | 1 | 1 | 0 | 0 | Uberaba |
-| Engenharia Mecânica | 0 | 2 | **3** | 0 | 0 | 0 | 1 | Uberaba |
-| Engenharia Elétrica | 0 | 2 | **3** | 0 | 0 | 0 | 2 | Uberaba |
-| Engenharia Química | 0 | **3** | **3** | 0 | 0 | 1 | 0 | Uberaba |
-| Engenharia de Produção | 0 | 1 | 2 | 2 | 1 | 0 | 2 | Uberaba |
+| Engenharia Civil | 0 | 1 | **3** | 1 | 2 | 1 | 0 | Uberaba |
+| Engenharia Mecânica | 0 | 1 | **3** | 1 | 1 | 0 | 1 | Uberaba |
+| Engenharia Elétrica | 0 | 2 | **3** | 0 | 1 | 0 | **3** | Uberaba |
+| Engenharia Química | 0 | **3** | **3** | 0 | 1 | 1 | 0 | Uberaba |
+| Engenharia de Produção | 0 | 1 | **3** | 2 | 2 | 0 | 1 | Uberaba |
 | Engenharia Ambiental | 0 | 2 | **3** | 0 | 2 | **3** | 0 | Uberaba |
-| Engenharia de Alimentos | 1 | 2 | **3** | 0 | 0 | 2 | 0 | Uberaba |
+| Engenharia de Alimentos | 0 | 2 | **3** | 0 | 0 | 2 | 1 | Uberaba |
 
 ## Tech (Computação + Matemática)
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Banco de Dados | 0 | 0 | 0 | 2 | 0 | 0 | **3** | Uberaba |
-| Inteligência Artificial | 0 | **3** | 2 | 0 | 1 | 0 | **3** | Uberaba |
-| Matemática | 0 | **3** | 0 | 1 | 0 | 0 | **3** | Uberaba |
+| Banco de Dados | 0 | 0 | 1 | **3** | 0 | 0 | **3** | Uberaba |
+| Inteligência Artificial | 0 | 2 | **3** | 1 | 0 | 0 | **3** | Uberaba |
+| Matemática | 0 | **3** | 0 | 0 | 0 | 0 | **3** | Uberaba |
 
 ## Comunicação / Educação
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Letras (PT/ESP) | 1 | 2 | 1 | **3** | 1 | 0 | 0 | Uberaba |
-| Letras (PT/ING) | 1 | 2 | 1 | **3** | 1 | 0 | 0 | Uberaba |
-| Pedagogia | **3** | 1 | 1 | **3** | 2 | 0 | 0 | Uberaba |
+| Letras (PT/ESP) | 1 | 1 | 0 | **3** | 1 | 0 | 0 | Uberaba |
+| Letras (PT/ING) | 1 | 1 | 0 | **3** | 1 | 0 | 0 | Uberaba |
+| Pedagogia | 2 | 1 | 0 | **3** | 2 | 0 | 0 | Uberaba |
 
 ## Humanidades
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
 | História | 1 | 2 | 0 | 2 | **3** | 0 | 0 | Uberaba |
-| Geografia | 1 | 2 | 0 | 1 | **3** | 2 | 1 | Uberaba |
-| Educação Física | 2 | 1 | 2 | 0 | 2 | 1 | 0 | Uberaba |
-| Lic. Ed. do Campo | 2 | 1 | 1 | 2 | **3** | **3** | 0 | Uberaba |
+| Geografia | 0 | 2 | 1 | 0 | **3** | 2 | 0 | Uberaba |
+| Educação Física | 1 | 0 | 2 | 0 | 1 | 1 | 0 | Uberaba |
+| Lic. Ed. do Campo | 2 | 0 | 0 | 1 | **3** | **3** | 0 | Uberaba |
 
 ## Cultivo / Natureza
 
 | Curso | CUI | INV | CON | COM | TRA | CUL | TEC | Campus |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Agronomia | 1 | **3** | **3** | 0 | 0 | **3** | 0 | Uberaba/Iturama |
-| Zootecnia | **3** | **3** | 1 | 0 | 0 | **3** | 0 | Iturama |
+| Agronomia | 0 | 2 | **3** | 0 | 0 | **3** | 0 | Uberaba/Iturama |
+| Zootecnia | **3** | 2 | 1 | 0 | 0 | **3** | 0 | Iturama |
 
 \newpage
 
@@ -185,14 +206,24 @@ Pra cada curso, descrevemos o **tipo de adolescente** que provavelmente teria af
 
 Os 31 perfis detalhados estão no arquivo \texttt{docs/PERSONAS-IDEAIS.md} (publicado no GitHub do projeto e no painel ao vivo).
 
-**Resumo da validação automática:** 29 de 31 cursos foram alcançáveis como "top 1" quando simulamos um aluno escolhendo o caminho ideal para aquele curso. Os 2 que não passaram (Serviço Social e Banco de Dados) saem como "top 2" ou "top 3" — ainda aparecem como alternativas pra o aluno.
+**Resumo da validação automática (matriz v0.4, maio/2026):**
+
+- **Greedy (aluno "ideal-fit"):** 27 de 31 cursos saem como **top 1** quando simulamos um aluno escolhendo sempre a melhor opção pra aquele curso.
+- **Monte Carlo (aluno "típico", 1000 simulações por curso, temperatura T=1.0):**
+  - **22 de 31 cursos** atingem ≥70% de acerto no **top 1**
+  - **29 de 31 cursos** atingem ≥90% de chance de aparecer no **top 3**
+  - Top 3 médio: **98.1%** — ou seja, em praticamente toda simulação o curso esperado aparece entre os 3 sugeridos
+
+Os ~9 cursos com top 1 mais baixo são confusões "intra-família" (Medicina ↔ Biomedicina, IA ↔ Eng. Elétrica, Psicologia ↔ Pedagogia, Química ↔ Física, Eng. Química ↔ Física) — em todos esses casos o curso esperado **está no top 3**, e a UI mostra os 3 cards lado a lado + tem uma cena extra de "desempate" quando o resultado é ambíguo.
+
+**O script Monte Carlo está em** \texttt{scripts/monte-carlo.ts} **e pode ser rodado novamente** após qualquer ajuste de matriz pra medir o impacto: `npx tsx scripts/monte-carlo.ts`.
 
 \newpage
 
 # Apêndice C: O que vai acontecer durante a feira
 
 - O aluno escaneia um **QR code** no estande UFTM e entra no quiz no celular dele.
-- Joga ~6 minutos.
+- Joga **5–7 minutos** (15 cenas pontuáveis + abertura + resultado).
 - Recebe o resultado: 3 cursos compatíveis + 1 "copiloto IA" personalizado (texto gerado por IA — Claude Haiku).
 - Tem opção de compartilhar nas redes sociais (Stories Instagram, WhatsApp, X).
 - Tem opção de marcar "sim / mais ou menos / não" sobre o resultado — esse feedback alimenta o **painel ao vivo** que mostra estatísticas agregadas, sem identificar ninguém.
@@ -200,6 +231,14 @@ Os 31 perfis detalhados estão no arquivo \texttt{docs/PERSONAS-IDEAIS.md} (publ
 **Privacidade:** zero dado pessoal é coletado. O aluno joga com um codinome gerado pelo sistema (ex: "ESTRELA-7"). Não pede nome, email, escola.
 
 **Painel ao vivo na feira:** https://uftm-teste-vocacional.vercel.app/painel
+
+## ⚠️ O que pedir pra equipe nos estandes reforçar
+
+Quando o aluno terminar e mostrar o resultado, vale a equipe do estande dizer alguma versão de:
+
+> *"Esse quiz é uma brincadeira pra você descobrir por quais cursos começar a visita aqui na feira — não é um teste oficial, nem uma definição de carreira. Vai nos 3 estandes que apareceram pra você, conversa com a galera lá, e depois decide com calma."*
+
+Se um aluno chegar visivelmente abalado ("deu Engenharia e eu queria Medicina", "não combina nada comigo"), **acolha + redirecione** pra orientação vocacional da escola dele. O quiz é divertido, mas pra dúvida real de carreira existe gente especializada.
 
 \newpage
 

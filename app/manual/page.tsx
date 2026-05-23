@@ -89,11 +89,24 @@ export default function ManualPage() {
 
       <Section num="01" title="O QUE É" color="var(--grid-cyan)">
         <ul className="list-none space-y-2">
-          <li>▸ Uma aventura de <strong>13 cenas</strong> no ano 2087.</li>
+          <li>▸ Uma aventura de <strong>15 cenas</strong> no ano 2087.</li>
           <li>▸ Cada escolha sua pontua em <strong>7 eixos de personalidade</strong>.</li>
           <li>▸ No fim, mostra <strong>1 curso UFTM como match top</strong> + 2 alternativos.</li>
           <li>▸ Você ganha um <strong>copiloto-IA</strong> em pixel art pra compartilhar.</li>
         </ul>
+        <div
+          className="mt-5 px-4 py-3 border-2 border-dashed"
+          style={{ borderColor: "var(--sun-pink)", background: "rgba(255,46,147,0.06)" }}
+        >
+          <p className="font-terminal text-xs uppercase tracking-widest mb-1" style={{ color: "var(--sun-pink)" }}>
+            ⚠ ATENÇÃO
+          </p>
+          <p className="text-sm leading-relaxed">
+            Isso aqui é uma <strong>brincadeira pra te ajudar a explorar</strong> — não é um teste vocacional
+            oficial nem um diagnóstico. O resultado sugere por quais cursos começar a visita na feira,
+            não define sua carreira. Pra dúvida real, procura orientação vocacional na sua escola.
+          </p>
+        </div>
       </Section>
 
       <Section num="02" title="OS 7 EIXOS" color="var(--sun-yellow)">
@@ -126,11 +139,11 @@ export default function ManualPage() {
         <ol className="list-none space-y-3">
           <li>
             <strong style={{ color: "var(--sun-yellow)" }}>1. Você joga</strong>{" "}
-            — escolhe entre 4-6 opções em cada uma das 13 cenas.
+            — escolhe entre 5 opções em cada uma das 15 cenas.
           </li>
           <li>
             <strong style={{ color: "var(--sun-yellow)" }}>2. Cada opção pontua 1-3 eixos</strong>{" "}
-            — ex: &quot;lab AGORA, exames de sangue&quot; dá +2 CUI e +2 INV
+            — ex: &quot;corro pro laboratório fazer exame de sangue&quot; dá +1 CUI e +3 INV
             (perfil médico-investigativo).
           </li>
           <li>
@@ -178,7 +191,7 @@ export default function ManualPage() {
             <p className="text-sm">
               Pra cada um dos <strong>31 cursos</strong>, o script monta a &quot;persona perfeita&quot;
               (escolhe em cada cena a opção que mais ajuda esse curso) e verifica se ele
-              sai como top 1. <strong className="text-[var(--mint)]">Resultado atual: 31/31 ✓</strong>
+              sai como top 1. <strong className="text-[var(--mint)]">Atual: 27/31 ✓</strong>
             </p>
           </div>
           <div
@@ -186,18 +199,34 @@ export default function ManualPage() {
             style={{ borderColor: "var(--grid-cyan)", background: "rgba(1,205,254,0.06)" }}
           >
             <p className="font-terminal text-xs uppercase tracking-widest mb-1" style={{ color: "var(--grid-cyan)" }}>
-              ▸ probabilidades (Monte Carlo)
+              ▸ Monte Carlo (1000 alunos × 31 cursos)
             </p>
             <p className="text-sm">
-              Simula <strong>10.000 alunos</strong> escolhendo aleatoriamente e mede com
-              que frequência cada curso aparece. Garante que nenhum curso fica com
-              0% — todos têm chance real de serem alcançados.
+              Simula 1000 alunos &quot;típicos&quot; por curso com escolhas probabilísticas
+              (softmax). Mede chance do curso esperado cair no top 1 e no top 3.{" "}
+              <strong className="text-[var(--grid-cyan)]">Atual: 22/31 top 1 (média 76%)</strong> ·{" "}
+              <strong className="text-[var(--grid-cyan)]">29/31 top 3 (média 98%)</strong>.
             </p>
           </div>
         </div>
+        <p className="mt-4 text-sm text-[var(--text-dim)]">
+          As confusões restantes acontecem entre cursos da mesma família (Medicina ↔ Biomedicina,
+          IA ↔ Eng. Elétrica, Psicologia ↔ Pedagogia) — em todos os casos o curso esperado{" "}
+          <strong>aparece no top 3</strong>, então o aluno vê ele entre os sugeridos.
+        </p>
       </Section>
 
-      <Section num="06" title="PRIVACIDADE" color="var(--mint)">
+      <Section num="06" title="O QUE NÃO É" color="var(--sun-pink)">
+        <ul className="list-none space-y-2">
+          <li>▸ <strong>Não é diagnóstico vocacional.</strong> É uma conversa estruturada em formato de jogo.</li>
+          <li>▸ <strong>Não passou por validação psicométrica</strong> (análise fatorial, teste-reteste, amostra normativa).</li>
+          <li>▸ <strong>Não substitui orientação vocacional profissional</strong> — pra dúvida real, procura psicólogo(a) ou pedagogo(a).</li>
+          <li>▸ <strong>O resultado é probabilístico</strong> — mostra os 3 mais compatíveis, não &quot;o curso certo&quot; pra você.</li>
+          <li>▸ <strong>Seu futuro não cabe em 5 minutos de jogo</strong> — use isso só pra explorar.</li>
+        </ul>
+      </Section>
+
+      <Section num="07" title="PRIVACIDADE" color="var(--mint)">
         <ul className="list-none space-y-2">
           <li>▸ <strong>Zero dado pessoal</strong> — não pedimos nome, email, idade, escola.</li>
           <li>▸ Cada aluno ganha um <strong>codinome aleatório</strong> (ex: SUPERNOVA-3).</li>
@@ -206,7 +235,7 @@ export default function ManualPage() {
         </ul>
       </Section>
 
-      <Section num="07" title="OPERAÇÃO 7" color="var(--sun-pink)">
+      <Section num="08" title="OPERAÇÃO 8" color="var(--sun-pink)">
         <p>
           Projeto desenvolvido pela <strong>PROPPG-UFTM</strong> por{" "}
           <strong style={{ color: "var(--sun-yellow)" }}>Hebert × Ana</strong>{" "}
