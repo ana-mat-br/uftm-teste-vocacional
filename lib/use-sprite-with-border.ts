@@ -11,7 +11,7 @@ const FINAL = SIZE + BORDER * 2;
 
 const cache = new Map<string, Promise<string>>();
 
-async function tintAndOutline(
+export async function tintAndOutline(
   spriteUrl: string,
   accent: string,
 ): Promise<string> {
