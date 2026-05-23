@@ -29,7 +29,7 @@ export const CURSOS: Curso[] = [
   { nome: "Terapia Ocupacional", papelMissao: "Posto de Adaptação à Rotina", vetor: [3, 1, 2, 2, 0, 0, 0], campus: "Uberaba" },
   { nome: "Nutrição", papelMissao: "Posto de Sustento Vital", vetor: [3, 2, 0, 0, 2, 2, 0], campus: "Uberaba" },
   { nome: "Serviço Social", papelMissao: "Defesa de Direitos da Tripulação", vetor: [3, 1, 0, 2, 3, 0, 0], campus: "Uberaba" },
-  { nome: "Educação Especial e Inclusiva", papelMissao: "Especialista em Inclusão", vetor: [3, 1, 1, 2, 2, 0, 0], campus: "Iturama" },
+  { nome: "Educação Especial e Inclusiva", papelMissao: "Especialista em Inclusão", vetor: [3, 0, 2, 3, 2, 0, 0], campus: "Iturama" },
 
   // === Investigação / Ciências Naturais ===
   { nome: "Biomedicina", papelMissao: "Pesquisa de Vida Alienígena", vetor: [2, 3, 0, 0, 0, 1, 1], campus: "Uberaba/Iturama" },
@@ -47,7 +47,7 @@ export const CURSOS: Curso[] = [
   { nome: "Engenharia de Alimentos", papelMissao: "Engenharia de Suprimentos", vetor: [1, 2, 3, 0, 0, 2, 0], campus: "Uberaba" },
 
   // === Decifrador / Computação + Dados + Matemática ===
-  { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 0, 0, 2, 0, 0, 3], campus: "Uberaba" },
+  { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 1, 0, 2, 0, 0, 3], campus: "Uberaba" },
   { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 3, 2, 0, 1, 0, 3], campus: "Uberaba" },
   { nome: "Matemática", papelMissao: "Estrategista de Rotas", vetor: [0, 3, 0, 1, 0, 0, 3], campus: "Uberaba" },
 

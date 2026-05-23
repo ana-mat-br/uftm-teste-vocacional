@@ -3,7 +3,7 @@
     "curso": "Medicina",
     "escolhas": [
       1,
-      1,
+      4,
       3,
       0,
       2,
@@ -41,7 +41,7 @@
     "curso": "Psicologia",
     "escolhas": [
       1,
-      1,
+      4,
       2,
       0,
       0,
@@ -98,7 +98,7 @@
     "curso": "Nutrição",
     "escolhas": [
       3,
-      1,
+      4,
       3,
       0,
       3,
@@ -119,7 +119,7 @@
       1,
       0,
       3,
-      0,
+      2,
       2,
       2,
       3,
@@ -137,17 +137,17 @@
     "escolhas": [
       1,
       0,
-      3,
+      2,
       0,
       2,
       2,
       0,
       1,
-      1,
       3,
       3,
+      3,
       1,
-      0
+      3
     ],
     "topEsperado": "Educação Especial e Inclusiva"
   },
@@ -155,7 +155,7 @@
     "curso": "Biomedicina",
     "escolhas": [
       0,
-      1,
+      4,
       0,
       1,
       0,
@@ -174,7 +174,7 @@
     "curso": "Ciências Biológicas",
     "escolhas": [
       3,
-      3,
+      4,
       0,
       3,
       3,
@@ -193,14 +193,14 @@
     "curso": "Física",
     "escolhas": [
       0,
-      3,
+      1,
       0,
       1,
       1,
       1,
       2,
       1,
-      5,
+      0,
       0,
       2,
       0,
@@ -212,7 +212,7 @@
     "curso": "Química",
     "escolhas": [
       0,
-      3,
+      4,
       1,
       3,
       1,
@@ -231,7 +231,7 @@
     "curso": "Engenharia Civil",
     "escolhas": [
       2,
-      2,
+      1,
       1,
       2,
       1,
@@ -250,7 +250,7 @@
     "curso": "Engenharia Mecânica",
     "escolhas": [
       0,
-      2,
+      1,
       1,
       1,
       1,
@@ -269,7 +269,7 @@
     "curso": "Engenharia Elétrica",
     "escolhas": [
       0,
-      2,
+      1,
       0,
       1,
       1,
@@ -288,7 +288,7 @@
     "curso": "Engenharia Química",
     "escolhas": [
       0,
-      2,
+      1,
       1,
       3,
       1,
@@ -307,7 +307,7 @@
     "curso": "Engenharia de Produção",
     "escolhas": [
       0,
-      2,
+      1,
       0,
       1,
       1,
@@ -318,7 +318,7 @@
       0,
       3,
       3,
-      1
+      5
     ],
     "topEsperado": "Engenharia de Produção"
   },
@@ -326,7 +326,7 @@
     "curso": "Engenharia Ambiental",
     "escolhas": [
       3,
-      4,
+      3,
       1,
       3,
       3,
@@ -345,7 +345,7 @@
     "curso": "Engenharia de Alimentos",
     "escolhas": [
       3,
-      2,
+      1,
       1,
       3,
       1,
@@ -363,8 +363,8 @@
   {
     "curso": "Banco de Dados",
     "escolhas": [
-      1,
       0,
+      2,
       0,
       1,
       0,
@@ -372,10 +372,10 @@
       1,
       0,
       5,
-      0,
+      2,
       2,
       3,
-      1
+      5
     ],
     "topEsperado": "Banco de Dados"
   },
@@ -383,7 +383,7 @@
     "curso": "Inteligência Artificial",
     "escolhas": [
       0,
-      3,
+      1,
       0,
       1,
       1,
@@ -402,7 +402,7 @@
     "curso": "Matemática",
     "escolhas": [
       0,
-      3,
+      2,
       0,
       1,
       0,
@@ -413,7 +413,7 @@
       2,
       2,
       0,
-      2
+      5
     ],
     "topEsperado": "Matemática"
   },
@@ -422,7 +422,7 @@
     "grupo": "Letras",
     "escolhas": [
       1,
-      1,
+      2,
       2,
       0,
       0,
@@ -442,7 +442,7 @@
     "grupo": "Letras",
     "escolhas": [
       1,
-      1,
+      2,
       2,
       0,
       0,
@@ -480,7 +480,7 @@
     "curso": "História",
     "escolhas": [
       2,
-      1,
+      2,
       3,
       2,
       4,
@@ -499,7 +499,7 @@
     "curso": "Geografia",
     "escolhas": [
       2,
-      1,
+      4,
       3,
       2,
       4,
@@ -537,7 +537,7 @@
     "curso": "Licenciatura em Educação do Campo",
     "escolhas": [
       3,
-      4,
+      3,
       3,
       2,
       3,
@@ -556,7 +556,7 @@
     "curso": "Agronomia",
     "escolhas": [
       3,
-      2,
+      1,
       1,
       3,
       1,
@@ -575,7 +575,7 @@
     "curso": "Zootecnia",
     "escolhas": [
       3,
-      1,
+      4,
       0,
       3,
       3,
