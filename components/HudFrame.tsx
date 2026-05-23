@@ -37,9 +37,11 @@ export default function HudFrame() {
           from { transform: rotate(0deg); }
           to   { transform: rotate(360deg); }
         }
-        @keyframes hudBlip {
-          0%, 70%, 100% { opacity: 0; }
-          85%           { opacity: 1; }
+        @keyframes hudBlipDyn {
+          0%   { opacity: 0; transform: scale(0.3); }
+          25%  { opacity: 1; transform: scale(1.6); }
+          50%  { opacity: 0.95; transform: scale(1); }
+          100% { opacity: 0.55; transform: scale(1); }
         }
         @keyframes hudBarPulse {
           0%, 100% { filter: brightness(0.95); }
@@ -47,9 +49,11 @@ export default function HudFrame() {
         }
         .hud-led { animation: hudLedPulse 1.6s ease-in-out infinite; }
         .hud-radar-sweep { transform-origin: 50% 50%; animation: hudRadarSweep 4s linear infinite; }
-        .hud-blip { animation: hudBlip 2.2s ease-in-out infinite; }
-        .hud-blip-2 { animation-delay: 0.6s; }
-        .hud-blip-3 { animation-delay: 1.2s; }
+        .hud-blip-dyn {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: hudBlipDyn 1.4s ease-out forwards;
+        }
         .hud-bar { animation: hudBarPulse 2.4s ease-in-out infinite; }
       `}</style>
     </div>
@@ -144,9 +148,51 @@ function SidebarRight() {
   );
 }
 
-/* === RADAR no canto sup direito === */
+/* === RADAR no canto sup direito (blips dinâmicos, posições aleatórias) === */
+
+const BLIP_COLORS = [
+  "var(--sun-yellow)",
+  "var(--sun-pink)",
+  "var(--grid-cyan)",
+  "var(--sun-orange)",
+];
+
+type Blip = { id: number; x: number; y: number; r: number; color: string };
+
+let blipCounter = 0;
+function randomBlip(): Blip {
+  // Coords polares pra garantir dentro do círculo (margem interna 6)
+  const radius = Math.random() * 40 + 6;
+  const theta = Math.random() * 2 * Math.PI;
+  return {
+    id: ++blipCounter,
+    x: 50 + radius * Math.cos(theta),
+    y: 50 + radius * Math.sin(theta),
+    r: Math.random() * 1.2 + 1.2, // tamanho 1.2-2.4
+    color: BLIP_COLORS[Math.floor(Math.random() * BLIP_COLORS.length)],
+  };
+}
 
 function Radar() {
+  // Começa com 5 blips em posições aleatórias
+  const [blips, setBlips] = useState<Blip[]>(() =>
+    Array.from({ length: 5 }, randomBlip),
+  );
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setBlips((curr) => {
+        // Troca 1 dos blips por um novo (posição/cor/tamanho aleatórios)
+        // — key muda → re-mount → re-trigger animation
+        const next = [...curr];
+        const i = Math.floor(Math.random() * next.length);
+        next[i] = randomBlip();
+        return next;
+      });
+    }, 600);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="absolute top-14 right-10 w-56 h-56 xl:w-72 xl:h-72 opacity-75">
       <svg viewBox="0 0 100 100" width="100%" height="100%">
@@ -172,13 +218,27 @@ function Radar() {
           <line x1="50" y1="50" x2="50" y2="2" stroke="var(--mint)" strokeWidth="1" />
         </g>
 
-        {/* Blips */}
-        <circle cx="35" cy="40" r="1.5" fill="var(--sun-yellow)" className="hud-blip" />
-        <circle cx="65" cy="62" r="1.5" fill="var(--sun-pink)" className="hud-blip hud-blip-2" />
-        <circle cx="56" cy="28" r="1.5" fill="var(--grid-cyan)" className="hud-blip hud-blip-3" />
+        {/* Blips dinâmicos — key=id força re-mount a cada troca, re-disparando o blink */}
+        {blips.map((b) => (
+          <circle
+            key={b.id}
+            cx={b.x}
+            cy={b.y}
+            r={b.r}
+            fill={b.color}
+            className="hud-blip-dyn"
+            style={{ filter: `drop-shadow(0 0 4px ${b.color})` }}
+          />
+        ))}
 
         {/* Centro */}
-        <circle cx="50" cy="50" r="1.5" fill="var(--mint)" />
+        <circle
+          cx="50"
+          cy="50"
+          r="1.8"
+          fill="var(--mint)"
+          style={{ filter: "drop-shadow(0 0 6px var(--mint))" }}
+        />
       </svg>
     </div>
   );
@@ -248,23 +308,87 @@ function StatusBar({
   );
 }
 
-/* === CRÉDITOS (acima das barras) === */
+/* === CRÉDITOS (TX-LOG ciclando estilo broadcast da nave) === */
+
+type TxEntry = {
+  tag: string;
+  tagColor: string;
+  message: React.ReactNode;
+};
+
+const TX_LOG: TxEntry[] = [
+  {
+    tag: "[TX-01]",
+    tagColor: "var(--grid-cyan)",
+    message: (
+      <>
+        <span style={{ color: "var(--mint)" }}>UFTM-KEPLER</span> · protocolo vocação{" "}
+        <span style={{ color: "var(--mint)" }}>ATIVO</span>
+      </>
+    ),
+  },
+  {
+    tag: "[TX-02]",
+    tagColor: "var(--sun-yellow)",
+    message: (
+      <>
+        dev team:{" "}
+        <span style={{ color: "var(--sun-yellow)" }}>HEBERT × ANA</span> ·{" "}
+        <span style={{ color: "var(--mint)" }}>ONLINE</span>
+      </>
+    ),
+  },
+  {
+    tag: "[TX-03]",
+    tagColor: "var(--sun-pink)",
+    message: (
+      <>
+        base orbital:{" "}
+        <span style={{ color: "var(--sun-pink)" }}>PROPPG-UFTM</span> · 2026
+      </>
+    ),
+  },
+  {
+    tag: "[TX-04]",
+    tagColor: "var(--sun-orange)",
+    message: (
+      <>
+        missão{" "}
+        <span style={{ color: "var(--sun-orange)" }}>// OPERAÇÃO 7</span> · feira de
+        profissões · embarque liberado
+      </>
+    ),
+  },
+];
 
 function Credits() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % TX_LOG.length);
+        setVisible(true);
+      }, 200);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  const entry = TX_LOG[idx];
+
   return (
     <div
-      className="absolute bottom-12 left-1/2 -translate-x-1/2 font-terminal text-sm uppercase tracking-widest opacity-75 whitespace-nowrap"
-      style={{ color: "var(--text-dim)" }}
+      className="absolute bottom-12 left-1/2 -translate-x-1/2 font-terminal text-sm uppercase tracking-widest whitespace-nowrap flex items-center gap-3 transition-opacity duration-200"
+      style={{ color: "var(--text-dim)", opacity: visible ? 0.9 : 0 }}
     >
-      <span style={{ color: "var(--grid-cyan)" }}>UFTM</span>
-      {" · "}
-      Feira de Profissões 2026
-      {" · "}
-      <span style={{ color: "var(--sun-yellow)" }}>// OPERAÇÃO 7</span>
-      {" · "}
-      HEBERT × ANA
-      {" · "}
-      <span style={{ color: "var(--sun-pink)" }}>PROPPG-UFTM</span>
+      <span style={{ color: entry.tagColor }}>{entry.tag}</span>
+      <span style={{ color: "var(--mint)" }}>▸</span>
+      <span>{entry.message}</span>
+      <span className="tagline-cursor" aria-hidden>
+        ▮
+      </span>
     </div>
   );
 }

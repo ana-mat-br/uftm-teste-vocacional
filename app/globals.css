@@ -258,28 +258,21 @@ html::-webkit-scrollbar {
 }
 .anim-flicker { animation: flicker 8s infinite; }
 
-/* === Tagline sci-fi: decode word-by-word + terminal cursor === */
+/* === Tagline sci-fi: slot-machine reveal (mesmo da revelação do curso) === */
 .tagline-decode {
   text-shadow: 0 0 12px rgba(5, 255, 161, 0.15);
 }
-.tagline-word {
+.tagline-letter {
   display: inline-block;
-  will-change: opacity, filter, transform;
-}
-.tagline-cursor {
-  display: inline-block;
-  margin-left: 0.15em;
-  color: var(--mint);
-  text-shadow: 0 0 8px var(--mint);
-  animation: taglineCursor 0.85s step-end infinite;
-}
-@keyframes taglineCursor {
-  0%, 50%   { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  will-change: contents;
+  /* Inicia invisível (autoAlpha do GSAP usa visibility+opacity) — assim não
+     aparece nenhum char antes do slot-machine começar */
+  visibility: hidden;
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .anim-float, .anim-pulse, .anim-flicker, .tagline-cursor {
+  .anim-float, .anim-pulse, .anim-flicker {
     animation: none;
   }
   .vapor-sun::after { display: none; }

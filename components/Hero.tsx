@@ -30,8 +30,10 @@ export default function Hero() {
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const letters = titleRef.current?.querySelectorAll<HTMLElement>(".hero-letter") ?? [];
-      const taglineWords =
-        taglineRef.current?.querySelectorAll<HTMLElement>(".tagline-word") ?? [];
+      const taglineLetters =
+        taglineRef.current?.querySelectorAll<HTMLElement>(".tagline-letter") ?? [];
+      // Captura o texto final ANTES da animação começar (vai ser sobrescrito por chars random)
+      const finalChars = Array.from(taglineLetters).map((el) => el.textContent ?? "");
 
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       tl.from(headerRef.current, { opacity: 0, y: -8, duration: 0.5 }, 0.1)
@@ -45,20 +47,44 @@ export default function Hero() {
           },
           "+=0.05",
         )
-        .from(subtitleRef.current, { opacity: 0, duration: 0.4 }, "-=0.1")
-        .from(
-          taglineWords,
+        .from(subtitleRef.current, { opacity: 0, duration: 0.4 }, "-=0.1");
+
+      // Slot-machine reveal na tagline (mesmo efeito da revelação do curso).
+      // Cada letra começa invisível (CSS visibility:hidden) e só aparece quando
+      // o seu próprio tick começa — já com char random, nunca com o texto final.
+      const SLOT_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
+      const SLOT_DURATION = 0.35;
+      const SLOT_STAGGER = 0.018;
+      taglineLetters.forEach((letter, i) => {
+        const final = finalChars[i];
+        if (!final || final.trim() === "") return; // pula espaços
+        const obj = { tick: 0 };
+        tl.to(
+          obj,
           {
-            opacity: 0,
-            y: 6,
-            filter: "blur(8px)",
-            duration: 0.5,
-            stagger: 0.05,
-            ease: "power3.out",
+            tick: 12,
+            duration: SLOT_DURATION,
+            ease: "power2.out",
+            onStart: () => {
+              letter.textContent =
+                SLOT_POOL[Math.floor(Math.random() * SLOT_POOL.length)];
+              // Reverte o inline visibility:hidden/opacity:0 do SSR direto
+              letter.style.visibility = "visible";
+              letter.style.opacity = "1";
+            },
+            onUpdate: () => {
+              letter.textContent =
+                SLOT_POOL[Math.floor(Math.random() * SLOT_POOL.length)];
+            },
+            onComplete: () => {
+              letter.textContent = final;
+            },
           },
-          "-=0.1",
-        )
-        .from(
+          i === 0 ? "+=0.05" : `-=${SLOT_DURATION - SLOT_STAGGER}`,
+        );
+      });
+
+      tl.from(
           ctaRef.current,
           { opacity: 0, y: 12, scale: 0.96, duration: 0.5 },
           "+=0.1",
@@ -159,23 +185,14 @@ export default function Hero() {
             className="font-pixel-body text-lg md:text-xl lg:text-2xl mb-8 max-w-sm lg:max-w-md leading-relaxed text-center lg:text-left tagline-decode"
             style={{ color: "var(--text)" }}
           >
-            <span className="tagline-word">ano</span>{" "}
-            <span className="tagline-word" style={{ color: "var(--sun-yellow)" }}>2087</span>
-            <span className="tagline-word">.</span>
+            <TaglineSegment text="ano " />
+            <TaglineSegment text="2087" color="var(--sun-yellow)" />
+            <TaglineSegment text="." />
             <br />
-            <span className="tagline-word">kepler-186f</span>{" "}
-            <span className="tagline-word">te</span>{" "}
-            <span className="tagline-word">espera.</span>
+            <TaglineSegment text="kepler-186f te espera." />
             <br />
-            <span className="tagline-word" style={{ color: "var(--sun-pink)" }}>6</span>{" "}
-            <span className="tagline-word" style={{ color: "var(--sun-pink)" }}>minutos</span>{" "}
-            <span className="tagline-word">pra</span>{" "}
-            <span className="tagline-word">descobrir</span>{" "}
-            <span className="tagline-word">seu</span>{" "}
-            <span className="tagline-word">papel</span>{" "}
-            <span className="tagline-word">a</span>{" "}
-            <span className="tagline-word">bordo.</span>
-            <span className="tagline-cursor" aria-hidden>▮</span>
+            <TaglineSegment text="6 minutos" color="var(--sun-pink)" />
+            <TaglineSegment text=" pra descobrir seu papel a bordo." />
           </p>
 
           <div ref={ctaRef}>
@@ -216,5 +233,29 @@ export default function Hero() {
         // OPERAÇÃO7 HEBERT×ANA · PROPPG-UFTM
       </footer>
     </main>
+  );
+}
+
+/* === Segmento da tagline: divide texto em letras pro slot-machine GSAP === */
+
+function TaglineSegment({ text, color }: { text: string; color?: string }) {
+  return (
+    <span style={color ? { color } : undefined}>
+      {text.split("").map((c, i) =>
+        c === " " ? (
+          <span key={i}> </span>
+        ) : (
+          // visibility:hidden inline → garante invisibilidade desde o SSR,
+          // antes do CSS carregar / antes do GSAP rodar (sem flash de hidratação)
+          <span
+            key={i}
+            className="tagline-letter inline-block"
+            style={{ visibility: "hidden", opacity: 0 }}
+          >
+            {c}
+          </span>
+        ),
+      )}
+    </span>
   );
 }
