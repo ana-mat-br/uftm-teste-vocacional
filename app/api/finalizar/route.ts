@@ -46,15 +46,57 @@ export async function POST(request: Request) {
   const eixo = eixoDominante(body.vetor);
 
   // 2) Gera bixinho (Haiku primeiro, fallback se falhar)
+  //    Faz dedupe: se nome já existe no Supabase, retenta até 2x pedindo pro Haiku
+  //    evitar nomes específicos. Em último caso, sufixa com "-2", "-3"…
   let bixinho: BixinhoGerado;
   let bixinhoFonte: "llm" | "fallback" = "llm";
+  const sbCheck = (() => {
+    try {
+      return getSupabaseAdmin();
+    } catch {
+      return null;
+    }
+  })();
+  async function nomeJaExiste(nome: string): Promise<boolean> {
+    if (!sbCheck) return false;
+    const { data, error } = await sbCheck
+      .from("sessoes")
+      .select("id")
+      .eq("bixinho_nome", nome)
+      .limit(1);
+    if (error) return false;
+    return (data?.length ?? 0) > 0;
+  }
+  const evitarNomes: string[] = [];
   try {
-    bixinho = await gerarBixinho({
-      codinome: body.codinome,
-      vetor: body.vetor,
-      cursoTop: top3[0].nome,
-      eixoDominante: eixo,
-    });
+    for (let tentativa = 0; tentativa < 3; tentativa++) {
+      const candidato = await gerarBixinho({
+        codinome: body.codinome,
+        vetor: body.vetor,
+        cursoTop: top3[0].nome,
+        eixoDominante: eixo,
+        evitarNomes,
+      });
+      if (!(await nomeJaExiste(candidato.bixinho_nome))) {
+        bixinho = candidato;
+        break;
+      }
+      evitarNomes.push(candidato.bixinho_nome);
+    }
+    if (!bixinho!) {
+      // Haiku insistiu em nomes duplicados — sufixa o último candidato
+      let sufixo = 2;
+      let nomeFinal = `${evitarNomes[evitarNomes.length - 1]}-${sufixo}`;
+      while (await nomeJaExiste(nomeFinal)) {
+        sufixo += 1;
+        nomeFinal = `${evitarNomes[evitarNomes.length - 1]}-${sufixo}`;
+      }
+      bixinho = {
+        bixinho_nome: nomeFinal,
+        personalidade: "co-piloto de série limitada, único na frota",
+        msg_despedida: `boa, ${body.codinome}. me leva nessa viagem que eu te puxo pra cima.`,
+      };
+    }
   } catch (e) {
     console.error("[finalizar] Haiku falhou, usando fallback:", e);
     bixinho = gerarBixinhoFallback(eixo, body.codinome);

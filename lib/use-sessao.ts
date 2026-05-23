@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { gerarCodinome } from "./codinome";
+import { gerarCodinomeCandidato } from "./codinome";
 import type { VetorEixos } from "./matching";
 import {
   carregarSessao,
@@ -24,10 +24,21 @@ export function useSessao() {
     setCarregando(false);
   }, []);
 
-  /** Inicia nova sessão (gera codinome) e retorna ela. */
-  const iniciar = useCallback((): Sessao => {
+  /**
+   * Inicia nova sessão. Tenta pedir um codinome único pra `/api/codinome`;
+   * se falhar (offline/erro), gera um candidato local sem checar.
+   */
+  const iniciar = useCallback(async (): Promise<Sessao> => {
+    let codinome: string;
+    try {
+      const r = await fetch("/api/codinome", { method: "POST" });
+      const json = (await r.json()) as { codinome?: string };
+      codinome = json.codinome ?? gerarCodinomeCandidato();
+    } catch {
+      codinome = gerarCodinomeCandidato();
+    }
     const nova: Sessao = {
-      codinome: gerarCodinome(),
+      codinome,
       iniciadoEm: Date.now(),
       vetor: vetorZerado(),
       respostas: [],

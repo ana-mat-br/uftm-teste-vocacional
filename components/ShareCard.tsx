@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useState } from "react";
-import { hueFromCodinome } from "@/lib/hue-codinome";
+import { useTintedSprite } from "@/lib/use-tinted-sprite";
 
 type Props = {
   codinome: string;
@@ -22,7 +22,7 @@ const SPRITE_PX = 560;
  * então renderiza no tamanho do viewBox. Pintando no canvas a gente garante
  * o tamanho final antes do snapshot.
  */
-function useRasterizedSprite(spriteUrl: string, hueDeg: number): string | null {
+function useRasterizedSprite(spriteUrl: string): string | null {
   const [dataUrl, setDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,9 +37,6 @@ function useRasterizedSprite(spriteUrl: string, hueDeg: number): string | null {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
       ctx.imageSmoothingEnabled = false;
-      if (hueDeg !== 0) {
-        ctx.filter = `hue-rotate(${hueDeg}deg)`;
-      }
       ctx.drawImage(img, 0, 0, SPRITE_PX, SPRITE_PX);
       try {
         setDataUrl(canvas.toDataURL("image/png"));
@@ -54,7 +51,7 @@ function useRasterizedSprite(spriteUrl: string, hueDeg: number): string | null {
     return () => {
       cancelled = true;
     };
-  }, [spriteUrl, hueDeg]);
+  }, [spriteUrl]);
 
   return dataUrl;
 }
@@ -68,7 +65,8 @@ const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
   { codinome, sprite, bixinhoNome, eixoLongo, cursoNome, papelMissao, campus },
   ref,
 ) {
-  const spritePng = useRasterizedSprite(sprite, hueFromCodinome(codinome));
+  const tintedSprite = useTintedSprite(sprite, codinome);
+  const spritePng = useRasterizedSprite(tintedSprite);
 
   return (
     <div

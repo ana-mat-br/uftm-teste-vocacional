@@ -7,7 +7,33 @@ import { NOME_EIXO_LONGO, SPRITES_POR_EIXO } from "@/data/bixinhos";
 import type { EixoSigla } from "@/lib/matching";
 import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
-import { hueRotateFilter } from "@/lib/hue-codinome";
+import { useTintedSprite } from "@/lib/use-tinted-sprite";
+
+function TintedSprite({
+  sprite,
+  codinome,
+  alt,
+}: {
+  sprite: string;
+  codinome: string;
+  alt: string;
+}) {
+  const tinted = useTintedSprite(sprite, codinome);
+  return (
+    <Image
+      src={tinted}
+      alt={alt}
+      width={84}
+      height={84}
+      unoptimized
+      className="pixel-sprite"
+      style={{
+        filter:
+          "drop-shadow(0 0 6px var(--sun-yellow)) drop-shadow(0 0 12px var(--sun-pink))",
+      }}
+    />
+  );
+}
 
 type Item = {
   id: string;
@@ -120,16 +146,10 @@ export default function GaleriaPage() {
                 style={{ height: 92 }}
               >
                 {sprite ? (
-                  <Image
-                    src={sprite}
+                  <TintedSprite
+                    sprite={sprite}
+                    codinome={it.codinome}
                     alt={it.bixinhoNome}
-                    width={84}
-                    height={84}
-                    className="pixel-sprite"
-                    style={{
-                      filter:
-                        `${hueRotateFilter(it.codinome)} drop-shadow(0 0 6px var(--sun-yellow)) drop-shadow(0 0 12px var(--sun-pink))`.trim(),
-                    }}
                   />
                 ) : (
                   <div

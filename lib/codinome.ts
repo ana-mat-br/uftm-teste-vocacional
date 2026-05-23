@@ -21,10 +21,18 @@ const PREFIXOS_ASTRONOMICOS = [
   "ÓRION",
 ] as const;
 
-export function gerarCodinome(): string {
+/** Candidato aleatório PREFIXO-NÚMERO. Sem garantia de unicidade. */
+export function gerarCodinomeCandidato(): string {
   const prefixo = PREFIXOS_ASTRONOMICOS[
     Math.floor(Math.random() * PREFIXOS_ASTRONOMICOS.length)
   ];
   const numero = Math.floor(Math.random() * 99) + 1; // 1-99
   return `${prefixo}-${numero}`;
+}
+
+/** Versão fallback: adiciona um sufixo alfanumérico curto quando o espaço base satura. */
+export function gerarCodinomeExpandido(): string {
+  const base = gerarCodinomeCandidato();
+  const sufixo = Math.random().toString(36).slice(2, 5).toUpperCase();
+  return `${base}-${sufixo}`;
 }

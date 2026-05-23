@@ -5,7 +5,7 @@ import Image from "next/image";
 import { gsap } from "@/lib/motion";
 import WrappedScene from "@/components/WrappedScene";
 import SplitText from "@/components/SplitText";
-import { hueRotateFilter } from "@/lib/hue-codinome";
+import { useTintedSprite } from "@/lib/use-tinted-sprite";
 
 type Props = {
   active: boolean;
@@ -32,6 +32,7 @@ export default function PetHeroScene({
   const nameRef = useRef<HTMLParagraphElement>(null);
   const captionRef = useRef<HTMLParagraphElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
+  const tintedSprite = useTintedSprite(sprite, codinome);
 
   useEffect(() => {
     if (!active) return;
@@ -287,15 +288,16 @@ export default function PetHeroScene({
 
         <div ref={spriteRef} className="relative z-10 my-2">
           <Image
-            src={sprite}
+            src={tintedSprite}
             alt={bixinhoNome}
             width={260}
             height={260}
             className="pixel-sprite"
             priority
+            unoptimized
             style={{
               filter:
-                `${hueRotateFilter(codinome)} drop-shadow(0 0 22px var(--sun-yellow)) drop-shadow(0 0 40px var(--sun-pink)) drop-shadow(0 0 8px var(--grid-cyan))`.trim(),
+                "drop-shadow(0 0 22px var(--sun-yellow)) drop-shadow(0 0 40px var(--sun-pink)) drop-shadow(0 0 8px var(--grid-cyan))",
             }}
           />
         </div>

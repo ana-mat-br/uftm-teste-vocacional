@@ -10,7 +10,7 @@ import Icon from "@/components/Icon";
 import SplitText from "@/components/SplitText";
 import ShareCard from "@/components/ShareCard";
 import { shareOrDownload } from "@/lib/share";
-import { hueRotateFilter } from "@/lib/hue-codinome";
+import { useTintedSprite } from "@/lib/use-tinted-sprite";
 
 type Alt = {
   nome: string;
@@ -64,6 +64,7 @@ export default function CursoRevealScene({
   const altsRef = useRef<HTMLDivElement>(null);
   const narratorWrapRef = useRef<HTMLDivElement>(null);
   const resetRef = useRef<HTMLButtonElement>(null);
+  const tintedSprite = useTintedSprite(sprite, codinome);
   const shareCardRef = useRef<HTMLDivElement>(null);
   const shareBtnRef = useRef<HTMLButtonElement>(null);
 
@@ -228,14 +229,15 @@ export default function CursoRevealScene({
           aria-hidden
         >
           <Image
-            src={sprite}
+            src={tintedSprite}
             alt={bixinhoNome}
             width={88}
             height={88}
+            unoptimized
             className="pixel-sprite opacity-90"
             style={{
               filter:
-                `${hueRotateFilter(codinome)} drop-shadow(0 0 12px var(--sun-yellow)) drop-shadow(0 0 24px var(--sun-pink))`.trim(),
+                "drop-shadow(0 0 12px var(--sun-yellow)) drop-shadow(0 0 24px var(--sun-pink))",
             }}
           />
         </div>

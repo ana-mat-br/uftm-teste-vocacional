@@ -28,9 +28,9 @@
   <!-- Bocha (semi-aberta, vibe pensativa) -->
   <rect x="7" y="8" width="2" height="1" fill="#ff2e93"/>
   <rect x="7" y="9" width="2" height="1" fill="#cc1a6e"/>
-  <!-- Bochechas (LED ciano) -->
-  <rect x="3" y="9" width="1" height="1" fill="#00f0ff"/>
-  <rect x="12" y="9" width="1" height="1" fill="#00f0ff"/>
+  <!-- Bochechas (LED, acento variável por codinome) -->
+  <rect x="3" y="9" width="1" height="1" fill="#ff00fe"/>
+  <rect x="12" y="9" width="1" height="1" fill="#ff00fe"/>
   <!-- Corpo -->
   <rect x="4" y="9" width="3" height="1" fill="#7a1eab"/>
   <rect x="9" y="9" width="3" height="1" fill="#7a1eab"/>

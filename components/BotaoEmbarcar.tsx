@@ -33,11 +33,11 @@ export default function BotaoEmbarcar() {
     return () => mm.revert();
   }, []);
 
-  function handleEmbarcar() {
+  async function handleEmbarcar() {
     if (embarcando) return;
     setEmbarcando(true);
     reset(); // limpa qualquer sessão pendente
-    iniciar(); // gera codinome novo
+    await iniciar(); // pede codinome único ao server
     const primeira = CENAS[0]; // cena 2
     router.push(`/cena/${primeira.id}`);
   }

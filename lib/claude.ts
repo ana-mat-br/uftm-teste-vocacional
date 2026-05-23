@@ -26,28 +26,38 @@ export async function gerarBixinho(input: {
   vetor: VetorEixos;
   cursoTop: string;
   eixoDominante: EixoSigla;
+  /** Nomes a evitar (já usados por outros alunos). Opcional. */
+  evitarNomes?: string[];
 }): Promise<BixinhoGerado> {
   const c = getClient();
+
+  const systemBase = [
+    "Você é o motor narrativo do Protocolo Vocação UFTM 2087, uma missão sci-fi fictícia.",
+    "Gera um JSON estrito sobre o co-piloto-IA companheiro do candidato (que recebeu um codinome anônimo gerado pelo sistema).",
+    "Tom: levíssimo, com humor seco. SEMPRE em minúsculo. Gírias brasileiras permitidas. Vibe cyberpunk fofo.",
+    "",
+    "RESPONDA APENAS ESTE JSON, exatamente nessas chaves, sem markdown, sem ```, sem prosa em volta:",
+    '{ "bixinho_nome": "...", "personalidade": "...", "msg_despedida": "..." }',
+    "",
+    "REGRAS DE CONTEÚDO:",
+    "- bixinho_nome: formato '[NOME]-[LETRA-GREGA][NUMERO]' (ex: 'KÉPLER-Δ7', 'VEGA-Ω42', 'NOVA-π13'). Letra grega DEVE estar grafada como caracter unicode (Δ Ω θ π σ γ λ Φ), não escrita por extenso.",
+    "- personalidade: máximo 12 palavras. uma frase curta, descritiva. minúsculo. SEM ponto final.",
+    "- msg_despedida: máximo 25 palavras. fala direto pro candidato CITANDO o codinome dele literalmente. minúsculo.",
+    "- jamais inclua PII, links, dados sensíveis, referências políticas ou conteúdo adulto.",
+    "- jamais use a palavra 'bixinho' nas respostas. o termo correto é 'co-piloto'.",
+  ];
+  if (input.evitarNomes && input.evitarNomes.length > 0) {
+    systemBase.push(
+      "",
+      `IMPORTANTE: estes bixinho_nome JÁ FORAM usados e NÃO podem se repetir: ${input.evitarNomes.join(", ")}. Escolha um nome diferente (varie o prefixo, a letra grega e o número).`,
+    );
+  }
 
   const resp = await c.messages.create({
     model: "claude-haiku-4-5-20251001",
     max_tokens: 300,
     temperature: 0.9,
-    system: [
-      "Você é o motor narrativo do Protocolo Vocação UFTM 2087, uma missão sci-fi fictícia.",
-      "Gera um JSON estrito sobre o co-piloto-IA companheiro do candidato (que recebeu um codinome anônimo gerado pelo sistema).",
-      "Tom: levíssimo, com humor seco. SEMPRE em minúsculo. Gírias brasileiras permitidas. Vibe cyberpunk fofo.",
-      "",
-      "RESPONDA APENAS ESTE JSON, exatamente nessas chaves, sem markdown, sem ```, sem prosa em volta:",
-      '{ "bixinho_nome": "...", "personalidade": "...", "msg_despedida": "..." }',
-      "",
-      "REGRAS DE CONTEÚDO:",
-      "- bixinho_nome: formato '[NOME]-[LETRA-GREGA][NUMERO]' (ex: 'KÉPLER-Δ7', 'VEGA-Ω42', 'NOVA-π13'). Letra grega DEVE estar grafada como caracter unicode (Δ Ω θ π σ γ λ Φ), não escrita por extenso.",
-      "- personalidade: máximo 12 palavras. uma frase curta, descritiva. minúsculo. SEM ponto final.",
-      "- msg_despedida: máximo 25 palavras. fala direto pro candidato CITANDO o codinome dele literalmente. minúsculo.",
-      "- jamais inclua PII, links, dados sensíveis, referências políticas ou conteúdo adulto.",
-      "- jamais use a palavra 'bixinho' nas respostas. o termo correto é 'co-piloto'.",
-    ].join("\n"),
+    system: systemBase.join("\n"),
     messages: [
       {
         role: "user",
