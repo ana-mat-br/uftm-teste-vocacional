@@ -23,8 +23,8 @@ export type Curso = {
 export const CURSOS: Curso[] = [
   // === Saúde / Cuidado ===
   { nome: "Medicina", papelMissao: "Posto Médico de Bordo", vetor: [3, 3, 0, 2, 2, 0, 0], campus: "Uberaba" },
-  { nome: "Enfermagem", papelMissao: "Especialista em Cuidado Vital", vetor: [3, 1, 1, 2, 1, 1, 0], campus: "Uberaba" },
-  { nome: "Psicologia", papelMissao: "Posto de Saúde Mental", vetor: [3, 2, 0, 3, 1, 2, 0], campus: "Uberaba" },
+  { nome: "Enfermagem", papelMissao: "Especialista em Cuidado Vital", vetor: [3, 1, 1, 2, 0, 0, 0], campus: "Uberaba" },
+  { nome: "Psicologia", papelMissao: "Posto de Saúde Mental", vetor: [3, 2, 0, 3, 2, 0, 0], campus: "Uberaba" },
   { nome: "Fisioterapia", papelMissao: "Posto de Reabilitação Motora", vetor: [3, 1, 2, 1, 1, 0, 0], campus: "Uberaba" },
   { nome: "Terapia Ocupacional", papelMissao: "Posto de Adaptação à Rotina", vetor: [3, 1, 2, 2, 0, 0, 0], campus: "Uberaba" },
   { nome: "Nutrição", papelMissao: "Posto de Sustento Vital", vetor: [3, 2, 0, 0, 2, 2, 0], campus: "Uberaba" },
@@ -33,21 +33,21 @@ export const CURSOS: Curso[] = [
 
   // === Investigação / Ciências Naturais ===
   { nome: "Biomedicina", papelMissao: "Pesquisa de Vida Alienígena", vetor: [2, 3, 0, 0, 0, 1, 1], campus: "Uberaba/Iturama" },
-  { nome: "Ciências Biológicas", papelMissao: "Cientista de Ecossistemas", vetor: [1, 3, 0, 1, 1, 3, 0], campus: "Uberaba/Iturama" },
-  { nome: "Física", papelMissao: "Investigador de Mistérios Espaciais", vetor: [0, 3, 2, 0, 0, 0, 1], campus: "Uberaba" },
+  { nome: "Ciências Biológicas", papelMissao: "Cientista de Ecossistemas", vetor: [0, 3, 0, 1, 1, 3, 0], campus: "Uberaba/Iturama" },
+  { nome: "Física", papelMissao: "Investigador de Mistérios Espaciais", vetor: [0, 3, 2, 1, 0, 0, 2], campus: "Uberaba" },
   { nome: "Química", papelMissao: "Especialista em Atmosferas", vetor: [1, 3, 2, 0, 0, 1, 0], campus: "Uberaba/Iturama" },
 
   // === Construção / Engenharias físicas ===
-  { nome: "Engenharia Civil", papelMissao: "Arquitetura de Bases Planetárias", vetor: [0, 1, 3, 1, 1, 0, 0], campus: "Uberaba" },
-  { nome: "Engenharia Mecânica", papelMissao: "Engenharia Mecânica de Bordo", vetor: [0, 2, 3, 0, 0, 0, 1], campus: "Uberaba" },
-  { nome: "Engenharia Elétrica", papelMissao: "Engenharia de Sistemas Vitais", vetor: [0, 2, 3, 0, 0, 0, 2], campus: "Uberaba" },
-  { nome: "Engenharia Química", papelMissao: "Engenharia de Processos", vetor: [0, 3, 3, 0, 0, 1, 0], campus: "Uberaba" },
-  { nome: "Engenharia de Produção", papelMissao: "Coordenação da Operação da Nave", vetor: [0, 1, 2, 2, 1, 0, 2], campus: "Uberaba" },
+  { nome: "Engenharia Civil", papelMissao: "Arquitetura de Bases Planetárias", vetor: [0, 1, 3, 1, 1, 1, 0], campus: "Uberaba" },
+  { nome: "Engenharia Mecânica", papelMissao: "Engenharia Mecânica de Bordo", vetor: [0, 1, 3, 1, 1, 0, 1], campus: "Uberaba" },
+  { nome: "Engenharia Elétrica", papelMissao: "Engenharia de Sistemas Vitais", vetor: [0, 2, 3, 1, 0, 0, 3], campus: "Uberaba" },
+  { nome: "Engenharia Química", papelMissao: "Engenharia de Processos", vetor: [0, 3, 3, 0, 1, 1, 1], campus: "Uberaba" },
+  { nome: "Engenharia de Produção", papelMissao: "Coordenação da Operação da Nave", vetor: [0, 2, 3, 1, 0, 0, 2], campus: "Uberaba" },
   { nome: "Engenharia Ambiental", papelMissao: "Posto Ambiental da Nave", vetor: [0, 2, 3, 0, 2, 3, 0], campus: "Uberaba" },
   { nome: "Engenharia de Alimentos", papelMissao: "Engenharia de Suprimentos", vetor: [1, 2, 3, 0, 0, 2, 0], campus: "Uberaba" },
 
   // === Decifrador / Computação + Dados + Matemática ===
-  { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 1, 0, 2, 0, 0, 3], campus: "Uberaba" },
+  { nome: "Banco de Dados", papelMissao: "Posto de Arquivo de Bordo", vetor: [0, 1, 1, 2, 0, 0, 3], campus: "Uberaba" },
   { nome: "Inteligência Artificial", papelMissao: "Posto de IA da Missão", vetor: [0, 2, 2, 0, 1, 0, 3], campus: "Uberaba" },
   { nome: "Matemática", papelMissao: "Estrategista de Rotas", vetor: [0, 3, 0, 1, 0, 0, 3], campus: "Uberaba" },
 
@@ -58,9 +58,9 @@ export const CURSOS: Curso[] = [
 
   // === Transformação / Humanidades ===
   { nome: "História", papelMissao: "Narrador da Expedição", vetor: [1, 2, 0, 2, 3, 0, 0], campus: "Uberaba" },
-  { nome: "Geografia", papelMissao: "Mapas de Mundos Novos", vetor: [1, 2, 0, 1, 3, 2, 1], campus: "Uberaba" },
+  { nome: "Geografia", papelMissao: "Mapas de Mundos Novos", vetor: [1, 2, 0, 1, 3, 2, 0], campus: "Uberaba" },
   { nome: "Educação Física", papelMissao: "Treinamento da Tripulação", vetor: [2, 1, 2, 0, 2, 1, 0], campus: "Uberaba" },
-  { nome: "Licenciatura em Educação do Campo", papelMissao: "Educação de Vila Rural", vetor: [2, 1, 1, 2, 3, 3, 0], campus: "Uberaba" },
+  { nome: "Licenciatura em Educação do Campo", papelMissao: "Educação de Vila Rural", vetor: [2, 0, 0, 1, 3, 3, 0], campus: "Uberaba" },
 
   // === Cultivo / Natureza ===
   { nome: "Agronomia", papelMissao: "Cultivo de Vida Planetária", vetor: [1, 2, 2, 0, 0, 3, 0], campus: "Uberaba/Iturama" },

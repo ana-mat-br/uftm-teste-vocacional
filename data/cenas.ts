@@ -3,10 +3,12 @@
  *
  * Estrutura:
  * - Cena 1 (Hero)     = home page `/` — gera codinome, sem pontuação
- * - Cenas 2-14        = 13 cenas pontuáveis, em /cena/[id]
- *                       Ordem narrativa: 2, 3, 4, 5, 12, 6, 7, 13, 8, 9, 14, 10, 11
- *                       IDs 12/13/14/8 são cenas discriminantes (cobertura
- *                       analítica de cursos, ver docs/PERSONAS-IDEAIS.md)
+ * - Cenas 2-17        = 15 cenas pontuáveis, em /cena/[id] (16, 18, 19 removidas)
+ *                       Ordem narrativa: 2, 3, 4, 5, 12, 6, 17, 7, 13, 8, 9, 15, 14, 10, 11
+ *                       IDs discriminantes: 12 (educação), 13 (sistema/tech),
+ *                       14 (cultivo), 8 (saúde clínica), 15 (tech alienígena),
+ *                       17 (saúde mental)
+ *                       Ver docs/PERSONAS-IDEAIS.md
  *
  * Cada opção pontua de 1 a 3 eixos.
  * Ordem do vetor: [CUI, INV, CON, COM, TRA, CUL, TEC]
@@ -113,6 +115,23 @@ export const CENAS: Cena[] = [
     ],
   },
   {
+    id: 17,
+    titulo: "Atendimento à tripulação",
+    narrativa:
+      "Um colega vem até você abalado — não consegue dormir, perdeu o apetite, tá afastado da galera. Não é doença física. O que você faz?",
+    falaBixinho: "isso aqui é importante. cuidar de gente é tudo nessa missão.",
+    opcoes: [
+      { icon: "stethoscope", texto: "Investigo sintomas físicos primeiro — pressão, sono, exames. Mente e corpo conversam.", pontos: [3, 3, 0, 0, 0, 0, 0] },
+      { icon: "hug", texto: "Fico junto, sem precisar resolver — presença e rotina de cuidado diária", pontos: [3, 0, 0, 1, 0, 0, 0] },
+      { icon: "voice", texto: "Escuto sem julgar — abro espaço pra ele falar o que sente, sem pressa", pontos: [2, 0, 0, 3, 0, 0, 0] },
+      { icon: "dna", texto: "Avalio postura e movimento — corpo tenso afeta a mente. Prescrevo exercício.", pontos: [2, 1, 2, 0, 0, 0, 0] },
+      { icon: "tools", texto: "Reorganizo as tarefas dele — adapto a rotina pra ele participar de outro jeito", pontos: [2, 0, 2, 2, 0, 0, 0] },
+      { icon: "leaf", texto: "Reviso o que ele anda comendo — falta de nutriente afeta humor e energia", pontos: [2, 1, 0, 0, 0, 2, 0] },
+      { icon: "scale", texto: "Crio uma rede de apoio na tripulação — coletivo cuida melhor que indivíduo", pontos: [1, 0, 0, 1, 3, 0, 0] },
+      { icon: "shield", texto: "Faço um plano de inclusão pra ele voltar com adaptações que respeitem o ritmo dele", pontos: [2, 0, 0, 2, 2, 0, 0] },
+    ],
+  },
+  {
     id: 7,
     titulo: "Mensagem da Terra",
     narrativa:
@@ -167,6 +186,20 @@ export const CENAS: Cena[] = [
       { icon: "waves", texto: "Perto do mar — fonte de água e possíveis ecossistemas marinhos", pontos: [0, 2, 0, 0, 0, 2, 0] },
       { icon: "tent", texto: "No vale central — perto de tudo, mais fácil de organizar a base depois", pontos: [0, 0, 2, 0, 1, 0, 0] },
       { icon: "sprout", texto: "Num vale fértil — onde dá pra cultivar comida e começar uma estufa nativa", pontos: [0, 0, 0, 0, 0, 3, 0] },
+    ],
+  },
+  {
+    id: 15,
+    titulo: "Linguagem alienígena",
+    narrativa:
+      "Drone de exploração encontra um artefato com símbolos que se repetem em padrão. Parece código. Você é chamado pra liderar a decifração — por onde começa?",
+    falaBixinho: "isso aqui me lembra muito CSS quebrado. respira que a gente decifra.",
+    opcoes: [
+      { icon: "logs", texto: "Catalogo cada símbolo num banco de dados — sem catálogo, não tem análise possível", pontos: [0, 0, 0, 0, 0, 0, 3] },
+      { icon: "brain", texto: "Treino uma IA pra reconhecer padrões nos símbolos — deixo a máquina aprender", pontos: [0, 1, 0, 0, 0, 0, 3] },
+      { icon: "thinking", texto: "Provo matematicamente que a sequência segue alguma lógica antes de chutar", pontos: [0, 3, 0, 0, 0, 0, 1] },
+      { icon: "chart", texto: "Crio um dashboard pro time inteiro contribuir — todo mundo vê os padrões", pontos: [0, 0, 0, 2, 0, 0, 2] },
+      { icon: "wrench", texto: "Monto um decodificador físico — circuito que traduz os símbolos pra som", pontos: [0, 0, 2, 0, 0, 0, 2] },
     ],
   },
   {

@@ -15,11 +15,8 @@ type SessaoRow = {
   finalizado_em: string | null;
   vetor: VetorEixos | null;
   curso_top: string | null;
-  feedback_resultado: "positivo" | "neutro" | "negativo" | null;
   user_agent_tipo: string | null;
 };
-
-type Feedback = "positivo" | "neutro" | "negativo";
 
 const EIXO_LABELS: Record<string, string> = {
   CUI: "Cuidador",
@@ -120,7 +117,7 @@ export default async function PainelPage() {
     const sb = getSupabaseAdmin();
     const { data, error } = await sb
       .from("sessoes")
-      .select("id, iniciado_em, finalizado_em, vetor, curso_top, feedback_resultado, user_agent_tipo")
+      .select("id, iniciado_em, finalizado_em, vetor, curso_top, user_agent_tipo")
       .order("finalizado_em", { ascending: false });
     if (error) throw error;
     sessoes = (data ?? []) as SessaoRow[];
@@ -175,23 +172,6 @@ export default async function PainelPage() {
     const eixo = eixoDominante(s.vetor as VetorEixos);
     eixosCount[eixo] = (eixosCount[eixo] ?? 0) + 1;
   }
-
-  // Feedback
-  const feedbackCount: Record<Feedback, number> = { positivo: 0, neutro: 0, negativo: 0 };
-  for (const s of sessoes) {
-    if (s.feedback_resultado) feedbackCount[s.feedback_resultado]++;
-  }
-  const totalFeedback = feedbackCount.positivo + feedbackCount.neutro + feedbackCount.negativo;
-
-  // Cursos com mais feedback negativo (red flags pra matriz v0.4)
-  const negativoPorCurso = new Map<string, number>();
-  for (const s of sessoes) {
-    if (s.feedback_resultado === "negativo" && s.curso_top) {
-      const display = s.curso_top.startsWith("Letras") ? "Letras" : s.curso_top;
-      negativoPorCurso.set(display, (negativoPorCurso.get(display) ?? 0) + 1);
-    }
-  }
-  const piores = [...negativoPorCurso.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
 
   // User agent
   const uaCount: Record<string, number> = { "mobile-ios": 0, "mobile-android": 0, desktop: 0 };
@@ -320,98 +300,27 @@ export default async function PainelPage() {
         </section>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-6 mb-8">
-        {/* === Eixos dominantes === */}
-        <section
-          className="px-4 py-4 border-l-2"
-          style={{ borderColor: "var(--sun-yellow)", background: "rgba(26, 6, 51, 0.4)" }}
+      {/* === Eixos dominantes === */}
+      <section
+        className="px-4 py-4 border-l-2 mb-8"
+        style={{ borderColor: "var(--sun-yellow)", background: "rgba(26, 6, 51, 0.4)" }}
+      >
+        <h2
+          className="font-terminal text-xs uppercase tracking-widest mb-3"
+          style={{ color: "var(--text-dim)" }}
         >
-          <h2
-            className="font-terminal text-xs uppercase tracking-widest mb-3"
-            style={{ color: "var(--text-dim)" }}
-          >
-            // eixo principal dos alunos
-          </h2>
-          {EIXOS.map((e) => (
-            <BarraHorizontal
-              key={e}
-              label={`${e} · ${EIXO_LABELS[e]}`}
-              count={eixosCount[e] ?? 0}
-              total={total}
-              cor="var(--sun-orange)"
-            />
-          ))}
-        </section>
-
-        {/* === Feedback === */}
-        <section
-          className="px-4 py-4 border-l-2"
-          style={{ borderColor: "var(--sun-pink)", background: "rgba(26, 6, 51, 0.4)" }}
-        >
-          <h2
-            className="font-terminal text-xs uppercase tracking-widest mb-3"
-            style={{ color: "var(--text-dim)" }}
-          >
-            // feedback dos alunos
-          </h2>
-          {totalFeedback === 0 ? (
-            <p className="font-terminal text-xs opacity-50" style={{ color: "var(--text-dim)" }}>
-              (ninguém votou ainda)
-            </p>
-          ) : (
-            <>
-              <BarraHorizontal
-                label="👍 me representa"
-                count={feedbackCount.positivo}
-                total={totalFeedback}
-                cor="var(--grid-cyan)"
-              />
-              <BarraHorizontal
-                label="🤔 mais ou menos"
-                count={feedbackCount.neutro}
-                total={totalFeedback}
-                cor="var(--sun-yellow)"
-              />
-              <BarraHorizontal
-                label="👎 não me representa"
-                count={feedbackCount.negativo}
-                total={totalFeedback}
-                cor="var(--sun-pink)"
-              />
-              <p
-                className="font-terminal text-xs mt-2 opacity-70"
-                style={{ color: "var(--text-dim)" }}
-              >
-                {fmtPct(totalFeedback, total)} dos alunos votaram ({totalFeedback} de {total})
-              </p>
-            </>
-          )}
-        </section>
-      </div>
-
-      {/* === Red flags pra matriz === */}
-      {piores.length > 0 && (
-        <section
-          className="px-4 py-4 border-l-2 mb-8"
-          style={{ borderColor: "var(--sun-pink)", background: "rgba(255, 46, 147, 0.08)" }}
-        >
-          <h2
-            className="font-terminal text-xs uppercase tracking-widest mb-3"
-            style={{ color: "var(--sun-pink)" }}
-          >
-            ⚠️ cursos onde mais alunos discordam do resultado
-          </h2>
-          {piores.map(([nome, count]) => (
-            <BarraHorizontal
-              key={nome}
-              label={nome}
-              count={count}
-              total={feedbackCount.negativo}
-              cor="var(--sun-pink)"
-            />
-          ))}
-        </section>
-      )}
+          // eixo principal dos alunos
+        </h2>
+        {EIXOS.map((e) => (
+          <BarraHorizontal
+            key={e}
+            label={`${e} · ${EIXO_LABELS[e]}`}
+            count={eixosCount[e] ?? 0}
+            total={total}
+            cor="var(--sun-orange)"
+          />
+        ))}
+      </section>
 
       {/* === Mobile vs Desktop === */}
       <section
