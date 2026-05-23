@@ -276,8 +276,146 @@ async function gerarPdf(): Promise<void> {
   pdf.save("bottons-uftm.pdf");
 }
 
+// ─── Exporta imagens individuais (PNG/JPG/TIFF num único ZIP) ───────────────
+
+const BOTTON_PX_PER_MM = 12; // ~300dpi (12 × 25.4 = 305)
+
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const i = new Image();
+    i.crossOrigin = "anonymous";
+    i.onload = () => resolve(i);
+    i.onerror = reject;
+    i.src = src;
+  });
+}
+
+function canvasToBlob(
+  canvas: HTMLCanvasElement,
+  type: string,
+  quality?: number,
+): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(new Error("toBlob falhou"))),
+      type,
+      quality,
+    );
+  });
+}
+
+function slugify(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+async function renderBottonCanvas(b: Botton): Promise<HTMLCanvasElement> {
+  const px = BOTTON_PX_PER_MM;
+  const sizeMM = BOTTON_R_MM * 2; // 46
+  const sizePx = sizeMM * px;
+  const canvas = document.createElement("canvas");
+  canvas.width = sizePx;
+  canvas.height = sizePx;
+  const ctx = canvas.getContext("2d")!;
+  ctx.imageSmoothingEnabled = false;
+
+  // 1) Fundo radial gradient preenchendo o quadrado inteiro (sem recorte
+  //    circular) — facilita o corte/sangria na prensa de botton
+  const cx = sizePx / 2;
+  const cy = sizePx / 2;
+  const grad = ctx.createRadialGradient(
+    sizePx * 0.3,
+    sizePx * 0.3,
+    0,
+    cx,
+    cy,
+    sizePx,
+  );
+  grad.addColorStop(0, "#4a1078");
+  grad.addColorStop(0.6, "#2d0a4a");
+  grad.addColorStop(1, "#1a0633");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, sizePx, sizePx);
+
+  // 2) Sprite + 3) Textos — centralizados verticalmente
+  const spriteUrl = SPRITES_POR_EIXO[b.eixo];
+  const accent = accentFromCodinome(b.codinome);
+  const spritePng = await tintAndOutline(spriteUrl, accent);
+  const txt = renderTextosBotton(b);
+  const gapMM = 1;
+  const totalH = SPRITE_MM + gapMM + txt.heightMm;
+  const topYmm = (sizeMM - totalH) / 2;
+
+  const spriteImg = await loadImage(spritePng);
+  ctx.drawImage(
+    spriteImg,
+    ((sizeMM - SPRITE_MM) / 2) * px,
+    topYmm * px,
+    SPRITE_MM * px,
+    SPRITE_MM * px,
+  );
+
+  const txtImg = await loadImage(txt.dataUrl);
+  ctx.drawImage(
+    txtImg,
+    ((sizeMM - txt.widthMm) / 2) * px,
+    (topYmm + SPRITE_MM + gapMM) * px,
+    txt.widthMm * px,
+    txt.heightMm * px,
+  );
+
+  return canvas;
+}
+
+async function exportarImagensZip(): Promise<void> {
+  const [{ default: JSZip }, UTIF] = await Promise.all([
+    import("jszip"),
+    import("utif"),
+  ]);
+  if (document.fonts && document.fonts.ready) {
+    await document.fonts.ready;
+  }
+
+  const zip = new JSZip();
+  const pngDir = zip.folder("png")!;
+  const jpgDir = zip.folder("jpg")!;
+  const tiffDir = zip.folder("tiff")!;
+
+  for (const b of TODOS_BOTTONS) {
+    const canvas = await renderBottonCanvas(b);
+    const slug = slugify(b.curso);
+
+    const [pngBlob, jpgBlob] = await Promise.all([
+      canvasToBlob(canvas, "image/png"),
+      canvasToBlob(canvas, "image/jpeg", 0.95),
+    ]);
+    pngDir.file(`${slug}.png`, pngBlob);
+    jpgDir.file(`${slug}.jpg`, jpgBlob);
+
+    // TIFF via UTIF
+    const ctx = canvas.getContext("2d")!;
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const rgba = new Uint8Array(imgData.data.buffer);
+    const tiffBuf = UTIF.encodeImage(rgba, canvas.width, canvas.height);
+    tiffDir.file(`${slug}.tiff`, new Uint8Array(tiffBuf));
+  }
+
+  const zipBlob = await zip.generateAsync({ type: "blob" });
+  const url = URL.createObjectURL(zipBlob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "bottons-uftm.zip";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 export default function BottonsPage() {
   const [gerando, setGerando] = useState(false);
+  const [zipping, setZipping] = useState(false);
   async function handleBaixar(): Promise<void> {
     if (gerando) return;
     setGerando(true);
@@ -288,6 +426,18 @@ export default function BottonsPage() {
       alert("Falha ao gerar PDF. Veja o console.");
     } finally {
       setGerando(false);
+    }
+  }
+  async function handleBaixarZip(): Promise<void> {
+    if (zipping) return;
+    setZipping(true);
+    try {
+      await exportarImagensZip();
+    } catch (e) {
+      console.error("[bottons] falha ao gerar ZIP:", e);
+      alert("Falha ao gerar ZIP. Veja o console.");
+    } finally {
+      setZipping(false);
     }
   }
   return (
@@ -458,10 +608,13 @@ export default function BottonsPage() {
           página.
         </p>
 
-        <div className="print-hide" style={{ marginBottom: 16 }}>
+        <div
+          className="print-hide"
+          style={{ marginBottom: 16, display: "flex", gap: 12, justifyContent: "center" }}
+        >
           <button
             onClick={handleBaixar}
-            disabled={gerando}
+            disabled={gerando || zipping}
             style={{
               padding: "8px 16px",
               background: "#ff2e93",
@@ -470,10 +623,26 @@ export default function BottonsPage() {
               fontFamily: "monospace",
               cursor: gerando ? "wait" : "pointer",
               letterSpacing: 1,
-              opacity: gerando ? 0.6 : 1,
+              opacity: gerando || zipping ? 0.6 : 1,
             }}
           >
             {gerando ? "GERANDO…" : "BAIXAR PDF"}
+          </button>
+          <button
+            onClick={handleBaixarZip}
+            disabled={gerando || zipping}
+            style={{
+              padding: "8px 16px",
+              background: "#01cdfe",
+              color: "#0d0221",
+              border: "2px solid #fff700",
+              fontFamily: "monospace",
+              cursor: zipping ? "wait" : "pointer",
+              letterSpacing: 1,
+              opacity: gerando || zipping ? 0.6 : 1,
+            }}
+          >
+            {zipping ? "GERANDO ZIP…" : "BAIXAR PNG/JPG/TIFF (ZIP)"}
           </button>
         </div>
 
