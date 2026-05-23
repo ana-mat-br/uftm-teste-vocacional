@@ -88,7 +88,7 @@ export default function GaleriaPage() {
   return (
     <main className="mx-auto max-w-5xl px-5 py-8 md:px-10 md:py-12">
       <SceneHeader icon="radar" className="mb-3">
-        UFTM-KEPLER · GALERIA DE CO-PILOTOS
+        UFTM-KEPLER · GALERIA DE COPILOTOS
       </SceneHeader>
 
       <Link
@@ -114,7 +114,7 @@ export default function GaleriaPage() {
         style={{ color: "var(--text-dim)" }}
       >
         {total !== null
-          ? `${total} co-pilotos já passaram pelo protocolo. cada um com seu papel.`
+          ? `${total} copilotos já passaram pelo protocolo. cada um com seu papel.`
           : "carregando o manifesto da tripulação..."}
       </p>
 

@@ -17,7 +17,7 @@ type Props = {
   onComplete?: () => void;
   /** Velocidade do typewriter em chars/segundo. Default 32. */
   cps?: number;
-  /** Label opcional (ex: "co-piloto"). */
+  /** Label opcional (ex: "seu copiloto diz"). */
   speaker?: string;
 };
 
@@ -29,7 +29,7 @@ export default function NarratorBox({
   variant = "cena",
   onComplete,
   cps = DEFAULT_CPS,
-  speaker = "co-piloto",
+  speaker = "seu copiloto diz",
 }: Props) {
   const boxRef = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState("");
@@ -161,13 +161,13 @@ export default function NarratorBox({
       </div>
       <div className="flex-1 min-w-0">
         <div
-          className="font-terminal text-base uppercase tracking-widest mb-1"
+          className="font-terminal text-xs sm:text-sm uppercase tracking-widest mb-1"
           style={{ color: "var(--grid-cyan)" }}
         >
           &gt; {speaker}
         </div>
         <p
-          className="font-pixel-body text-lg md:text-xl italic leading-relaxed"
+          className="font-pixel-body text-sm sm:text-base md:text-lg italic leading-relaxed"
           style={{ color: "var(--text)" }}
         >
           {shown}

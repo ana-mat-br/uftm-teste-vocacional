@@ -1,7 +1,7 @@
 /**
  * GET /api/galeria?page=0&size=24
  *
- * Lista paginada de co-pilotos finalizados, mais recentes primeiro.
+ * Lista paginada de copilotos finalizados, mais recentes primeiro.
  * Retorna só dados anônimos: codinome, bixinho_nome, curso_top, eixo.
  * Zero PII.
  */

@@ -93,7 +93,7 @@ export async function POST(request: Request) {
       }
       bixinho = {
         bixinho_nome: nomeFinal,
-        personalidade: "co-piloto de série limitada, único na frota",
+        personalidade: "copiloto de série limitada, único na frota",
         msg_despedida: `boa, ${body.codinome}. me leva nessa viagem que eu te puxo pra cima.`,
       };
     }

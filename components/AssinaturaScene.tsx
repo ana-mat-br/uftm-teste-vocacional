@@ -94,34 +94,89 @@ export default function AssinaturaScene({
     return () => mm.revert();
   }, [active, dist]);
 
+  // Hash falso pra dar vibe de "decryption signature" — derivado do vetor
+  const sigHash = useMemo(() => {
+    const h = vetor.reduce(
+      (acc, v, i) => (acc * 31 + v * 7 + i * 13) | 0,
+      0xcafe,
+    );
+    return Math.abs(h).toString(16).toUpperCase().padStart(6, "0").slice(0, 6);
+  }, [vetor]);
+
   return (
     <WrappedScene active={active} label="03 // ASSINATURA">
-      <div ref={wrapRef} className="w-full flex flex-col gap-2">
+      <div ref={wrapRef} className="w-full flex flex-col">
+        {/* Header HUD */}
+        <div className="flex items-center justify-between mb-3 px-1">
+          <p
+            className="font-terminal text-[11px] sm:text-xs uppercase tracking-widest"
+            style={{ color: "var(--text-dim)" }}
+          >
+            // SIG_DECRYPT
+          </p>
+          <p
+            className="font-terminal text-[11px] sm:text-xs"
+            style={{ color: "var(--grid-cyan)" }}
+          >
+            0x{sigHash}
+          </p>
+        </div>
+
         <p
-          className="font-terminal text-base uppercase tracking-widest mb-2 text-center"
-          style={{ color: "var(--text-dim)" }}
+          className="font-terminal text-sm sm:text-base uppercase tracking-widest mb-4 text-center"
+          style={{ color: "var(--text)" }}
         >
-          // o que tuas escolhas revelam
+          // sobre você
         </p>
 
-        <div className="flex flex-col gap-2.5">
-          {dist.map((d) => (
-            <div key={d.sigla} className="bar-row flex items-center gap-3">
-              <div
-                className="font-terminal text-sm uppercase tracking-widest text-right shrink-0"
+        {/* Stats list */}
+        <div className="flex flex-col gap-1.5">
+          {dist.map((d, i) => (
+            <div
+              key={d.sigla}
+              className="bar-row flex items-center gap-2 sm:gap-3 px-2 py-1.5"
+              style={{
+                background: d.dominante
+                  ? "rgba(255, 247, 0, 0.06)"
+                  : "transparent",
+                border: d.dominante
+                  ? "1px solid rgba(255, 247, 0, 0.35)"
+                  : "1px solid transparent",
+                boxShadow: d.dominante
+                  ? "0 0 12px rgba(255, 46, 147, 0.18), inset 0 0 8px rgba(255, 247, 0, 0.08)"
+                  : "none",
+              }}
+            >
+              {/* Index */}
+              <span
+                className="font-terminal text-[10px] sm:text-xs shrink-0"
                 style={{
-                  width: 78,
+                  color: d.dominante ? "var(--sun-yellow)" : "var(--text-dim)",
+                  opacity: d.dominante ? 1 : 0.6,
+                }}
+              >
+                {d.dominante ? "▸" : " "}
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Label */}
+              <div
+                className="font-terminal text-[11px] sm:text-sm uppercase tracking-wider shrink-0"
+                style={{
+                  width: 100,
                   color: d.dominante ? "var(--sun-yellow)" : "var(--text-dim)",
                   textShadow: d.dominante ? "0 0 8px var(--sun-orange)" : "none",
                 }}
               >
                 {d.nome}
               </div>
+
+              {/* Bar */}
               <div
                 className="relative flex-1 h-3"
                 style={{
-                  background: "rgba(255, 46, 147, 0.12)",
-                  border: "1px solid rgba(212, 168, 255, 0.2)",
+                  background: "rgba(255, 46, 147, 0.1)",
+                  border: "1px solid rgba(212, 168, 255, 0.18)",
                 }}
               >
                 <div
@@ -136,11 +191,23 @@ export default function AssinaturaScene({
                       : "0 0 6px rgba(1, 205, 254, 0.5)",
                   }}
                 />
+                {/* Tick marks segmentando a barra */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(90deg, transparent 0 9.5%, rgba(13, 2, 33, 0.5) 9.5% 10%)",
+                  }}
+                />
               </div>
+
+              {/* % */}
               <span
-                className="bar-pct font-terminal text-sm w-12 text-right shrink-0"
+                className="bar-pct font-terminal text-xs sm:text-sm w-12 text-right shrink-0"
                 style={{
                   color: d.dominante ? "var(--sun-yellow)" : "var(--text-dim)",
+                  textShadow: d.dominante ? "0 0 6px var(--sun-orange)" : "none",
+                  fontWeight: d.dominante ? 700 : 400,
                 }}
               >
                 0%
@@ -149,13 +216,28 @@ export default function AssinaturaScene({
           ))}
         </div>
 
-        <p
-          ref={insightRef}
-          className="font-pixel-body text-base md:text-lg mt-4 text-center px-2"
-          style={{ color: "var(--text)" }}
+        {/* Footer com insight em estilo terminal */}
+        <div
+          className="mt-5 px-3 py-3 border-l-2"
+          style={{
+            borderColor: "var(--grid-cyan)",
+            background: "rgba(1, 205, 254, 0.05)",
+          }}
         >
-          {insight}
-        </p>
+          <p
+            className="font-terminal text-[10px] sm:text-xs uppercase tracking-widest mb-1"
+            style={{ color: "var(--grid-cyan)" }}
+          >
+            ▸ analise.txt
+          </p>
+          <p
+            ref={insightRef}
+            className="font-pixel-body text-sm sm:text-base md:text-lg leading-snug"
+            style={{ color: "var(--text)" }}
+          >
+            {insight}
+          </p>
+        </div>
       </div>
     </WrappedScene>
   );

@@ -24,7 +24,7 @@ Decisão tomada em 2026-05-19 para reduzir risco jurídico e acelerar entrega em
 | Timestamp de início e fim | Métricas de duração | ❌ Não |
 | Cliques em compartilhar | Métricas de viralidade | ❌ Não |
 | Tipo de browser/SO (mobile-ios, etc) | Compatibilidade | ❌ Não |
-| Nome do co-piloto gerado pelo LLM | Estatística (palavras mais comuns) | ❌ Não |
+| Nome do copiloto gerado pelo LLM | Estatística (palavras mais comuns) | ❌ Não |
 
 ## O que NÃO coletamos
 

@@ -129,7 +129,7 @@ export default function Hero() {
       >
         ano <span style={{ color: "var(--sun-yellow)" }}>2087</span>. kepler-186f
         te espera. <span style={{ color: "var(--sun-pink)" }}>6 minutos</span> pra
-        descobrir teu papel a bordo.
+        descobrir seu papel a bordo.
       </p>
 
       <div ref={ctaRef} className="mt-10">

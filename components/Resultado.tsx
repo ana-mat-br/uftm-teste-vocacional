@@ -116,7 +116,7 @@ export default function Resultado() {
           className="font-pixel-body text-base mt-6"
           style={{ color: "var(--text-dim)" }}
         >
-          o co-piloto tá organizando os pensamentos…
+          o copiloto tá organizando os pensamentos…
         </p>
         <div
           className="mt-8 h-1 w-48"

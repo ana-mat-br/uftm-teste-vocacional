@@ -10,7 +10,7 @@ import Icon from "@/components/Icon";
 import SceneHeader from "@/components/SceneHeader";
 
 // Continua misterioso até a revelação final no /resultado.
-const NARRATOR_PORTRAIT = "/sprites/co-piloto-misterio.svg";
+const NARRATOR_PORTRAIT = "/sprites/copiloto-misterio.svg";
 
 /**
  * Cena de desempate: aparece SOMENTE quando o top 1 venceu por margem
@@ -116,7 +116,7 @@ export default function Desempate() {
 
           <NarratorBox
             portrait={NARRATOR_PORTRAIT}
-            text="escolhe com a barriga, não com a cabeça."
+            text="em qual dessas a UFTM mais te chama? confia no que sente."
             variant="desempate"
           />
         </div>

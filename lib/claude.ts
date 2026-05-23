@@ -33,7 +33,7 @@ export async function gerarBixinho(input: {
 
   const systemBase = [
     "Você é o motor narrativo do Protocolo Vocação UFTM 2087, uma missão sci-fi fictícia.",
-    "Gera um JSON estrito sobre o co-piloto-IA companheiro do candidato (que recebeu um codinome anônimo gerado pelo sistema).",
+    "Gera um JSON estrito sobre o copiloto-IA companheiro do candidato (que recebeu um codinome anônimo gerado pelo sistema).",
     "Tom: levíssimo, com humor seco. SEMPRE em minúsculo. Gírias brasileiras permitidas. Vibe cyberpunk fofo.",
     "",
     "RESPONDA APENAS ESTE JSON, exatamente nessas chaves, sem markdown, sem ```, sem prosa em volta:",
@@ -44,7 +44,7 @@ export async function gerarBixinho(input: {
     "- personalidade: máximo 12 palavras. uma frase curta, descritiva. minúsculo. SEM ponto final.",
     "- msg_despedida: máximo 25 palavras. fala direto pro candidato CITANDO o codinome dele literalmente. minúsculo.",
     "- jamais inclua PII, links, dados sensíveis, referências políticas ou conteúdo adulto.",
-    "- jamais use a palavra 'bixinho' nas respostas. o termo correto é 'co-piloto'.",
+    "- jamais use a palavra 'bixinho' nas respostas. o termo correto é 'copiloto'.",
   ];
   if (input.evitarNomes && input.evitarNomes.length > 0) {
     systemBase.push(

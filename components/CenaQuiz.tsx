@@ -16,9 +16,9 @@ import {
   stopAmbientPad,
 } from "@/lib/audio";
 
-// Co-piloto ainda misterioso durante o quiz — só olhos cyan piscando no escuro.
+// Copiloto ainda misterioso durante o quiz — só olhos cyan piscando no escuro.
 // A identidade real (1 dos 7 bixinhos) é revelada no /resultado.
-const NARRATOR_PORTRAIT = "/sprites/co-piloto-misterio.svg";
+const NARRATOR_PORTRAIT = "/sprites/copiloto-misterio.svg";
 
 type Props = {
   cena: Cena;
@@ -115,7 +115,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
   const total = TOTAL_CENAS_PONTUAVEIS;
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6 md:max-w-5xl md:px-10 md:py-10">
+    <main className="mx-auto flex min-h-screen max-w-[480px] flex-col px-5 py-6 md:max-w-6xl md:px-10 md:py-10">
 
       <SceneHeader icon="radar" className="mb-3">
         UFTM-KEPLER · CENA {progresso}/{total}
@@ -131,7 +131,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
       </div>
 
       {/* Conteúdo em 2 colunas no desktop: pergunta à esquerda, opções à direita */}
-      <div className="md:grid md:grid-cols-2 md:gap-10 md:items-start">
+      <div className="md:grid md:grid-cols-[5fr_6fr] md:gap-10 md:items-start">
 
         {/* Coluna esquerda: pergunta */}
         <div className="md:sticky md:top-10">
@@ -155,7 +155,7 @@ export default function CenaQuiz({ cena, proximoId }: Props) {
               background: "rgba(26, 6, 51, 0.6)",
             }}
           >
-            <p className="font-pixel-body text-lg md:text-xl leading-relaxed">{cena.narrativa}</p>
+            <p className="font-pixel-body text-lg md:text-base lg:text-lg leading-relaxed md:leading-snug lg:leading-normal">{cena.narrativa}</p>
           </div>
 
           {/* Fala do bixinho (Star Fox narrator) */}

@@ -38,7 +38,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 - ✅ Integração Supabase + Claude Haiku no `/api/finalizar` (`89948f3`)
 - ✅ Cena 5.5 de desempate quando top1/top2 < 5% (`0a1ee53`)
 - ✅ **7 eixos** (não 6) com TEC + confidence + feedback (`1cd1772`)
-- ✅ Rename `bixinho-IA` → `co-piloto` em todo lugar (`7c76d87`, `1d666f3`)
+- ✅ Rename `bixinho-IA` → `copiloto` em todo lugar (`7c76d87`, `1d666f3`)
 - ✅ Matriz-eixos v0.2 documentada (`21d5acc`)
 - ✅ **Phase A (Vaporwave foundation):** GSAP, palette, `VaporwaveBg`, `MuteToggle`, `lib/motion.ts`, `lib/audio.ts` (stub)
 - ✅ `IMPLEMENTATION-MAP.md` — plano de imersão A→G
@@ -189,7 +189,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 | 7º eixo (TEC) com confidence + feedback | Matriz v0.2 ficou mais precisa |
 | Cena 5.5 de desempate condicional | Quando top1 e top2 estão a < 5% |
 | Phases A-G de imersão (vaporwave + Star Fox + Wrapped) | D1 sobrou orçamento; ver [IMPLEMENTATION-MAP.md](IMPLEMENTATION-MAP.md) |
-| Galeria pública de co-pilotos | Dimensão coletiva, individual↔todos |
+| Galeria pública de copilotos | Dimensão coletiva, individual↔todos |
 | Áudio procedural (Web Audio API) | Sem mp3, sem howler — gerado no client |
 
 ---
@@ -247,7 +247,7 @@ D7 seg 26/05  │ FEIRA 🚀 (estamos pulando dom 25 pra descanso)
 Produto está pronto se:
 - [ ] Aluno escaneia QR e abre o site no celular
 - [ ] Passa pelas 10 cenas (+ desempate se aplicável) sem bugs
-- [ ] Vê resultado com co-piloto + curso + texto gerado pelo Haiku
+- [ ] Vê resultado com copiloto + curso + texto gerado pelo Haiku
 - [ ] Consegue compartilhar em pelo menos UMA rede (WhatsApp mínimo)
 - [ ] Funciona em iOS Safari + Chrome Android
 - [ ] Carrega em < 5s no 4G, bundle JS < 200kb gzip

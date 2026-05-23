@@ -35,8 +35,8 @@ export const CENAS: Cena[] = [
     id: 2,
     titulo: "Embarque",
     narrativa:
-      "Ano 2087. A Terra está em colapso e a UFTM está montando a primeira expedição tripulada ao exoplaneta Kepler-186f: 14 meses de viagem, tripulação de 12. Vocês não foram escolhidos por nota — foram escolhidos pelo Protocolo Vocação. Uma luzinha verde flutua até você no hangar; é seu co-piloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma. O Protocolo começa agora.",
-    falaBixinho: "oi! sou eu, teu co-piloto. vou te acompanhar a missão inteira. ela é sempre dramática assim, relaxa.",
+      "Ano 2087. A Terra está em colapso e a UFTM está montando a primeira expedição tripulada ao exoplaneta Kepler-186f: 14 meses de viagem, tripulação de 12. Vocês não foram escolhidos por nota — foram escolhidos pelo Protocolo Vocação. Uma luzinha verde flutua até você no hangar; é seu copiloto de bordo, uma IA que ainda não tem nome (a missão vai batizar ela no fim). Atrás, a Capitã Vidal aparece no holograma. O Protocolo começa agora.",
+    falaBixinho: "oi! sou eu, seu copiloto. vou te acompanhar a missão inteira. ela é sempre dramática assim, relaxa.",
     opcoes: [
       { icon: "thinking", texto: "Anoto tudo, levanto a mão pra perguntar se o Protocolo pode falhar", pontos: [0, 2, 0, 0, 0, 0, 1] },
       { icon: "uncertain", texto: "Olho pros outros candidatos pra ver se alguém também tá perdido", pontos: [1, 0, 0, 2, 0, 0, 0] },
@@ -131,7 +131,7 @@ export const CENAS: Cena[] = [
     titulo: "Sistema da nave",
     narrativa:
       "Os registros do sistema tão maiores do que ele aguenta. Tudo tá ficando lento. Você lidera a reorganização — por onde começa?",
-    falaBixinho: "véi, isso aqui sou EU me reorganizando. mete a mão.",
+    falaBixinho: "olha, isso aqui sou EU me reorganizando. bora junto?",
     opcoes: [
       { icon: "logs", texto: "Banco centralizado — tabelas bem organizadas, busca rápida de qualquer info. Foco em organização prática", pontos: [0, 0, 0, 1, 0, 0, 3] },
       { icon: "brain", texto: "IA que aprende sozinha vendo os registros — age automático e melhora com o tempo", pontos: [0, 2, 2, 0, 2, 0, 2] },
@@ -145,7 +145,7 @@ export const CENAS: Cena[] = [
     titulo: "Doença misteriosa",
     narrativa:
       "Dia 89 da viagem. Três colegas acordam com os mesmos sintomas — febre baixa, luz forte machucando os olhos, dor espalhada pelo corpo. Ninguém viu nada parecido. Você tá no plantão. Qual sua jogada?",
-    falaBixinho: "cara, isso aqui é novela médica espacial. respira.",
+    falaBixinho: "cara, isso aqui é série médica espacial. respira.",
     opcoes: [
       { icon: "lab", texto: "Lab AGORA — exames de sangue e imagem, amostras. Não toco em ninguém antes de saber o que é.", pontos: [2, 2, 0, 0, 0, 0, 0] },
       { icon: "stethoscope", texto: "Acomodo os três, fico de olho a cada 30 min, dando água o tempo todo", pontos: [3, 0, 0, 0, 0, 0, 0] },
@@ -160,7 +160,7 @@ export const CENAS: Cena[] = [
     titulo: "Chegada ao planeta",
     narrativa:
       "Kepler-186f na tela. Atmosfera respirável (com filtro). Verde-azulado. Bonito demais pra ser real. A Capitã pergunta: onde pousamos primeiro?",
-    falaBixinho: "olha esse planetinha. eu já tô com ciúmes da terra.",
+    falaBixinho: "olha esse planetinha. sou só um software e até eu tô emocionado.",
     opcoes: [
       { icon: "mountain", texto: "Perto das montanhas — terreno estável, vista pra tudo", pontos: [0, 1, 2, 0, 0, 0, 0] },
       { icon: "tree", texto: "Perto da floresta densa — onde tem mais vida pra estudar", pontos: [0, 1, 0, 0, 0, 3, 0] },
@@ -188,7 +188,7 @@ export const CENAS: Cena[] = [
     titulo: "Contato",
     narrativa:
       "Terceira semana no planeta. Vocês encontram algo. Bichinhos pequenos que brilham saem das tocas à noite. Curiosos. Não parecem perigosos.",
-    falaBixinho: "tipo eu mas em carbono.",
+    falaBixinho: "o brilho deles não é elétrico igual o meu. é vida.",
     opcoes: [
       { icon: "camera", texto: "Observo de longe, anoto comportamento, não interfiro", pontos: [0, 3, 0, 0, 0, 1, 0] },
       { icon: "offering", texto: "Tento oferecer algo — gesto de paz entre espécies", pontos: [2, 0, 0, 2, 0, 0, 0] },
@@ -210,7 +210,7 @@ export const CENAS: Cena[] = [
       { icon: "dna", texto: "Salvo os dados de pesquisa antes que se percam — justifica a missão", pontos: [0, 3, 0, 0, 0, 0, 0] },
       { icon: "voice", texto: "Coordeno a tripulação inteira, distribuo funções por voz", pontos: [0, 0, 0, 2, 2, 0, 0] },
       { icon: "sprout", texto: "Protejo a estufa — sem ela, ninguém volta pra casa", pontos: [0, 0, 0, 0, 0, 3, 0] },
-      { icon: "logs", texto: "Backup central dos bancos de bordo — perder dado de 7 meses é perder tudo que a gente descobriu", pontos: [0, 0, 0, 2, 0, 0, 3] },
+      { icon: "logs", texto: "Copio tudo num servidor de reserva e organizo direitinho — backup é comigo", pontos: [0, 0, 0, 2, 0, 0, 3] },
     ],
   },
 ];

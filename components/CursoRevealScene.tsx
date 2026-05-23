@@ -58,7 +58,6 @@ export default function CursoRevealScene({
   const papelRef = useRef<HTMLParagraphElement>(null);
   const cursoRef = useRef<HTMLParagraphElement>(null);
   const cursoBgRef = useRef<HTMLDivElement>(null);
-  const slamRef = useRef<HTMLDivElement>(null);
   const campusRef = useRef<HTMLParagraphElement>(null);
   const petRef = useRef<HTMLDivElement>(null);
   const altsRef = useRef<HTMLDivElement>(null);
@@ -95,13 +94,13 @@ export default function CursoRevealScene({
       const cursoLetters =
         cursoRef.current?.querySelectorAll<HTMLSpanElement>(".curso-letter") ?? [];
 
-      gsap.set(slamRef.current, { opacity: 0, scale: 0.4 });
-      gsap.set(cursoLetters, {
-        y: 30,
-        opacity: 0,
-        rotateX: 80,
-        transformOrigin: "center bottom",
+      // Guarda o caractere final de cada letra e troca temporariamente por
+      // caracteres aleatórios — clássico slot-machine reveal de arcade
+      const finalChars: string[] = [];
+      cursoLetters.forEach((letter) => {
+        finalChars.push(letter.textContent || "");
       });
+      gsap.set(cursoLetters, { opacity: 1, scale: 1 });
       gsap.set(cursoBgRef.current, { opacity: 0, scaleX: 0 });
       gsap.set(campusRef.current, { opacity: 0, y: 8 });
       gsap.set(papelRef.current, { opacity: 0, y: -8 });
@@ -118,38 +117,64 @@ export default function CursoRevealScene({
         .to(papelRef.current, { opacity: 1, y: 0, duration: 0.4 }, "-=0.15");
 
       tl.to(
-        slamRef.current,
-        { opacity: 0.85, scale: 1.2, duration: 0.18, ease: "power2.out" },
-        "-=0.05",
-      ).to(slamRef.current, { opacity: 0, duration: 0.55, ease: "power2.in" });
-
-      tl.to(
         cursoBgRef.current,
         { opacity: 1, scaleX: 1, duration: 0.45, ease: "expo.out" },
         "-=0.55",
       );
 
-      tl.to(
-        cursoLetters,
-        {
-          y: 0,
-          opacity: 1,
-          rotateX: 0,
-          duration: 0.5,
-          stagger: 0.04,
-          ease: "back.out(2.4)",
-        },
-        "-=0.3",
-      );
+      // Slot-machine reveal: cada letra cicla por chars aleatórios antes de
+      // fixar na correta. Stagger pra criar onda da esquerda pra direita.
+      const SLOT_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
+      const SLOT_DURATION = 0.55;
+      const SLOT_STAGGER = 0.07;
+      cursoLetters.forEach((letter, i) => {
+        const final = finalChars[i];
+        if (!final || final.trim() === "") return; // pula espaços
+        const obj = { tick: 0 };
+        tl.to(
+          obj,
+          {
+            tick: 18,
+            duration: SLOT_DURATION,
+            ease: "power2.out",
+            onUpdate: () => {
+              letter.textContent =
+                SLOT_POOL[Math.floor(Math.random() * SLOT_POOL.length)];
+            },
+            onComplete: () => {
+              letter.textContent = final;
+            },
+          },
+          `-=${SLOT_DURATION - SLOT_STAGGER * (i === 0 ? 0 : 1)}`,
+        );
+      });
 
-      // Camera shake — yoyo na posição original pra não deslocar o layout.
+      // Flash branco rápido (impact ✦) quando termina o reveal
+      tl.to(
+        cursoRef.current,
+        {
+          color: "#ffffff",
+          textShadow:
+            "0 0 30px #ffffff, 0 0 60px var(--sun-yellow), 0 1px 0 var(--sun-pink)",
+          duration: 0.12,
+          ease: "power2.out",
+        },
+        "-=0.05",
+      ).to(cursoRef.current, {
+        color: "var(--sun-yellow)",
+        textShadow: "0 1px 0 var(--sun-pink)",
+        duration: 0.35,
+        ease: "power2.in",
+      });
+
+      // Camera shake pós-reveal
       tl.to(cursoRef.current, {
-        x: -4,
-        duration: 0.06,
+        x: -3,
+        duration: 0.05,
         repeat: 5,
         yoyo: true,
         ease: "none",
-      }).set(cursoRef.current, { x: 0 });
+      }, "-=0.3").set(cursoRef.current, { x: 0 });
 
       tl.to(campusRef.current, { opacity: 1, y: 0, duration: 0.35 }, "-=0.15");
 
@@ -182,15 +207,53 @@ export default function CursoRevealScene({
         });
       }
       if (cursoRef.current) {
-        gsap.to(cursoRef.current, {
-          textShadow:
-            "0 0 28px var(--sun-yellow), 0 0 56px var(--sun-pink), 0 4px 0 var(--sun-orange)",
-          duration: 1.6,
+        // Glitch ocasional cyberpunk — a cada ~4s o texto sofre micro-distorção
+        // com chars random + aberração cromática rosa/cyan
+        const glitchTl = gsap.timeline({
           repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: 2,
+          delay: 2.4,
         });
+        const NORMAL_SHADOW = "0 1px 0 var(--sun-pink)";
+        glitchTl
+          .to({}, { duration: 4 }) // espera entre glitches
+          .call(() => {
+            cursoLetters.forEach((l) => {
+              if (Math.random() < 0.55) {
+                l.textContent =
+                  SLOT_POOL[Math.floor(Math.random() * SLOT_POOL.length)];
+              }
+            });
+          })
+          .to(cursoRef.current, {
+            textShadow:
+              "2px 0 0 #ff2e93, -2px 0 0 #00f0ff, 0 1px 0 var(--sun-pink)",
+            x: 2,
+            duration: 0.05,
+          })
+          .call(() => {
+            cursoLetters.forEach((l) => {
+              if (Math.random() < 0.55) {
+                l.textContent =
+                  SLOT_POOL[Math.floor(Math.random() * SLOT_POOL.length)];
+              }
+            });
+          })
+          .to(cursoRef.current, {
+            textShadow:
+              "-2px 0 0 #ff2e93, 2px 0 0 #00f0ff, 0 1px 0 var(--sun-pink)",
+            x: -2,
+            duration: 0.05,
+          })
+          .call(() => {
+            cursoLetters.forEach((l, i) => {
+              l.textContent = finalChars[i] ?? l.textContent;
+            });
+          })
+          .to(cursoRef.current, {
+            textShadow: NORMAL_SHADOW,
+            x: 0,
+            duration: 0.1,
+          });
       }
     });
 
@@ -242,50 +305,43 @@ export default function CursoRevealScene({
           />
         </div>
 
+        {/* Achievement bar */}
         <div
-          ref={slamRef}
-          className="absolute pointer-events-none"
+          className="w-full flex items-center justify-center gap-2 mb-4 py-1.5 px-3 relative z-10"
           style={{
-            top: 110,
-            left: "50%",
-            width: 360,
-            height: 120,
-            marginLeft: -180,
             background:
-              "radial-gradient(ellipse at center, var(--sun-yellow) 0%, var(--sun-pink) 50%, transparent 80%)",
-            filter: "blur(4px)",
-            transformOrigin: "center center",
+              "linear-gradient(90deg, transparent 0%, rgba(255, 247, 0, 0.18) 50%, transparent 100%)",
+            borderTop: "1px solid rgba(255, 247, 0, 0.4)",
+            borderBottom: "1px solid rgba(255, 247, 0, 0.4)",
           }}
-          aria-hidden
-        />
+        >
+          <Icon name="sparkles" size="0.9em" color="var(--sun-yellow)" />
+          <span
+            className="font-terminal text-[11px] sm:text-xs uppercase tracking-widest"
+            style={{
+              color: "var(--sun-yellow)",
+              textShadow: "0 0 8px var(--sun-orange)",
+            }}
+          >
+            ▸ CONQUISTA DESBLOQUEADA
+          </span>
+          <Icon name="sparkles" size="0.9em" color="var(--sun-yellow)" />
+        </div>
 
         <p
           ref={labelRef}
-          className="font-terminal text-base uppercase tracking-widest mb-2 relative z-10"
+          className="font-terminal text-xs sm:text-sm uppercase tracking-widest mb-1 relative z-10"
           style={{ color: "var(--text-dim)" }}
         >
-          // teu papel na nave é
+          // seu curso na UFTM
         </p>
 
-        <p
-          ref={papelRef}
-          className="font-pixel-title text-sm md:text-base mb-3 relative z-10"
-          style={{
-            color: "var(--sun-pink)",
-            textShadow: "0 0 10px var(--sun-pink)",
-            letterSpacing: 1.5,
-          }}
-        >
-          {papelMissao.toUpperCase()}
-        </p>
-
+        {/* Nome do curso — PROTAGONISTA */}
         <div className="relative w-full flex justify-center mb-2">
           <div
             ref={cursoBgRef}
             className="absolute inset-0 mx-2"
             style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(255, 247, 0, 0.15) 50%, transparent 100%)",
               borderTop: "1px solid var(--sun-yellow)",
               borderBottom: "1px solid var(--sun-yellow)",
               transformOrigin: "center center",
@@ -294,10 +350,11 @@ export default function CursoRevealScene({
           />
           <p
             ref={cursoRef}
-            className="font-pixel-body text-2xl sm:text-3xl md:text-4xl font-bold py-2 px-3 relative z-10 text-center leading-tight"
+            className="font-pixel-title text-base sm:text-lg md:text-xl py-4 px-4 relative z-10 text-center leading-tight uppercase w-full"
             style={{
               color: "var(--sun-yellow)",
-              textShadow: "0 0 16px var(--sun-orange), 0 2px 0 var(--sun-pink)",
+              textShadow: "0 1px 0 var(--sun-pink)",
+              letterSpacing: 1.5,
             }}
             aria-label={cursoNome}
           >
@@ -307,11 +364,23 @@ export default function CursoRevealScene({
 
         <p
           ref={campusRef}
-          className="font-terminal text-base uppercase tracking-widest mb-5 inline-flex items-center gap-2 relative z-10"
-          style={{ color: "var(--text-dim)" }}
+          className="font-terminal text-xs sm:text-sm uppercase tracking-widest mb-2 inline-flex items-center gap-2 relative z-10"
+          style={{ color: "var(--grid-cyan)" }}
         >
           <Icon name="pin" size="1em" color="var(--grid-cyan)" />
-          campus · {campus}
+          UFTM · {campus}
+        </p>
+
+        {/* Papel sci-fi — subtítulo, fonte mais leve, centralizado */}
+        <p
+          ref={papelRef}
+          className="w-full font-pixel-body text-sm sm:text-base mb-5 relative z-10 text-center leading-snug italic"
+          style={{
+            color: "var(--sun-pink)",
+            textShadow: "0 0 8px var(--sun-pink)",
+          }}
+        >
+          {`▸ ${papelMissao.toLowerCase()}`}
         </p>
 
         {alts.length > 0 && (
@@ -357,7 +426,7 @@ export default function CursoRevealScene({
           type="button"
           onClick={handleShare}
           disabled={shareState === "rendering"}
-          className="font-pixel-title text-base sm:text-lg uppercase tracking-widest mt-4 px-5 py-3 inline-flex items-center gap-3 relative z-10 transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:cursor-wait"
+          className="font-pixel-title text-[10px] sm:text-xs uppercase tracking-widest mt-4 px-4 py-2.5 inline-flex items-center gap-2 relative z-10 transition-transform hover:scale-[1.03] disabled:opacity-60 disabled:cursor-wait"
           style={{
             background:
               "linear-gradient(90deg, rgba(255,46,147,0.35) 0%, rgba(255,247,0,0.25) 100%)",

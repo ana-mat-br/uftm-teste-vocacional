@@ -16,6 +16,7 @@ import {
   requestMusic,
 } from "@/lib/audio";
 import { NOME_EIXO_LONGO, SPRITES_POR_EIXO } from "@/data/bixinhos";
+import { TOTAL_CENAS_PONTUAVEIS } from "@/data/cenas";
 import {
   nivelConfianca,
   vetorParaPct,
@@ -98,16 +99,16 @@ function gerarInsightPerfil(vetor: VetorEixos, eixoDom: EixoSigla): string {
   const nomeDom = NOME_EIXO_LONGO[eixoDom].toLowerCase();
 
   if (maxPct >= 45) {
-    return `teu perfil é cristalino — quase metade das tuas escolhas foram pro lado ${nomeDom}.`;
+    return `seu perfil é cristalino — quase metade das suas escolhas foram pro lado ${nomeDom}.`;
   }
   if (nonZero >= 5) {
-    return `tu transita entre mundos — escolhe pelo contexto, não por uma identidade fixa. raro.`;
+    return `você transita entre mundos — escolhe pelo contexto, não por uma identidade fixa. raro.`;
   }
   if (nonZero >= 4) {
-    return `tu equilibra ${nonZero} forças diferentes. o ${nomeDom} lidera, mas não sozinho.`;
+    return `você equilibra ${nonZero} forças diferentes. o ${nomeDom} lidera, mas não sozinho.`;
   }
   if (nonZero <= 2) {
-    return `tu sabe quem é. duas linhas dominam, sem ruído. clareza vocacional.`;
+    return `você sabe quem é. duas linhas dominam, sem ruído. clareza vocacional.`;
   }
   return `o ${nomeDom} puxa a frente, mas duas outras correntes andam logo atrás.`;
 }
@@ -281,10 +282,10 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
             className="font-terminal text-lg uppercase tracking-widest mb-3"
             style={{ color: "var(--text-dim)" }}
           >
-            // teu eixo é
+            // seu eixo é
           </p>
           <h1
-            className="font-pixel-title text-3xl sm:text-4xl leading-tight"
+            className="font-pixel-title text-xl sm:text-3xl md:text-4xl leading-tight whitespace-nowrap"
             style={{
               color: "var(--sun-yellow)",
               textShadow: "0 0 18px var(--sun-orange), 0 0 36px var(--sun-pink)",
@@ -306,7 +307,7 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
             className="font-terminal text-lg uppercase tracking-widest mb-5"
             style={{ color: "var(--text-dim)" }}
           >
-            // sobre você
+            // sobre seu copiloto
           </p>
           <p
             className="font-pixel-body text-xl md:text-2xl italic leading-relaxed"
@@ -337,18 +338,50 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
 
         {/* Cena 5 — Stats da missão */}
         <WrappedScene active={idx === 4} label="04 // STATS DA MISSÃO">
-          <div className="flex flex-col gap-6 items-center">
-            <div className="flex items-center gap-3">
-              <Icon name="clock" size={28} color="var(--grid-cyan)" />
-              <div className="text-left">
-                <p
-                  className="font-terminal text-sm uppercase tracking-widest"
-                  style={{ color: "var(--text-dim)" }}
+          <div className="w-full flex flex-col">
+            {/* Header HUD */}
+            <div className="flex items-center justify-between mb-3 px-1">
+              <p
+                className="font-terminal text-[11px] sm:text-xs uppercase tracking-widest"
+                style={{ color: "var(--text-dim)" }}
+              >
+                // MISSION_REPORT
+              </p>
+              <p
+                className="font-terminal text-[11px] sm:text-xs"
+                style={{ color: "var(--grid-cyan)" }}
+              >
+                STATUS: ✓ COMPLETE
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2.5">
+              {/* Stat 1: Tempo */}
+              <div
+                className="flex items-center gap-3 sm:gap-4 px-3 py-3 border-2 relative"
+                style={{
+                  borderColor: "var(--grid-cyan)",
+                  background:
+                    "linear-gradient(90deg, rgba(1, 205, 254, 0.14) 0%, rgba(1, 205, 254, 0.03) 100%)",
+                  boxShadow:
+                    "0 0 16px rgba(1, 205, 254, 0.25), inset 0 0 12px rgba(1, 205, 254, 0.08)",
+                }}
+              >
+                <span
+                  className="font-terminal text-[10px] sm:text-xs opacity-70 shrink-0"
+                  style={{ color: "var(--grid-cyan)" }}
                 >
-                  // tempo decorrido
+                  [01]
+                </span>
+                <Icon name="clock" size={26} color="var(--grid-cyan)" />
+                <p
+                  className="font-terminal text-xs sm:text-sm uppercase tracking-widest flex-1 text-left"
+                  style={{ color: "var(--grid-cyan)" }}
+                >
+                  TEMPO
                 </p>
                 <p
-                  className="font-pixel-title text-2xl mt-1"
+                  className="font-terminal text-2xl sm:text-3xl whitespace-nowrap leading-none"
                   style={{
                     color: "var(--grid-cyan)",
                     textShadow: "0 0 12px var(--grid-cyan)",
@@ -357,48 +390,74 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
                   {tempoTotal}
                 </p>
               </div>
-            </div>
 
-            {opcaoTop && (
-              <div className="flex items-center gap-3">
-                <Icon name="trophy" size={28} color="var(--sun-pink)" />
-                <div className="text-left">
-                  <p
-                    className="font-terminal text-sm uppercase tracking-widest"
-                    style={{ color: "var(--text-dim)" }}
+              {/* Stat 2: Opção top */}
+              {opcaoTop && (
+                <div
+                  className="flex items-center gap-3 sm:gap-4 px-3 py-3 border-2 relative"
+                  style={{
+                    borderColor: "var(--sun-pink)",
+                    background:
+                      "linear-gradient(90deg, rgba(255, 46, 147, 0.14) 0%, rgba(255, 46, 147, 0.03) 100%)",
+                    boxShadow:
+                      "0 0 16px rgba(255, 46, 147, 0.25), inset 0 0 12px rgba(255, 46, 147, 0.08)",
+                  }}
+                >
+                  <span
+                    className="font-terminal text-[10px] sm:text-xs opacity-70 shrink-0"
+                    style={{ color: "var(--sun-pink)" }}
                   >
-                    // opção mais escolhida
+                    [02]
+                  </span>
+                  <Icon name="trophy" size={26} color="var(--sun-pink)" />
+                  <p
+                    className="font-terminal text-xs sm:text-sm uppercase tracking-widest flex-1 text-left"
+                    style={{ color: "var(--sun-pink)" }}
+                  >
+                    OPÇÃO TOP
                   </p>
                   <p
-                    className="font-pixel-title text-2xl mt-1"
+                    className="font-terminal text-2xl sm:text-3xl leading-none whitespace-nowrap"
                     style={{
                       color: "var(--sun-pink)",
                       textShadow: "0 0 12px var(--sun-pink)",
                     }}
                   >
-                    {opcaoTop.letra}{" "}
+                    {opcaoTop.letra}
                     <span
-                      className="font-terminal text-lg"
-                      style={{ color: "var(--text-dim)" }}
+                      className="text-base sm:text-lg ml-1.5"
+                      style={{ color: "var(--sun-pink)" }}
                     >
-                      × {opcaoTop.count}
+                      ×{opcaoTop.count}
                     </span>
                   </p>
                 </div>
-              </div>
-            )}
+              )}
 
-            <div className="flex items-center gap-3">
-              <Icon name={confiancaMeta.icon} size={28} color={confiancaMeta.color} />
-              <div className="text-left">
-                <p
-                  className="font-terminal text-sm uppercase tracking-widest"
-                  style={{ color: "var(--text-dim)" }}
+              {/* Stat 3: Confiança */}
+              <div
+                className="flex items-center gap-3 sm:gap-4 px-3 py-3 border-2 relative"
+                style={{
+                  borderColor: confiancaMeta.color,
+                  background: `linear-gradient(90deg, ${confiancaMeta.color}24 0%, ${confiancaMeta.color}07 100%)`,
+                  boxShadow: `0 0 16px ${confiancaMeta.color}40, inset 0 0 12px ${confiancaMeta.color}14`,
+                }}
+              >
+                <span
+                  className="font-terminal text-[10px] sm:text-xs opacity-70 shrink-0"
+                  style={{ color: confiancaMeta.color }}
                 >
-                  // confiança
+                  [03]
+                </span>
+                <Icon name={confiancaMeta.icon} size={26} color={confiancaMeta.color} />
+                <p
+                  className="font-terminal text-xs sm:text-sm uppercase tracking-widest flex-1 text-left"
+                  style={{ color: confiancaMeta.color }}
+                >
+                  CONFIANÇA
                 </p>
                 <p
-                  className="font-pixel-title text-lg mt-1 uppercase"
+                  className="font-terminal text-xl sm:text-2xl uppercase leading-none text-right whitespace-nowrap"
                   style={{
                     color: confiancaMeta.color,
                     textShadow: `0 0 10px ${confiancaMeta.color}`,
@@ -407,6 +466,22 @@ export default function WrappedSequence({ resultado, sessao, onReset }: Props) {
                   {confiancaMeta.label}
                 </p>
               </div>
+            </div>
+
+            {/* Footer */}
+            <div className="mt-4 flex items-center justify-between px-1">
+              <span
+                className="font-terminal text-[10px] uppercase tracking-widest opacity-60"
+                style={{ color: "var(--text-dim)" }}
+              >
+                ▸ END_OF_TRANSMISSION
+              </span>
+              <span
+                className="font-terminal text-[10px] opacity-60"
+                style={{ color: "var(--text-dim)" }}
+              >
+                {TOTAL_CENAS_PONTUAVEIS}/{TOTAL_CENAS_PONTUAVEIS} CENAS
+              </span>
             </div>
           </div>
         </WrappedScene>

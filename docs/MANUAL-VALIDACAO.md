@@ -19,7 +19,7 @@ toc-depth: 2
 
 Você foi convidado(a) a validar o **Protocolo Vocação UFTM**, um quiz vocacional gamificado em formato de aventura sci-fi (ambientado no ano 2087) que vai rodar na **Feira de Profissões da UFTM em 26/05/2026**.
 
-A ideia: o aluno do Ensino Médio embarca numa missão interplanetária fictícia. Suas decisões nas cenas revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM compatíveis**. No final, ele recebe o resultado + um "co-piloto IA" companheiro em pixel art, pronto pra compartilhar nas redes sociais.
+A ideia: o aluno do Ensino Médio embarca numa missão interplanetária fictícia. Suas decisões nas cenas revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM compatíveis**. No final, ele recebe o resultado + um "copiloto IA" companheiro em pixel art, pronto pra compartilhar nas redes sociais.
 
 **Versão ao vivo:** https://uftm-teste-vocacional.vercel.app
 
@@ -193,7 +193,7 @@ Os 31 perfis detalhados estão no arquivo \texttt{docs/PERSONAS-IDEAIS.md} (publ
 
 - O aluno escaneia um **QR code** no estande UFTM e entra no quiz no celular dele.
 - Joga ~6 minutos.
-- Recebe o resultado: 3 cursos compatíveis + 1 "co-piloto IA" personalizado (texto gerado por IA — Claude Haiku).
+- Recebe o resultado: 3 cursos compatíveis + 1 "copiloto IA" personalizado (texto gerado por IA — Claude Haiku).
 - Tem opção de compartilhar nas redes sociais (Stories Instagram, WhatsApp, X).
 - Tem opção de marcar "sim / mais ou menos / não" sobre o resultado — esse feedback alimenta o **painel ao vivo** que mostra estatísticas agregadas, sem identificar ninguém.
 

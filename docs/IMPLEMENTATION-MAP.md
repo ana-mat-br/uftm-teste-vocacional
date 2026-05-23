@@ -110,7 +110,7 @@
 ---
 
 ## Phase C — Star Fox narrator
-**Goal:** portrait + speech window for `co-piloto` at every key beat.
+**Goal:** portrait + speech window for `copiloto` at every key beat.
 
 **Touches:** `components/NarratorBox.tsx` (new), `lib/audio.ts` (extend with blips), `components/CenaQuiz.tsx` (replace `falaBixinho` block), `components/Desempate.tsx` (add narrator line), `components/Resultado.tsx` (narrator opens result).
 
@@ -131,7 +131,7 @@
 
 **Validation:** narrator appears in cenas 2-10, plays blips, skip works, mute kills sound.
 
-**C complete** — 2026-05-20. Files landed: `components/NarratorBox.tsx` (new — portrait + typewriter por requestAnimationFrame, tap-to-skip, reduced-motion bypass, isMuted() gate), `lib/audio.ts` (motor Web Audio com master gain, `playNarratorBlip()` square + pitch jitter ±50Hz + ADSR curto, ctx criado tarde no gesto do MuteToggle), `components/CenaQuiz.tsx`/`Desempate.tsx`/`Resultado.tsx` (substituem o bloco estático `falaBixinho`/msg_despedida). Portrait do narrador durante quiz/desempate: `/sprites/decifrador.svg` (vibe TEC pra IA); resultado usa o sprite do eixo do aluno + nome do co-piloto. `/` `/cena/2` `/desempate` 200.
+**C complete** — 2026-05-20. Files landed: `components/NarratorBox.tsx` (new — portrait + typewriter por requestAnimationFrame, tap-to-skip, reduced-motion bypass, isMuted() gate), `lib/audio.ts` (motor Web Audio com master gain, `playNarratorBlip()` square + pitch jitter ±50Hz + ADSR curto, ctx criado tarde no gesto do MuteToggle), `components/CenaQuiz.tsx`/`Desempate.tsx`/`Resultado.tsx` (substituem o bloco estático `falaBixinho`/msg_despedida). Portrait do narrador durante quiz/desempate: `/sprites/decifrador.svg` (vibe TEC pra IA); resultado usa o sprite do eixo do aluno + nome do copiloto. `/` `/cena/2` `/desempate` 200.
 
 ---
 
@@ -143,7 +143,7 @@
 **Scene order:**
 1. **Eixo dominante** — big word ("INVESTIGADOR"), narrator says "seu eixo é…", GSAP scale+glow.
 2. **Profile phrase** — LLM-generated personalidade text, large type.
-3. **Pet hero** ✨ — full-screen pet sprite, name reveal, particles, "este é teu co-piloto".
+3. **Pet hero** ✨ — full-screen pet sprite, name reveal, particles, "este é seu copiloto".
 4. **Personal stats** — "você levou Xm Ys" + "escolheu mais a opção Z" + confidence badge.
 5. **Course + CTA** — top1 course + alts + "compartilhar" button.
 
@@ -178,7 +178,7 @@
 - `app/galeria/page.tsx` (new) — grid of pet cards, infinite scroll or pages.
 - `supabase/migrations/003_galeria.sql` — additive index on `finalizado_em DESC` + função SQL `stats_cena`.
 - `components/CenaQuiz.tsx` — pause flow to show stats bar 1.5s after pick before navigating.
-- `components/WrappedSequence.tsx` — final scene shows "vê todos os co-pilotos" link to /galeria.
+- `components/WrappedSequence.tsx` — final scene shows "vê todos os copilotos" link to /galeria.
 
 **Validation:** answer a question → see "47% também escolheu isso", finish quiz → pet appears in /galeria, /galeria loads paginated without N+1.
 

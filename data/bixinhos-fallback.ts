@@ -27,7 +27,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     despedidas: [
       "foi um barato cuidar com você. me marca no insta quando passar",
       "obrigada por não desistir de ninguém. tamo junto",
-      "tu salva gente sem perceber. continua assim, é raro",
+      "você salva gente sem perceber. continua assim, é raro",
     ],
   },
   INV: {
@@ -38,7 +38,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "pergunta 'mas e se...' até as 3 da manhã",
     ],
     despedidas: [
-      "tu pergunta as coisas certas. continua assim e acha respostas que mudam o mundo",
+      "você pergunta as coisas certas. continua assim e acha respostas que mudam o mundo",
       "ciência precisa de gente assim. me leva no print quando publicar o primeiro paper",
       "obrigada por nunca aceitar resposta pronta. é raro e importante",
     ],
@@ -51,7 +51,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "monta lego mental enquanto você ainda tá lendo o manual",
     ],
     despedidas: [
-      "tu constrói as coisas certas. me marca quando entregar o primeiro projeto",
+      "você constrói as coisas certas. me marca quando entregar o primeiro projeto",
       "menos gente assim seria o caos. continua botando coisa de pé",
       "obrigada por não fugir do problema. raro e essencial",
     ],
@@ -64,7 +64,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "conecta gente que nem se conhecia. virou referência",
     ],
     despedidas: [
-      "tu liga gente. é uma habilidade que muda história. usa muito",
+      "você liga gente. é uma habilidade que muda história. usa muito",
       "valeu por mediar a tripulação inteira. sem você ninguém se entende",
       "obrigada por traduzir o mundo. me marca no insta quando publicar",
     ],
@@ -79,7 +79,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     despedidas: [
       "o mundo precisa mais de gente que muda coisa. continua incomodando",
       "obrigada por não engolir injustiça. é cansativo e essencial",
-      "tu inicia revoluções pequenas. me marca quando começar a tua",
+      "você inicia revoluções pequenas. me marca quando começar a sua",
     ],
   },
   CUL: {
@@ -90,7 +90,7 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "vê ecossistema onde os outros veem fundo de tela",
     ],
     despedidas: [
-      "tu cuida do que é vivo. raro e necessário. continua plantando",
+      "você cuida do que é vivo. raro e necessário. continua plantando",
       "valeu por defender a estufa. literalmente salvou todo mundo",
       "obrigada por escutar bicho e planta. é talento sério",
     ],
@@ -103,8 +103,8 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
       "decifra antes de perguntar. assustadora-mente eficiente",
     ],
     despedidas: [
-      "tu vê código onde os outros veem ruído. continua decifrando",
-      "valeu por puxar os dados na hora certa. tu salvou meu disco",
+      "você vê código onde os outros veem ruído. continua decifrando",
+      "valeu por puxar os dados na hora certa. você salvou meu disco",
       "obrigada por traduzir o caos em sistema. raro e essencial",
     ],
   },

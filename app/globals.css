@@ -193,6 +193,17 @@ body::before {
   opacity: 0.7;
 }
 
+/* === Scrollbar invisível (mantém scroll funcional) === */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 /* === Tipografia pixel === */
 .font-pixel-title {
   font-family: 'Press Start 2P', monospace;

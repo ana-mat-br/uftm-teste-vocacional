@@ -153,7 +153,7 @@ Todas via Google Fonts (free, carregam rápido):
 }
 ```
 
-### Flutuação (co-piloto)
+### Flutuação (copiloto)
 
 ```css
 @keyframes float {
@@ -197,9 +197,9 @@ Todas via Google Fonts (free, carregam rápido):
 }
 ```
 
-### Estrutura do co-piloto (composição)
+### Estrutura do copiloto (composição)
 
-Cada co-piloto final = corpo-base + paleta + antena + acessório
+Cada copiloto final = corpo-base + paleta + antena + acessório
 
 | Camada | Variações |
 |---|---|
@@ -257,7 +257,7 @@ Cada sprite deve usar **principalmente** cores da paleta sunset:
 .share-btn:active { transform: translateY(-2px); }
 ```
 
-### Caixa de mensagem do co-piloto
+### Caixa de mensagem do copiloto
 
 ```css
 .bixinho-msg {
@@ -280,7 +280,7 @@ Cada sprite deve usar **principalmente** cores da paleta sunset:
 
 - **Proporção:** vertical livre, scroll permitido
 - **Largura máx:** 480px
-- **Contém:** todos os elementos (header, co-piloto, resultado, alternativos, mensagem, botões)
+- **Contém:** todos os elementos (header, copiloto, resultado, alternativos, mensagem, botões)
 - **Arquivo de referência:** `prototipos/carta-prototipo-b-synthwave.html`
 
 ### 2. Story do Instagram (9:16)
@@ -294,7 +294,7 @@ Cada sprite deve usar **principalmente** cores da paleta sunset:
 ### 3. Post de Feed (1:1)
 
 - **Resolução:** 1080 × 1080 px
-- **Layout horizontal-friendly** — co-piloto à esquerda, info à direita
+- **Layout horizontal-friendly** — copiloto à esquerda, info à direita
 - **Inclui handle @uftm.oficial** sempre
 - **A produzir** — `prototipos/feed-instagram.html` (TODO)
 

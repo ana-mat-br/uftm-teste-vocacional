@@ -166,7 +166,7 @@ export default function PetHeroScene({
   }, [active]);
 
   return (
-    <WrappedScene active={active} label="03 // CO-PILOTO DESIGNADO">
+    <WrappedScene active={active} label="03 // COPILOTO DESIGNADO">
       <div
         ref={stageRef}
         className="relative flex flex-col items-center"
@@ -320,10 +320,10 @@ export default function PetHeroScene({
           className="font-pixel-body text-lg md:text-xl mt-5 max-w-xs text-center relative z-10"
           style={{ color: "var(--text-dim)" }}
         >
-          este é o teu co-piloto,{" "}
+          este é o seu copiloto,{" "}
           <span style={{ color: "var(--sun-yellow)" }}>{codinome}</span>.
           <br />
-          ele vai contigo no resto da missão.
+          ele vai com você na sua jornada na UFTM.
         </p>
       </div>
     </WrappedScene>

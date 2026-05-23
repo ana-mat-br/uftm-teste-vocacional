@@ -2,7 +2,7 @@
 
 > Quiz vocacional gamificado em formato de aventura sci-fi, para estudantes do Ensino Médio durante a **Feira de Profissões da UFTM**.
 
-O aluno embarca numa missão interplanetária fictícia ambientada em 2087. Suas decisões revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM** compatíveis no século XXI. No final, recebe um **comunicado oficial da missão** com seu resultado + um **co-piloto companheiro** em pixel art, pronto pra compartilhar no Instagram, WhatsApp e X.
+O aluno embarca numa missão interplanetária fictícia ambientada em 2087. Suas decisões revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM** compatíveis no século XXI. No final, recebe um **comunicado oficial da missão** com seu resultado + um **copiloto companheiro** em pixel art, pronto pra compartilhar no Instagram, WhatsApp e X.
 
 🌐 **Em produção:** https://uftm-teste-vocacional.vercel.app
 📊 **Painel ao vivo:** https://uftm-teste-vocacional.vercel.app/painel
@@ -60,7 +60,7 @@ Em `/public/sprites/preview.html` você vê os 7 sprites finais lado a lado.
 - **Front + Back:** Next.js 16 (App Router + API Routes)
 - **Banco:** Supabase (free tier, novo formato de keys 2025+)
 - **Hosting:** Vercel (free tier)
-- **LLM:** Claude Haiku 4.5 (gera nome+personalidade+despedida do co-piloto)
+- **LLM:** Claude Haiku 4.5 (gera nome+personalidade+despedida do copiloto)
 - **Arte:** 7 sprites pixel art em SVG inline (16×16 viewBox, escalados com `image-rendering: pixelated`)
 - **Compartilhamento:** `html2canvas` pra gerar PNG 9:16 (em D4)
 
@@ -102,8 +102,8 @@ Dados são anônimos agregados — nada de PII vaza.
 ### Decisões fechadas ✅
 - Narrativa: Expedição UFTM 2087 (sci-fi)
 - Visual: Synthwave sunset (neon laranja/rosa/amarelo, grid ciano)
-- Tom: leve, voz do co-piloto = adolescente 17yo brasileiro 2026
-- Co-piloto-IA: nome/personalidade gerados por Claude Haiku 4.5 (com fallback de templates)
+- Tom: leve, voz do copiloto = adolescente 17yo brasileiro 2026
+- Copiloto-IA: nome/personalidade gerados por Claude Haiku 4.5 (com fallback de templates)
 - 7 eixos × 31 cursos com matriz v0.3 (29/31 cursos validados em greedy)
 - 15 cenas no total (1 home + 13 pontuáveis + resultado + desempate condicional)
 - Desempate dispara quando confiança = "exploratória" (gap < 2% OU top1 < 80%)
