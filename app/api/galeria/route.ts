@@ -8,7 +8,19 @@
 
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
-import { eixoDominante, type VetorEixos } from "@/lib/matching";
+import { eixoDominante, type VetorEixos, type EixoSigla } from "@/lib/matching";
+import { CURSOS } from "@/data/cursos";
+
+// Lookup pré-calculado: nome (ou grupo) do curso → eixo dominante do CURSO.
+// Mantém consistência com /bottons (que usa eixoDominante do vetor do curso),
+// pra que cards do mesmo curso na galeria mostrem sempre o mesmo sprite/label.
+const EIXO_POR_CURSO = new Map<string, EixoSigla>();
+for (const c of CURSOS) {
+  const chave = c.grupo ?? c.nome;
+  if (!EIXO_POR_CURSO.has(chave)) {
+    EIXO_POR_CURSO.set(chave, eixoDominante(c.vetor));
+  }
+}
 
 const PAGE_SIZE_DEFAULT = 24;
 const PAGE_SIZE_MAX = 60;
@@ -53,7 +65,9 @@ export async function GET(request: Request) {
       codinome: r.codinome,
       bixinhoNome: r.bixinho_nome ?? "—",
       cursoTop: r.curso_top ?? "—",
-      eixo: r.vetor ? eixoDominante(r.vetor) : null,
+      // Eixo do CURSO (não do aluno) — mesmo critério de /bottons. Garante que
+      // todos os cards do mesmo curso mostram o mesmo sprite/label.
+      eixo: r.curso_top ? EIXO_POR_CURSO.get(r.curso_top) ?? null : null,
     }));
 
     return NextResponse.json(
