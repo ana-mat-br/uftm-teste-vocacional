@@ -244,6 +244,18 @@ export default function ManualPage() {
         <p className="mt-3 text-[var(--text-dim)] text-sm">
           Open source · feito com 💜 em Uberaba & Iturama.
         </p>
+        <p className="mt-3 text-[var(--text-dim)] text-sm font-terminal">
+          DOI:{" "}
+          <a
+            href="https://doi.org/10.5281/zenodo.20395169"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:opacity-80"
+            style={{ color: "var(--mint)" }}
+          >
+            10.5281/zenodo.20395169
+          </a>
+        </p>
       </Section>
 
       <PageNav current="manual" />

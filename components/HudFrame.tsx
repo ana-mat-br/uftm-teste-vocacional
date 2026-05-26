@@ -359,6 +359,24 @@ const TX_LOG: TxEntry[] = [
       </>
     ),
   },
+  {
+    tag: "[TX-05]",
+    tagColor: "var(--mint)",
+    message: (
+      <>
+        DOI:{" "}
+        <a
+          href="https://doi.org/10.5281/zenodo.20395169"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "var(--mint)" }}
+          className="underline pointer-events-auto"
+        >
+          10.5281/zenodo.20395169
+        </a>
+      </>
+    ),
+  },
 ];
 
 function Credits() {
