@@ -242,7 +242,7 @@ export default function ManualPage() {
           em &lt; 1 mês pra a Feira de Profissões UFTM 2026 (26/05/2026).
         </p>
         <p className="mt-3 text-[var(--text-dim)] text-sm">
-          Open source · feito com 💜 em Uberaba & Iturama.
+          Open source · feito com 💜
         </p>
         <p className="mt-3 text-[var(--text-dim)] text-sm font-terminal">
           DOI:{" "}
