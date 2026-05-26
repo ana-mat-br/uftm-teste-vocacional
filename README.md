@@ -1,5 +1,7 @@
 # 🚀 Protocolo Vocação — UFTM 2087
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20395169.svg)](https://doi.org/10.5281/zenodo.20395169)
+
 > Quiz vocacional gamificado em formato de aventura sci-fi, para estudantes do Ensino Médio durante a **Feira de Profissões da UFTM**.
 
 O aluno embarca numa missão interplanetária fictícia ambientada em 2087. Suas decisões revelam, sem ele saber, qual papel ele tem na tripulação — que se traduz em **cursos da UFTM** compatíveis no século XXI. No final, recebe um **comunicado oficial da missão** com seu resultado + um **copiloto companheiro** em pixel art, pronto pra compartilhar no Instagram, WhatsApp e X.
