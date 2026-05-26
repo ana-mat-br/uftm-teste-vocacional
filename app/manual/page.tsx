@@ -239,7 +239,7 @@ export default function ManualPage() {
         <p>
           Projeto desenvolvido pela <strong>PROPPG-UFTM</strong> por{" "}
           <strong style={{ color: "var(--sun-yellow)" }}>Hebert × Ana</strong>{" "}
-          em &lt; 1 mês pra a Feira de Profissões UFTM 2026 (26/05/2026).
+          para a Feira de Profissões UFTM 2026.
         </p>
         <p className="mt-3 text-[var(--text-dim)] text-sm">
           Open source · feito com 💜
