@@ -1,0 +1,31 @@
+{
+  "title": "Expedição UFTM 2087: Quiz Vocacional Gamificado para a Feira de Profissões",
+  "description": "Quiz vocacional gamificado com estética sci-fi/cyberpunk desenvolvido para a Feira de Profissões da Universidade Federal do Triângulo Mineiro (UFTM). A aplicação web mobile-first apresenta cenas narrativas interativas que mapeiam afinidades vocacionais dos participantes com os cursos de graduação da UFTM, gerando um relatório personalizado ao final. Stack: Next.js, Supabase, Claude (Anthropic). Distribuído via QR Code durante o evento.",
+  "creators": [
+    {
+      "name": "Fernandes, Ana Paula",
+      "affiliation": "Universidade Federal do Triângulo Mineiro (UFTM)",
+      "orcid": "0000-0002-9974-0230"
+    },
+    {
+      "name": "Almeida, Hebert",
+      "affiliation": "Universidade Federal do Triângulo Mineiro (UFTM), Curso de Psicologia"
+    }
+  ],
+  "keywords": [
+    "teste vocacional",
+    "gamificação",
+    "orientação profissional",
+    "ensino superior",
+    "feira de profissões",
+    "UFTM",
+    "vocational test",
+    "gamification",
+    "career guidance",
+    "higher education"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "por"
+}

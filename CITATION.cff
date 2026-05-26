@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "Se você usar este software, por favor cite conforme abaixo."
+title: "Expedição UFTM 2087: Quiz Vocacional Gamificado para a Feira de Profissões"
+abstract: >-
+  Quiz vocacional gamificado com estética sci-fi/cyberpunk desenvolvido para a
+  Feira de Profissões da Universidade Federal do Triângulo Mineiro (UFTM). A
+  aplicação web mobile-first apresenta cenas narrativas interativas que mapeiam
+  afinidades vocacionais dos participantes com os cursos de graduação da UFTM,
+  gerando um relatório personalizado ao final.
+type: software
+authors:
+  - family-names: Fernandes
+    given-names: Ana Paula
+    affiliation: "Universidade Federal do Triângulo Mineiro (UFTM)"
+    orcid: "https://orcid.org/0000-0002-9974-0230"
+  - family-names: Almeida
+    given-names: Hebert
+    affiliation: "Universidade Federal do Triângulo Mineiro (UFTM), Curso de Psicologia"
+license: MIT
+repository-code: "https://github.com/ana-mat-br/uftm-teste-vocacional"
+keywords:
+  - teste vocacional
+  - gamificação
+  - orientação profissional
+  - ensino superior
+  - UFTM
+  - vocational test
+  - gamification
+  - career guidance
+version: 1.0.0
+date-released: "2026-05-26"
