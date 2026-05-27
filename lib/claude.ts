@@ -21,14 +21,36 @@ function getClient() {
  * inadequada (o Haiku já gerou "SÍFILIS" sem essa restrição).
  */
 const PREFIXOS_COPILOTO = [
+  // astros, constelações, fenômenos
   "KÉPLER", "VEGA", "NOVA", "ORION", "LYRA", "ANDRÔMEDA", "CASSIOPEIA",
   "FÊNIX", "CENTAURO", "HÉLIX", "CYGNUS", "ÍRIS", "RIGEL", "ALTAIR",
   "SIRIUS", "POLARIS", "PROCYON", "ANTARES", "CANOPUS", "ARCTURUS",
-  "ALDEBARAN", "DENEB", "SPICA", "REGULUS", "AURORA", "NEBULA", "PULSAR",
-  "QUASAR", "GAIA", "HÉLIO", "ATLAS", "HERMES", "ÁRTEMIS", "APOLO",
-  "ÍCARO", "EOS", "DRACO", "ECLIPSE", "ZÊNITE", "ZÉFIRO", "SOLARIS",
-  "ASTRA", "LUMEN", "KAIROS", "EUROPA", "TITÃ", "RHEA", "TRITÃO",
-  "GANYMEDE", "CALIXTO",
+  "ALDEBARAN", "DENEB", "REGULUS", "AURORA", "NEBULA", "PULSAR",
+  "QUASAR", "GAIA", "HÉLIO", "DRACO", "ECLIPSE", "ZÊNITE",
+  // luas
+  "EUROPA", "TITÃ", "RHEA", "TRITÃO", "GANYMEDE", "CALIXTO",
+  // mitologia
+  "ATLAS", "HERMES", "ÁRTEMIS", "APOLO", "ÍCARO", "EOS", "ZÉFIRO",
+  // sci-fi / luz
+  "SOLARIS", "ASTRA", "LUMEN", "KAIROS",
+  // físicos
+  "EINSTEIN", "NEWTON", "GALILEU", "HAWKING", "FEYNMAN", "BOHR", "CURIE",
+  "TESLA", "FARADAY", "MAXWELL", "PLANCK", "DIRAC", "FERMI",
+  // matemáticos
+  "EUCLIDES", "ARQUIMEDES", "GAUSS", "EULER", "RIEMANN", "FOURIER",
+  "LAPLACE", "FIBONACCI", "TURING", "NOETHER", "HIPÁTIA", "LOVELACE",
+  // astronautas
+  "GAGARIN", "ARMSTRONG", "ALDRIN", "TERESHKOVA", "COLLINS", "GLENN",
+  // filósofos
+  "SÓCRATES", "PLATÃO", "ARISTÓTELES", "DESCARTES", "KANT",
+  // sondas e naves espaciais
+  "VOYAGER", "PIONEER", "CASSINI", "JUNO", "HUBBLE", "JWST",
+  "CURIOSITY", "PERSEVERANCE", "SPUTNIK", "SOYUZ",
+  // astrônomos clássicos (HUBBLE já listado acima como sonda)
+  "SAGAN", "COPÉRNICO", "HALLEY", "HERSCHEL", "BRAHE", "HIPARCO",
+  // estrelas brilhantes adicionais
+  "BELLATRIX", "CAPELA", "CASTOR", "POLLUX", "BETELGEUSE", "FOMALHAUT",
+  "ACHERNAR", "MIZAR", "ALGOL", "MIRA",
 ] as const;
 
 const LETRAS_GREGAS = ["Δ", "Ω", "θ", "π", "σ", "γ", "λ", "Φ", "α", "β", "μ", "Ψ"] as const;
