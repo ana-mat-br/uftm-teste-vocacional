@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0221"/>
+      <stop offset="60%" stop-color="#2d1b69"/>
+      <stop offset="100%" stop-color="#0d0221"/>
+    </linearGradient>
+
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff700"/>
+      <stop offset="50%" stop-color="#ff71ce"/>
+      <stop offset="100%" stop-color="#ff2e93"/>
+    </linearGradient>
+
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#01cdfe" stroke-opacity="0.18" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.12"/>
+    </pattern>
+
+    <filter id="glowMint" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowPink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- fundo -->
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- sol retrô atrás -->
+  <circle cx="540" cy="640" r="260" fill="url(#sun)" opacity="0.35"/>
+  <!-- faixas do sol -->
+  <g fill="#0d0221">
+    <rect x="280" y="700" width="520" height="10"/>
+    <rect x="280" y="730" width="520" height="14"/>
+    <rect x="280" y="764" width="520" height="18"/>
+    <rect x="280" y="802" width="520" height="22"/>
+    <rect x="280" y="844" width="520" height="28"/>
+  </g>
+
+  <!-- grid de horizonte -->
+  <rect x="0" y="780" width="1080" height="300" fill="url(#grid)"/>
+
+  <!-- moldura HUD -->
+  <rect x="40" y="40" width="1000" height="1000" fill="none" stroke="#01cdfe" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="56" y="56" width="968" height="968" fill="none" stroke="#05ffa1" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- cantos do HUD -->
+  <g stroke="#05ffa1" stroke-width="3" fill="none" filter="url(#glowMint)">
+    <path d="M 40 100 L 40 40 L 100 40"/>
+    <path d="M 980 40 L 1040 40 L 1040 100"/>
+    <path d="M 1040 980 L 1040 1040 L 980 1040"/>
+    <path d="M 100 1040 L 40 1040 L 40 980"/>
+  </g>
+
+  <!-- TX tag topo -->
+  <text x="80" y="120" fill="#01cdfe" font-size="22" letter-spacing="6">[TX-01]</text>
+  <text x="220" y="120" fill="#05ffa1" font-size="22" letter-spacing="6">▸ UFTM-KEPLER · 2087</text>
+
+  <!-- título -->
+  <g filter="url(#glowMint)">
+    <text x="540" y="280" text-anchor="middle" fill="#05ffa1" font-size="84" font-weight="bold" letter-spacing="8">PROTOCOLO</text>
+    <text x="540" y="380" text-anchor="middle" fill="#fff700" font-size="96" font-weight="bold" letter-spacing="12">VOCAÇÃO</text>
+  </g>
+
+  <!-- subtítulo -->
+  <text x="540" y="445" text-anchor="middle" fill="#ff71ce" font-size="26" letter-spacing="10">// FEIRA DE PROFISSÕES · UFTM 2026</text>
+
+  <!-- linha separadora -->
+  <line x1="200" y1="490" x2="880" y2="490" stroke="#01cdfe" stroke-opacity="0.5" stroke-width="1" stroke-dasharray="6 6"/>
+
+  <!-- pergunta principal -->
+  <text x="540" y="560" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="bold">qual curso da UFTM</text>
+  <text x="540" y="610" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="bold">combina com você?</text>
+
+  <!-- badges -->
+  <g font-size="22" letter-spacing="2">
+    <text x="540" y="900" text-anchor="middle" fill="#05ffa1">▸ 5 MIN  ·  GAMIFICADO  ·  ANÔNIMO  ·  MOBILE</text>
+  </g>
+
+  <!-- CTA -->
+  <g filter="url(#glowPink)">
+    <rect x="200" y="940" width="680" height="70" fill="none" stroke="#ff2e93" stroke-width="3"/>
+    <text x="540" y="987" text-anchor="middle" fill="#ff2e93" font-size="28" font-weight="bold" letter-spacing="4">uftm-teste-vocacional.vercel.app</text>
+  </g>
+
+  <!-- scanlines -->
+  <rect width="1080" height="1080" fill="url(#scan)" pointer-events="none"/>
+
+  <!-- cursor piscando (estático no PNG) -->
+  <rect x="900" y="105" width="14" height="22" fill="#05ffa1"/>
+</svg>
