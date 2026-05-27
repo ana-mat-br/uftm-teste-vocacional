@@ -16,6 +16,7 @@ import { CURSOS } from "@/data/cursos";
 import { CENAS } from "@/data/cenas";
 import { topCursos, eixoDominante, type VetorEixos } from "@/lib/matching";
 import { gerarBixinhoFallback } from "@/data/bixinhos-fallback";
+import { gerarNomeBixinho } from "@/lib/claude";
 import { gerarCodinomeCandidato } from "@/lib/codinome";
 
 const TEMP = 1.0; // softmax — aluno "típico"
@@ -56,7 +57,7 @@ function simularAluno() {
   const top3 = topCursos(vetor, 3);
   const codinome = gerarCodinomeCandidato();
   const eixo = eixoDominante(vetor);
-  const bixinho = gerarBixinhoFallback(eixo, codinome);
+  const bixinho = gerarBixinhoFallback(eixo, codinome, gerarNomeBixinho());
 
   const userAgentTipo = UA_POOL[Math.floor(Math.random() * UA_POOL.length)];
 

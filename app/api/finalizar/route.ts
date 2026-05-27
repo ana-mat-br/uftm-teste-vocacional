@@ -11,7 +11,7 @@
 
 import { NextResponse } from "next/server";
 import { topCursos, eixoDominante, type VetorEixos } from "@/lib/matching";
-import { gerarBixinho, type BixinhoGerado } from "@/lib/claude";
+import { gerarBixinho, gerarNomeBixinho, type BixinhoGerado } from "@/lib/claude";
 import { gerarBixinhoFallback } from "@/data/bixinhos-fallback";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -45,11 +45,8 @@ export async function POST(request: Request) {
   const top3 = topCursos(body.vetor, 3);
   const eixo = eixoDominante(body.vetor);
 
-  // 2) Gera bixinho (Haiku primeiro, fallback se falhar)
-  //    Faz dedupe: se nome já existe no Supabase, retenta até 2x pedindo pro Haiku
-  //    evitar nomes específicos. Em último caso, sufixa com "-2", "-3"…
-  let bixinho: BixinhoGerado;
-  let bixinhoFonte: "llm" | "fallback" = "llm";
+  // 2) Gera nome do copiloto server-side (distribuição uniforme em ~120k combos)
+  //    e checa colisão no Supabase. Loop barato — só query, sem chamar LLM.
   const sbCheck = (() => {
     try {
       return getSupabaseAdmin();
@@ -67,43 +64,29 @@ export async function POST(request: Request) {
     if (error) return false;
     return (data?.length ?? 0) > 0;
   }
-  const evitarNomes: string[] = [];
+  let bixinhoNome = gerarNomeBixinho();
+  for (let i = 0; i < 10 && (await nomeJaExiste(bixinhoNome)); i++) {
+    bixinhoNome = gerarNomeBixinho();
+  }
+
+  // 3) Gera personalidade + msg_despedida (Haiku → fallback)
+  let bixinho: BixinhoGerado;
+  let bixinhoFonte: "llm" | "fallback" = "llm";
   try {
-    for (let tentativa = 0; tentativa < 3; tentativa++) {
-      const candidato = await gerarBixinho({
-        codinome: body.codinome,
-        vetor: body.vetor,
-        cursoTop: top3[0].nome,
-        eixoDominante: eixo,
-        evitarNomes,
-      });
-      if (!(await nomeJaExiste(candidato.bixinho_nome))) {
-        bixinho = candidato;
-        break;
-      }
-      evitarNomes.push(candidato.bixinho_nome);
-    }
-    if (!bixinho!) {
-      // Haiku insistiu em nomes duplicados — sufixa o último candidato
-      let sufixo = 2;
-      let nomeFinal = `${evitarNomes[evitarNomes.length - 1]}-${sufixo}`;
-      while (await nomeJaExiste(nomeFinal)) {
-        sufixo += 1;
-        nomeFinal = `${evitarNomes[evitarNomes.length - 1]}-${sufixo}`;
-      }
-      bixinho = {
-        bixinho_nome: nomeFinal,
-        personalidade: "copiloto de série limitada, único na frota",
-        msg_despedida: `boa, ${body.codinome}. me leva nessa viagem que eu te puxo pra cima.`,
-      };
-    }
+    bixinho = await gerarBixinho({
+      codinome: body.codinome,
+      bixinhoNome,
+      vetor: body.vetor,
+      cursoTop: top3[0].nome,
+      eixoDominante: eixo,
+    });
   } catch (e) {
     console.error("[finalizar] Haiku falhou, usando fallback:", e);
-    bixinho = gerarBixinhoFallback(eixo, body.codinome);
+    bixinho = gerarBixinhoFallback(eixo, body.codinome, bixinhoNome);
     bixinhoFonte = "fallback";
   }
 
-  // 3) Salva sessão anônima no Supabase
+  // 4) Salva sessão anônima no Supabase
   let sessaoIdSalva: string | null = null;
   try {
     const sb = getSupabaseAdmin();

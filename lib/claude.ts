@@ -55,17 +55,15 @@ const PREFIXOS_COPILOTO = [
 
 const LETRAS_GREGAS = ["Δ", "Ω", "θ", "π", "σ", "γ", "λ", "Φ", "α", "β", "μ", "Ψ"] as const;
 
-function nomeFallbackCopiloto(): string {
+/**
+ * Gera nome do copiloto uniformemente aleatório no espaço PREFIXO × LETRA-GREGA × NÚMERO
+ * (~120 mil combinações). Server-side, sem LLM — distribuição uniforme garantida.
+ */
+export function gerarNomeBixinho(): string {
   const prefixo = PREFIXOS_COPILOTO[Math.floor(Math.random() * PREFIXOS_COPILOTO.length)];
   const letra = LETRAS_GREGAS[Math.floor(Math.random() * LETRAS_GREGAS.length)];
-  const numero = Math.floor(Math.random() * 99) + 1;
+  const numero = Math.floor(Math.random() * 999) + 1;
   return `${prefixo}-${letra}${numero}`;
-}
-
-function prefixoPermitido(nome: string): boolean {
-  const prefixo = nome.split("-")[0]?.trim().toUpperCase();
-  if (!prefixo) return false;
-  return (PREFIXOS_COPILOTO as readonly string[]).some((p) => p.toUpperCase() === prefixo);
 }
 
 /**
@@ -128,13 +126,17 @@ export type BixinhoGerado = {
   msg_despedida: string;
 };
 
+/**
+ * Gera personalidade + msg_despedida do copiloto via Haiku.
+ * O nome (`bixinhoNome`) é gerado server-side antes da chamada — Claude
+ * só cuida do tom narrativo.
+ */
 export async function gerarBixinho(input: {
   codinome: string;
+  bixinhoNome: string;
   vetor: VetorEixos;
   cursoTop: string;
   eixoDominante: EixoSigla;
-  /** Nomes a evitar (já usados por outros alunos). Opcional. */
-  evitarNomes?: string[];
 }): Promise<BixinhoGerado> {
   const c = getClient();
 
@@ -147,11 +149,9 @@ export async function gerarBixinho(input: {
     "Tom: leve, acolhedor, com humor seco e simpático. SEMPRE em minúsculo. Vibe cyberpunk fofo.",
     "",
     "RESPONDA APENAS ESTE JSON, exatamente nessas chaves, sem markdown, sem ```, sem prosa em volta:",
-    '{ "bixinho_nome": "...", "personalidade": "...", "msg_despedida": "..." }',
+    '{ "personalidade": "...", "msg_despedida": "..." }',
     "",
     "REGRAS DE CONTEÚDO:",
-    `- bixinho_nome: formato '[PREFIXO]-[LETRA-GREGA][NUMERO]' (ex: 'KÉPLER-Δ7', 'VEGA-Ω42', 'NOVA-π13'). Letra grega DEVE estar grafada como caracter unicode (Δ Ω θ π σ γ λ Φ), não escrita por extenso.`,
-    `- PREFIXO OBRIGATORIAMENTE escolhido desta lista (sem exceção, sem invenção): ${PREFIXOS_COPILOTO.join(", ")}.`,
     "- personalidade: máximo 12 palavras. uma frase curta, positiva, descritiva. minúsculo. SEM ponto final.",
     "- msg_despedida: máximo 25 palavras. fala direto pro candidato CITANDO o codinome dele literalmente. tom encorajador. minúsculo.",
     "",
@@ -168,20 +168,16 @@ export async function gerarBixinho(input: {
     "",
     "- jamais use a palavra 'bixinho' nas respostas. o termo correto é 'copiloto'.",
   ];
-  if (input.evitarNomes && input.evitarNomes.length > 0) {
-    systemBase.push(
-      "",
-      `IMPORTANTE: estes bixinho_nome JÁ FORAM usados e NÃO podem se repetir: ${input.evitarNomes.join(", ")}. Escolha um nome diferente (varie o prefixo, a letra grega e o número).`,
-    );
-  }
 
-  const chamarHaiku = async (extraSystem?: string) => {
+  type RespClaude = { personalidade: string; msg_despedida: string };
+
+  const chamarHaiku = async (extraSystem?: string): Promise<RespClaude> => {
     const system = extraSystem
       ? `${systemBase.join("\n")}\n\n${extraSystem}`
       : systemBase.join("\n");
     const resp = await c.messages.create({
       model: "claude-haiku-4-5-20251001",
-      max_tokens: 300,
+      max_tokens: 200,
       temperature: 0.6,
       system,
       messages: [
@@ -189,6 +185,7 @@ export async function gerarBixinho(input: {
           role: "user",
           content: JSON.stringify({
             codinome: input.codinome,
+            copiloto_nome: input.bixinhoNome,
             vetor: input.vetor,
             curso_top: input.cursoTop,
             eixo_dominante: input.eixoDominante,
@@ -205,13 +202,11 @@ export async function gerarBixinho(input: {
     if (!match) {
       throw new Error("Sem JSON na resposta do Haiku");
     }
-    return JSON.parse(match[0]) as BixinhoGerado;
+    return JSON.parse(match[0]) as RespClaude;
   };
 
   let parsed = await chamarHaiku();
 
-  // Se personalidade ou despedida tiver termo proibido, dá UMA chance de retry
-  // com aviso explícito do que veio errado. Custo extra controlado (1 call no pior caso).
   if (!textoLimpo(parsed.personalidade) || !textoLimpo(parsed.msg_despedida)) {
     try {
       parsed = await chamarHaiku(
@@ -223,18 +218,16 @@ export async function gerarBixinho(input: {
     }
   }
 
-  // Defesas finais — usuário NUNCA vê algo bloqueado, mesmo se Haiku
-  // falhar duas vezes seguidas.
-  if (!prefixoPermitido(parsed.bixinho_nome)) {
-    parsed.bixinho_nome = nomeFallbackCopiloto();
-  }
-  if (!textoLimpo(parsed.personalidade)) {
-    parsed.personalidade =
-      PERSONALIDADE_FALLBACK[Math.floor(Math.random() * PERSONALIDADE_FALLBACK.length)];
-  }
-  if (!textoLimpo(parsed.msg_despedida)) {
-    parsed.msg_despedida = DESPEDIDA_FALLBACK(input.codinome);
-  }
+  const personalidade = textoLimpo(parsed.personalidade)
+    ? parsed.personalidade
+    : PERSONALIDADE_FALLBACK[Math.floor(Math.random() * PERSONALIDADE_FALLBACK.length)];
+  const msg_despedida = textoLimpo(parsed.msg_despedida)
+    ? parsed.msg_despedida
+    : DESPEDIDA_FALLBACK(input.codinome);
 
-  return parsed;
+  return {
+    bixinho_nome: input.bixinhoNome,
+    personalidade,
+    msg_despedida,
+  };
 }

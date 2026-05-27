@@ -8,17 +8,8 @@
 import type { EixoSigla } from "@/lib/matching";
 import type { BixinhoGerado } from "@/lib/claude";
 
-const SUFIXOS_GREGOS = ["Δ", "Ω", "θ", "π", "σ", "γ", "λ", "Φ"];
-
-function nomeAleatorio(prefixo: string): string {
-  const sufixo = SUFIXOS_GREGOS[Math.floor(Math.random() * SUFIXOS_GREGOS.length)];
-  const numero = Math.floor(Math.random() * 99) + 1;
-  return `${prefixo}-${sufixo}${numero}`;
-}
-
-const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despedidas: string[] }> = {
+const POOL: Record<EixoSigla, { personalidades: string[]; despedidas: string[] }> = {
   CUI: {
-    prefixo: "KÉPLER",
     personalidades: [
       "um pouco ansiosa, mas anota tudo. especialista em chorar junto",
       "carrega curativos invisíveis. ouvinte profissional",
@@ -31,7 +22,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   INV: {
-    prefixo: "ÓRION",
     personalidades: [
       "curiosa demais pro próprio bem. acha pista em tudo",
       "anota até o que ninguém pediu. memória de elefante interestelar",
@@ -44,7 +34,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   CON: {
-    prefixo: "RIVET",
     personalidades: [
       "resolve antes de assustar. só fala se precisar",
       "vê problema e já tá com a chave inglesa na mão",
@@ -57,7 +46,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   COM: {
-    prefixo: "VEGA",
     personalidades: [
       "fala mais que pizza dominical. amada por todos",
       "ouve antes de responder. virou tradução universal",
@@ -70,7 +58,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   TRA: {
-    prefixo: "NOVA",
     personalidades: [
       "tem coragem que dói nos outros. não foge briga justa",
       "vê o sistema antes do detalhe. propõe mudança e topa fazer",
@@ -83,7 +70,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   CUL: {
-    prefixo: "FLORA",
     personalidades: [
       "fala com planta. ela responde. especialista em bicho fofo",
       "cuida do vivo antes de cuidar de si. precisa lembrar de comer",
@@ -96,7 +82,6 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
     ],
   },
   TEC: {
-    prefixo: "CIPHER",
     personalidades: [
       "vê padrão em tudo. até no acaso. especialmente no acaso",
       "pensa em loops. dorme em arrays. fala em queries",
@@ -114,12 +99,16 @@ const POOL: Record<EixoSigla, { prefixo: string; personalidades: string[]; despe
  * Gera resposta de bixinho via templates locais (sem LLM).
  * Retorna a mesma forma que `lib/claude.ts::gerarBixinho`.
  */
-export function gerarBixinhoFallback(eixo: EixoSigla, codinome: string): BixinhoGerado {
+export function gerarBixinhoFallback(
+  eixo: EixoSigla,
+  codinome: string,
+  bixinhoNome: string,
+): BixinhoGerado {
   const pool = POOL[eixo];
   const personalidade = pool.personalidades[Math.floor(Math.random() * pool.personalidades.length)];
   const despedidaBase = pool.despedidas[Math.floor(Math.random() * pool.despedidas.length)];
   return {
-    bixinho_nome: nomeAleatorio(pool.prefixo),
+    bixinho_nome: bixinhoNome,
     personalidade,
     msg_despedida: `${codinome}, ${despedidaBase}`,
   };
